@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "art_instructions": {
+      "type": "string",
+      "description": "3-10 sentence instructions for an artist to render an image that goes with the text (instructions should include enough details that two different artists will draw the same picture; in particular the instructions must include information about each character and object's placement/size/pose/camera angle/emotion/action/etc),"
+    },
+    "art_characters": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "This is the list of characters that appear in art_instructions. Each entry must exactly match the name of a character (including capitalization and any diacritics)"
+      }
+    }
+  },
+  "required": [
+    "art_instructions",
+    "art_characters"
+  ]
+}
+

@@ -1,0 +1,213 @@
+
+"about.md":
+  description:
+    Describes the main ideas of this series of books.
+    The description should address
+    1. the target audience,
+    2. unique features about these books, and
+    3. common characters and themes.
+    The lenth should be about 1 page.
+
+"art.md":
+  description:
+    Detailed intructions for how to style the artwork written for an artist.
+    Different artists should be able to follow these instructions and get similar results.
+    Note that these instructions only focus on style,
+    and later instructions will focus on content.
+    The lenth should be about 1 paragraph.
+
+"writing.md":
+  description:
+    Detailed instructions for writing and formatting text.
+    Different writers should be able to follow these instructions and get similar results.
+    Note that these instructions only focus on style,
+    and later instructions will focus on content.
+    The lenth should be about 1 paragraph.
+
+"characters/$CHARACTER/about.json":
+  description:
+    A description of the character that can be used to ensure consistency accross many different books.
+  schema: "
+    name: name of character (one word only),
+    description: 1 sentence,
+    sex: male/female,
+    personality: 1-3 sentences,
+    backstory: 2-5 sentences,
+    appearance: 2-5 sentences,
+    strengths: a 1-5 item list,
+    weaknesses: a 1-5 item list,
+    key_objects: a 0-3 item list of objects associated withh the character,
+    relationships: a 0-5 item list of other characters and their relationship to this character (each entry just 1 sentence)
+    "
+  dependencies:
+    about.md
+  variables:
+    CHARACTER:
+      ls characters
+
+"characters/$CHARACTER/artist_instructions.md":
+  description:
+    A short 3-5 sentence description of how the character should always be drawn.
+    Include information about the physical appearance only of elements that are ALWAYS with the character.
+    (For example, body parts like hair/eye color are always appropriate; clothing and accessories like glasses may or may not be appropriate depending on the character; commonly used items like a sword or book are never appropriate. You should not list the character's key objects here.)
+    Be specific about which colors should be used for which parts of the character.
+    Do not include stylistic information (e.g. cartoonish, realistic, anime) as that will be provided in a different document.
+  dependencies:
+    about.md
+    characters/$CHARACTER/about.json
+  variables:
+    CHARACTER:
+      ls characters
+
+"characters/$CHARACTER/reference_images.jsonl":
+  description:
+    Each item in the JSONL describes a reference image for the character.
+    These images will be used by an animator to ensure that all drawings of the character maintain consistency.
+    Each JSONL object must be considerably different from the others (e.g. it should be from a different angle (e.g. top-down vs front-shot vs back-shot vs profile-shot) and/or have the character in a different pose (sitting vs standing vs running vs attacking vs vitruvian man)).
+    There should be 3 images by default.
+    The images focus on the character and should have a transparent background.
+  schema: "
+    name: the name of the image,
+    artist_instructions: a detailed 3 sentence description of what to draw,
+    pose: the character's pose,
+    shot-angle: top-down/front/back/profile
+    "
+  dependencies:
+    about.md
+    characters/$CHARACTER/about.json
+    characters/$CHARACTER/artist_instructions.md
+  variables:
+    CHARACTER:
+      ls characters
+
+"characters/$CHARACTER/images/$IMAGE.png":
+  # NOTE:
+  # The "'" quotation marks in the model_description below are necessary!
+  # This is due to the subtly interaction of quotes and $VARIABLES in the shell.
+  description:
+    <instructions>
+    Draw the image specified in model_description following the artistic instructions in the attached files.
+    Only draw the model and do not draw any background (the background should be transparent).
+    <model_description>
+    $(jq -r 'select(.name == "'"$IMAGE"'")' characters/$CHARACTER/reference_images.jsonl)
+    </model_description>
+  image_quality: medium
+  image_orientation: square
+  dependencies:
+    - about.md
+    - art.md
+    - characters/$CHARACTER/about.json
+    - characters/$CHARACTER/artist_instructions.md
+    - target: characters/$CHARACTER/reference_images.jsonl
+      include: false
+  variables:
+    CHARACTER:
+      ls characters
+    IMAGE:
+      jq -r '.name' characters/$CHARACTER/reference_images.jsonl
+
+"books/$LEVEL/themes.md":
+  description:
+    A 1 page description about the unifying themes present in all books of this level.
+  dependencies:
+    about.md
+
+"books/$LEVEL/$BOOK/description.json":
+  description:
+    The title of the book.
+  schema: "
+    title_koine: the title in koine,
+    title_english: a literal translation of the koine,
+    plot: 1 1-3 sentence plot description in english,
+    art_instructions: 1-3 sentence instructions for an artist to render a cover image,
+    art_characters: a list of the character's names that appear in the art
+    "
+  dependencies:
+    about.md
+    writing.md
+    characters/$CHARACTER/about.json
+    books/$LEVEL/themes.md
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      # this command is like `ls books/$LEVEL` but it will only output directories;
+      # this means that it will not find the `themes.md` file in `books/$LEVEL`;
+      # the simpler ls command results in errors from treating that file like a directory
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+
+"books/$LEVEL/$BOOK/content.jsonl":
+  description:
+    Each JSONL object entry represents a single page in the book.
+    The file should contain 32 entries (and thus 32 pages).
+    The story should be simple but have a clear beginning, middle, and end.
+  schema: 'text_koine: the text for this page of the story in koine greek, text_english: a literal translation of the greek'
+  dependencies:
+    about.md
+    writing.md
+    characters/$CHARACTER/about.json
+    books/$LEVEL/themes.md
+    books/$LEVEL/$BOOK/description.json
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      # this command is like `ls books/$LEVEL` but it will only output directories;
+      # this means that it will not find the `themes.md` file in `books/$LEVEL`;
+      # the simpler ls command results in errors from treating that file like a directory
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+
+"books/$LEVEL/$BOOK/page_$PAGE/art.json":
+  description:
+    You are describing the artwork for a single page of a book.
+    You are on page number $PAGE, whose content is
+    <content>
+    $(head -n $PAGE "books/$LEVEL/$BOOK/content.jsonl" | tail -n 1)
+    </content>
+    The artwork should help young children learning Koine Greek how to understand the text and should be consistent with the other pages in the book.
+    The full contents of the book are defined in the file "books/$LEVEL/$BOOK/content.jsonl" and the art descriptions of the other pages are defined in "books/$LEVEL/$BOOK/page_*/art.json".
+    You should use these files to ensure that your art descriptions flow well from one page to the next and maintain consistency,
+    but your description of this page should be based only on the content of this page and not the other files.
+    Descriptions of future pages should include details from previous pages whenever those pages have the same setting or characters to ensure consistency.
+  schema_file: art.json-schema
+  dependencies:
+    - about.md
+    - art.md
+    - characters/$CHARACTER/about.json
+    - books/$LEVEL/themes.md
+    - books/$LEVEL/$BOOK/description.json
+    - books/$LEVEL/$BOOK/content.jsonl
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    PAGE:
+      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+
+"books/$LEVEL/$BOOK/page_$PAGE/art.png":
+  description:
+    Follow the instructions to generate art for the children's book.
+    The art should illustrate the following text, but not include any text.
+    <text>
+    $(head -n $PAGE "books/$LEVEL/$BOOK/content.jsonl" | tail -n 1)
+    </text>
+    <instructions>
+    $(cat books/$LEVEL/$BOOK/page_$PAGE/art.json)
+    </instructions>
+  image_quality: high
+  image_orientation: landscape
+  dependencies:
+    - art.md
+    - characters/$CHARACTER/artist_instructions.md
+    - target: books/$LEVEL/$BOOK/page_$PAGE/art.json
+      include: false
+  image_references:
+    characters/Theseus/images/theseus_front_neutral.png
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    PAGE:
+      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
