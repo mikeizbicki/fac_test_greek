@@ -1,1 +1,0 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T05:38:26.974853+00:00", "path": "characters/Meter/about.json", "build_id": 169703286232171473184907465808436492306, "cost": 0.02429875, "usage": {"openai/gpt-5": {"text/out": 2328, "text/in": 815}}}

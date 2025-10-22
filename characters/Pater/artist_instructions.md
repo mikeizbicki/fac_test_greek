@@ -1,3 +1,0 @@
-# Pater — Artist Instructions
-
-Pater is an adult male panda with a rounded, sturdy build and soft black-and-white fur, always framed from a child’s-eye height so his head is out of frame and only his shoulders/elbows, belly, and legs are shown. His shoulders, arms, and legs are deep black, while his chest and belly are clean white with a faint warm-cream tint; the small tail, if visible, matches the white. His paws are broad, with short rounded claws colored dark slate gray and paw pads in a muted pink‑gray. He is consistently depicted with a slightly pear-shaped silhouette and a softly overhanging belly, with no permanent accessories or markings beyond his natural panda pattern.

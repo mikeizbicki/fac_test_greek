@@ -1,1 +1,0 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T05:45:05.629850+00:00", "path": "characters/Meter/character_sheet.png", "build_id": 335823441111928805516469283879517963327, "cost": 0.25525000000000003, "usage": {"openai/gpt-image-1": {"text/in": 1386, "image/in": 0, "image/out": 6208}}}

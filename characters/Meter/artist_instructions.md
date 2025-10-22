@@ -1,3 +1,0 @@
-## Meter — Always-Drawn Physical Features
-
-Meter is an adult giant panda with a soft, rounded build; her fur is warm cream-white (#F5F1E8) on the belly, chest, and small tail nub, and deep black (#111111) on the shoulders, arms, and legs. From the shoulders down (typically the visible frame), keep continuous black fur from upper arm to paw with no breaks, and cream-white on the lower torso and hips transitioning into black thighs. Her paws are broad with charcoal-gray pads (#4A4F52) and short black claws, with wrist and hand fur remaining black. If any part of the head enters frame, use rounded black ears and eye patches (#111111) on a cream-white face, a small black nose (#0D0D0D), and dark-brown eyes (#3A2C1E).
