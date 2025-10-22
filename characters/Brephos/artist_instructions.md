@@ -1,3 +1,3 @@
-# Brephos — Artist Instructions
+# Brephos — Always-Drawn Appearance
 
-Brephos is a chubby, round-cheeked baby panda with a large head and oversized paws relative to her compact body. Use classic panda coloration: bright white on the face, cheeks, neck, belly, and short tail; deep black on the ears, eye patches, shoulders/upper back band, arms, and legs. Her eyes are large and sparkling dark brown set within the black patches; the nose and lips are matte black, and the paw pads are dark charcoal gray. Limbs are thick and slightly stubby, with soft contours at the wrists and ankles that emphasize a cuddly, baby-like silhouette.
+Brephos is a round-faced baby panda with a plush black-and-white coat: creamy white face, muzzle, and belly; deep charcoal eye patches; soft charcoal ears; and charcoal forearms and legs. His eyes are wide and gleaming dark brown with black pupils, paired with a small black nose and a tiny pink tongue that may peek out when he concentrates. His paws are small, rounded, and dimpled to emphasize his baby age. He always wears a simple cream cloth bib bearing a small single leaf motif in fresh green.
