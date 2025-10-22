@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T05:23:07.206144+00:00", "path": "characters/Meter/artist_instructions.md", "build_id": 28176317904628301993429511250123453958, "cost": 0.02003875, "usage": {"openai/gpt-5": {"text/out": 1778, "text/in": 1807}}}

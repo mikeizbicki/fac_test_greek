@@ -1,0 +1,3 @@
+# Pater — Artist Instructions
+
+Always depict Pater only from the waist down at a child’s eye level, never showing his face. Show sturdy, black-furred panda forearms and broad, gentle paws when his hands appear. He consistently wears forest‑green work trousers secured with a brown leather belt, plus a low‑tied pocketed apron. Red‑and‑white striped socks should peek above well‑worn brown boots, and a simple wristwatch may be visible on his wrist.
