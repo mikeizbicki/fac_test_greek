@@ -1,0 +1,3 @@
+# Owl — Artist Instructions
+
+A baby owl with a round, downy body covered in soft gray-brown feathers and a speckled cream chest (cream base with soft gray-brown speckles). She has a small, round face with wide amber eyes and a tiny beak colored soft charcoal gray. Her short wings and stubby tail keep a compact, owlet-like silhouette. Talons are delicate and muted slate-gray, with very short legs that emphasize her pudgy, baby proportions.

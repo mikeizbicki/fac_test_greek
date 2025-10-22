@@ -1,0 +1,3 @@
+# Koala — Artist Instructions
+
+Always draw Koala as a small, round baby koala with soft medium-gray fur and large, fluffy rounded ears. Her nose is an oval charcoal-black, and her eyes are dark black. She has short, gently curved claws on both hands and feet colored dark gray. A faint heart-shaped patch of lighter gray fur sits centered on her chest and should be visible whenever her chest is shown.

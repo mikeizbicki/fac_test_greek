@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T06:53:59.782963+00:00", "path": "characters/Dinosaur/character_sheet.png", "build_id": 198271303225956602659151297704854130187, "cost": 0.2584, "usage": {"openai/gpt-image-1": {"text/in": 2016, "image/in": 0, "image/out": 6208}}}

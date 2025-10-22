@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T07:00:43.363608+00:00", "path": "characters/koala/character_sheet.png", "build_id": 5588736797032956724341883780302356346, "cost": 0.25871, "usage": {"openai/gpt-image-1": {"text/in": 2078, "image/in": 0, "image/out": 6208}}}

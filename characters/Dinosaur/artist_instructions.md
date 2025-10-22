@@ -1,0 +1,3 @@
+# Dinosaur — Artist Instructions
+
+Draw Dinosaur as a round, mint-green hatchling with soft, small scales and light mint speckles running along the top of her back to the tip of her small tail. Her head has a short snout and a wide smile, with large, glossy amber eyes that dominate her face. Keep her limbs baby‑proportioned: tiny forearms and chunky, stubby feet for waddling. She should consistently appear small and young, with the same mint body color and speckle pattern in every scene.
