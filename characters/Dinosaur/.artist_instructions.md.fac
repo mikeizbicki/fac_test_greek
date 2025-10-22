@@ -1,1 +1,1 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T06:52:32.183638+00:00", "path": "characters/Dinosaur/artist_instructions.md", "build_id": 235149873328485924168518818382257043563, "cost": 0.017362500000000003, "usage": {"openai/gpt-5": {"text/out": 1526, "text/in": 1682}}}
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T17:37:01.746352+00:00", "path": "characters/Dinosaur/artist_instructions.md", "build_id": 291057158947545762684008714236241941098, "cost": 0.01979875, "usage": {"openai/gpt-5": {"text/out": 1313, "text/in": 5335}}}

@@ -1,1 +1,1 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T06:57:08.152836+00:00", "path": "characters/owl/about.json", "build_id": 333109936381260180086167241452841068323, "cost": 0.027941250000000004, "usage": {"openai/gpt-5": {"text/out": 2598, "text/in": 1569}}}
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T16:13:08.967455+00:00", "path": "characters/Owl/about.json", "build_id": 48633924763352073211602789300247282767, "cost": 0.02598125, "usage": {"openai/gpt-5": {"text/out": 2383, "text/in": 1721}}}

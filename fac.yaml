@@ -80,9 +80,26 @@
 
 "books/$LEVEL/themes.md":
   description:
-    A 1 page description about the unifying themes present in all books of this level.
+    A short description of common themes for this level of book.
+
+"books/$LEVEL/$BOOK/content.jsonl":
+  description:
+    Each JSONL object entry represents a single page in the book.
+    The story should be simple but have a clear beginning, middle, and end.
+  schema: 'text_koine: the text for this page of the story in koine greek, text_english: a literal translation of the greek'
   dependencies:
     about.md
+    writing.md
+    characters/$CHARACTER/about.json
+    books/$LEVEL/themes.md
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      # this command is like `ls books/$LEVEL` but it will only output directories;
+      # this means that it will not find the `themes.md` file in `books/$LEVEL`;
+      # the simpler ls command results in errors from treating that file like a directory
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
 
 "books/$LEVEL/$BOOK/description.json":
   description:
@@ -98,28 +115,8 @@
     about.md
     writing.md
     characters/$CHARACTER/about.json
+    books/$LEVEL/$BOOK/content.jsonl
     books/$LEVEL/themes.md
-  variables:
-    LEVEL:
-      ls books
-    BOOK:
-      # this command is like `ls books/$LEVEL` but it will only output directories;
-      # this means that it will not find the `themes.md` file in `books/$LEVEL`;
-      # the simpler ls command results in errors from treating that file like a directory
-      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-
-"books/$LEVEL/$BOOK/content.jsonl":
-  description:
-    Each JSONL object entry represents a single page in the book.
-    The file should contain 32 entries (and thus 32 pages).
-    The story should be simple but have a clear beginning, middle, and end.
-  schema: 'text_koine: the text for this page of the story in koine greek, text_english: a literal translation of the greek'
-  dependencies:
-    about.md
-    writing.md
-    characters/$CHARACTER/about.json
-    books/$LEVEL/themes.md
-    books/$LEVEL/$BOOK/description.json
   variables:
     LEVEL:
       ls books
@@ -146,8 +143,6 @@
     - about.md
     - art.md
     - characters/$CHARACTER/about.json
-    - books/$LEVEL/themes.md
-    - books/$LEVEL/$BOOK/description.json
     - books/$LEVEL/$BOOK/content.jsonl
   variables:
     LEVEL:
@@ -161,6 +156,7 @@
   description:
     Follow the instructions to generate art for the children's book.
     The art should illustrate the following text, but not include any text.
+    Use a flat background with no alpha channel.
     <text>
     $(head -n $PAGE "books/$LEVEL/$BOOK/content.jsonl" | tail -n 1)
     </text>
@@ -183,8 +179,22 @@
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
     PAGE:
       seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
-    CHARACTER:
-      echo Theseus
+
+"books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png":
+  cmd: |
+    convert \
+      "books/$LEVEL/$BOOK/page_$PAGE/art.png" \
+      -background lightgray -flatten -resize 1280x720! \
+      "books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png"
+  dependencies:
+    books/$LEVEL/$BOOK/page_$PAGE/art.png
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    PAGE:
+      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
 
 "books/$LEVEL/$BOOK/page_$PAGE/page.pdf":
   cmd: |

@@ -1,3 +1,3 @@
-# Owl — Artist Instructions
+# Glaux (Owl) — Artist Instructions
 
-A baby owl with a round, downy body covered in soft gray-brown feathers and a speckled cream chest (cream base with soft gray-brown speckles). She has a small, round face with wide amber eyes and a tiny beak colored soft charcoal gray. Her short wings and stubby tail keep a compact, owlet-like silhouette. Talons are delicate and muted slate-gray, with very short legs that emphasize her pudgy, baby proportions.
+Glaux is a small, round-bodied owl with large, round amber eyes (dark brown pupils) set in a pale cream facial disk edged with light brown. Her feathers are mottled brown-and-cream: back and wings are a warm medium brown with darker umber speckles, while her chest, belly, and inner wings are light cream with soft brown flecks. She has a small pale tan beak and yellow‑ochre feet with charcoal‑gray talons. Her head is smoothly rounded with no visible ear tufts, and her tail is short.

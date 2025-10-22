@@ -1,0 +1,3 @@
+# Panda — Artist Instructions
+
+Panda is a small panda cub with a round face and a gentle, toddler-like belly; her fur is deep charcoal-black on the ears, eye patches, arms, and legs, with creamy white on the face, chest, and belly. The ears are large black tufts, the eye patches are classic dark charcoal ovals around the eyes, and the muzzle is soft white with a small black button nose. Her eyes are large and expressive with dark brown irises and black pupils, often opened wide in curiosity. Limbs are short and plush, creating a low, grounded silhouette that emphasizes her cub proportions.

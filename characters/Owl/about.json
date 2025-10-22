@@ -1,12 +1,12 @@
 {
-  "name": "Owl",
-  "description": "A baby owl who is Brephos’s gentle, hooting friend in the Greek-speaking woods.",
+  "name": "Glaux",
+  "description": "A wise, soft-spoken woodland owl who gently guides the panda family and neighbors with simple Koine Greek.",
   "sex": "female",
-  "personality": "Soft-spoken and observant, Owl notices small details and enjoys quiet games. She is brave in the dark and kind to littler friends. She loves echoing new Greek words with a happy hoot.",
-  "backstory": "Owl hatched in a cozy nest above the panda family’s grove and grew up hearing lullabies in Koine Greek. As the youngest of her clutch, she learned to glide from low branches and prefers playing close to the ground with Brephos. She spends dusk visiting neighbors, practicing greetings, and carrying tiny treasures in her beak. Her family roosts nearby, and they encourage her gentle curiosity.",
-  "appearance": "Round, downy body with soft gray-brown feathers and a speckled cream chest. Wide amber eyes, a tiny beak, and small, careful talons suited to perching on stumps and baskets. Often wears a leaf-green ribbon around one ankle and carries a little acorn pouch. Always shown at kid height—on logs, stools, or low branches.",
-  "strengths": "- Excellent night vision\n- Careful listener\n- Gentle bravery\n- Keen memory for sounds",
-  "weaknesses": "- Shy in big crowds\n- Easily distracted by shiny things\n- Worries when friends are out of sight",
-  "key_objects": "- Leaf-green ankle ribbon\n- Acorn pouch\n- Tiny lantern",
-  "relationships": "- Brephos: Owl’s best friend; they play gentle games and practice Greek words together.\n- Dinosaur: A baby playmate who enjoys stomp-and-hoot adventures with Owl.\n- Meter: The panda mother next door who offers snacks and calm guidance to Owl.\n- Pater: The panda father who kindly fixes perches and toys for Owl."
+  "personality": "Patient, encouraging, and playful, she favors short phrases, repetition, and gestures. She listens first, then offers calm guidance with a friendly hoot.",
+  "backstory": "Glaux grew up in a cedar hollow near the pandas' home, listening to wind and whispering leaves. She learned the night sky from elder owls and fell in love with clear, simple words. When new cubs arrived in the forest, she decided to help them hear, speak, and enjoy Greek through games and songs. She visits at dusk when the world is quiet and cozy.",
+  "appearance": "Round amber eyes and mottled brown-and-cream feathers, with a small green scarf tied at her neck. She carries a tiny satchel and sometimes an acorn lantern. To stay at kids' eye level, she perches on low stumps, fence rails, or the edge of a basket.",
+  "strengths": "- Patient teacher\n- Keen night vision and hearing\n- Clear enunciation and rhythm\n- Gentle humor that eases worries\n- Observant of small details",
+  "weaknesses": "- Avoids bright midday sun\n- Overthinks simple problems\n- Easily distracted by interesting sounds\n- Can't carry heavy things far",
+  "key_objects": "- Green scarf\n- Tiny satchel with picture cards\n- Acorn lantern",
+  "relationships": "- Brephos is the curious panda cub she gently tutors with songs and simple phrases at dusk.\n- Koala is a patient neighbor who joins her in listening games and forest walks.\n- Dinosaur is Brephos's favorite toy that she helps search for and uses in playful echo games."
 }

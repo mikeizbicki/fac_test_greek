@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T17:55:37.564496+00:00", "path": "books/levelA/lost_toy/page_7/art.png", "build_id": 310430792108460937756075267448470044355, "cost": 0.276965, "usage": {"openai/gpt-image-1": {"text/in": 5729, "image/in": 0, "image/out": 6208}}}

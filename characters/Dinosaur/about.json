@@ -1,12 +1,12 @@
 {
   "name": "Dinosaur",
-  "description": "A gentle baby dinosaur who toddles with the panda family and learns simple Greek words alongside her best friend.",
-  "sex": "female",
-  "personality": "Curious, cuddly, and brave in small steps. She listens closely, imitates kind phrases, and cheers friends with little stomps and chirps.",
-  "backstory": "She hatched near the pandas’ bamboo grove and wandered into their sunny clearing one spring morning. The family welcomed her, called her Dinosaur, and she stayed to play and learn words in their home. Though tiny, she loves exploring paths, sharing snacks, and napping under big leaves.",
-  "appearance": "A round, mint-green hatchling with soft scales, a small tail, and light speckles along her back. She has big amber eyes, a wide smile, and a short snout that squeaks when she laughs. A little red ribbon is tied around her neck, and she waddles on chunky feet.",
-  "strengths": "- Boundless curiosity and wonder\n- Gentle empathy with friends\n- Strong little legs for pushing and pulling small loads\n- Keen ear for songs and repeated words\n- Cheerful persistence",
-  "weaknesses": "- Startled by loud noises and sudden shadows\n- Short arms make carrying tricky\n- Easily distracted by fluttery bugs and leaves\n- Needs frequent snacks and naps\n- Pronounces new words slowly",
-  "key_objects": "- Red ribbon necktie\n- Favorite leaf-blanket\n- Wooden pull-cart",
-  "relationships": "- Brephos is her best friend; they play, share snacks, and practice simple Greek together.\n- Meter comforts Dinosaur with songs and gentle guidance during play.\n- Pater shows Dinosaur safe paths and steady ways to help the group."
+  "description": "A small, friendly green dinosaur who eagerly helps his friends and loves to search for lost things.",
+  "sex": "male",
+  "personality": "Curious, upbeat, and gentle, he encourages others with simple, cheerful Koine phrases. He is patient when solving problems and keeps trying until he succeeds.",
+  "backstory": "He grew up near Panda's cozy home in the woodland community where everyone speaks Koine at home. At first he was shy, but after helping Panda find a lost toy, he discovered he loves helping and exploring. He practices new words while playing games and looking around the house and yard. He visits Panda often to play with the μικροὶ ἄνθρωποι and build little stories together.",
+  "appearance": "Child-sized with a round snout, big expressive eyes, and a short tail, he has smooth pea-green scales with a pale mint belly. Three stubby fingers and toes make his gestures clear and easy to read. Small triangular dorsal nubs run from the back of his head to mid-tail. His posture is upright and friendly, and he smiles wide when he finds a clue.",
+  "strengths": "gentle helper; good observer; patient problem-solver; strong memory for places; encouraging friend",
+  "weaknesses": "easily distracted by interesting sounds; a bit clumsy with tiny pieces; hesitant in the dark",
+  "key_objects": "small red backpack; child-safe magnifying glass; favorite pinecone 'trophy'",
+  "relationships": "Panda: His best friend who invites him to play and explore.; Koala: A calm neighbor who models gentle manners and shares snacks.; Owl: A wise friend who answers questions and suggests games."
 }
