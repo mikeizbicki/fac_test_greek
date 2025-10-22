@@ -59,52 +59,24 @@
     CHARACTER:
       ls characters
 
-"characters/$CHARACTER/reference_images.jsonl":
+"characters/$CHARACTER/character_sheet.png":
   description:
-    Each item in the JSONL describes a reference image for the character.
-    These images will be used by an animator to ensure that all drawings of the character maintain consistency.
-    Each JSONL object must be considerably different from the others (e.g. it should be from a different angle (e.g. top-down vs front-shot vs back-shot vs profile-shot) and/or have the character in a different pose (sitting vs standing vs running vs attacking vs vitruvian man)).
-    There should be 3 images by default.
-    The images focus on the character and should have a transparent background.
-  schema: "
-    name: the name of the image,
-    artist_instructions: a detailed 3 sentence description of what to draw,
-    pose: the character's pose,
-    shot-angle: top-down/front/back/profile
-    "
-  dependencies:
-    about.md
-    characters/$CHARACTER/about.json
-    characters/$CHARACTER/artist_instructions.md
-  variables:
-    CHARACTER:
-      ls characters
-
-"characters/$CHARACTER/images/$IMAGE.png":
-  # NOTE:
-  # The "'" quotation marks in the model_description below are necessary!
-  # This is due to the subtly interaction of quotes and $VARIABLES in the shell.
-  description:
-    <instructions>
-    Draw the image specified in model_description following the artistic instructions in the attached files.
-    Only draw the model and do not draw any background (the background should be transparent).
-    <model_description>
-    $(jq -r 'select(.name == "'"$IMAGE"'")' characters/$CHARACTER/reference_images.jsonl)
-    </model_description>
-  image_quality: medium
-  image_orientation: square
+    This is a character sheet for the character $CHARACTER.
+    The background is transparent and only the character is drawn.
+    Draw the character four times.
+    1. Each drawing should have a different pose/action.
+    2. Each drawing should have a different camera angle (front, profile, back, angle).
+    3. All drawings should respect the instructions in the "art.md" and "characters/$CHARACTER/artist_instructions.md" files.
+  image_quality: high
+  image_orientation: landscape
   dependencies:
     - about.md
     - art.md
     - characters/$CHARACTER/about.json
     - characters/$CHARACTER/artist_instructions.md
-    - target: characters/$CHARACTER/reference_images.jsonl
-      include: false
   variables:
     CHARACTER:
       ls characters
-    IMAGE:
-      jq -r '.name' characters/$CHARACTER/reference_images.jsonl
 
 "books/$LEVEL/themes.md":
   description:
@@ -211,3 +183,33 @@
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
     PAGE:
       seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+    CHARACTER:
+      echo Theseus
+
+"books/$LEVEL/$BOOK/page_$PAGE/page.pdf":
+  cmd: |
+    cp page_template.tex books/$LEVEL/$BOOK/page_$PAGE/page.tex
+    cd books/$LEVEL/$BOOK/page_$PAGE/
+    head -n $PAGE ../content.jsonl | tail -n 1 | jq -r .text_koine > content.txt
+    pdflatex page.tex && pdflatex page.tex
+  dependencies:
+    page_template.tex
+    books/$LEVEL/$BOOK/page_$PAGE/art.png
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    PAGE:
+      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+
+"books/$LEVEL/$BOOK/pages.pdf":
+  cmd:
+    pdfunite books/$LEVEL/$BOOK/page_*/page.pdf books/$LEVEL/$BOOK/pages.pdf
+  dependencies:
+    books/$LEVEL/$BOOK/page_$PAGE/page.pdf
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
