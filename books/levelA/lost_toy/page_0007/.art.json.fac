@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-23T18:47:52.127175+00:00", "path": "books/levelA/lost_toy/page_0007/art.json", "build_id": 184639942141942802202314166338234782436, "cost": 0.014364, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 225, "text/out": 6957, "cost": 0.014364}}, "tools_used": {}}}

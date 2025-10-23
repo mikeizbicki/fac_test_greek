@@ -154,22 +154,16 @@
 
 "books/$LEVEL/$BOOK/page_$PAGE/art.png":
   description:
-    Follow the instructions to generate art for the children's book.
-    The art should illustrate the following text, but not include any text.
-    Use a flat background with no alpha channel.
-    <text>
-    $(head -n $PAGE "books/$LEVEL/$BOOK/content.jsonl" | tail -n 1)
-    </text>
-    <instructions>
-    $(cat books/$LEVEL/$BOOK/page_$PAGE/art.json)
-    </instructions>
+    The art for a single page of a book.
+    The file "books/$LEVEL/$BOOK/page_$PAGE/art.json" describes WHAT to draw,
+    and the file "art.md" describes HOW to draw it.
+    All characters should be drawn according to the instructions in the "characters/*/artist_instructions.md" files in order to match the appearance of the attached png character sheets.
   image_quality: high
   image_orientation: landscape
   dependencies:
     - art.md
+    - books/$LEVEL/$BOOK/page_$PAGE/art.json
     - characters/$CHARACTER/artist_instructions.md
-    - target: books/$LEVEL/$BOOK/page_$PAGE/art.json
-      include: false
     - characters/Panda/character_sheet.png
   variables:
     LEVEL:
