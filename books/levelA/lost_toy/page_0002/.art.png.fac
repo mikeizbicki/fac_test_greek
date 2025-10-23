@@ -1,1 +1,1 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-10-22T17:42:36.260517+00:00", "path": "books/levelA/lost_toy/page_2/art.png", "build_id": 253736351144935026789945831677439323484, "cost": 0.276725, "usage": {"openai/gpt-image-1": {"text/in": 5681, "image/in": 0, "image/out": 6208}}}
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-23T05:19:37.178858+00:00", "path": "books/levelA/lost_toy/page_0002/art.png", "build_id": 13441958683836009903971163831685500452, "cost": 0.25837, "usage": {"openai/gpt-image-1": {"text/in": 1364, "image/in": 323, "image/out": 6208}}}

@@ -170,8 +170,7 @@
     - characters/$CHARACTER/artist_instructions.md
     - target: books/$LEVEL/$BOOK/page_$PAGE/art.json
       include: false
-  image_references:
-    characters/Theseus/images/theseus_front_neutral.png
+    - characters/Panda/character_sheet.png
   variables:
     LEVEL:
       ls books

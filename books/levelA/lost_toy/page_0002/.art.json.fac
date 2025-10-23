@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-23T04:40:38.139159+00:00", "path": "books/levelA/lost_toy/page_0002/art.json", "build_id": 17457551266853620695836594852679725597, "cost": 0.0246725, "usage": {"openai/gpt-5": {"text/out": 2032, "text/in": 3482}}}
