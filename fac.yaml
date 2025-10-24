@@ -86,7 +86,7 @@
   description:
     Each JSONL object entry represents a single page in the book.
     The story should be simple but have a clear beginning, middle, and end.
-  schema: 'text_koine: the text for this page of the story in koine greek, text_english: a literal translation of the greek'
+  schema_file: content.json-schema
   dependencies:
     about.md
     writing.md
