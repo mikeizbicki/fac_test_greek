@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "text_koine": {
+      "type": "string",
+      "description": "The text for this page of the story in Koine greek."
+    },
+    "text_english": {
+      "type": "string",
+      "description": "A literal translation of the Koine into English."
+    },
+    "frame_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_]+$",
+      "description": "1-5 words that uniquely identify the page."
+    },
+    "characters": {
+      "type": "array",
+      "description": "The list of characters involved in this page. May be empty.",
+      "items": {
+        "type": "string",
+        "description": "Must exactly match the name of a character."
+      }
+    }
+  },
+  "required": [
+    "text_koine",
+    "text_english",
+    "page_id",
+    "characters"
+  ]
+}
