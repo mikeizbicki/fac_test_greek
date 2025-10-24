@@ -1,10 +1,14 @@
-{"text_koine":"ἰδού ἡ Πάνδα· ἡ Πάνδα παίζει μετὰ τῶν μικρῶν ἀνθρώπων.","text_english":"Behold, Panda; Panda plays with the little people."}
-{"text_koine":"ἡ μήτηρ μικρά ἐστιν. ὁ πατὴρ μικρός ἐστιν. ὁ ἀδελφὸς μικρός ἐστιν. ἡ ἀδελφὴ μικρά ἐστιν.","text_english":"The mother is small. The father is small. The brother is small. The sister is small."}
-{"text_koine":"ἔρχεται ὁ Δεινόσαυρος. λέγει· «χαῖρε, Πάνδα».","text_english":"The Dinosaur comes. He says, \"Greetings, Panda.\""}
-{"text_koine":"ἡ Πάνδα λέγει· «χαῖρε. παίζε μετ’ ἐμοῦ».","text_english":"Panda says, \"Greetings. Play with me.\""}
-{"text_koine":"ἡ Πάνδα καὶ ὁ Δεινόσαυρος παίζουσιν. χαίρουσιν.","text_english":"Panda and the Dinosaur play. They are glad."}
-{"text_koine":"οὐαί! ἡ μικρὰ μήτηρ οὐκ ἔστιν. ἡ Πάνδα λυπεῖται.","text_english":"Uh oh! The little mother is not. Panda is sad."}
-{"text_koine":"ὁ Δεινόσαυρος λέγει· «ἐγὼ βοηθῶ». ἡ Πάνδα καὶ ὁ Δεινόσαυρος ζητοῦσιν.","text_english":"The Dinosaur says, \"I help.\" Panda and the Dinosaur seek."}
-{"text_koine":"ζητοῦσιν ὑπὸ τῆς τραπέζης· οὐχ εὑρίσκουσιν.","text_english":"They seek under the table; they do not find."}
-{"text_koine":"ζητοῦσιν ὑπὸ τῆς κλίνης καὶ ὑπὸ τοῦ ἱματίου· οὐχ εὑρίσκουσιν.","text_english":"They seek under the bed and under the garment; they do not find."}
-{"text_koine":"ὁ Δεινόσαυρος εὑρίσκει τὴν μικρὰν μητέρα. ἡ Πάνδα λέγει· «εὐχαριστῶ».","text_english":"The Dinosaur finds the little mother. Panda says, \"I give thanks.\""}
+{"text_koine":"ἰδού ἡ Πάνδα. ἡ Πάνδα παίζει μετὰ τῶν μικρῶν ἀνθρώπων.","text_english":"Behold, Panda. Panda plays with the little people.","frame_id":"panda_playing","characters":["Panda"]}
+{"text_koine":"ἡ μήτηρ μικρά ἐστιν. ὁ πατὴρ μικρός ἐστιν. ὁ ἀδελφὸς μικρός ἐστιν. ἡ ἀδελφὴ μικρά ἐστιν.","text_english":"The mother is small. The father is small. The brother is small. The sister is small.","frame_id":"family_small","characters":[]}
+{"text_koine":"ἔρχεται ὁ Δεινόσαυρος. λέγει· «χαῖρε, Πάνδα».","text_english":"The Dinosaur comes. He says, \"Greetings, Panda.\"","frame_id":"dinosaur_arrives","characters":["Dinosaur","Panda"]}
+{"text_koine":"ἡ Πάνδα λέγει· «χαῖρε. παίζε μετ’ ἐμοῦ».","text_english":"Panda says, \"Greetings. Play with me.\"","frame_id":"panda_invites","characters":["Panda","Dinosaur"]}
+{"text_koine":"ἡ Πάνδα καὶ ὁ Δεινόσαυρος παίζουσιν. χαίρουσιν.","text_english":"Panda and the Dinosaur play. They are glad.","frame_id":"playing_together","characters":["Panda","Dinosaur"]}
+{"text_koine":"οὐαί! ἡ μικρὰ μήτηρ οὐκ ἔστιν. ἡ Πάνδα λυπεῖται.","text_english":"Uh oh! The little mother is not. Panda is sad.","frame_id":"mother_missing","characters":["Panda"]}
+{"text_koine":"ὁ Δεινόσαυρος λέγει· «ἐγὼ βοηθήσω».","text_english":"The Dinosaur says, \"I help.\"","frame_id":"dinosaur_helps","characters":["Dinosaur"]}
+{"text_koine":"ὁ Δεινόσαυρος ζητεῖ.","text_english":"The Dinosaur seeks.","frame_id":"dinosaur_searching","characters":["Dinosaur"]}
+{"text_koine":"ζητεῖ ὑπὸ τῆς τραπέζης. οὐχ εὑρίσκει.","text_english":"He seeks under the table. He does not find.","frame_id":"under_table","characters":["Dinosaur"]}
+{"text_koine":"ζητεῖ ὑπὸ τῆς κλίνης.","text_english":"He seeks under the bed.","frame_id":"under_bed","characters":["Dinosaur"]}
+{"text_koine":"ζητεῖ ὑπὸ τοῦ ἱματίου. οὐχ εὑρίσκει.","text_english":"He seeks under the garment. He does not find.","frame_id":"under_cloth","characters":["Dinosaur"]}
+{"text_koine":"ζητεῖ ὑπὸ τῆς καθέδρας. εὑρίσκει τὴν μικρὰν μητέρα!","text_english":"He seeks under the chair. He finds the little mother!","frame_id":"under_chair","characters":["Dinosaur"]}
+{"text_koine":"ὁ Δεινόσαυρος δίδωσιν τὴν μικρὰν μητέρα τῇ Πάνδᾳ.","text_english":"The Dinosaur gives the little mother to Panda.","frame_id":"dinosaur_gives_mother","characters":["Dinosaur","Panda"]}
+{"text_koine":"ἡ Πάνδα λέγει «εὐχαριστῶ!» ἡ Πάνδα πάλιν χαίρει.","text_english":"Panda says, \"Thank you!\" Panda is happy again.","frame_id":"panda_thanks_and_happy","characters":["Panda"]}
