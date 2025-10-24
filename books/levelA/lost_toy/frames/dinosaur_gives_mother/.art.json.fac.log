@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-24T22:24:22.684365+00:00", "path": "books/levelA/lost_toy/frames/dinosaur_gives_mother/art.json", "build_id": 156154144763350338538612378629102023874, "cost": 0.007202, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 317, "text/out": 3284, "cost": 0.007202}}, "tools_used": {}}}

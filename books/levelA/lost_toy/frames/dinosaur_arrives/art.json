@@ -1,0 +1,9 @@
+{
+  "art_instructions": "Draw a medium shot from eye level showing Dinosaur arriving to meet Panda. Dinosaur should be cheerful and upright, walking forward with a big friendly smile, his short tail slightly lifted, and his three stubby fingers waving gently in greeting. Panda is standing in front of him, looking up with a welcoming expression, ears forward and small panda paws held gently together. Both characters should be drawn in chibi style with rounded, soft outlines, smooth 2-4px line weight, and pastel colors. Dinosaur's scales are smooth pea-green with a pale mint belly. Panda has classic black patches around his eyes and ears, with soft white face and belly. Place them in a cozy woodland setting with simple background shapes like trees and grass, using flat pastel tones and generous negative space. The composition should feel balanced and approachable, with both characters centered and clearly visible.",
+  "art_characters": [
+    "Dinosaur",
+    "Panda"
+  ],
+  "shot_type": "medium_shot",
+  "camera_angle": "eye_level"
+}

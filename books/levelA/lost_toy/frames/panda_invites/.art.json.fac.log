@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-24T22:24:11.827605+00:00", "path": "books/levelA/lost_toy/frames/panda_invites/art.json", "build_id": 156154144763350338538612378629102023874, "cost": 0.007014, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 235, "text/out": 3272, "cost": 0.007014}}, "tools_used": {}}}

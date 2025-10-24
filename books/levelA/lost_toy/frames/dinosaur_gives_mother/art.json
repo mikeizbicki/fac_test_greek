@@ -1,0 +1,9 @@
+{
+  "art_instructions": "Draw a Korean aegyo cute style scene from a low, child-level perspective. The Dinosaur (pea-green with pale mint belly, round snout, short tail, three stubby fingers) stands upright and gently offers a tiny mother figure to Panda. Panda (charcoal limbs and ears, creamy white face and belly, large black eye patches, bright expressive eyes) reaches out eagerly with tiny plush arms to receive the mother. The Dinosaur's posture should convey helpfulness and gentle care, with a slight forward lean and wide, friendly smile. Panda's expression shows relief and joy, with eyes wide and a small, happy mouth. Position Dinosaur on the left side of the frame, slightly taller than Panda who stands on the right. The little mother toy should be small and clearly identifiable, held gently between Dinosaur's stubby fingers and about to be received by Panda. Use smooth monoline strokes (2–4 px at 1080p) in dark brown/charcoal, with minimal cel-shading and warm ambient occlusion. Background should be simple and airy with soft pastel colors and generous negative space. Composition should be centered with clear separation between the two characters. Ensure both characters are drawn in chibi proportions (2–3 heads tall) with large, widely spaced eyes and tiny noses/mouths.",
+  "art_characters": [
+    "Dinosaur",
+    "Panda"
+  ],
+  "shot_type": "medium_shot",
+  "camera_angle": "eye_level"
+}

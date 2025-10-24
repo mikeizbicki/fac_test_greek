@@ -126,14 +126,15 @@
       # the simpler ls command results in errors from treating that file like a directory
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
 
-"books/$LEVEL/$BOOK/page_$PAGE/art.json":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json":
   description:
     You are describing the artwork for a single page of a book.
-    You are on page number $PAGE, whose content is
+    You are on page with "frame_id"=$FRAME_ID, whose content is
     <content>
-    $(head -n $PAGE "books/$LEVEL/$BOOK/content.jsonl" | tail -n 1)
+    $(jq -r "select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.jsonl)
     </content>
-    The artwork should help young children learning Koine Greek how to understand the text and should be consistent with the other pages in the book.
+    The artwork should help young children learning Koine Greek how to understand the text.
+
     The full contents of the book are defined in the file "books/$LEVEL/$BOOK/content.jsonl" and the art descriptions of the other pages are defined in "books/$LEVEL/$BOOK/page_*/art.json".
     You should use these files to ensure that your art descriptions flow well from one page to the next and maintain consistency,
     but your description of this page should be based only on the content of this page and not the other files.
@@ -149,48 +150,47 @@
       ls books
     BOOK:
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-    PAGE:
-      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
-    CHARACTER: |
-      echo Panda
-      echo Koala
+    CHARACTER:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
 
-"books/$LEVEL/$BOOK/page_$PAGE/art.png":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png":
   description:
     The art for a single page of a book.
-    The file "books/$LEVEL/$BOOK/page_$PAGE/art.json" describes WHAT to draw,
-    and the file "art.md" describes HOW to draw it.
+    The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json" describes WHAT to draw,
+    and the file "art.md" describes stylistically HOW to draw it.
     All characters should be drawn according to the instructions in the "characters/*/artist_instructions.md" files in order to match the appearance of the attached png character sheets.
   image_quality: high
   image_orientation: landscape
   dependencies:
     - art.md
-    - books/$LEVEL/$BOOK/page_$PAGE/art.json
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json
     - characters/$CHARACTER/artist_instructions.md
-    - characters/Panda/character_sheet.png
+    - characters/$CHARACTER/character_sheet.png
   variables:
     LEVEL:
       ls books
     BOOK:
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-    PAGE:
-      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
 
-"books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png":
-  cmd: |
-    convert \
-      "books/$LEVEL/$BOOK/page_$PAGE/art.png" \
-      -background lightgray -flatten -resize 1280x720! \
-      "books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png"
-  dependencies:
-    books/$LEVEL/$BOOK/page_$PAGE/art.png
-  variables:
-    LEVEL:
-      ls books
-    BOOK:
-      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-    PAGE:
-      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+      #"books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png":
+      #cmd: |
+      #convert \
+      #"books/$LEVEL/$BOOK/page_$PAGE/art.png" \
+      #-background lightgray -flatten -resize 1280x720! \
+      #"books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png"
+      #dependencies:
+      #books/$LEVEL/$BOOK/page_$PAGE/art.png
+      #variables:
+      #LEVEL:
+      #ls books
+      #BOOK:
+      #find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+      #PAGE:
+      #seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
 
 "books/$LEVEL/$BOOK/page_$PAGE/page.pdf":
   cmd: |

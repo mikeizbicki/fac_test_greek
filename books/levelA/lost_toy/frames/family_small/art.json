@@ -1,0 +1,11 @@
+{
+  "art_instructions": "Create a warm, inviting scene in a cozy home setting. The perspective should be low to the ground as if viewed by a young child. Show a small family consisting of a mother, father, brother, and sister standing together in the center of the frame. All family members should be drawn in a Korean aegyo cute style with chibi proportions (2-3 heads tall), rounded silhouettes, and minimal detail. Each character should appear small in stature, emphasizing the word 'small' from the text. Use smooth monoline strokes (2-4 px at 1080p) in dark brown/charcoal for outlines, with optional colored line art for soft areas like clothing. Apply flat pastel color palette with low-medium saturation, adding one saturated accent color for focal points. Keep shading minimal with 1-2 steps of soft cel-shading plus faint warm ambient occlusion. Draw large, widely spaced eyes with simple irises and 2-3 glossy highlights. Noses and mouths should be tiny with optional blush dots. The mother and father should only show from the elbows down since their heads would be out of frame - focus on their torsos and limbs to indicate their presence. Position all four family members close together to emphasize they are a unit. Use simple, airy background with gentle gradients and minimal texture. Composition should be centered and symmetrically balanced with generous negative space. Lighting should be soft, diffuse, and coming from the front-top direction.",
+  "art_characters": [
+    "Mother",
+    "Father",
+    "Brother",
+    "Sister"
+  ],
+  "shot_type": "medium_shot",
+  "camera_angle": "low_angle"
+}
