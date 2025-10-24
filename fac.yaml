@@ -142,7 +142,7 @@
   dependencies:
     - about.md
     - art.md
-    - characters/$FOO/about.json
+    - characters/$CHARACTER/about.json
     - books/$LEVEL/$BOOK/content.jsonl
   variables:
     LEVEL:
@@ -151,7 +151,7 @@
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
     PAGE:
       seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
-    FOO:
+    CHARACTER: |
       echo Panda
       echo Koala
 
