@@ -161,7 +161,7 @@
     The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json" describes WHAT to draw,
     and the file "art.md" describes stylistically HOW to draw it.
     All characters should be drawn according to the instructions in the "characters/*/artist_instructions.md" files in order to match the appearance of the attached png character sheets.
-  image_quality: high
+  image_quality: medium
   image_orientation: landscape
   dependencies:
     - art.md
