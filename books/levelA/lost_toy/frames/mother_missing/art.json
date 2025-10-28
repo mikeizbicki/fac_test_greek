@@ -1,8 +1,8 @@
 {
-  "art_instructions": "Draw a medium shot from eye level showing Panda standing alone in a cozy, softly lit room. Panda looks visibly upset, with downturned eyes and a small frown on her muzzle. Her round face shows a slight pout, and her ears droop slightly to convey sadness. Position her in the center of the frame, with her tiny white belly and dark eye patches clearly visible. Her black ear tufts should be expressive, tilted downward to enhance the emotional tone. Keep the background simple, with soft pastel tones and minimal details to focus attention on Panda's emotional state. No other characters are present; the scene should feel quiet and lonely to reflect the text's meaning.",
+  "art_instructions": "Draw a scene from a low-to-the-ground perspective, as if a 4-year-old is viewing the family house. The room is filled with warm natural light and features child-sized furniture in warm brown tones. Panda, a round-faced panda cub with large black ear tufts and classic dark eye patches, is standing in the center of the room, looking around with a sad expression. Her eyes are wide and her fur is deep charcoal on limbs, ears, and patches, with creamy white on face and belly. The background is simple and airy, with soft green accents and gentle patterns. Since the little mother is missing, Panda's favorite toy or object that represents the mother should not be visible in the scene, emphasizing her absence. Panda's pose should convey her sadness and worry, with her head slightly tilted and her ears folded back. The overall atmosphere should be calm and gentle, with a focus on Panda's emotional state.",
   "art_characters": [
     "Panda"
   ],
   "shot_type": "medium_shot",
-  "camera_angle": "eye_level"
+  "camera_angle": "low_angle"
 }

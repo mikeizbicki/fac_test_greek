@@ -1,0 +1,42 @@
+\documentclass[landscape]{article}
+\usepackage[letterpaper, margin=0in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+% Set up Greek language support
+\setdefaultlanguage{english}
+\setotherlanguage[variant=ancient]{greek}
+
+% Set fonts (optional - you can specify specific fonts for Greek)
+\setmainfont{Latin Modern Roman}
+\newfontfamily\greekfont{DejaVu Serif}[Script=Greek]
+
+% Remove page numbers and headers
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture,overlay]
+    % Background image filling entire page
+    \node[anchor=north west,inner sep=0pt] at (current page.north west) {
+        %\includegraphics[width=\paperwidth,height=\paperheight]{art.png}
+        %\includegraphics[width=\paperwidth,height=\dimexpr\paperheight-2in\relax]{art.png}
+        \includegraphics[width=\paperwidth]{art.png}
+    };
+
+    % Text box in bottom 2 inches
+    \node[anchor=south west,inner sep=0.5in,text width=\paperwidth-1in]
+          at ([yshift=0in]current page.south west) {
+        \begin{minipage}[t][\dimexpr1in\relax][b]{\linewidth}
+            \Huge
+            \spaceskip=1.5\fontdimen2\font plus 1\fontdimen3\font minus 0.5\fontdimen4\font
+            \begin{greek}
+                \input{content.txt}
+            \end{greek}
+        \end{minipage}
+    };
+\end{tikzpicture}
+
+\end{document}

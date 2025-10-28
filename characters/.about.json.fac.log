@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-28T17:10:14.764185+00:00", "path": "characters//about.json", "build_id": 6709539814038716148790089995589369660, "cost": 0.0, "usage": {"model_details": {"groq/llama-3.3-70b-versatile": {"text/in": 411, "text/out": 796, "cost": 0.0}}, "tools_used": {}}}

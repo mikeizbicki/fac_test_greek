@@ -21,6 +21,11 @@
         "type": "string",
         "description": "Must exactly match the name of a character."
       }
+    },
+    "location": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_]+$",
+      "description": "The location where the scene takes place.  Must exactly match the name of one of the provided locations."
     }
   },
   "required": [

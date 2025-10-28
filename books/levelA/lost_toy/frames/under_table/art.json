@@ -1,8 +1,8 @@
 {
-  "art_instructions": "Draw the Dinosaur on his hands and knees, peeking under a low, round wooden table with stubby legs. His eyes are wide and focused, showing curiosity and mild concern. His short tail sticks out behind him, and his three-toed hands are spread wide as he leans forward to look. The table is brown with smooth edges and blocks most of his body from view, showing only his head, back, and elbows. His expression shows that he is searching carefully but not finding anything yet. Use soft pastel colors with a cel-shaded look and smooth outlines in Korean aegyo cute style. The background is simple with a light gradient floor to keep focus on the action. Position the camera at a low angle to reflect the child’s-eye view, as if a young child is watching the Dinosaur from nearby.",
+  "art_instructions": "Draw the Dinosaur on his hands and knees, looking under the table in the family house. The table should be low and child-sized, with simple wooden legs and a warm brown tone. The Dinosaur's posture should be curious and engaged, with his big expressive eyes scanning the area under the table. His short tail should be tucked in, and his three stubby fingers should be grasping the edge of the table as he peers underneath. The room should be illuminated with warm natural light, and the background should feature soft green accents and cozy textiles. The Dinosaur's smooth pea-green scales and pale mint belly should be prominently displayed, and his facial expression should be one of gentle concern and focus. The overall atmosphere should be calm and welcoming, with plenty of negative space to emphasize the Dinosaur's search. In the background, a few gentle hints of the family house's architecture and flora should be visible, such as a windowsill with a small potted plant or a glimpse of the wooden wall. The Dinosaur's small red backpack should be visible, perhaps slung over his shoulder or sitting next to him, and his child-safe magnifying glass could be laid on the floor nearby, adding to the sense of exploration and discovery.",
   "art_characters": [
     "Dinosaur"
   ],
-  "shot_type": "medium_shot",
-  "camera_angle": "low_angle"
+  "shot_type": "low_angle",
+  "camera_angle": "worms_eye_view"
 }

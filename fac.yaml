@@ -168,13 +168,13 @@
     and the file "art.md" describes stylistically HOW to draw it.
     All characters should be drawn according to the instructions in the "characters/*/artist_instructions.md" files in order to match the appearance of the attached png character sheets.
     Do not draw any text.
-  image_quality: low
+  image_quality: medium
   image_orientation: landscape
   dependencies:
     - art.md
     - characters/$CHARACTER/about.json
     - characters/$CHARACTER/character_sheet.png
-      #- books/$LEVEL/$BOOK/content.jsonl
+    - books/$LEVEL/$BOOK/content.jsonl
     - locations/$LOCATION/about.json
   variables:
     LEVEL:
@@ -195,9 +195,9 @@
     jq -r "select(.frame_id == \"$FRAME_ID\") | .text_koine" ../../content.jsonl > content.txt
     lualatex page.tex && lualatex page.tex
   dependencies:
-    page_template.tex
-    books/$LEVEL/$BOOK/content.jsonl
-    books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+    - page_template.tex
+    - books/$LEVEL/$BOOK/content.jsonl
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
   variables:
     LEVEL:
       ls books
@@ -211,8 +211,8 @@
     ordered_FRAME_IDs=$(jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl)
     pdfunite $(printf "books/$LEVEL/$BOOK/frames/%s/page.pdf " $ordered_FRAME_IDs) books/$LEVEL/$BOOK/pages.pdf
   dependencies:
-    - books/$LEVEL/$BOOK/content.jsonl
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
+    #- books/$LEVEL/$BOOK/content.jsonl
+    #- books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
   variables:
     LEVEL:
       ls books

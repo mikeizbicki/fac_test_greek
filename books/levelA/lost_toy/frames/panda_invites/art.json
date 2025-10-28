@@ -1,9 +1,9 @@
 {
-  "art_instructions": "Draw a friendly interaction between Panda and Dinosaur in a cozy woodland setting. Panda should be positioned on the left side of the frame, standing upright with a gentle, welcoming expression. Her large black ear tufts and eye patches should be clearly visible, with bright, curious eyes and a small button nose. Dinosaur should be on the right side, slightly smaller in scale to emphasize Panda's presence, with his round snout, big expressive eyes, and short tail clearly shown. His pea-green scales and pale mint belly should be visible, and he should be smiling wide as he eagerly responds to Panda's invitation. Both characters should be drawn in chibi style (2-3 heads tall) with rounded silhouettes and minimal detail. Use smooth monoline strokes with dark brown/charcoal lines. The background should be simple with soft gradients and gentle patterns to highlight the characters. Position the camera at eye level to maintain the child's perspective.",
+  "art_instructions": "Draw a warm and inviting scene of Panda and Dinosaur in the family house, with Panda standing in the center, looking directly at the viewer with a friendly smile. Panda should be saying 'χαῖρε. παίζε μετ’ ἐμοῦ' (Greetings. Play with me.), as indicated by a speech bubble. Dinosaur should be standing next to Panda, looking at Panda with interest and a hint of excitement, as if waiting for Panda to start playing. Both characters should be drawn in a chibi style, with rounded silhouettes and minimal detail, using dark brown/charcoal lines and pastel colors. The background should be a soft, creamy white, with hints of warm brown from the wooden furniture and floors. Panda and Dinosaur should be placed in the center of the scene, with plenty of negative space around them to create a sense of openness and approachability. Panda's eyes should be large and expressive, with simple irises and 2-3 glossy highlights, while Dinosaur's eyes should be big and round, with a friendly glint. The overall mood of the scene should be one of friendship and playfulness, inviting the viewer to join in on the fun.",
   "art_characters": [
     "Panda",
     "Dinosaur"
   ],
   "shot_type": "medium_shot",
-  "camera_angle": "eye_level"
+  "camera_angle": "low_angle"
 }

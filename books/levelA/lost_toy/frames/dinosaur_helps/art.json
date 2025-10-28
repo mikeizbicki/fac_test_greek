@@ -1,8 +1,8 @@
 {
-  "art_instructions": "Draw a medium shot from eye level showing the Dinosaur standing in a friendly, upright posture with a wide, encouraging smile. His big expressive eyes should look directly at the viewer, conveying helpfulness and cheer. Keep his three stubby fingers clearly visible, perhaps with one raised as if speaking. Do not include any background details or other characters. The Dinosaur should be drawn in the Korean aegyo cute style: chibi proportions (2–3 heads tall), rounded silhouette, smooth monoline strokes (2–4 px at 1080p), dark brown/charcoal lines, and flat pastel green color with a pale mint belly. Add simple glossy highlights to his eyes and a faint blush dot on his cheeks to emphasize his gentle, childlike friendliness.",
+  "art_instructions": "Draw a low-angle, wide shot of the Dinosaur standing in the family house, with his feet shoulder-width apart and his arms stretched out to the sides, palms up, in a gesture of offering help. His big expressive eyes should be wide with enthusiasm and his smile should be wide and friendly. The Dinosaur should be centered in the image, with the warm brown wooden walls and Soft green accents of the family house visible in the background. The lighting should be warm and natural, with a few soft shadows to give depth to the image. The Dinosaur's smooth pea-green scales and pale mint belly should be clearly visible, and his small triangular dorsal nubs should be visible running from the back of his head to mid-tail. The image should be rendered in a Korean aegyo 'cute' style with chibi proportions, rounded silhouettes, and minimal detail, using dark brown/charcoal lines and flat pastel colors. The Dinosaur's posture should convey a sense of gentle helpfulness and encouragement, inviting the viewer to feel comforted and supported.",
   "art_characters": [
     "Dinosaur"
   ],
-  "shot_type": "medium_shot",
-  "camera_angle": "eye_level"
+  "shot_type": "wide_shot",
+  "camera_angle": "low_angle"
 }

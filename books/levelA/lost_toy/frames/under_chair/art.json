@@ -1,8 +1,8 @@
 {
-  "art_instructions": "Draw a child-sized friendly green dinosaur (Δεινόσαυρος) crouching down and peering under a wooden chair. The dinosaur has a round snout, big expressive eyes, and a short tail, with smooth pea-green scales and a pale mint belly. Show three stubby fingers and toes. The dinosaur's posture is upright but slightly bent forward in a curious, searching pose. A small red backpack and child-safe magnifying glass should be visible nearby, suggesting the tools used in the search. The dinosaur's face shows surprise and happiness as he discovers something under the chair. Use simple, rounded shapes and smooth monoline strokes (2-4px) in dark brown/charcoal with a faint, warm ambient occlusion shadow under overlapping areas. The chair should be slightly oversized in proportion to the dinosaur to emphasize the idea of looking under a large object. The background should remain airy with minimal details, using flat pastel colors and a soft gradient. Lighting is diffuse, coming from the top-front. The composition should focus tightly on the dinosaur and chair, keeping the scene clear for young children learning Koine Greek. Do not include any adult figures.",
+  "art_instructions": "Draw the Dinosaur, a small, friendly green dinosaur, on his hands and knees, peeking under a low wooden chair in the family house. He should be placed in the center of the image, with the chair taking up most of the foreground. The Dinosaur's face should be excited and relieved, with a big smile, as he has just found the little mother under the chair. The little mother should be visible under the chair, and the Dinosaur's hands should be reaching out to gently pick her up. The background should be a soft, warm brown, with hints of soft green and cream from the family house's color palette. The lighting should be warm and natural, with a soft glow on the Dinosaur's face and the little mother. The image should be drawn from a low angle, as if the viewer is also on the floor, looking up at the Dinosaur and the chair.",
   "art_characters": [
     "Dinosaur"
   ],
   "shot_type": "medium_shot",
-  "camera_angle": "eye_level"
+  "camera_angle": "low_angle"
 }

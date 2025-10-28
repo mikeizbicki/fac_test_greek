@@ -1,8 +1,4 @@
-{
-  "art_instructions": "Draw a medium shot at eye level showing Panda, a gentle and plush-like panda cub with a round face, large black ear tufts, dark eye patches, and a soft white muzzle. Panda is standing in a cozy woodland setting, likely near the family cottage, with a joyful expression. Her eyes are bright and wide, showing happiness, and her small, button nose and mouth form a cheerful smile. Include expressive details like tiny blush dots on her cheeks to emphasize the emotion. Position Panda in the center of the frame or slightly offset to one side, maintaining a low viewpoint as if seen from a child’s perspective. Her wooden toy dinosaur should be nearby, perhaps held in one paw or resting gently beside her, to reinforce connection with the ongoing narrative. Use soft pastel colors with smooth gradients for the background, and minimal cel-shading to keep the scene warm and inviting. Ensure the art style matches the Korean aegyo cute aesthetic with chibi proportions (2–3 heads tall) and rounded features.",
-  "art_characters": [
-    "Panda"
-  ],
-  "shot_type": "medium_shot",
-  "camera_angle": "eye_level"
-}
+{"art_instructions": "Draw Panda, a round-faced panda cub with large black ear tufts and classic dark eye patches, in the center of the image. She should be standing in the family house, surrounded by warm brown wooden walls and furniture, with soft green accents and cozy textiles. Panda should be looking directly at the viewer with a big smile on her face, her bright eyes wide with happiness. She should be holding the little mother toy in her paws, with her arms wrapped tightly around it. The Dinosaur should be visible in the background, perhaps sitting on a low wooden chair or standing behind Panda, with a gentle smile on his face. The scene should be lit with warm natural light, and the colors should be soft and pastel, with a single saturated accent color, such as a bright green or blue, to draw attention to Panda's happy face. The background should be simple, with generous negative space, and the composition should be centered and symmetrically balanced, emphasizing Panda's joyful expression. Panda's fur should be deep charcoal on limbs, ears, and patches, with creamy white on face and belly, and her eyes should have simple irises and 2-3 glossy highlights.", 
+"art_characters": ["Panda", "Dinosaur"], 
+"shot_type": "medium_shot", 
+"camera_angle": "low_angle"}

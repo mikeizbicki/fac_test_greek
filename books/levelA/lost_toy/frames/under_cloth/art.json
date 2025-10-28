@@ -1,8 +1,4 @@
-{
-  "art_instructions": "Draw the Dinosaur on his hands and knees, peeking under a large piece of cloth (like a blanket or tablecloth) that is draped over something low. His big round eyes are wide with concentration as he searches. A few small, curious fingers grip the edge of the cloth, gently lifting it slightly to peer underneath. His mouth is a small frown showing disappointment since he does not find anything. The background should be simple with soft pastel colors, maybe a light blue or warm beige, to keep focus on the main action. Use smooth monoline strokes with dark brown charcoal lines and maintain chibi proportions (2–3 heads tall) typical of Korean aegyo style. No other characters are present. The dinosaur's short tail can be visible behind him and his three stubby fingers should be clearly shown gripping the cloth.",
-  "art_characters": [
-    "Dinosaur"
-  ],
-  "shot_type": "medium_shot",
-  "camera_angle": "eye_level"
-}
+{"art_instructions": "The Dinosaur is shown on his hands and knees, peeking under a garment that is lying on the floor of the family house. The garment should be a simple, child-sized tunic or cloak, and it should be rumpled and folded in a way that suggests it was recently taken off and tossed aside. The Dinosaur's posture should convey a sense of curiosity and careful searching, with his head tilted to one side and his eyes scanning the space under the garment. His expression should be gentle and concerned, with a slight furrow between his eyebrows. The background of the image should be a warm, sunny wood tone, with a few soft green accents and simple furniture in the distance. The overall mood of the image should be calm and focused, with the Dinosaur's search taking center stage. The viewer should be able to see the Dinosaur's entire body, from his toes to the top of his head, and the image should be framed in a way that creates a sense of intimacy and immediacy.", 
+"art_characters": ["Dinosaur"], 
+"shot_type": "medium_shot", 
+"camera_angle": "low_angle"}
