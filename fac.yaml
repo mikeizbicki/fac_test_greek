@@ -24,6 +24,10 @@
     and later instructions will focus on content.
     The lenth should be about 1 paragraph.
 
+################################################################################
+# characters/
+################################################################################
+
 "characters/$CHARACTER/about.json":
   description:
     A description of the character that can be used to ensure consistency accross many different books.
@@ -77,6 +81,25 @@
   variables:
     CHARACTER:
       ls characters
+
+################################################################################
+# locations/
+################################################################################
+
+"locations/$LOCATION/about.json":
+  description:
+    A description of a location.
+    All of the scenes of the various stories will take place at one of these locations.
+  schema_file: location.json-schema
+  dependencies:
+    about.md
+  variables:
+    LOCATION:
+      ls locations
+
+################################################################################
+# books/
+################################################################################
 
 "books/$LEVEL/themes.md":
   description:
@@ -138,7 +161,7 @@
     The full contents of the book are defined in the file "books/$LEVEL/$BOOK/content.jsonl" and the art descriptions of the other pages are defined in "books/$LEVEL/$BOOK/page_*/art.json".
     You should use these files to ensure that your art descriptions flow well from one page to the next and maintain consistency,
     but your description of this page should be based only on the content of this page and not the other files.
-    Descriptions of future pages should include details from previous pages whenever those pages have the same setting or characters to ensure consistency.
+    Your description of this page should include details from previous pages whenever those pages have the same setting or characters to ensure consistency.
   schema_file: art.json-schema
   dependencies:
     - about.md

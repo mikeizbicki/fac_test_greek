@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_]+$",
+      "description": "1-5 words that uniquely identify the location."
+    },
+    "description": {
+      "type": "string",
+      "description": "1 sentence description of the location."
+    },
+    "visual_style": {
+      "type": "object",
+      "description": "The artist will use the visual style to ensure the location is always rendered consistently.",
+      "properties": {
+        "color_palette": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "1-3 sentences; must list explicit color names and hex codes and their purpose."
+        },
+        "architectural_style": {
+          "type": "string",
+          "description": "1-3 sentences."
+        },
+        "flora_fauna": {
+          "type": "string",
+          "description": "1-3 sentence description of the plants/animals to be found in the location.  (outdoor locations only)"
+        },
+        "weather": {
+          "type": "string",
+          "description": "1-5 word description of typical weather (e.g., 'perpetual fog', 'sunny', 'stormy'); outdoor locations only"
+        },
+        "lighting": {
+          "type": "string",
+          "description": "1-5 word description of lighting conditions (e.g., 'dim candlelight', 'bright sunlight', 'fluorescent')"
+        },
+        "furniture": {
+          "type": "string",
+          "description": "1-3 sentence description of the furniture to be found at the location; must include colors and how the furniture is placed; indoor locations only"
+        },
+        "materials": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "1-3 sentence description of the primary building materials used (e.g. stone walls, wood floors, bronze roof, plastic playground equipment)."
+        }
+      },
+      "required": ["color_palette"]
+    }
+  },
+  "required": [
+    "name",
+    "visual_style"
+  ]
+}
+
