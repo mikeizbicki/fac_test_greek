@@ -211,8 +211,7 @@
     ordered_FRAME_IDs=$(jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl)
     pdfunite $(printf "books/$LEVEL/$BOOK/frames/%s/page.pdf " $ordered_FRAME_IDs) books/$LEVEL/$BOOK/pages.pdf
   dependencies:
-    #- books/$LEVEL/$BOOK/content.jsonl
-    #- books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
   variables:
     LEVEL:
       ls books

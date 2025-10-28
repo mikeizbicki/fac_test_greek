@@ -1,9 +1,88 @@
 \documentclass[landscape]{article}
-\usepackage[letterpaper, margin=0in]{geometry}
+\usepackage[paperwidth=11.25in, paperheight=8.75in, margin=0in]{geometry}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{fontspec}
 \usepackage{polyglossia}
+\usepackage{luacode}
+
+\begin{luacode}
+function autofitgreek(filename)
+    local file = io.open(filename, "r")
+    if not file then
+        tex.print("\\centering\\Huge\\begin{greek}File not found\\end{greek}")
+        return
+    end
+    local text = file:read("*all")
+    file:close()
+
+    -- Remove any trailing whitespace/newlines
+    text = text:gsub("%s+$", "")
+
+    -- Split into words
+    local words = {}
+    for word in text:gmatch("%S+") do
+        table.insert(words, word)
+    end
+
+    local total_words = #words
+    if total_words <= 1 then
+        tex.print("\\centering\\Huge\\begin{greek}" .. text .. "\\end{greek}")
+        return
+    end
+
+    -- Find punctuation marks (. ; : · , ! ?)
+    local punctuation_positions = {}
+    for i = 1, total_words do
+        if words[i]:match("[.;:·,!?]$") then
+            table.insert(punctuation_positions, i)
+        end
+    end
+
+    if #punctuation_positions == 0 then
+        -- No punctuation found - keep on one line
+        tex.print("\\centering\\Huge\\begin{greek}" .. text .. "\\end{greek}")
+        return
+    end
+
+    -- Find punctuation position closest to middle
+    local middle = total_words / 2
+    local best_pos = punctuation_positions[1]
+    local best_distance = math.abs(punctuation_positions[1] - middle)
+
+    for _, pos in ipairs(punctuation_positions) do
+        local distance = math.abs(pos - middle)
+        if distance < best_distance then
+            best_distance = distance
+            best_pos = pos
+        end
+    end
+
+    -- Split at best position
+    local first_half = {}
+    local second_half = {}
+
+    for i = 1, best_pos do
+        table.insert(first_half, words[i])
+    end
+    for i = best_pos + 1, total_words do
+        table.insert(second_half, words[i])
+    end
+
+    local first_text = table.concat(first_half, " ")
+    local second_text = table.concat(second_half, " ")
+
+    tex.print("\\parbox{\\linewidth}{%")
+    tex.print("\\centering")
+    tex.print("\\begin{greek}" .. first_text .. "\\end{greek}\\\\")
+    tex.print("\\begin{greek}" .. second_text .. "\\end{greek}%")
+    tex.print("}")
+end
+\end{luacode}
+
+\newcommand{\autofitgreekfile}[1]{%
+    \directlua{autofitgreek("#1")}%
+}
 
 % Set up Greek language support
 \setdefaultlanguage{english}
@@ -22,21 +101,25 @@
     % Background image filling entire page
     \node[anchor=north west,inner sep=0pt] at (current page.north west) {
         %\includegraphics[width=\paperwidth,height=\paperheight]{art.png}
-        %\includegraphics[width=\paperwidth,height=\dimexpr\paperheight-2in\relax]{art.png}
-        \includegraphics[width=\paperwidth]{art.png}
+        \includegraphics[width=\paperwidth,height=\dimexpr\paperheight-2in\relax]{art.png}
+        %\includegraphics[width=\paperwidth]{art.png}
     };
 
     % Text box in bottom 2 inches
-    \node[anchor=south west,inner sep=0.5in,text width=\paperwidth-1in]
-          at ([yshift=0in]current page.south west) {
-        \begin{minipage}[t][\dimexpr1in\relax][b]{\linewidth}
-            \Huge
-            \spaceskip=1.5\fontdimen2\font plus 1\fontdimen3\font minus 0.5\fontdimen4\font
-            \begin{greek}
-                \input{content.txt}
-            \end{greek}
-        \end{minipage}
-    };
+    \node[anchor=center,inner sep=0.75in,text width=\paperwidth-2in]
+      at ([yshift=1.125in]current page.south) {
+    \begin{minipage}[c][2in][c]{\linewidth}
+        %\spaceskip=1.5\fontdimen2\font plus 1\fontdimen3\font minus 0.5\fontdimen4\font
+        %\renewcommand{\baselinestretch}{1.4}
+        %\fontsize{36}{43.2}\selectfont
+        \renewcommand{\baselinestretch}{1.4}
+        \Huge
+        %\fontsize{36}{43.2}\selectfont
+        %\fontsize{48}{57.6}\selectfont
+        \spaceskip=1.5\fontdimen2\font plus 1\fontdimen3\font minus 0.5\fontdimen4\font
+        \autofitgreekfile{content.txt}
+    \end{minipage}
+};
 \end{tikzpicture}
 
 \end{document}
