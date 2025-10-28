@@ -113,8 +113,9 @@
   dependencies:
     about.md
     writing.md
-    characters/$CHARACTER/about.json
     books/$LEVEL/themes.md
+    characters/$CHARACTER/about.json
+    locations/$LOCATION/about.json
   variables:
     LEVEL:
       ls books
@@ -122,6 +123,100 @@
       # this command is like `ls books/$LEVEL` but it will only output directories;
       # this means that it will not find the `themes.md` file in `books/$LEVEL`;
       # the simpler ls command results in errors from treating that file like a directory
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+
+########################################
+# artwork
+########################################
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json":
+  description:
+    You are describing the artwork for a single page of a book.
+    You are on page with "frame_id"=$FRAME_ID, whose content is
+    <content>
+    $(jq -r "select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.jsonl)
+    </content>
+    The artwork should help young children learning Koine Greek how to understand the text.
+
+    The full contents of the book are defined in the file "books/$LEVEL/$BOOK/content.jsonl" and the art descriptions of the other pages are defined in "books/$LEVEL/$BOOK/page_*/art.json".
+    You should use these files to ensure that your art descriptions flow well from one page to the next and maintain consistency,
+    but your description of this page should be based only on the content of this page and not the other files.
+    Your description of this page should include details from previous pages whenever those pages have the same setting or characters to ensure consistency.
+  schema_file: art.json-schema
+  dependencies:
+    - about.md
+    - art.md
+    - characters/$CHARACTER/about.json
+    - books/$LEVEL/$BOOK/content.jsonl
+    - locations/$LOCATION/about.json
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+    CHARACTER:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
+    LOCATION:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .location" books/$LEVEL/$BOOK/content.jsonl
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png":
+  description:
+    The art for a single page of a book.
+    The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json" describes WHAT to draw,
+    and the file "art.md" describes stylistically HOW to draw it.
+    All characters should be drawn according to the instructions in the "characters/*/artist_instructions.md" files in order to match the appearance of the attached png character sheets.
+    Do not draw any text.
+  image_quality: low
+  image_orientation: landscape
+  dependencies:
+    - art.md
+    - characters/$CHARACTER/about.json
+    - characters/$CHARACTER/character_sheet.png
+      #- books/$LEVEL/$BOOK/content.jsonl
+    - locations/$LOCATION/about.json
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+    CHARACTER:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
+    LOCATION:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .location" books/$LEVEL/$BOOK/content.jsonl
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf":
+  cmd: |
+    cp page_template.tex books/$LEVEL/$BOOK/frames/$FRAME_ID/page.tex
+    cd books/$LEVEL/$BOOK/frames/$FRAME_ID
+    jq -r "select(.frame_id == \"$FRAME_ID\") | .text_koine" ../../content.jsonl > content.txt
+    lualatex page.tex && lualatex page.tex
+  dependencies:
+    page_template.tex
+    books/$LEVEL/$BOOK/content.jsonl
+    books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+
+"books/$LEVEL/$BOOK/pages.pdf":
+  cmd: |
+    ordered_FRAME_IDs=$(jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl)
+    pdfunite $(printf "books/$LEVEL/$BOOK/frames/%s/page.pdf " $ordered_FRAME_IDs) books/$LEVEL/$BOOK/pages.pdf
+  dependencies:
+    - books/$LEVEL/$BOOK/content.jsonl
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
 
 "books/$LEVEL/$BOOK/description.json":
@@ -149,55 +244,9 @@
       # the simpler ls command results in errors from treating that file like a directory
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json":
-  description:
-    You are describing the artwork for a single page of a book.
-    You are on page with "frame_id"=$FRAME_ID, whose content is
-    <content>
-    $(jq -r "select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.jsonl)
-    </content>
-    The artwork should help young children learning Koine Greek how to understand the text.
-
-    The full contents of the book are defined in the file "books/$LEVEL/$BOOK/content.jsonl" and the art descriptions of the other pages are defined in "books/$LEVEL/$BOOK/page_*/art.json".
-    You should use these files to ensure that your art descriptions flow well from one page to the next and maintain consistency,
-    but your description of this page should be based only on the content of this page and not the other files.
-    Your description of this page should include details from previous pages whenever those pages have the same setting or characters to ensure consistency.
-  schema_file: art.json-schema
-  dependencies:
-    - about.md
-    - art.md
-    - characters/$CHARACTER/about.json
-    - books/$LEVEL/$BOOK/content.jsonl
-  variables:
-    LEVEL:
-      ls books
-    BOOK:
-      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-    CHARACTER:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
-    FRAME_ID:
-      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
-
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png":
-  description:
-    The art for a single page of a book.
-    The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json" describes WHAT to draw,
-    and the file "art.md" describes stylistically HOW to draw it.
-    All characters should be drawn according to the instructions in the "characters/*/artist_instructions.md" files in order to match the appearance of the attached png character sheets.
-  image_quality: medium
-  image_orientation: landscape
-  dependencies:
-    - art.md
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json
-    - characters/$CHARACTER/artist_instructions.md
-    - characters/$CHARACTER/character_sheet.png
-  variables:
-    LEVEL:
-      ls books
-    BOOK:
-      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-    FRAME_ID:
-      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+################################################################################
+# video
+################################################################################
 
       #"books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png":
       #cmd: |
@@ -215,30 +264,3 @@
       #PAGE:
       #seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
 
-"books/$LEVEL/$BOOK/page_$PAGE/page.pdf":
-  cmd: |
-    cp page_template.tex books/$LEVEL/$BOOK/page_$PAGE/page.tex
-    cd books/$LEVEL/$BOOK/page_$PAGE/
-    head -n $PAGE ../content.jsonl | tail -n 1 | jq -r .text_koine > content.txt
-    pdflatex page.tex && pdflatex page.tex
-  dependencies:
-    page_template.tex
-    books/$LEVEL/$BOOK/page_$PAGE/art.png
-  variables:
-    LEVEL:
-      ls books
-    BOOK:
-      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-    PAGE:
-      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
-
-"books/$LEVEL/$BOOK/pages.pdf":
-  cmd:
-    pdfunite books/$LEVEL/$BOOK/page_*/page.pdf books/$LEVEL/$BOOK/pages.pdf
-  dependencies:
-    books/$LEVEL/$BOOK/page_$PAGE/page.pdf
-  variables:
-    LEVEL:
-      ls books
-    BOOK:
-      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
