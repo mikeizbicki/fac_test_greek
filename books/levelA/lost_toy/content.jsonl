@@ -9,6 +9,6 @@
 {"text_koine":"ζητεῖ ὑπὸ τῆς κλίνης. οὐχ εὑρίσκει.","text_english":"He seeks under the bed.","frame_id":"under_bed","characters":["Dinosaur"],"location":"family_house"}
 {"text_koine":"ζητεῖ ὑπὸ τοῦ ἱματίου. οὐχ εὑρίσκει.","text_english":"He seeks under the garment. He does not find.","frame_id":"under_cloth","characters":["Dinosaur"],"location":"family_house"}
 {"text_koine":"ζητεῖ ὑπὸ τῆς πάνδα. οὐχ εὑρίσκει.","text_english":"The Dinosaur seeks.","frame_id":"dinosaur_searching","characters":["Panda", "Dinosaur"],"location":"family_house"}
-{"text_koine":"ζητεῖ ὑπὸ τῆς καθέδρας. εὑρίσκει τὴν σφαίραν καὶ λέγει· «εὕρηκα!»","text_english":"He seeks under the chair. He finds the ball!","frame_id":"under_chair","characters":["Dinosaur"],"location":"family_house"}
+{"text_koine":"ζητεῖ ὑπὸ τῆς καθέδρας. εὑρίσκει τὴν σφαίραν!","text_english":"He seeks under the chair. He finds the ball!","frame_id":"under_chair","characters":["Dinosaur"],"location":"family_house"}
 {"text_koine":"ὁ Δεινόσαυρος δίδωσιν τὴν σφαίραν τῇ Πάνδᾳ.","text_english":"The Dinosaur gives the ball to Panda.","frame_id":"dinosaur_gives_ball","characters":["Dinosaur","Panda"],"location":"family_house"}
 {"text_koine":"ἡ Πάνδα λέγει «εὐχαριστῶ!» ἡ Πάνδα πάλιν χαίρει.","text_english":"Panda says, \"Thank you!\" Panda is happy again.","frame_id":"panda_thanks_and_happy","characters":["Panda"],"location":"family_house"}

@@ -16,10 +16,8 @@ function autofitgreek(filename)
     local text = file:read("*all")
     file:close()
 
-    -- Remove any trailing whitespace/newlines
     text = text:gsub("%s+$", "")
 
-    -- Split into words
     local words = {}
     for word in text:gmatch("%S+") do
         table.insert(words, word)
@@ -31,26 +29,68 @@ function autofitgreek(filename)
         return
     end
 
-    -- Find punctuation marks (. ; : · , ! ?)
-    local punctuation_positions = {}
+    -- Find quote boundaries to avoid splitting within quotes
+    local quote_ranges = {}
+    local in_quote = false
+    local quote_start = nil
+    
     for i = 1, total_words do
-        if words[i]:match("[.;:·,!?]$") then
-            table.insert(punctuation_positions, i)
+        if words[i]:match("«") then
+            in_quote = true
+            quote_start = i
+        elseif words[i]:match("»") then
+            if in_quote and quote_start then
+                table.insert(quote_ranges, {start = quote_start, finish = i})
+            end
+            in_quote = false
+            quote_start = nil
         end
     end
 
-    if #punctuation_positions == 0 then
-        -- No punctuation found - keep on one line
+    -- Collect potential split points, prioritizing quotes
+    local quote_splits = {}
+    local other_splits = {}
+    
+    for i = 1, total_words - 1 do
+        -- Check if this position is within any quote
+        local within_quote = false
+        for _, range in ipairs(quote_ranges) do
+            if i >= range.start and i < range.finish then
+                within_quote = true
+                break
+            end
+        end
+        
+        if not within_quote then
+            -- Check for quote boundaries
+            if words[i]:match("«") or words[i+1]:match("«") then
+                table.insert(quote_splits, i)
+            elseif words[i]:match("»") then
+                table.insert(quote_splits, i)
+            -- Check for sentence endings
+            elseif words[i]:match("[.!?]$") then
+                table.insert(other_splits, i)
+            -- Check for other punctuation
+            elseif words[i]:match("[;:·,]$") then
+                table.insert(other_splits, i)
+            end
+        end
+    end
+
+    -- Use quote splits if available, otherwise use other splits
+    local split_points = #quote_splits > 0 and quote_splits or other_splits
+
+    if #split_points == 0 then
         tex.print("\\centering\\Huge\\begin{greek}" .. text .. "\\end{greek}")
         return
     end
 
-    -- Find punctuation position closest to middle
+    -- Find split point closest to middle
     local middle = total_words / 2
-    local best_pos = punctuation_positions[1]
-    local best_distance = math.abs(punctuation_positions[1] - middle)
+    local best_pos = split_points[1]
+    local best_distance = math.abs(split_points[1] - middle)
 
-    for _, pos in ipairs(punctuation_positions) do
+    for _, pos in ipairs(split_points) do
         local distance = math.abs(pos - middle)
         if distance < best_distance then
             best_distance = distance
@@ -58,7 +98,6 @@ function autofitgreek(filename)
         end
     end
 
-    -- Split at best position
     local first_half = {}
     local second_half = {}
 

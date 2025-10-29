@@ -220,18 +220,20 @@
 
 "books/$LEVEL/$BOOK/description.json":
   description:
-    The title of the book.
+    A structured summary of the book contents used for generating the front/back cover of the book.
   schema: "
     title_koine: the title in koine,
     title_english: a literal translation of the koine,
-    plot: 1 1-3 sentence plot description in english,
-    art_instructions: 1-3 sentence instructions for an artist to render a cover image,
+    back_cover: a 1-3 English sentence description of the plot,
+    key_vocab: a list of 2-10 key vocabulary words used in the story,
+    art_instructions: a 2-5 sentence description of what should appear on the cover of this story (do not include style information as that will be added later),
     art_characters: a list of the character's names that appear in the art
     "
   dependencies:
     about.md
     writing.md
     characters/$CHARACTER/about.json
+    locations/$LOCATION/about.json
     books/$LEVEL/$BOOK/content.jsonl
     books/$LEVEL/themes.md
   variables:
@@ -242,6 +244,10 @@
       # this means that it will not find the `themes.md` file in `books/$LEVEL`;
       # the simpler ls command results in errors from treating that file like a directory
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    CHARACTER:
+      jq -r ".characters[]" books/$LEVEL/$BOOK/content.jsonl | sort | uniq
+    LOCATION:
+      jq -r ".location" books/$LEVEL/$BOOK/content.jsonl | sort | uniq
 
 ################################################################################
 # video
