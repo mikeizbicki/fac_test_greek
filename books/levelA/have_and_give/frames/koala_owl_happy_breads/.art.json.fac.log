@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-29T19:03:15.753362+00:00", "path": "books/levelA/have_and_give/frames/koala_owl_happy_breads/art.json", "build_id": 200610019694880146288201961722766875623, "cost": 0.0, "usage": {"model_details": {"groq/llama-3.3-70b-versatile": {"text/in": 232, "text/out": 3611, "cost": 0.0}}, "tools_used": {}}}

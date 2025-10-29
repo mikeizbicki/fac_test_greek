@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-29T18:58:25.151643+00:00", "path": "books/levelA/have_and_give/frames/dinosaur_glaux_no_flower/art.json", "build_id": 200610019694880146288201961722766875623, "cost": 0.0, "usage": {"model_details": {"groq/llama-3.3-70b-versatile": {"text/in": 224, "text/out": 3105, "cost": 0.0}}, "tools_used": {}}}

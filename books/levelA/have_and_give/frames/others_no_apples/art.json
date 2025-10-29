@@ -1,0 +1,10 @@
+{
+  "art_instructions": "Draw a scene of the panda, koala, and owl standing together in the family house, looking sad because they do not have apples. The panda should be on the left, the koala in the middle, and the owl on the right. The panda should have its paws clasped together and a disappointed expression, the koala should have its head hung low and its ears droopy, and the owl should have its eyes cast downward and its wings folded. In the background, include some of the natural wood furniture and soft green accents of the family house, with a few friendly woodland creatures like squirrels or birds peeking out from behind the furniture. The lighting should be warm and natural, with a gentle glow on the characters' faces. The style should be Korean aegyo cute, with chibi proportions, rounded silhouettes, and minimal detail. Use a flat pastel palette with a single saturated accent color to draw attention to the characters' emotions. The camera angle should be low, as if the viewer is a child looking up at the characters, and the shot type should be a medium shot to emphasize the characters' facial expressions and body language.",
+  "art_characters": [
+    "Panda",
+    "Koala",
+    "Owl"
+  ],
+  "shot_type": "medium_shot",
+  "camera_angle": "low_angle"
+}

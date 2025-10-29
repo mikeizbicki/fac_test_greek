@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-29T18:57:04.667741+00:00", "path": "books/levelA/have_and_give/frames/panda_koala_have_flowers/art.json", "build_id": 227472816539155263956066303016624056472, "cost": 0.0, "usage": {"model_details": {"groq/llama-3.3-70b-versatile": {"text/in": 274, "text/out": 4027, "cost": 0.0}}, "tools_used": {}}}

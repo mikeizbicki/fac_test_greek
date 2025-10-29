@@ -1,0 +1,10 @@
+{
+  "art_instructions": "Draw the Panda, Koala, and Owl standing together in the family house, each holding an apple and smiling. The Panda should be in the center, with the Koala to the left and the Owl to the right. The Koala should be looking at the apple in her hand with a happy expression, while the Owl should be gazing upwards with a joyful look on her face. The Panda should be glancing at the viewer with a gentle smile. The apples should be brightly colored and prominent in the scene. The background should feature the warm, cozy interior of the family house, with wooden furniture and soft green accents. The lighting should be warm and natural, with a soft glow on the characters' faces. The overall mood should be one of happiness and contentment.",
+  "art_characters": [
+    "Panda",
+    "Koala",
+    "Owl"
+  ],
+  "shot_type": "medium_shot",
+  "camera_angle": "low_angle"
+}

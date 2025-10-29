@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-29T19:05:39.524376+00:00", "path": "books/levelA/have_and_give/frames/dinosaur_gives_apples/art.json", "build_id": 200610019694880146288201961722766875623, "cost": 0.0, "usage": {"model_details": {"groq/llama-3.3-70b-versatile": {"text/in": 263, "text/out": 4397, "cost": 0.0}}, "tools_used": {}}}

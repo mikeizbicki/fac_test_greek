@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-29T19:00:42.050665+00:00", "path": "books/levelA/have_and_give/frames/panda_dinosaur_have_breads/art.json", "build_id": 200610019694880146288201961722766875623, "cost": 0.0, "usage": {"model_details": {"groq/llama-3.3-70b-versatile": {"text/in": 241, "text/out": 3512, "cost": 0.0}}, "tools_used": {}}}

@@ -172,10 +172,11 @@
   image_orientation: landscape
   dependencies:
     - art.md
-    - characters/$CHARACTER/about.json
     - characters/$CHARACTER/character_sheet.png
     - books/$LEVEL/$BOOK/content.jsonl
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json
     - locations/$LOCATION/about.json
+    - characters/$CHARACTER/about.json
   variables:
     LEVEL:
       ls books
@@ -184,7 +185,7 @@
     FRAME_ID:
       jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
     CHARACTER:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".art_characters[]" books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json
     LOCATION:
       jq -r "select(.frame_id == \"$FRAME_ID\") | .location" books/$LEVEL/$BOOK/content.jsonl
 

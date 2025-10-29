@@ -1,0 +1,11 @@
+{
+  "art_instructions": "Draw the scene from a low angle, as if a 4-year-old is viewing it. The family house's warm brown walls and soft green accents should be visible in the background. The panda, dinosaur, koala, and owl are the main characters in this scene. The panda and dinosaur are in the center, each holding a bread. The panda is giving a bread to the koala, who is standing to the panda's right with a gentle smile. The dinosaur is giving a bread to the owl, who is standing to the dinosaur's left, looking delighted. The characters should be drawn in a Korean aegyo 'cute' style with chibi proportions, rounded silhouettes, and minimal detail. Use flat pastel palettes with a single saturated accent color to draw attention to the bread. The lighting should be diffuse and top-front, with no harsh contrast or strong shadows. Fill the entire picture with content, leaving no empty spaces.",
+  "art_characters": [
+    "Panda",
+    "Dinosaur",
+    "Koala",
+    "Owl"
+  ],
+  "shot_type": "wide_shot",
+  "camera_angle": "low_angle"
+}

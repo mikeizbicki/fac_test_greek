@@ -1,9 +1,9 @@
 {
-  "art_instructions": "Draw a medium shot from eye level showing Dinosaur arriving to meet Panda inside the family house. Dinosaur should be cheerful and upright, walking forward with a big friendly smile, his short tail slightly lifted, and his three stubby fingers waving gently in greeting. Panda is standing in front of him, looking up with a welcoming expression, ears forward and small panda paws held gently together. Both characters should be drawn in chibi style with rounded, soft outlines, smooth 2-4px line weight, and pastel colors. Dinosaur's scales are smooth pea-green with a pale mint belly. Panda has classic black patches around his eyes and ears, with soft white face and belly. Set them within the cozy woodland cottage interior: natural wood walls and floor, low wooden furniture, soft green cushions, cream curtains. Include simple shapes like a child-sized table and chairs arranged in friendly circles. Use warm natural lighting and maintain a centered, balanced composition with generous negative space.",
+  "art_instructions": "Draw a warm and inviting scene of the family house, focusing on the area where the Dinosaur enters. The Dinosaur, with his child-sized stature, round snout, big expressive eyes, and short tail, should be centered in the scene, taking up about half of the frame. He should be standing upright with a friendly posture, smiling wide as he greets Panda. His smooth pea-green scales should be prominently featured, with a pale mint belly. The background should include low wooden furniture in warm brown tones, with soft green cushions and cream-colored curtains. Panda should be visible in the background, perhaps sitting on a low chair or playing with a toy, looking up at the Dinosaur with a welcoming expression. The scene should be well-lit with warm natural light, and the atmosphere should be calm and sunny. The Dinosaur's small red backpack and child-safe magnifying glass can be visible, but not the main focus of the scene. Fill the full picture with content, ensuring that every element is drawn in a Korean aegyo 'cute' style with chibi proportions and minimal detail.",
   "art_characters": [
     "Dinosaur",
     "Panda"
   ],
   "shot_type": "medium_shot",
-  "camera_angle": "eye_level"
+  "camera_angle": "low_angle"
 }

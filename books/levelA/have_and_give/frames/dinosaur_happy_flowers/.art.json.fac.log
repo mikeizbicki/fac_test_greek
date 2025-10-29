@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-29T20:30:52.812175+00:00", "path": "books/levelA/have_and_give/frames/dinosaur_happy_flowers/art.json", "build_id": 177294375655136959093456771201187753342, "cost": 0.0, "usage": {"model_details": {"groq/llama-3.3-70b-versatile": {"text/in": 219, "text/out": 3084, "cost": 0.0}}, "tools_used": {}}}

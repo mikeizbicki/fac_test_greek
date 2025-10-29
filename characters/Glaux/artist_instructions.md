@@ -1,0 +1,3 @@
+# Glaux Artist Instructions
+
+Glaux is a gentle owl with soft brown feathers and striking amber eyes that are always wide and expressive. She has a rounded facial disc with a small hooked beak and delicate black markings around her eyes that resemble natural eye liner. Her large, fluffy wings are a slightly darker shade of brown than her body, with subtle cream-colored flecks scattered throughout. Glaux's talons are pale yellow and should always be drawn with soft, curved edges to maintain her gentle appearance.
