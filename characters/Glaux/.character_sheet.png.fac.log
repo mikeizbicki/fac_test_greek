@@ -1,1 +1,0 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-10-29T05:47:27.834148+00:00", "path": "characters/Glaux/character_sheet.png", "build_id": 257778589769110363348185165774092915500, "cost": 0.28219500000000003, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 6775, "image/out": 6208, "cost": 0.28219500000000003}}, "tools_used": {}}}

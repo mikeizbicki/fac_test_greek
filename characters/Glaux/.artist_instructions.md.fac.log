@@ -1,1 +1,0 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-10-29T05:45:56.247407+00:00", "path": "characters/Glaux/artist_instructions.md", "build_id": 257778589769110363348185165774092915500, "cost": 0.00297264, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 104, "text/out": 7404, "cost": 0.00297264}}, "tools_used": {}}}
