@@ -23,9 +23,16 @@
       }
     },
     "location": {
-      "type": "string",
-      "pattern": "^[a-zA-Z0-9_]+$",
-      "description": "The location where the scene takes place.  Must exactly match the name of one of the provided locations."
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]+$"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "The location where the scene takes place.  Must exactly match the name of one of the provided locations.  A null value indicates that the scene does not occur at any particular location and the artist is free to improvise a location."
     }
   },
   "required": [

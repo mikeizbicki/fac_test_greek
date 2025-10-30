@@ -1,0 +1,22 @@
+{
+  "name": "school",
+  "description": "A cozy woodland schoolhouse where young animal friends learn together.",
+  "visual_style": {
+    "color_palette": [
+      "Warm beige (#F5F5DC) for stone pillars and walls",
+      "Soft terracotta (#CC7357) for roof tiles and accents",
+      "Muted olive green (#808000) for surrounding vegetation"
+    ],
+    "architectural_style": "A small ancient Greek-inspired school with stone pillars and a low, sloped roof. The building features a covered porch supported by classical columns, creating a welcoming entrance. The structure sits on a raised foundation with wide, shallow steps leading to the entrance.",
+    "flora_fauna": "Surrounded by olive trees and Mediterranean shrubs. Small lizards bask on warm stones and butterflies flutter among wildflowers. The area features small patches of thyme and rosemary.",
+    "weather": "sunny",
+    "lighting": "bright sunlight",
+    "furniture": "Tiny stone desks and low wooden stools arranged in a semicircle. A small teacher's podium made of stone at the front with a papyrus scroll display. Shelves carved into the stone walls hold clay tablets and scrolls. A woven rug with geometric patterns covers the floor center.",
+    "materials": [
+      "Limestone walls with carved details",
+      "Stone pillars with simple Doric capitals",
+      "Terracotta roof tiles",
+      "Wooden doors with bronze accents"
+    ]
+  }
+}

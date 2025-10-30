@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-30T04:14:04.807458+00:00", "path": "books/levelA/day_with_owl_and_koala/frames/owl_draws_picture/art.json", "build_id": 20777543331177297658533966360657196696, "cost": 0.006224, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 196, "text/out": 5930, "cost": 0.006224}}, "tools_used": {}}}

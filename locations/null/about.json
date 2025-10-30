@@ -1,0 +1,21 @@
+{
+  "name": "school",
+  "description": "A cozy woodland classroom where small animals gather to learn and play.",
+  "visual_style": {
+    "color_palette": [
+      "Soft sage green (#8FBC8F) for the walls, evoking a leafy forest classroom.",
+      "Warm honey yellow (#F5DEB3) for desks and shelves, bringing a sunny feel.",
+      "Muted terracotta (#CC7357) for accents like window frames and chair legs."
+    ],
+    "architectural_style": "The school is a small, charming one-room building nestled among trees. It features large windows with wooden frames, a sloped roof covered in moss and ivy, and a welcoming front door painted in cheerful yellow. The structure resembles a treehouse with added whimsical elements like tiny animal-sized lockers and a bell tower.",
+    "flora_fauna": "Surrounding the school are tall oak and maple trees, small flowering bushes like hydrangeas and violets, and a birdhouse on a nearby tree. Squirrels scurry around, and butterflies flutter near the flower beds.",
+    "weather": "sunlit morning",
+    "lighting": "soft natural light",
+    "furniture": "The classroom has small wooden desks and chairs arranged in a semi-circle, each with tiny cubbies underneath. A low chalkboard sits at the front with colorful chalk and a small pointer. There’s a reading nook with cushions made of fabric scraps in cheerful patches, and a small rug depicting the Greek alphabet. Shelves along the walls are filled with scrolls, picture books, and small clay tablets.",
+    "materials": [
+      "The school is built with rough-hewn wooden planks and a stone foundation, giving it a sturdy yet friendly feel.",
+      "The roof is made of weathered red tiles with patches of moss.",
+      "Doors and window frames are painted in bright honey yellow, standing out warmly against the green surroundings."
+    ]
+  }
+}

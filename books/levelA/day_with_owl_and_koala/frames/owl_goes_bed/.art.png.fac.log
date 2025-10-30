@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-30T04:19:10.038190+00:00", "path": "books/levelA/day_with_owl_and_koala/frames/owl_goes_bed/art.png", "build_id": 20777543331177297658533966360657196696, "cost": 0.090925, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 4995, "image/in": 323, "image/out": 1568, "cost": 0.090925}}, "tools_used": {}}}
