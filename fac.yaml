@@ -156,8 +156,8 @@
     Your description of this page should include details from previous pages whenever those pages have the same setting or characters to ensure consistency.
   schema_file: art.json-schema
   dependencies:
-    - about.md
-    - art.md
+    #- about.md
+    #- art.md
     - characters/$CHARACTER/about.json
     - books/$LEVEL/$BOOK/content.jsonl
     - locations/$LOCATION/about.json
