@@ -1,0 +1,21 @@
+{
+  "name": "family_house_exterior",
+  "description": "The cozy outdoor home of a gentle animal family where many everyday adventures begin.",
+  "visual_style": {
+    "color_palette": [
+      "Soft sage green (#8A9A5B) for the house shutters and garden plants",
+      "Warm terracotta (#CC7357) for the roof tiles and flower pots",
+      "Creamy white (#F5F5DC) for the main house walls"
+    ],
+    "architectural_style": "A charming, small-scale cottage with a pitched roof, wide eaves, and shuttered windows. The design is simple and welcoming, with a small front porch and stone foundation. All structures are proportioned for small animal inhabitants with childlike perspectives in mind.",
+    "flora_fauna": "A well-tended garden with sunflowers, lavender, and low berry bushes surrounds the house. Robins and butterflies are commonly seen, while small woodland creatures like bunnies and squirrels visit from nearby.",
+    "weather": "sunny",
+    "lighting": "bright sunlight",
+    "materials": [
+      "White-washed stone forms the base of the house",
+      "Natural wood siding on the upper walls",
+      "Terracotta roof tiles",
+      "Small cobblestones create the garden pathway"
+    ]
+  }
+}

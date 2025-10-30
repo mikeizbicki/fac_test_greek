@@ -1,0 +1,19 @@
+{
+  "name": "school_interior",
+  "description": "A cozy Greek school classroom where animal children gather to learn and play.",
+  "visual_style": {
+    "color_palette": [
+      "Soft blue (#ADD8E6) for walls to create a calming learning environment",
+      "Warm yellow (#FFD700) for accents and furniture to promote energy and focus",
+      "Rich green (#228B22) for decorative elements and plants to symbolize growth and knowledge"
+    ],
+    "architectural_style": "Simple, clean lines with low ceilings typical of traditional Greek village schoolhouses. White-washed walls with exposed wooden beams create an authentic Mediterranean feel. Large windows allow natural light to flood the space.",
+    "lighting": "bright natural",
+    "furniture": "Low wooden desks and chairs in honey-colored oak are arranged in small groups to encourage collaboration. A teacher's podium sits at the front, decorated with blue and white pottery. Colorful woven rugs in geometric patterns cover stone floors, defining different activity areas.",
+    "materials": [
+      "Whitewashed stucco walls with wooden beam accents",
+      "Honey-colored oak furniture with blue and white painted details",
+      "Stone floors with colorful woven rugs"
+    ]
+  }
+}

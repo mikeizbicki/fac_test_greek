@@ -97,6 +97,18 @@
     LOCATION:
       ls locations
 
+"locations/$LOCATION/reference.png":
+  description:
+    A reference image for the location described in the file "locations/$LOCATION/about.json".
+    The image should have no characters, and display the location empty.
+  image_quality: medium
+  dependencies:
+    art.md
+    locations/$LOCATION/about.json
+  variables:
+    LOCATION:
+      ls locations
+
 ################################################################################
 # books/
 ################################################################################
@@ -176,6 +188,7 @@
     - books/$LEVEL/$BOOK/content.jsonl
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json
     - locations/$LOCATION/about.json
+    - locations/$LOCATION/reference.png
     - characters/$CHARACTER/about.json
   variables:
     LEVEL:

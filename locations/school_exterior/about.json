@@ -1,0 +1,21 @@
+{
+  "name": "school_exterior",
+  "description": "The outdoor area of a small Greek village school with a playground and garden.",
+  "visual_style": {
+    "color_palette": [
+      "Mediterranean Blue (#007BA7) for painted wood accents and trim",
+      "Sunset Orange (#FF4500) for roof tiles and decorative elements",
+      "Olive Green (#808000) for garden plants and climbing vines"
+    ],
+    "architectural_style": "Simple traditional Greek village school building with white-washed walls and wooden accents. Features a covered porch area with wooden columns and colorful painted details. Small windows with wooden shutters and a gently sloped roof with terracotta tiles.",
+    "flora_fauna": "Olive trees, bougainvillea climbing on trellises, and small flowering herbs like rosemary and thyme dot the garden area. Small birds flutter around the eaves, and butterflies visit the colorful flowers. A small stone bird bath sits near the entrance.",
+    "weather": "sunny",
+    "lighting": "bright sunlight",
+    "materials": [
+      "White-washed stucco walls with painted blue wooden trim",
+      "Terracotta roof tiles in burnt orange and red tones",
+      "Natural stone foundation and pathway stones",
+      "Wooden porch columns and playground equipment"
+    ]
+  }
+}

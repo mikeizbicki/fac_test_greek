@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-30T05:00:56.420662+00:00", "path": "locations/school_exterior/about.json", "build_id": 332658003415189955627655234244211695919, "cost": 0.00091343, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 295, "text/out": 1216, "cost": 0.00091343}}, "tools_used": {}}}

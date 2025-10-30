@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-30T05:03:35.813996+00:00", "path": "locations/school_exterior/reference.png", "build_id": 332658003415189955627655234244211695919, "cost": 0.066225, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 701, "image/out": 1568, "cost": 0.066225}}, "tools_used": {}}}
