@@ -22,23 +22,20 @@
         "description": "Must exactly match the name of a character."
       }
     },
-    "location": {
-      "oneOf": [
-        {
-          "type": "string",
-          "pattern": "^[a-zA-Z0-9_]+$"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "description": "The location where the scene takes place.  Must exactly match the name of one of the provided locations.  A null value indicates that the scene does not occur at any particular location and the artist is free to improvise a location."
+    "locations": {
+      "type": "array",
+      "description": "The list of locations that the scene takes place in.  Normally only a single location will be listed.  Multiple locations will be listed for 'transition scenes' between those locations.  The array will be empty if there are no relevant locations from the 'locations/' folder and the artist should make up a new location.",
+      "items": {
+        "type": "string",
+        "description": "Must exactly match the name of a location."
+      }
     }
   },
   "required": [
     "text_koine",
     "text_english",
     "page_id",
-    "characters"
+    "characters",
+    "locations"
   ]
 }

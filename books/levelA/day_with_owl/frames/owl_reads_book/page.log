@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/Debian)  (format=lualatex 2024.11.11)  29 OCT 2025 22:54
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/Debian)  (format=lualatex 2024.11.11)  30 OCT 2025 14:10
  restricted system commands enabled.
 **page.tex
 (./page.tex
@@ -591,22 +591,22 @@ braces):
 >  {greek/localnumeral}  =>  {greeknumerals}
 >  {greek/Localnumeral}  =>  {Greeknumerals}.
 Module polyglossia Info: Language data for greek
-(polyglossia)            patterns	hyph-el-polyton.pat.txt
+(polyglossia)            loader	loadhyph-el-polyton.tex
+(polyglossia)            righthyphenmin	1
 (polyglossia)            lefthyphenmin	1
 (polyglossia)            hyphenation	
-(polyglossia)            righthyphenmin	1
-(polyglossia)            loader	loadhyph-el-polyton.tex
+(polyglossia)            patterns	hyph-el-polyton.pat.txt
 (polyglossia)            synonyms	polygreek on input line 14
 Module polyglossia Info: Language greek was not yet loaded; created with id 2 on
  input line 14
 
 (/usr/share/texlive/texmf-dist/tex/latex/polyglossia/xgreek-fixes.def)
 Module polyglossia Info: Language data for monogreek
-(polyglossia)            patterns	hyph-el-monoton.pat.txt
+(polyglossia)            loader	loadhyph-el-monoton.tex
+(polyglossia)            righthyphenmin	1
 (polyglossia)            lefthyphenmin	1
 (polyglossia)            hyphenation	
-(polyglossia)            righthyphenmin	1
-(polyglossia)            loader	loadhyph-el-monoton.tex
+(polyglossia)            patterns	hyph-el-monoton.pat.txt
 (polyglossia)            synonyms	 on input line 97
 Module polyglossia Info: Language monogreek was not yet loaded; created with id 
 3 on input line 97
@@ -614,11 +614,11 @@ Package polyglossia Info: Option: Monotonic Greek.
 \@attic@num=\count286
 )
 Module polyglossia Info: Language data for ancientgreek
-(polyglossia)            patterns	hyph-grc.pat.txt
+(polyglossia)            loader	loadhyph-grc.tex
+(polyglossia)            righthyphenmin	1
 (polyglossia)            lefthyphenmin	1
 (polyglossia)            hyphenation	
-(polyglossia)            righthyphenmin	1
-(polyglossia)            loader	loadhyph-grc.tex
+(polyglossia)            patterns	hyph-grc.pat.txt
 (polyglossia)            synonyms	 on input line 128
 Module polyglossia Info: Language ancientgreek was not yet loaded; created with 
 id 4 on input line 128

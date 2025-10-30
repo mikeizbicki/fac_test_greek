@@ -150,6 +150,9 @@
     </content>
     The artwork should help young children learning Koine Greek how to understand the text.
 
+    The background scene should be drawn according to the "locations/*/about.json" file and attached image, but you do not need to keep the same perspective.
+    (If multiple locations are provided, you should draw a transition scene between those two locations).
+
     The full contents of the book are defined in the file "books/$LEVEL/$BOOK/content.jsonl" and the art descriptions of the other pages are defined in "books/$LEVEL/$BOOK/page_*/art.json".
     You should use these files to ensure that your art descriptions flow well from one page to the next and maintain consistency,
     but your description of this page should be based only on the content of this page and not the other files.
@@ -171,7 +174,7 @@
     CHARACTER:
       jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
     LOCATION:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .location // \"\"" books/$LEVEL/$BOOK/content.jsonl
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.jsonl
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png":
   description:
@@ -179,7 +182,8 @@
     The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json" describes WHAT to draw,
     and the file "art.md" describes stylistically HOW to draw it.
     All characters should be drawn according to the instructions in the "characters/*/artist_instructions.md" files in order to match the appearance of the attached png character sheets.
-    The background scene should be drawn according to the "locations/$LOCATION/about.json" file and attached image, but you do not need to keep the same perspective.
+    The background scene should be drawn according to the "locations/*/about.json" file and attached image, but you do not need to keep the same perspective.
+    (If multiple locations are provided, you should draw a transition scene between those two locations).
     You should rotate/zoom the camera how it makes sense to capture the scene.
     Do not draw any text.
   image_quality: medium
@@ -202,7 +206,7 @@
     CHARACTER:
       jq -r ".art_characters[]" books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json
     LOCATION:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .location // \"\"" books/$LEVEL/$BOOK/content.jsonl
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.jsonl
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf":
   cmd: |
