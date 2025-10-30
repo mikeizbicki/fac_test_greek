@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-30T16:13:44.456836+00:00", "path": "locations/familyhouse_interior_owlbedroom/about.json", "build_id": 276520307328521514943424595177297833528, "cost": 0.001497, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 292, "text/out": 1059, "cost": 0.001497}}, "tools_used": {}}}

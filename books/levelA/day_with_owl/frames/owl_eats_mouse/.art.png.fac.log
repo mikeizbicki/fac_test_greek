@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-30T16:47:01.677177+00:00", "path": "books/levelA/day_with_owl/frames/owl_eats_mouse/art.png", "build_id": 44837303617676701166431737742073461045, "cost": 0.08348000000000001, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 2860, "image/in": 646, "image/out": 1568, "cost": 0.08348000000000001}}, "tools_used": {}}}

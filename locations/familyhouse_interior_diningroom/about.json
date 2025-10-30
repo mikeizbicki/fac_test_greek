@@ -1,0 +1,19 @@
+{
+  "name": "familyhouse_interior_diningroom",
+  "description": "A cozy dining room where the animal family gathers for meals and conversations.",
+  "visual_style": {
+    "color_palette": [
+      "Warm oak brown (#8B4513) for the wooden table and chairs, creating a welcoming centerpiece.",
+      "Soft cream (#FFFDD0) for the walls, reflecting gentle lamplight and keeping the space bright.",
+      "Muted sage green (#9DC183) for the curtains and placemats, adding a touch of nature inside."
+    ],
+    "architectural_style": "The dining room features simple, rounded archways leading to other rooms, with smooth wooden beams across the ceiling. Walls are painted with a subtle texture resembling soft clay, and the floor is made of polished wooden planks.",
+    "lighting": "soft warm lamplight",
+    "furniture": "A large round wooden table sits in the center with four mismatched wooden chairs, all in various shades of brown with cushions in cream and green. A small sideboard against one wall holds simple ceramic dishes and a warm lamp with a cloth shade.",
+    "materials": [
+      "Smooth polished wood for the table, chairs, and floor planks.",
+      "Soft clay-finish paint on the walls.",
+      "Cotton and linen fabrics for curtains and cushions."
+    ]
+  }
+}

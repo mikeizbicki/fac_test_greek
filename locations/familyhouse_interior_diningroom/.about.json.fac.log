@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-30T16:13:39.589616+00:00", "path": "locations/familyhouse_interior_diningroom/about.json", "build_id": 276520307328521514943424595177297833528, "cost": 0.0014965, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 293, "text/out": 1057, "cost": 0.0014965}}, "tools_used": {}}}

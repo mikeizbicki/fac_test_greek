@@ -1,0 +1,20 @@
+{
+  "name": "familyhouse_interior_bedroom",
+  "description": "A cozy, whimsical bedroom where the young owl character lives, filled with books, toys, and warm light.",
+  "visual_style": {
+    "color_palette": [
+      "Soft amber (#FFD580) for warm, sleepy lighting",
+      "Muted forest green (#6B8E23) for accents and bedding",
+      "Creamy white (#F5F5DC) for walls and ceiling",
+      "Rich brown (#8B4513) for wooden furniture"
+    ],
+    "architectural_style": "Charming, low-ceilinged room with sloped walls typical of a converted attic space. Exposed wooden beams run across the ceiling, and small, rounded windows let in soft natural light.",
+    "lighting": "warm lamplight",
+    "furniture": "A small wooden bed with forest green blankets sits against the far wall, surrounded by plush cushions. A tiny nightstand holds a glowing lantern and a stack of picture books. Soft rugs cover the wooden floor, and shelves lined with stuffed animals and trinkets run along one wall.",
+    "materials": [
+      "Exposed wooden beams and plank walls create a warm, rustic feel",
+      "Soft textiles like wool blankets and cotton curtains add comfort",
+      "Polished wood furniture with rounded edges for safety"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-30T16:46:06.280410+00:00", "path": "books/levelA/day_with_owl/frames/owl_eats_mouse/art.json", "build_id": 44837303617676701166431737742073461045, "cost": 0.003184, "usage": {"model_details": {"openrouter/qwen/qwen3-coder": {"text/in": 252, "text/out": 2806, "cost": 0.003184}}, "tools_used": {}}}
