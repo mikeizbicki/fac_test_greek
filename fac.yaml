@@ -171,7 +171,7 @@
     CHARACTER:
       jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
     LOCATION:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .location" books/$LEVEL/$BOOK/content.jsonl
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .location // \"\"" books/$LEVEL/$BOOK/content.jsonl
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png":
   description:
@@ -179,6 +179,8 @@
     The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json" describes WHAT to draw,
     and the file "art.md" describes stylistically HOW to draw it.
     All characters should be drawn according to the instructions in the "characters/*/artist_instructions.md" files in order to match the appearance of the attached png character sheets.
+    The background scene should be drawn according to the "locations/$LOCATION/about.json" file and attached image, but you do not need to keep the same perspective.
+    You should rotate/zoom the camera how it makes sense to capture the scene.
     Do not draw any text.
   image_quality: medium
   image_orientation: landscape
@@ -200,7 +202,7 @@
     CHARACTER:
       jq -r ".art_characters[]" books/$LEVEL/$BOOK/frames/$FRAME_ID/art.json
     LOCATION:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .location" books/$LEVEL/$BOOK/content.jsonl
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .location // \"\"" books/$LEVEL/$BOOK/content.jsonl
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf":
   cmd: |
