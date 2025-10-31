@@ -1,0 +1,3 @@
+# Glaux — Artist Instructions
+
+Glaux is a small, round-bodied owl with large, round amber eyes. Her feathers are speckled brown across her head, back, and wings, contrasted by a tidy cream belly and chest. Her wings are short and very soft, appearing proportionally smaller than her body. Keep her overall silhouette compact, with the amber eyes and cream belly as the most visually prominent features.

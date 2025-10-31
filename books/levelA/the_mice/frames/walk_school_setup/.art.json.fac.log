@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-31T06:28:32.214989+00:00", "path": "books/levelA/the_mice/frames/walk_school_setup/art.json", "build_id": 329987210984697551200183064120013981247, "cost": 0.0486325, "usage": {"model_details": {"openai/gpt-5": {"text/in": 2274, "text/out": 4579, "cost": 0.0486325}}, "tools_used": {}}}

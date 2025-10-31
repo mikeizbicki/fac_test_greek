@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-31T06:29:28.604049+00:00", "path": "books/levelA/the_mice/frames/walk_school_setup/art.png", "build_id": 329987210984697551200183064120013981247, "cost": 0.10659000000000002, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 4898, "image/in": 1938, "image/out": 1568, "cost": 0.10659000000000002}}, "tools_used": {}}}

@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-10-31T06:43:38.043483+00:00", "path": "books/levelA/the_mice/frames/sleep_mouse/art.png", "build_id": 329987210984697551200183064120013981247, "cost": 0.10167000000000001, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 4560, "image/in": 1615, "image/out": 1568, "cost": 0.10167000000000001}}, "tools_used": {}}}
