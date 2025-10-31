@@ -1,0 +1,2 @@
+- the ball is red
+- all the mice are white
