@@ -155,7 +155,6 @@
     - target: books/$LEVEL/$BOOK/content.jsonl
       include: false
     - books/$LEVEL/$BOOK/notes.md
-      #- books/$LEVEL/$BOOK/frames/$FRAME_REFERENCE/art.png
     - locations/$LOCATION/about.json
     - locations/$LOCATION/reference.png
     - characters/$CHARACTER/about.json
@@ -167,8 +166,6 @@
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
     FRAME_ID:
       jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
-      #FRAME_REFERENCE:
-      #jq -r "(select(.frame_id == \"$FRAME_ID\") | .reference_frames // [])[]" books/$LEVEL/$BOOK/content.jsonl
     CHARACTER:
       jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
     LOCATION:

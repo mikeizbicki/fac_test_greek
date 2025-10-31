@@ -1,2 +1,3 @@
 - the ball is red
 - all the mice are white
+- when drawing someone eating a mouse, the mouse should be half-way in the mouth with only hindlegs/tail visible
