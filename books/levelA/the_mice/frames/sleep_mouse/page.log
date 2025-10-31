@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/Debian)  (format=lualatex 2024.11.11)  30 OCT 2025 23:48
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/Debian)  (format=lualatex 2024.11.11)  31 OCT 2025 14:32
  restricted system commands enabled.
 **page.tex
 (./page.tex
@@ -591,35 +591,35 @@ braces):
 >  {greek/localnumeral}  =>  {greeknumerals}
 >  {greek/Localnumeral}  =>  {Greeknumerals}.
 Module polyglossia Info: Language data for greek
-(polyglossia)            lefthyphenmin	1
-(polyglossia)            loader	loadhyph-el-polyton.tex
 (polyglossia)            righthyphenmin	1
 (polyglossia)            hyphenation	
 (polyglossia)            patterns	hyph-el-polyton.pat.txt
-(polyglossia)            synonyms	polygreek on input line 14
+(polyglossia)            loader	loadhyph-el-polyton.tex
+(polyglossia)            synonyms	polygreek
+(polyglossia)            lefthyphenmin	1 on input line 14
 Module polyglossia Info: Language greek was not yet loaded; created with id 2 on
  input line 14
 
 (/usr/share/texlive/texmf-dist/tex/latex/polyglossia/xgreek-fixes.def)
 Module polyglossia Info: Language data for monogreek
-(polyglossia)            lefthyphenmin	1
-(polyglossia)            loader	loadhyph-el-monoton.tex
 (polyglossia)            righthyphenmin	1
 (polyglossia)            hyphenation	
 (polyglossia)            patterns	hyph-el-monoton.pat.txt
-(polyglossia)            synonyms	 on input line 97
+(polyglossia)            loader	loadhyph-el-monoton.tex
+(polyglossia)            synonyms	
+(polyglossia)            lefthyphenmin	1 on input line 97
 Module polyglossia Info: Language monogreek was not yet loaded; created with id 
 3 on input line 97
 Package polyglossia Info: Option: Monotonic Greek.
 \@attic@num=\count286
 )
 Module polyglossia Info: Language data for ancientgreek
-(polyglossia)            lefthyphenmin	1
-(polyglossia)            loader	loadhyph-grc.tex
 (polyglossia)            righthyphenmin	1
 (polyglossia)            hyphenation	
 (polyglossia)            patterns	hyph-grc.pat.txt
-(polyglossia)            synonyms	 on input line 128
+(polyglossia)            loader	loadhyph-grc.tex
+(polyglossia)            synonyms	
+(polyglossia)            lefthyphenmin	1 on input line 128
 Module polyglossia Info: Language ancientgreek was not yet loaded; created with 
 id 4 on input line 128
 Package polyglossia Info: Option: Ancient Greek.
@@ -941,12 +941,12 @@ Here is how much of LuaTeX's memory you used:
  413 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 5 attribute, 48 glue_spec,
  5 attribute_list, 2 write nodes
-   avail lists: 2:232,3:147,4:10,5:38,6:10,7:326,8:1,9:102,10:8,11:14
+   avail lists: 2:232,3:147,4:10,5:38,6:10,7:288,8:1,9:102,10:7,11:20
  35228 multiletter control sequences out of 65536+600000
  71 fonts using 21471671 bytes
  87i,8n,85p,405b,849s stack positions out of 5000i,500n,10000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/truetype/public/dejavu/DejaVuSerif.ttf>
-Output written on page.pdf (1 page, 2055029 bytes).
+Output written on page.pdf (1 page, 2143177 bytes).
 
 PDF statistics: 29 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream
