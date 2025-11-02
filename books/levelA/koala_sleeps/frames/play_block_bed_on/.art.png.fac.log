@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-02T07:23:49.271729+00:00", "path": "books/levelA/koala_sleeps/frames/play_block_bed_on/art.png", "build_id": 331512612619819658558148861242834797329, "cost": 0.08103500000000001, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 1725, "image/in": 969, "image/out": 1568, "cost": 0.08103500000000001}}, "tools_used": {}}}
