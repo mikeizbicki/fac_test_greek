@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-02T06:54:03.654394+00:00", "path": "books/levelA/koala_sleeps/content.jsonl", "build_id": 149307335648800690381283523512083193968, "cost": 0.09580250000000001, "usage": {"model_details": {"openai/gpt-5": {"text/in": 18746, "text/out": 7237, "cost": 0.09580250000000001}}, "tools_used": {}}}
