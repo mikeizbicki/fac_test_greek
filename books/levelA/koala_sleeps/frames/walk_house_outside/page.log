@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/Debian)  (format=lualatex 2024.11.11)  2 NOV 2025 00:29
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/Debian)  (format=lualatex 2024.11.11)  2 NOV 2025 00:47
  restricted system commands enabled.
 **page.tex
 (./page.tex
@@ -594,8 +594,8 @@ Module polyglossia Info: Language data for greek
 (polyglossia)            synonyms	polygreek
 (polyglossia)            hyphenation	
 (polyglossia)            patterns	hyph-el-polyton.pat.txt
-(polyglossia)            loader	loadhyph-el-polyton.tex
 (polyglossia)            lefthyphenmin	1
+(polyglossia)            loader	loadhyph-el-polyton.tex
 (polyglossia)            righthyphenmin	1 on input line 14
 Module polyglossia Info: Language greek was not yet loaded; created with id 2 on
  input line 14
@@ -605,8 +605,8 @@ Module polyglossia Info: Language data for monogreek
 (polyglossia)            synonyms	
 (polyglossia)            hyphenation	
 (polyglossia)            patterns	hyph-el-monoton.pat.txt
-(polyglossia)            loader	loadhyph-el-monoton.tex
 (polyglossia)            lefthyphenmin	1
+(polyglossia)            loader	loadhyph-el-monoton.tex
 (polyglossia)            righthyphenmin	1 on input line 97
 Module polyglossia Info: Language monogreek was not yet loaded; created with id 
 3 on input line 97
@@ -617,8 +617,8 @@ Module polyglossia Info: Language data for ancientgreek
 (polyglossia)            synonyms	
 (polyglossia)            hyphenation	
 (polyglossia)            patterns	hyph-grc.pat.txt
-(polyglossia)            loader	loadhyph-grc.tex
 (polyglossia)            lefthyphenmin	1
+(polyglossia)            loader	loadhyph-grc.tex
 (polyglossia)            righthyphenmin	1 on input line 128
 Module polyglossia Info: Language ancientgreek was not yet loaded; created with 
 id 4 on input line 128
@@ -946,7 +946,7 @@ Here is how much of LuaTeX's memory you used:
  71 fonts using 21471671 bytes
  87i,8n,85p,405b,849s stack positions out of 5000i,500n,10000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/truetype/public/dejavu/DejaVuSerif.ttf>
-Output written on page.pdf (1 page, 2107068 bytes).
+Output written on page.pdf (1 page, 2146926 bytes).
 
 PDF statistics: 29 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream
