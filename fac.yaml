@@ -148,7 +148,7 @@
     <content>
     $(jq -r "select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.jsonl)
     </content>
-  image_quality: medium
+  image_quality: high
   image_orientation: landscape
   dependencies:
     - art.md
