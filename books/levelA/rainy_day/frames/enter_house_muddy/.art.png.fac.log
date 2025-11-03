@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-03T23:09:06.952772+00:00", "path": "books/levelA/rainy_day/frames/enter_house_muddy/art.png", "build_id": 191224463961663802853849086180970928271, "cost": 0.08552500000000002, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 1977, "image/in": 1292, "image/out": 1568, "cost": 0.08552500000000002}}, "tools_used": {}}}

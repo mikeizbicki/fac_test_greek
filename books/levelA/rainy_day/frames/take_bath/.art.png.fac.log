@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-03T23:11:11.754514+00:00", "path": "books/levelA/rainy_day/frames/take_bath/art.png", "build_id": 191224463961663802853849086180970928271, "cost": 0.08034500000000001, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 1587, "image/in": 969, "image/out": 1568, "cost": 0.08034500000000001}}, "tools_used": {}}}

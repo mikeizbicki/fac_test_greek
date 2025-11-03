@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-03T23:05:24.708242+00:00", "path": "books/levelA/rainy_day/frames/build_mud_tower/art.png", "build_id": 191224463961663802853849086180970928271, "cost": 0.07609500000000001, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 1383, "image/in": 646, "image/out": 1568, "cost": 0.07609500000000001}}, "tools_used": {}}}
