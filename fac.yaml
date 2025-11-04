@@ -225,7 +225,7 @@
   dependencies:
     - page_template.tex
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
-      #- books/$LEVEL/$BOOK/content.jsonl
+    - books/$LEVEL/$BOOK/content.jsonl
   variables:
     LEVEL:
       ls books

@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-04T21:15:35.357759+00:00", "path": "books/levelA/have_and_give/frames/owl_give_flowers/art.png", "build_id": 41692637722797730306266449429165441372, "cost": 0.08053000000000002, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 1624, "image/in": 969, "image/out": 1568, "cost": 0.08053000000000002}}, "tools_used": {}}}
