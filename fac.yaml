@@ -137,6 +137,31 @@
       # the simpler ls command results in errors from treating that file like a directory
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
 
+"books/$LEVEL/$BOOK/editor_notes.md":
+  description: '
+    Review the "books/$LEVEL/$BOOK/content.jsonl" file and create comments in the style of a professional editor.
+    Your comments should be divided into two sections:
+      ## Grammar Notes
+      describes any inconsistencies or mistakes in the koine greek grammar
+      ## JSON Notes
+      describes any inconsistencies between the fields of the JSON objects
+    In each section you should use bullet points.
+    Each bullet point should:
+    - start with the line number of the problem (e.g. "LINE 5:")
+    - have a short 1 sentence description of the problem. (For complex problems, it is okay to use up to 5 sentences and provide example fixes.)
+    '
+  dependencies:
+    about.md
+    books/$LEVEL/$BOOK/content.jsonl
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      # this command is like `ls books/$LEVEL` but it will only output directories;
+      # this means that it will not find the `themes.md` file in `books/$LEVEL`;
+      # the simpler ls command results in errors from treating that file like a directory
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+
 ########################################
 # artwork
 ########################################
