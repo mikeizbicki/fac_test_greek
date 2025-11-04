@@ -1,0 +1,10 @@
+‎𐤀 CLTK version '1.5.0'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/
+
+Pipeline for language 'Ancient Greek' (ISO: 'grc'): `GreekNormalizeProcess`, `GreekSpacyProcess`, `GreekEmbeddingsProcess`, `StopsProcess`.
+
+⸖ ``GreekSpacyProcess`` using OdyCy model by Center for Humanities Computing Aarhus from https://huggingface.co/chcaa . Please cite: https://aclanthology.org/2023.latechclfl-1.14
+⸖ ``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/
+
+⸎ To suppress these messages, instantiate ``NLP()`` with ``suppress_banner=True``.
+CLTK message: This part of the CLTK depends upon a spaCy NLP mode.
+CLTK message: Allow download of spaCy model ``grc_odycy_joint_sm`` from ``https://huggingface.co/chcaa/grc_odycy_joint_sm/resolve/main/grc_odycy_joint_sm-any-py3-none-any.whl``? [Y/n] 

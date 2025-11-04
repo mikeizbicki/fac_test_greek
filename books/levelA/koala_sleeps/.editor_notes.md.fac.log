@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-04T19:31:44.623066+00:00", "path": "books/levelA/koala_sleeps/editor_notes.md", "build_id": 16808843814303129222832585135900653463, "cost": 0.042741, "usage": {"model_details": {"anthropic/claude-sonnet-4-0": {"text/in": 667, "text/out": 2716, "cost": 0.042741}}, "tools_used": {}}}

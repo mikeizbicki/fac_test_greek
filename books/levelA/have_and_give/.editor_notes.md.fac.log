@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-04T19:31:07.581754+00:00", "path": "books/levelA/have_and_give/editor_notes.md", "build_id": 16808843814303129222832585135900653463, "cost": 0.032262, "usage": {"model_details": {"anthropic/claude-sonnet-4-0": {"text/in": 419, "text/out": 2067, "cost": 0.032262}}, "tools_used": {}}}

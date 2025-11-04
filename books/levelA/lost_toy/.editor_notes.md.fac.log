@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-04T19:30:55.055449+00:00", "path": "books/levelA/lost_toy/editor_notes.md", "build_id": 16808843814303129222832585135900653463, "cost": 0.0309, "usage": {"model_details": {"anthropic/claude-sonnet-4-0": {"text/in": 475, "text/out": 1965, "cost": 0.0309}}, "tools_used": {}}}
