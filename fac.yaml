@@ -71,8 +71,9 @@
     1. Each drawing should have a different pose/action.
     2. Each drawing should have a different camera angle (front, profile, back, angle).
     3. All drawings should respect the instructions in the "art.md" and "characters/$CHARACTER/artist_instructions.md" files.
-  image_quality: high
-  image_orientation: landscape
+  options:
+    quality: medium
+    orientation: landscape
   dependencies:
     - about.md
     - art.md
@@ -101,7 +102,9 @@
   description:
     A reference image for the location described in the file "locations/$LOCATION/about.json".
     The image should have no characters, and display the location empty.
-  image_quality: medium
+  options:
+    quality: medium
+    orientation: landscape
   dependencies:
     art.md
     locations/$LOCATION/about.json
@@ -280,6 +283,23 @@
 ################################################################################
 # video
 ################################################################################
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav":
+  dependencies:
+    - books/$LEVEL/$BOOK/content.jsonl
+  options:
+    voice: fable
+    input: 
+      $(jq -r "select(.frame_id == \"$FRAME_ID\") | .text_koine" books/$LEVEL/$BOOK/content.jsonl)
+    instructions:
+      You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
 
       #"books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png":
       #cmd: |
