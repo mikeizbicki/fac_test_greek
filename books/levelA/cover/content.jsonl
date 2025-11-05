@@ -1,3 +1,2 @@
-{"text_koine": "οἱ ζῷα φίλοι", "text_english": "the animal friends", "frame_id": "front", "characters": ["Panda", "Koala", "Owl", "Dinosaur"], "location": ["familyhouse_exterior"], "artist_notes":"the four animals are playing with each other"}
-{"text_koine": "", "text_english": "the animal friends", "frame_id": "back", "characters": ["Panda", "Koala", "Owl", "Dinosaur"], "location": ["school_exterior"], "artist_notes":"the four animals are playing with each other"}
-
+{"text_koine": "οἱ ζῷα φίλοι", "text_english": "the animal friends", "frame_id": "front", "characters": ["Panda", "Koala", "Owl", "Dinosaur"], "locations": ["familyhouse_exterior"], "artist_notes":"the four animals are playing with each other; at the top οἱ ζῷα φίλοι is written in greek "}
+{"text_koine": "", "text_english": "the animal friends", "frame_id": "back", "characters": ["Panda", "Koala", "Owl", "Dinosaur"], "locations": ["school_exterior"], "artist_notes":"the four animals are playing with each other"}

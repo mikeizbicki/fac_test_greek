@@ -1,0 +1,1 @@
+{"__fac_version__": "0.0.0-dev", "time": "2025-11-04T21:56:31.332752+00:00", "path": "books/levelA/cover/frames/back/art.png", "build_id": 243324977034705980072252134935427542093, "cost": 0.27698500000000004, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 2503, "image/in": 1615, "image/out": 6208, "cost": 0.27698500000000004}}, "tools_used": {}}}
