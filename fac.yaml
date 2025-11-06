@@ -302,19 +302,87 @@
     FRAME_ID:
       jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
 
-      #"books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png":
-      #cmd: |
-      #convert \
-      #"books/$LEVEL/$BOOK/page_$PAGE/art.png" \
-      #-background lightgray -flatten -resize 1280x720! \
-      #"books/$LEVEL/$BOOK/page_$PAGE/art_1280x720.png"
-      #dependencies:
-      #books/$LEVEL/$BOOK/page_$PAGE/art.png
-      #variables:
-      #LEVEL:
-      #ls books
-      #BOOK:
-      #find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-      #PAGE:
-      #seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png":
+  cmd: |
+    convert \
+      "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png" \
+      -background lightgray -flatten -resize 1280x720! \
+      "books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png"
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
 
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/video_prompt.txt":
+  description:
+    You are animating a short 4 second scene in a childrens movie.
+    The animation should help young children learning Koine Greek how to understand the text in the content below.
+    <content>
+    $(jq -r "select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.jsonl)
+    </content>
+    The initial frame of the scene has already been drawn and is provided in the attached image.
+    You must provide a 1-4 sentence description of how to animate the provided input image.
+    The description should explicitly describe what each character is doing and their final position in the shot (e.g. stage-left, stage-right, off-camera).
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/raw.mp4":
+  description:
+    $(cat books/$LEVEL/$BOOK/frames/$FRAME_ID/video_prompt.txt)
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/video_prompt.txt
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4":
+  cmd: |
+    cd books/$LEVEL/$BOOK/frames/$FRAME_ID
+
+    # assume audio is shorter and pad only audio
+    ffmpeg -i raw.mp4 -i page.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 -af "apad" -shortest processed.mp4 -y
+    # pad either video or audio, whichever is shorter
+    # this takes a bit longer to run
+    #ffmpeg -i raw.mp4 -i page.wav -c:v libx264 -c:a aac -map 0:v:0 -map 1:a:0 -vf "tpad=stop_mode=clone" -af "apad" -shortest processed.mp4 -y
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/raw.mp4
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+
+"books/$LEVEL/$BOOK/video.mp4":
+  cmd: |
+    cd books/$LEVEL/$BOOK
+    printf "file 'frames/%s/processed.mp4'\n" $FRAME_ID > video_list.txt
+    ffmpeg -f concat -safe 0 -i video_list.txt -c copy "video.mp4" -y
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    FRAME_ID:
+      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
