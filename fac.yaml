@@ -339,11 +339,13 @@
       jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/raw.mp4":
-  description:
-    $(cat books/$LEVEL/$BOOK/frames/$FRAME_ID/video_prompt.txt)
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video_prompt.txt
+  options:
+    model: openai/sora-2
+    size: 1280x720
+    seconds: 8
   variables:
     LEVEL:
       ls books
