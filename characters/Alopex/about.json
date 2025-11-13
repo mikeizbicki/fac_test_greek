@@ -1,0 +1,163 @@
+{
+  "$(cat": "character",
+  "name": "Alopex",
+  "greek_name": "Ἀλώπηξ",
+  "meaning": "fox",
+  "file": "characters/Alopex/about.json",
+  "series_fit": {
+    "role": "antagonist • trickster • foil",
+    "threat_level": "low and comedic; creates problems through tricks and theft, not violence",
+    "age_appropriateness": "4–10; mischief is reversible and outcomes are gentle"
+  },
+  "summary": "Alopex is a wily, soft-spoken fox who prefers clever plans to honest work. He flatters, fibs, and slips away when caught. He tempts others with ‘easy’ solutions, but his schemes usually unravel, revealing that kindness and steady effort beat cunning.",
+  "personality": {
+    "core_traits": [
+      "cunning",
+      "opportunistic",
+      "persuasive",
+      "vain",
+      "playfully sarcastic",
+      "risk-averse (cowardly when confronted)"
+    ],
+    "virtues_visible_in_small_doses": [
+      "observant",
+      "resourceful",
+      "keeps promises when it benefits him",
+      "rare moments of honesty when praised for it"
+    ],
+    "flaws": [
+      "deceptive",
+      "envies others",
+      "rationalizes bad behavior",
+      "quits when plans require real work"
+    ],
+    "motivations": [
+      "get food without working for it",
+      "be admired for cleverness",
+      "avoid blame or danger",
+      "outsmart rivals"
+    ],
+    "fears": [
+      "being publicly embarrassed or outwitted",
+      "going hungry",
+      "larger predators or irate crowds"
+    ]
+  },
+  "classical_grounding": {
+    "greek_attitudes_summary": "In Greek fable and proverb, foxes are πανουργοί—‘all‑crafty,’ sly tricksters who survive by wit, not strength. They flatter, steal, and make excuses (‘the grapes are sour!’) and often flee when plans fail.",
+    "echoes_of_aisopos": [
+      "The Fox and the Grapes (envy becomes disdain when he cannot reach)",
+      "The Fox and the Crow (flattery to steal food)",
+      "The Fox and the Mask (outward show without wisdom)",
+      "Archilochus’ proverb: ‘The fox knows many things…’ (many small tricks)"
+    ],
+    "use_in_stories": "Reference familiar motifs—grapes, flattery, empty boasting—while keeping events cozy and non-harmful."
+  },
+  "visual_design": {
+    "species": "fox (anthropomorphic)",
+    "silhouette": "long brush tail, slim limbs, slightly hunched shoulders, narrow muzzle; often tiptoeing",
+    "colors": {
+      "fur": "rust/orange with cream muzzle and tail tip",
+      "accents": "dark ear tips, charcoal paws",
+      "wardrobe_palette": "muted olive, umber, dusty red, patchwork neutrals"
+    },
+    "wardrobe": [
+      "patched chiton or short himation with rope belt",
+      "worn traveler’s cloak when sneaking",
+      "wide-brim petasos hat (tilted low over eyes)",
+      "simple sandals"
+    ],
+    "props": [
+      "small sack or net for ‘found’ food",
+      "walking stick (also for poking/grabbing)",
+      "bit of twine for quick traps",
+      "occasional paper mask (comedic disguise)"
+    ],
+    "face_and_expression": "half-lidded eyes, sly grin, raised brow; smiles wide when flattering; eyes dart when cornered",
+    "posture_and_movement": "light-footed, tiptoes, sudden freezes, dramatic bows; runs the instant he’s exposed",
+    "age_read": "adult-sized but story-framed from a child’s eye level",
+    "camera_guidelines": [
+      "Keep perspective low-to-the-ground as if seen by a 4-year-old.",
+      "When adults appear, avoid full heads; for Alopex, keep face visible but framed low (knees-to-chest shots, peeking through bushes, partial crops)."
+    ],
+    "do_not": [
+      "no sharp teeth bared aggressively",
+      "no gore or predation; never threaten physical harm",
+      "avoid realistic traps that could be imitated"
+    ]
+  },
+  "speech_and_language": {
+    "tone": "soft, flattering, singsong; avoids direct answers",
+    "patterns": [
+      "asks leading questions",
+      "praises others to lower their guard",
+      "offers easy solutions with fine print",
+      "changes subject when challenged"
+    ],
+    "favorite_words_en": [
+      "clever",
+      "easy",
+      "friend",
+      "secret",
+      "almost"
+    ],
+    "koine_phrases": [
+      "χαῖρε, φίλε. (Hello, friend.)",
+      "ἴδε! ἴδε σταφυλάς! (Look! Look, grapes!)",
+      "ἐγὼ σοφός εἰμι, οἶδα πολλὰ. (I am clever; I know many things.)",
+      "οὐ κακὸς εἰμί—μόνον πανοῦργος. (I’m not bad—just crafty.)",
+      "ἄγε, ῥᾴδιόν ἐστιν. (Come, it is easy.)",
+      "οὐ νῦν· αὔριον. (Not now; tomorrow.)",
+      "σὺ πιστεύεις μοι; (Do you trust me?)",
+      "οὐκ ἔχω· ἀλλὰ σχεδόν. (I don’t have it; almost.)",
+      "οἴμ’, οἴμ’! ἡ ἀλήθεια! (Oh dear! The truth!)"
+    ],
+    "speech_notes": "Keep vocabulary high-frequency and recyclable. Prefer present tense and simple imperatives. Let visual context carry meaning of trickery; avoid dense grammar dumps."
+  },
+  "behavior": {
+    "typical_actions": [
+      "flattering someone to get food or favors",
+      "boasting about a plan he hasn’t finished",
+      "setting a harmless, silly trap (like a box propped with a stick)",
+      "blaming the object (‘the grapes are sour’) when he fails",
+      "fleeing with a polite bow when caught"
+    ],
+    "conflict_style": "indirect; avoids force; prefers misdirection, disguise, and quick exits",
+    "boundaries_for_kids": [
+      "no physical harm; stakes are lost snacks, mild messes, minor embarrassment",
+      "always show safe, gentle consequences and opportunities to make amends",
+      "if stealing occurs, items are returned or replaced within the story"
+    ],
+    "escalation_ladder": [
+      "harmless fib → teasing trick → small theft → attempt to hide → gets found out → returns/repairs → slips away (or offers a sheepish apology)"
+    ]
+  },
+  "relationships": {
+    "community": "Well-known mischief-maker; tolerated but watched.",
+    "protagonist_family": "Tries to outsmart the family; occasionally helps if it benefits him or wins praise.",
+    "authority_figures": "Overly polite; flatters to avoid consequences."
+  },
+  "arc_and_usage": {
+    "baseline": "Remains a recurring trickster ‘enemy’ whose schemes drive conflict and repetition.",
+    "mini_redemptions": "May apologize, return items, or use cleverness to fix his own mess—without fully reforming.",
+    "never_do": [
+      "no villainy beyond trickery",
+      "no lasting harm or fear",
+      "no moralizing lectures; lessons emerge from the story"
+    ],
+    "recurrence": "Appears across titles with familiar motifs (grapes, flattery, disguises) for predictable, comprehensible input."
+  },
+  "story_seeds": [
+    "Grapes too high: Alopex claims they’re sour; kids devise a simple, honest way to reach them and share.",
+    "Flattery theft: He praises a singer to make them drop a snack; later returns it after learning about trust.",
+    "Mask day: His disguise fools no one; he learns that show without substance doesn’t solve problems.",
+    "Borrowed basket: He ‘borrows’ without asking and is gently guided to ask permission and help carry more."
+  ],
+  "consistency_checklist": [
+    "Clever over strong; runs when cornered.",
+    "Soft voice, flattery, evasive answers.",
+    "Harmless tricks; consequences are safe and repaired.",
+    "Visual cues: low camera, sly eyes, tiptoes, patchy cloak.",
+    "Echo Aesop motifs but keep cozy, child-first perspective."
+  ]
+}

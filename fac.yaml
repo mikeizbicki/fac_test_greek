@@ -31,7 +31,7 @@
 "characters/$CHARACTER/about.json":
   description:
     A description of the character that can be used to ensure consistency accross many different books.
-  schema: $(cat schemas/character.json-schema)
+  schema_file: schemas/character.json-schema
   dependencies:
     about.md
   variables:
