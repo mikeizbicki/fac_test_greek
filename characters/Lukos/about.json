@@ -1,178 +1,33 @@
 {
-  "id": "Lukos",
-  "name": "Λύκος",
-  "romanized_name": "Lukos",
-  "role": "antagonist (enemy, child-safe)",
-  "species": "wolf (anthropomorphized)",
-  "age_range": "adult",
-  "summary": "A sly, hungry, and smooth‑talking wolf who lurks at the edge of the community, testing boundaries with tricks and pretexts like the wolves of Aesop—menacing but nonviolent and ultimately thwarted by light, noise, and teamwork.",
-  "core_traits": [
-    "cunning and calculating (uses pretexts and flattery)",
-    "greedy appetite focused on food the children have (bread, fish, cheese)",
-    "bold when unopposed, cowardly when challenged",
-    "patient stalker who prefers ambush and persuasion over direct force",
-    "observant; imitates phrases he hears (often slightly wrong)"
+  "name": "Lukos",
+  "description": "Sly hungry trickster wolf",
+  "sex": "male",
+  "personality": "Cunning, smooth-talking, and self-interested, he flatters and deceives to take easy food. Bold when unopposed but quick to retreat when challenged.",
+  "backstory": "Lukos haunts the edges of the woodland community, learning phrases he overhears and testing boundaries like the wolves of Aesop. He has long survived by tricks and pretexts rather than force, preferring shadows and easy meals. Over time, the children's teamwork and light repeatedly foil him, teaching him small social limits without changing his nature.",
+  "appearance": "He has a tall, narrow triangle silhouette with a long snout, sloped shoulders, and a tapering tail. His fur is charcoal gray with ash highlights, with pale chest and muzzle and yellow-amber eyes. His ears are upright with a small notch in the right ear, and a single small fang sometimes peeks when he smiles slyly. He wears a ragged dark hooded himation or cloak tied with a cord, worn sandals, a frayed rust-red scarf, and a small belt pouch, and he sometimes carries a crooked walking stick.",
+  "strengths": [
+    "Cunning and calculating, he uses flattery and pretexts to get what he wants.",
+    "Observant imitator who repeats phrases he hears, often to manipulate others.",
+    "Patient stalker who prefers ambush and persuasion over direct force.",
+    "Smooth, coaxing voice that tempts the unwary.",
+    "Survival instinct makes him quick to change course and escape when plans fail."
   ],
-  "motivations": [
-    "to take easy food without working for it",
-    "to isolate a small character and pressure them",
-    "to prove he is cleverer than the children"
+  "weaknesses": [
+    "Bright light from lanterns, morning sun, or fire quickly drives him away.",
+    "Group solidarity and children calling together overwhelm his nerve.",
+    "Staffs, shepherd tools, and visible authority symbols make him retreat.",
+    "He dislikes being seen plainly and depends on shadows and edges to feel confident.",
+    "Cowardly when challenged, he collapses under firm resistance."
   ],
-  "fears_and_aversions": [
-    "bright light (lanterns, morning sun, fire glow)",
-    "group solidarity (children together calling loudly)",
-    "staffs and shepherd tools (symbolic authority)",
-    "being seen plainly (he prefers shadows and edges)"
+  "key_objects": [
+    "A frayed rust-red scarf that serves as his signature accent.",
+    "A small belt pouch that rattles with pebbles and crumbs.",
+    "A crooked walking stick he uses theatrically rather than as a weapon."
   ],
-  "moral_alignment": "self‑interested trickster; not monstrous, rarely admits fault",
-  "growth_potential": "May learn small social limits (asking, waiting, sharing) but remains a recurring foil.",
-  "appearance": {
-    "silhouette": "tall, narrow triangle with long snout, sloped shoulders, and tapering tail",
-    "fur": "charcoal gray with ash highlights; pale fur on chest and muzzle",
-    "eyes": "yellow‑amber, half‑lidded when scheming; widen when startled",
-    "ears": "upright with a small notch in the right ear (continuity anchor)",
-    "teeth": "hinted, not bared; a single small fang may peek when he smiles slyly",
-    "clothing": "ragged, hooded dark himation/cloak tied with a cord; worn sandals; small pouch at belt",
-    "props": [
-      "frayed red scarf (accent color)",
-      "small pouch that rattles (pebbles, crumbs)",
-      "sometimes a crooked walking stick (used theatrically, not as a weapon)"
-    ],
-    "color_palette": {
-      "primary": ["charcoal", "slate", "ash"],
-      "accents": ["rust red (scarf)", "dull ochre (eyes)"],
-      "avoid": ["bright blood reds; saturated gore tones"]
-    },
-    "scale": "a head taller than the children; drawn from a child’s eye height so he often leans down into the frame"
-  },
-  "mannerisms": [
-    "pads silently; footsteps suggested with small ellipses or motion lines",
-    "leans from behind trees, walls, or doorframes; arrives from the edge of panels",
-    "hands steepled or hidden in cloak; index claw tapping when impatient",
-    "sniffs the air theatrically when food is near",
-    "when surprised, cloak flares; tail stiffens"
-  ],
-  "voice_and_speech": {
-    "tone": "low, smooth, coaxing; becomes thin and high when startled",
-    "pace": "drawn‑out vowels when tempting; clipped when denied",
-    "verbal_tics": [
-      "repeats children’s words back to them, slightly altered",
-      "prefaces demands with false courtesy"
-    ],
-    "catchphrases_koine": [
-      "ἐγώ εἰμι ὁ λύκος.",
-      "πεινῶ… μικρέ, δός μοι.",
-      "οὐδὲν κακόν· μόνον ὀλίγον ἄρτον.",
-      "οὐδεὶς ὁρᾷ· ἴθι δεῦρο.",
-      "ἡσύχαζε, ἡσύχαζε…"
-    ],
-    "catchphrases_gloss": [
-      "I am the wolf.",
-      "I am hungry… little one, give to me.",
-      "Nothing bad; only a little bread.",
-      "No one sees; come here.",
-      "Be quiet, be quiet…"
-    ]
-  },
-  "behavior_rules_child_safe": [
-    "No biting, blood, or injuries on‑screen.",
-    "Chases end in near‑misses, blocked paths, or comic foiling (falling into a bush, tripping on cloak).",
-    "Threats are verbal or implied; stakes are food or pride, not bodily harm.",
-    "Adults may appear only as arms/hands/tools from out of frame; no adult heads.",
-    "Fear is balanced with humor, light, and children’s teamwork."
-  ],
-  "story_functions": [
-    "introduces conflict tied to high‑frequency Koine (imperatives, negation, questions)",
-    "models contrastive dialogue (polite refusal vs. cunning demand)",
-    "triggers group responses (calling for help, counting, prepositions: behind, under, near)",
-    "recurring motif for Aesopic morals (greed, deceit, consequences)"
-  ],
-  "typical_scenes": [
-    "lurking near a sheepfold or picnic, sniffing and flattering",
-    "pretending to help while edging food toward his pouch",
-    "disguised poorly (scarf over head) to ‘blend in’",
-    "fleeing at lantern‑light or a chorus of children shouting together"
-  ],
-  "entrances_and_exits": {
-    "entrance": "from shadows, behind trunks, low fog, or the page edge; eyes appear before full body",
-    "exit": "backward stumble, cloak snag on a branch, leaps over low wall, or scampers off‑panel with a muttered complaint"
-  },
-  "interactions": {
-    "with_children": "Targets single children with flattery; group unity repels him. Children outwit him with simple plans.",
-    "with_adults": "Respectful but evasive; retreats when a shepherd’s crook or broom enters frame.",
-    "with_animals": "Spooks flocks; crows or small birds may tattle, prompting his annoyance."
-  },
-  "ancient_greek_characterization_notes": [
-    "Reflect Aesopic wolf: uses pretexts, blames the weak, values advantage over justice.",
-    "Seen as a night‑stalker of flocks; linked with hunger, cunning, and cowardice when confronted.",
-    "Occasional nods to ‘wolfish’ epithets are fine, but keep references child‑comprehensible."
-  ],
-  "language_design": {
-    "target_structures": [
-      "present‑tense high‑frequency verbs (βλέπει, ζητεῖ, θέλει, δίδωσιν/δίδωσι)",
-      "imperatives (δός, ἴθι, ἡσύχαζε)",
-      "negation (οὐ/οὐκ, μή)",
-      "questions (τί; ποῦ; τίς;)",
-      "prepositions (ὑπό, ὀπίσω, πρός, παρά, ἐγγύς)"
-    ],
-    "repetition_patterns": "Short temptation frames repeated with small variations; children’s choral replies recycle key forms.",
-    "sample_line_pairs": [
-      {
-        "gr": "ὁ λύκος βλέπει τὸν ἄρτον καὶ λέγει· «δός μοι, μικρέ.»",
-        "en_gloss": "The wolf sees the bread and says, “Give to me, little one.”"
-      },
-      {
-        "gr": "οὐκ ἔξεστι· οὐ σοί ἐστιν ὁ ἄρτος.",
-        "en_gloss": "It is not permitted; the bread is not yours."
-      },
-      {
-        "gr": "ὁ λύκος ψιθυρίζει· «οὐδεὶς ὁρᾷ.»",
-        "en_gloss": "The wolf whispers, “No one sees.”"
-      },
-      {
-        "gr": "πάντες βοῶσιν· «ἔξελθε!» καὶ φῶς φέρουσιν.",
-        "en_gloss": "All shout, “Go out!” and they bring light."
-      }
-    ]
-  },
-  "visual_direction": {
-    "camera_height": "always low to the ground, 4‑year‑old perspective",
-    "composition": "adults’ heads never in frame; Lukos often cropped at shoulders when looming to preserve child POV",
-    "lighting": "he prefers shadow and rim‑light; children counter with warm lantern glow",
-    "facial_expression_scale": "subtle—narrowed eyes, slight fang when smug; wide eyes and ears back when foiled",
-    "avoid": [
-      "graphic teeth close‑ups",
-      "full‑on lunges",
-      "predation imagery"
-    ]
-  },
-  "continuity_flags": [
-    "right ear notch always present",
-    "ragged dark cloak with rust‑red scarf",
-    "pouch at belt that can jingle",
-    "yellow‑amber eyes"
-  ],
-  "do_and_dont": {
-    "do": [
-      "use tricks, flattery, and pretexts",
-      "let children defeat him with cooperation and simple wisdom",
-      "show retreat at light, noise, and staffs",
-      "keep tone tense‑but‑playful"
-    ],
-    "dont": [
-      "no harm to characters on‑screen",
-      "no gore, wounds, or explicit threats",
-      "no adult faces; keep adult presence as hands/tools only"
-    ]
-  },
-  "potential_titles_or_arcs": [
-    "The Wolf and the Bread: Lukos flatters to steal food; children share wisely and send him away.",
-    "Light in the Trees: Lukos flees from lanterns and loud counting.",
-    "The Wolf in a Scarf: a comic ‘disguise’ foiled by a chorus of questions."
-  ],
-  "notes_for_creators": [
-    "He is scary in idea, not in depiction; menace lives in suggestion and shadow.",
-    "Lean on Aesop‑style logic; the wolf talks himself into defeat.",
-    "Recycle his lines across books for recognizable input and anticipation."
+  "relationships": [
+    "Targets single children with flattery but is repelled by their teamwork.",
+    "Evasive around adults and retreats the moment a shepherd's crook or broom enters the frame.",
+    "Spooks flocks, while crows and small birds often tattle on him to the children.",
+    "Acts as a recurring foil whose schemes prompt the community to cooperate."
   ]
 }

@@ -1,289 +1,32 @@
 {
-  "$(cat": "characters/Ophis/about.json",
   "name": "Ophis",
-  "greek_name": "ὁ ὄφις",
-  "role": "antagonist (gentle, story-safe)",
-  "archetype": [
-    "sly trickster",
-    "chthonic guardian of stones and shadows",
-    "whisperer/temptation-bringer"
+  "description": "Sly whispering stone guardian",
+  "sex": "male",
+  "personality": "Soft-spoken, patient, and cunning, Ophis teases but never harms. He is proud of old knowledge, territorial about stones and quiet places, and delights in secrets and riddles.",
+  "backstory": "An ageless serpent who has long lived among stones, roots, and thresholds, Ophis feels ancient to the children. He collects shiny and old objects and guards holes and shadows like a careful custodian. He tempts others with shortcuts and trades to prove his cleverness, yet his mischief stays small and fixable. When treated with kindness, he sometimes warns or helps—quietly and on his terms.",
+  "appearance": "Long and slender, he has dark-olive scales with a bronze sheen and a subtle Greek meander pattern along his back. His half-lidded golden eyes have narrow pupils that widen in warm light, and a forked red tongue flicks as a small fang gleams when he smiles. He sometimes wears a narrow scarf-like band near his neck and may coil around a looped cord or ring he ‘guards.’ He moves in low, sinuous S-curves at child eye-level, often arriving from the bottom corner of the frame.",
+  "strengths": [
+    "His soft, sibilant whisper draws attention and keeps dialogue simple and focused.",
+    "He moves silently at ground level and appears from low corners.",
+    "He slips through tiny cracks and reappears where least expected.",
+    "He coils to block, guide, or guard without violence.",
+    "He remembers paths, holes, and hidden objects with precise, place-based memory."
   ],
-  "species": "snake",
-  "pronouns": "he/him",
-  "age": "ageless (feels old to the children)",
-  "tone": "cozy but slightly eerie; suspenseful yet safe for children",
-  "one_sentence_hook": "A smooth-tongued serpent who whispers shortcuts and secrets, guarding stones and shadows while testing the children’s wisdom and kindness.",
-  "short_description": "Ophis is an anthropomorphic snake who glides at the edge of paths and pages. Ancient-feeling and patient, he whispers tempting offers and half-truths, loves stones, shadows, and old places, and stirs small, fixable trouble. He never harms; he tests, teases, guards, and sometimes—quietly—helps.",
-  "appearance": {
-    "body": [
-      "long, slender, dark-olive scales with bronze sheen",
-      "subtle Greek meander pattern along the back (stylized, child-friendly)",
-      "forked red tongue; small gleam of a fang when he smiles, never gore"
-    ],
-    "eyes": [
-      "half-lidded, golden; narrow pupils that widen in warm light",
-      "often shown looking sideways, suggestive and secretive"
-    ],
-    "clothing_props": [
-      "simple band or scarf like a narrow himation near the neck (optional)",
-      "occasionally a looped cord or ring he ‘guards’"
-    ],
-    "motion_silhouette": [
-      "low, sinuous S-curves; coils around stones, posts, and jars",
-      "arrives from the edge or bottom of the frame at child eye-level"
-    ],
-    "palette": [
-      "olive, umber, charcoal for body",
-      "accents of bronze and soft red"
-    ]
-  },
-  "personality_traits": [
-    "soft-spoken",
-    "patient",
-    "cunning",
-    "territorial about stones and quiet places",
-    "proud of 'old knowledge'",
-    "teasing but not cruel",
-    "secretive; enjoys riddles"
+  "weaknesses": [
+    "He avoids bright open spaces and noisy crowds.",
+    "Loud clapping or bells startle him and send him away.",
+    "Pride makes him underestimate simple kindness and clear questions.",
+    "He will not cross a well-lit, bustling hearth or doorway.",
+    "Shiny trinkets easily tempt him into trading or boasting."
   ],
-  "motivations": [
-    "to guard his stones, holes, and hidden things",
-    "to lure others into shortcuts and secret paths",
-    "to collect shiny or old objects",
-    "to prove he is cleverer than the children",
-    "to enjoy quiet and control his domain"
+  "key_objects": [
+    "A looped cord or ring he insists on guarding.",
+    "A narrow scarf-like band worn near his neck.",
+    "A small shiny coin or button tucked in a coil."
   ],
-  "abilities": [
-    "whispering that draws attention (σσσ…)",
-    "moving silently at ground level",
-    "fitting through tiny spaces, appearing where least expected",
-    "coiling to block, guide, or guard (non-violent)",
-    "keen memory for paths, holes, and hidden objects"
-  ],
-  "weaknesses_limits": [
-    "avoids bright open spaces and crowds",
-    "dislikes loud noise and sudden clapping",
-    "pride makes him underestimate simple kindness",
-    "won’t cross a well-lit, bustling hearth or doorway",
-    "cannot resist shiny trinkets"
-  ],
-  "behaviors_habits": [
-    "whispers from shadows: σῖγα… σῖγα…",
-    "offers ‘shortcuts’ that complicate the day",
-    "guards rocks, jars, doorsteps, hollow trees, fallen columns",
-    "hides toys/keys then trades them back for favors",
-    "peeks from under baskets, behind pots, or under steps",
-    "slips away the moment an adult approaches"
-  ],
-  "likes_dislikes": {
-    "likes": [
-      "shadows, stones, ruins, roots",
-      "shiny rings, coins, buttons",
-      "quiet voices, secrets, riddles"
-    ],
-    "dislikes": [
-      "bright noon sun, loud clapping, bells",
-      "being ignored",
-      "having his hiding places disturbed"
-    ]
-  },
-  "voice_and_dialogue": {
-    "style": [
-      "sibilant words with many σ-sounds",
-      "short, persuasive phrases; half-truths and riddles",
-      "gentle tone that feels ancient and self-assured"
-    ],
-    "repeatable_lines_gr": [
-      "σῖγα, σῖγα…",
-      "μὴ φοβοῦ· φίλος εἰμι.",
-      "ἔρχεσθε παρ’ ἐμέ· ἡ ὁδὸς βραχεῖα ἐστίν.",
-      "ὁ ὄφις οἶδεν· ἴδε!",
-      "οὐδὲν κακόν· μόνον λίθοι καὶ σκιὰ."
-    ],
-    "repeatable_lines_en": [
-      "Quiet, quiet…",
-      "Do not fear; I am a friend.",
-      "Come to me; the way is short.",
-      "The snake knows—look!",
-      "Nothing bad—only stones and shade."
-    ],
-    "performance_notes": [
-      "Always include a soft hiss ‘sss’ in speech bubbles.",
-      "Keep sentences short and high-frequency for Koine learners.",
-      "Let children infer his intent from pictures; avoid heavy exposition."
-    ]
-  },
-  "koine_vocabulary": [
-    {
-      "lemma": "ὁ ὄφις",
-      "transliteration": "ho ophis",
-      "gloss": "the snake",
-      "notes": "masculine; nominative singular"
-    },
-    {
-      "lemma": "λέγει",
-      "transliteration": "legei",
-      "gloss": "he says"
-    },
-    {
-      "lemma": "ψιθυρίζει",
-      "transliteration": "psithyrizei",
-      "gloss": "he whispers"
-    },
-    {
-      "lemma": "κρύπτεται",
-      "transliteration": "kryptetai",
-      "gloss": "he hides (himself)"
-    },
-    {
-      "lemma": "βλέπει",
-      "transliteration": "blepei",
-      "gloss": "he sees"
-    },
-    {
-      "lemma": "ἔρχεται",
-      "transliteration": "erchetai",
-      "gloss": "he comes/approaches"
-    },
-    {
-      "lemma": "φυλάσσει",
-      "transliteration": "phylassei",
-      "gloss": "he guards"
-    },
-    {
-      "lemma": "σκοτία",
-      "transliteration": "skotia",
-      "gloss": "darkness"
-    },
-    {
-      "lemma": "λίθος/πέτρα",
-      "transliteration": "lithos/petra",
-      "gloss": "stone/rock"
-    },
-    {
-      "lemma": "σπήλαιον",
-      "transliteration": "spelaion",
-      "gloss": "cave"
-    },
-    {
-      "lemma": "πονηρός",
-      "transliteration": "ponēros",
-      "gloss": "tricky, mischievous (story-safe sense)"
-    },
-    {
-      "lemma": "σῖγα",
-      "transliteration": "siga",
-      "gloss": "quiet/shh"
-    },
-    {
-      "lemma": "μὴ φοβοῦ",
-      "transliteration": "mē phobou",
-      "gloss": "do not be afraid"
-    },
-    {
-      "lemma": "ποῦ; τί;",
-      "transliteration": "pou? ti?",
-      "gloss": "where? what?"
-    }
-    ],
-  "sample_lines": [
-    {
-      "gr": "ὁ ὄφις ψιθυρίζει· «σῖγα, σῖγα… ἔρχεσθε παρ’ ἐμέ.»",
-      "en": "The snake whispers, “Quiet, quiet… come to me.”"
-    },
-    {
-      "gr": "ὁ ὄφις κρύπτεται ὑπὸ τὴν πέτραν.",
-      "en": "The snake hides under the rock."
-    },
-    {
-      "gr": "«ἡ ὁδὸς βραχεῖα ἐστίν,» λέγει ὁ ὄφις.",
-      "en": "“The way is short,” says the snake."
-    },
-    {
-      "gr": "«δος μοι τὸ παιγνίον· ἐγὼ οἶδα ποῦ ἐστίν ἡ κλείς.»",
-      "en": "“Give me the toy; I know where the key is.”"
-    },
-    {
-      "gr": "οὐ κακός εἰμι· φίλος εἰμι.",
-      "en": "I am not bad; I am a friend."
-    }
-  ],
-  "story_functions": [
-    "introduce safe tension and obstacles",
-    "offer tempting shortcuts or trades that complicate tasks",
-    "guard transitions (doorways, holes, bridges, ruins) as a threshold figure",
-    "enable repetition of high-frequency Koine through formulaic whispers and refusals",
-    "contrast honest speech with half-truths to model questions/clarifications"
-  ],
-  "conflict_scale_and_safety": {
-    "harm_rules": [
-      "never bites or injures; no gore or fear-porn",
-      "conflict is verbal, spatial (blocking), or puzzle-like",
-      "mistakes are fixable within a few pages"
-    ],
-    "resolution_patterns": [
-      "children ask clear questions in Koine and choose safe paths",
-      "kindness or light (a lantern, bell) moves Ophis aside",
-      "adults appear as elbows/hands shifting the environment, never as on-screen rescuers"
-    ]
-  },
-  "settings_where_he_appears_best": [
-    "under steps and stones",
-    "near jars, baskets, and door-sills",
-    "by tree roots, hollow logs, and berry thickets",
-    "among fallen columns or simple ‘ruin’ shapes",
-    "along fences and garden walls at dusk"
-  ],
-  "children_first_perspective_notes": [
-    "compose frames at child eye-level; Ophis fills foreground coils",
-    "adults: only elbows/hands/waists in frame",
-    "let Ophis enter from low corners; keep heads of adults out-of-frame",
-    "visual context carries meaning so text can stay simple"
-  ],
-  "cultural_notes_for_greek_flavor": [
-    "snakes in Greek lore are chthonic: close to earth, stones, and thresholds",
-    "they can be ominous (Python, Hydra) yet also guardians and ‘knowers’ of places",
-    "Ophis leans into the ‘tricky guardian of stones and shadows’ side, child-safe"
-  ],
-  "recurring_gags_and_motifs": [
-    "Ophis trades a shiny thing for a silly favor",
-    "Ophis ‘shortcuts’ always pass his favorite stone",
-    "a bell or clap scatters him with a startled ‘σσσ!’",
-    "he insists a normal rock is ‘ancient and important’"
-  ],
-  "growth_arc": [
-    "Book 1–2: mostly tease and test; returns lost items for tiny trades",
-    "Book 3–4: warns about storms or holes (still wants payment)",
-    "Later: grudging respect; becomes a wary helper when shown consistent kindness"
-  ],
-  "do_dont_guidelines": {
-    "do": [
-      "keep conflicts small, solvable, and language-forward",
-      "repeat key phrases; highlight σ-sounds in Ophis’s lines",
-      "show Ophis as clever and proud, not monstrous",
-      "use shadows and stones as friendly, readable shapes"
-    ],
-    "dont": [
-      "no violence, gore, or realistic predation",
-      "don’t overcomplicate with long myth dumps",
-      "don’t depict adults’ heads",
-      "don’t make darkness frightening; keep cozy"
-    ]
-  },
-  "alignment_with_series": {
-    "comprehensible_input": "predictable whispers and replies enable recycled frames (questions, refusals, imperatives).",
-    "gentle_grammar": "present tense, simple questions, polite imperatives; occasional new noun with article.",
-    "repetition_with_purpose": "σῖγα, ἔρχεσθε, οὐ, ποῦ/τί cycles across scenes.",
-    "story_first": "Ophis’s mischief motivates movement and dialogue; language emerges naturally."
-  },
-  "tags": [
-    "enemy",
-    "snake",
-    "trickster",
-    "guardian",
-    "Greek flavor",
-    "stones and shadows",
-    "children-safe"
-  ],
-  "version": "1.0.0"
+  "relationships": [
+    "He tests the children of the woodland family with tempting shortcuts and trades.",
+    "He slips away when adults approach, meeting them only as hands and elbows in the scene.",
+    "With repeated kindness from the children, he becomes a wary, grudging helper."
+  ]
 }
