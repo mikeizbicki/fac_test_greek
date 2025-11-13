@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^\\S+$",
+      "description": "should match the path of the file"
+    },
+    "description": {
+      "type": "string",
+      "description": "3-5 word phrase that describes the character"
+    },
+    "sex": {
+      "type": "string",
+      "enum": ["male", "female"]
+    },
+    "personality": {
+      "type": "string",
+      "description": "1-3 sentences"
+    },
+    "backstory": {
+      "type": "string",
+      "description": "2-5 sentences"
+    },
+    "appearance": {
+      "type": "string",
+      "description": "2-5 sentences; provide concrete details that would allow an artist to reproduce a portrait of the character"
+    },
+    "strengths": {
+      "type": "array",
+      "items": {"type": "string", "description": "1 sentence"},
+      "minItems": 1,
+      "maxItems": 5
+    },
+    "weaknesses": {
+      "type": "array",
+      "items": {"type": "string", "description": "1 sentence"},
+      "minItems": 1,
+      "maxItems": 5
+    },
+    "key_objects": {
+      "type": "array",
+      "items": {"type": "string", "description": "1 sentence"},
+      "minItems": 0,
+      "maxItems": 3
+    },
+    "relationships": {
+      "type": "array",
+      "items": {"type": "string", "description": "1 sentence"},
+      "minItems": 0,
+      "maxItems": 5
+    }
+  },
+  "required": ["name", "description", "sex", "personality", "backstory", "appearance"]
+}
