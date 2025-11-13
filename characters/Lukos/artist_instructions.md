@@ -1,0 +1,3 @@
+# Lukos — Artist Instructions
+
+Draw Lukos as a tall, narrow, triangular-silhouette wolf with a long snout, sloped shoulders, and a tapering tail. His fur is charcoal gray with cool ash highlights, with a pale off-white chest, throat, and muzzle; his eyes are yellow‑amber. His ears are upright with a small V‑shaped notch in the right ear, and a single small upper fang often peeks when he smiles. He is always shown wearing a ragged dark hooded himation/cloak tied with a simple cord—the fabric a deep charcoal gray (nearly black) with frayed edges—and scuffed leather sandals in weathered medium brown.

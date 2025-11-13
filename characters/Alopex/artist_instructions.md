@@ -1,0 +1,3 @@
+# Alopex — Artist Instructions
+
+An anthropomorphic fox with rust-orange fur, a cream muzzle and tail tip, dark ear tips, and charcoal-gray paws, with a long brush tail and a lean, narrow build. His limbs are slim, emphasizing a sleek, foxlike silhouette. He is always dressed in a patched, short Greek tunic (chiton or short himation) in muted olive or umber, cinched with a simple rope belt. Simple umber-brown sandals complete his look.

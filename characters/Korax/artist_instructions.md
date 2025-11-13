@@ -1,0 +1,3 @@
+# Korax — Artist Instructions
+
+Korax is a sleek male crow with glossy black plumage that shows cool blue‑violet iridescent highlights on the head, shoulders, wing coverts, and tail in light. He has a strong, straight black beak; a wedge‑shaped tail; and very dark (near‑black) eyes that always include a crisp white catch‑light. His legs and feet are black and scaly with sturdy black claws, and a subtle fringe of small neck hackles gives a slightly textured edge around the throat. Keep his size consistent: when perched on a low post he stands about knee‑high to a young child, with long primaries, a compact body, and a clean, glossy silhouette.

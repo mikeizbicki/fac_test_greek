@@ -1,0 +1,3 @@
+# Ophis — Artist Instructions
+
+Ophis is a long, slender, limbless serpent with dark-olive scales that carry a soft bronze sheen. A subtle Greek meander pattern in bronze runs continuously along the center of his back from head to tail. His eyes are half-lidded and golden, with narrow vertical pupils that widen in warm light. A bright red, forked tongue often flickers, and when he smiles, one small fang catches the light.
