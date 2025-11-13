@@ -3,7 +3,7 @@
   "properties": {
     "text_koine": {
       "type": "string",
-      "description": "The text for this page of the story in Koine greek."
+      "description": "The text for this frame of the story in Koine greek."
     },
     "text_english": {
       "type": "string",
@@ -12,11 +12,11 @@
     "frame_id": {
       "type": "string",
       "pattern": "^[a-zA-Z0-9_]+$",
-      "description": "1-5 words that uniquely identify the page."
+      "description": "1-5 words that uniquely identify the frame."
     },
     "characters": {
       "type": "array",
-      "description": "The list of characters involved in this page. May be empty.",
+      "description": "The list of characters involved in this frame. May be empty.",
       "items": {
         "type": "string",
         "description": "Must exactly match the name of a character."
@@ -29,13 +29,26 @@
         "type": "string",
         "description": "Must exactly match the name of a location."
       }
+    },
+    "object_notes": {
+      "type": "array",
+      "description": "This field should be empty if the frame does not contain an object that will appear in other frames.",
+      "items": {
+        "type": "string",
+        "description": "A one sentence description of what the object looks like.  The description should include color/shape/texture/size and other information as appropriate for the object. If the object appears in multiple frames, the frames must have the exact same object_notes."
+      }
+    },
+    "artist_notes": {
+      "type": "string",
+      "description": "1-5 sentences that provide additional details that the artist should draw.  These details should help children understand the story and maintain consistency between frames.  Do not describe any characters, as they will be described elsewhere.  Be concise and only include details that must remain the same between frames. The artist will not have access to other frames and so you should not reference them and ensure all artist_notes are self-contained."
     }
   },
   "required": [
     "text_koine",
     "text_english",
-    "page_id",
+    "frame_id",
     "characters",
-    "locations"
+    "locations",
+    "artist_notes"
   ]
 }
