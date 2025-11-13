@@ -30,17 +30,21 @@
         "description": "Must exactly match the name of a location."
       }
     },
-    "object_notes": {
+    "objects": {
       "type": "array",
-      "description": "This field should be empty if the frame does not contain an object that will appear in other frames.",
+      "description": "Any important objects that are not described in the location/characters files must be inserted in this array.",
       "items": {
         "type": "string",
         "description": "A one sentence description of what the object looks like.  The description should include color/shape/texture/size and other information as appropriate for the object. If the object appears in multiple frames, the frames must have the exact same object_notes."
       }
     },
-    "artist_notes": {
-      "type": "string",
-      "description": "1-5 sentences that provide additional details that the artist should draw.  These details should help children understand the story and maintain consistency between frames.  Do not describe any characters, as they will be described elsewhere.  Be concise and only include details that must remain the same between frames. The artist will not have access to other frames and so you should not reference them and ensure all artist_notes are self-contained."
+    "positioning": {
+      "type": "array",
+      "description": "Every object/character should have an entry.",
+      "items": {
+        "type": "string",
+        "description": "A one sentence description of where the object/character should be drawn in the picture.  The positioning should be consistent between frames so that if CHAR1 was running towards OBJECT in the previous frame, in the next frame CHAR1 might be holding OBJECT."
+      }
     }
   },
   "required": [
@@ -49,6 +53,7 @@
     "frame_id",
     "characters",
     "locations",
-    "artist_notes"
+    "objects",
+    "positioning"
   ]
 }
