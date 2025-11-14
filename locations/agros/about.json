@@ -1,0 +1,23 @@
+{
+  "name": "Agros",
+  "description": "A sunlit, gently rolling field at the woodland edge where children and animals tend rows, play, and speak Greek.",
+  "visual_style": {
+    "color_palette": [
+      "Warm wheat gold (#E2C044) for grasses, grain heads, and hay bales.",
+      "Soft meadow green (#7FB77E) for clover, rows of crops, and leafy borders.",
+      "Clear sky blue (#8EC9F2) for open skies and water trough highlights.",
+      "Earthy brown (#8B5E3C) for soil paths, wooden fences, and tools.",
+      "Poppy red (#E84A5F) as small accents on flowers, baskets, and toy details."
+    ],
+    "architectural_style": "Rustic agrarian with low split-rail fences, a small fieldstone well, and a simple lean-to shed. Compositions keep forms rounded and uncluttered, framed from a child-height viewpoint.",
+    "flora_fauna": "Rows of wheat and vegetables mingle with clover and wildflowers; bees and butterflies drift over the furrows. Sparrows, field mice, and gentle farm friends like sheep and a small goat wander near the fence.",
+    "weather": "sunny with breezes",
+    "lighting": "bright sunlight",
+    "materials": [
+      "Weathered wood fences and gate slats",
+      "Fieldstone well and low boundary walls",
+      "Packed-earth footpaths with straw mulch",
+      "Clay water jar and simple rope pulley"
+    ]
+  }
+}

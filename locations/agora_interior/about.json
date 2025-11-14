@@ -1,0 +1,20 @@
+{
+  "name": "Agora_Interior",
+  "description": "A cozy covered market hall with stone columns, low counters, and friendly stalls where woodland animals chat in Greek.",
+  "visual_style": {
+    "color_palette": [
+      "Creamy limestone #E9E2D0 for walls and columns to keep the scene warm and calm.",
+      "Warm terracotta #C65D3D for floor tiles and jars to suggest pottery and bustle.",
+      "Muted olive green #6B8E23 and walnut brown #6B4F3A for awnings, baskets, and wood stalls to guide focus to the goods."
+    ],
+    "architectural_style": "Hellenistic stoa interior with a rhythmic colonnade, rounded edges, and uncluttered sightlines at a child's eye level. Details are simplified with large, friendly Greek lettering placed low. Framing stays low, with adult figures cropped at elbows to keep focus on stalls.",
+    "lighting": "soft skylight and lamplight",
+    "furniture": "Low walnut-brown stalls line the aisles in tidy rows, with cream linen runners and labeled baskets placed at child height. Benches and small display tables cluster near columns, terracotta jars grouped in threes at stall fronts.",
+    "materials": [
+      "Limestone columns and cream plaster walls.",
+      "Terracotta floor tiles and storage jars.",
+      "Oiled hardwood counters, benches, and shelves.",
+      "Bronze hooks, hinges, and oil lamps."
+    ]
+  }
+}
