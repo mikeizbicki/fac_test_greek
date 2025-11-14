@@ -163,12 +163,12 @@
     quality: medium
     orientation: landscape
   dependencies:
-    #- art.md
+    - art.md
     - target: books/$LEVEL/$BOOK/content.jsonl
       include: false
-        #- locations/$LOCATION/about.json
+    - locations/$LOCATION/about.json
     - locations/$LOCATION/reference.png
-      #- characters/$CHARACTER/about.json
+    - characters/$CHARACTER/about.json
     - characters/$CHARACTER/character_sheet.png
   variables:
     FRAME_ID:
