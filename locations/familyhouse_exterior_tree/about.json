@@ -1,0 +1,21 @@
+{
+  "name": "familyhouse_exterior_tree",
+  "description": "A shady spot beneath the old tree along the cobblestone path, with the cozy cottage’s terracotta roof, soft-brown wood walls, and sage shutters barely visible in the far background.",
+  "visual_style": {
+    "color_palette": [
+      "Leafy green (#6B8E23) for the canopy leaves and low grass underfoot.",
+      "Weathered bark brown (#8B5A2B) for the tree trunk and branches, and cool cobblestone gray (#7D7D7D) for the path stones.",
+      "Far-background house accents: soft sage green (#8A9A5B) shutters, warm terracotta (#CC7357) roof tiles, and soft brown (#D69242) natural wood siding."
+    ],
+    "architectural_style": "A natural outdoor vignette beneath a broad-limbed tree beside the cobblestone path that leads to the cottage. When glimpsed, the cottage matches the main exterior: pitched roof with wide eaves and terracotta tiles, shuttered windows, natural wood siding in soft brown, a tiny front porch, and a low stone foundation; framing stays low to a child’s eye level with adults cropped at elbows and below.",
+    "flora_fauna": "Clover, dandelions, and lavender peep through the grass; butterflies, ladybugs, and robins visit, while a curious squirrel may perch on a low branch.",
+    "weather": "sunny with breeze",
+    "lighting": "dappled sunlight",
+    "materials": [
+      "Rounded cobblestone path of gray stones curving past the tree",
+      "Rough-barked hardwood tree with sturdy low branches and dense leaves",
+      "Simple wooden fence slats and small terracotta pots near the path",
+      "Distant cottage details: terracotta roof tiles, soft brown natural wood siding with soft sage shutters, a low stone foundation, and a tiny front porch"
+    ]
+  }
+}
