@@ -74,7 +74,7 @@
   description:
     A description of a location.
     All of the scenes of the various stories will take place at one of these locations.
-  schema_file: location.json-schema
+  schema_file: schemas/location.json-schema
   dependencies:
     about.md
   variables:
@@ -99,12 +99,15 @@
 "books/$LEVEL/themes.md":
   description:
     A short description of common themes for this level of book.
+  variables:
+    LEVEL:
+      ls books
 
 "books/$LEVEL/$BOOK/content.jsonl":
   description:
     Each JSONL object entry represents a single page in the book.
     The story should be simple but have a clear beginning, middle, and end.
-  schema_file: content.json-schema
+  schema_file: schemas/content.json-schema
   dependencies:
     about.md
     writing.md
@@ -112,8 +115,6 @@
     characters/$CHARACTER/about.json
     locations/$LOCATION/about.json
   variables:
-    LEVEL:
-      ls books
     BOOK:
       # this command is like `ls books/$LEVEL` but it will only output directories;
       # this means that it will not find the `themes.md` file in `books/$LEVEL`;
@@ -246,7 +247,7 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/video_prompt.txt":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.txt":
   description:
     You are animating a short 4 second scene in a childrens movie.
     The animation should help young children learning Koine Greek how to understand the text in the content below.
@@ -259,10 +260,10 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/raw.mp4":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.mp4":
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/video_prompt.txt
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.txt
   options:
     model: openai/sora-2
     size: 1280x720
@@ -273,7 +274,7 @@
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID
 
     # Get durations
-    VIDEO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 raw.mp4)
+    VIDEO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 postimage.mp4)
     AUDIO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 page.wav)
 
     # Calculate target video duration with padding (specified in seconds)
@@ -285,13 +286,13 @@
     if (( $(echo "$TARGET_DURATION > $VIDEO_DURATION" | bc -l) )); then
         # Need to slow down video to match target duration
         SLOWDOWN_FACTOR=$(echo "scale=6; $VIDEO_DURATION / $TARGET_DURATION" | bc -l)
-        ffmpeg -i raw.mp4 -i page.wav -filter:v "setpts=PTS/$SLOWDOWN_FACTOR" -c:a aac -af "adelay=${START_PAD}s,apad=pad_dur=${END_PAD}" -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed.mp4 -y
+        ffmpeg -i postimage.mp4 -i page.wav -filter:v "setpts=PTS/$SLOWDOWN_FACTOR" -c:a aac -af "adelay=${START_PAD}s,apad=pad_dur=${END_PAD}" -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed.mp4 -y
     else
         # Video is long enough - pad audio and trim/pad video as needed
-        ffmpeg -i raw.mp4 -i page.wav -c:v copy -c:a aac -af "adelay=$START_PAD"s,apad -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed.mp4 -y
+        ffmpeg -i postimage.mp4 -i page.wav -c:v copy -c:a aac -af "adelay=$START_PAD"s,apad -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed.mp4 -y
     fi
   dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/raw.mp4
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.mp4
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
 
 "books/$LEVEL/$BOOK/video.mp4":
