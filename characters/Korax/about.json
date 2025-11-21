@@ -2,29 +2,5 @@
   "name": "Korax",
   "description": "Mischievous community crow trickster",
   "sex": "male",
-  "personality": "Quick-witted, bold, and opportunistic, Korax loves shiny things, crunchy snacks, and being the center of attention. He is a playful show-off who teases and tests boundaries, but he is never cruel or scary. Embarrassed when caught, he secretly enjoys being included.",
-  "backstory": "Korax is a crow of the woodland paths, roosting near a red gate and keeping a stash in a hollow stump by the creek. Known for swooping low to snatch bright trinkets, he learned that trades and sharing bring better rewards than hiding. Over time he shifts from snatching-and-running to asking first and helping friends find lost things.",
-  "appearance": "He is a sleek crow with a strong straight beak, wedge-shaped tail, and glossy black plumage that shines blue-violet in light. His eyes are dark with a lively catch-light, and he often tilts his head, raises small hackles when excited, and half-opens his wings to show intent. At child-eye level he perches on low branches, fence posts, or stumps, standing about knee-high to a child when perched on a post.",
-  "strengths": [
-    "Clever and observant, quickly spotting opportunities and remembering where things are hidden.",
-    "Agile ground-and-branch mover with quick hops, sidesteps, and short, low swoops.",
-    "Good mimic, echoing short Greek words and calling 'κρα, κρα!' to announce himself.",
-    "Responsive to fair trades, often returning or sharing what he took."
-  ],
-  "weaknesses": [
-    "Easily distracted by anything shiny or tasty.",
-    "Impulsive and pushy, testing boundaries without asking first.",
-    "Proud and showy, he hates being embarrassed and may double down on mischief.",
-    "Noisy at the wrong times, waking others with loud caws."
-  ],
-  "key_objects": [
-    "A hollow stump by the creek where he stashes finds.",
-    "A shiny button he loves to show off and trade.",
-    "A simple wooden spoon that often tempts him into trouble."
-  ],
-  "relationships": [
-    "With the children, wary fascination becomes playful negotiation as they model asking, waiting, and fair trading.",
-    "With adults, he meets firm but gentle redirection, usually shown only as helping hands offering trades or shooing.",
-    "He belongs to the woodland community and sometimes helps by fetching or guiding others to his stash."
-  ]
+  "appearance": "He is a sleek crow with a strong straight beak, wedge-shaped tail, and glossy black plumage that shines blue-violet in light. His eyes are dark with a lively catch-light, and he often tilts his head, raises small hackles when excited, and half-opens his wings to show intent. His beak and feet are black just like his feathers. Korax always looks angry and unkempt."
 }
