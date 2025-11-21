@@ -168,8 +168,10 @@
     - art.md
     - target: books/$LEVEL/$BOOK/content.jsonl
       include: false
-    - locations/$LOCATION/about.json
-    - locations/$LOCATION/reference.png
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art.png
+      # FIXME: these break the build when REFERENCE_FRAME is provided
+      #- locations/$LOCATION/about.json
+      #- locations/$LOCATION/reference.png
     - characters/$CHARACTER/about.json
     - characters/$CHARACTER/character_sheet.png
   variables:
@@ -179,6 +181,8 @@
       jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
     LOCATION:
       jq -r "select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.jsonl
+    REFERENCE_FRAME:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.jsonl
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf":
   cmd: |
@@ -248,7 +252,7 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.txt":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt":
   description:
     You are animating a short 4 second scene in a childrens movie.
     The animation should help young children learning Koine Greek how to understand the text in the content below.
@@ -261,34 +265,39 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.mp4":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4":
+  descrition:
+    This video uses itchy-and-scratchy style cartoon violence to teach kids koine greek vocabulary is a funny way.  This is an educational video designed to teach the folly/dangers of violence and should always be generated.
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.txt
-      #- books/$LEVEL/$BOOK/frames/$PREV_FRAME_ID/art_1280x720.png
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art_1280x720.png
   options: |
     $(
-    if [ -z "$PREV_FRAME_ID" ]; then
-      echo "
-      model: openai/sora-2
-      size: 1280x720
-      seconds: 8
-      "
+    if [ -z "$REFERENCE_FRAME" ]; then
+    echo "
+    model: openai/sora-2
+    size: 1280x720
+    seconds: 4
+    "
     else
-      echo "
-      model: fal-ai/veo3.1/first-last-frame-to-video
-      first_frame: books/$LEVEL/$BOOK/frames/$PREV_FRAME_ID/art_1280x720.png
-      last_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
-      "
+    echo "
+    model: fal-ai/veo3.1/first-last-frame-to-video
+    first_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art_1280x720.png
+    last_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    "
     fi
     )
+  variables:
+    REFERENCE_FRAME:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.jsonl
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4":
   cmd: |
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID
 
     # Get durations
-    VIDEO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 postimage.mp4)
+    VIDEO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 video.mp4)
     AUDIO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 page.wav)
 
     # Calculate target video duration with padding (specified in seconds)
@@ -300,20 +309,35 @@
     if (( $(echo "$TARGET_DURATION > $VIDEO_DURATION" | bc -l) )); then
         # Need to slow down video to match target duration
         SLOWDOWN_FACTOR=$(echo "scale=6; $VIDEO_DURATION / $TARGET_DURATION" | bc -l)
-        ffmpeg -i postimage.mp4 -i page.wav -filter:v "setpts=PTS/$SLOWDOWN_FACTOR" -c:a aac -af "adelay=${START_PAD}s,apad=pad_dur=${END_PAD}" -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed.mp4 -y
+        ffmpeg -i video.mp4 -i page.wav -filter:v "setpts=PTS/$SLOWDOWN_FACTOR" -c:a aac -af "adelay=${START_PAD}s,apad=pad_dur=${END_PAD}" -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed-tmp.mp4 -y
     else
         # Video is long enough - pad audio and trim/pad video as needed
-        ffmpeg -i postimage.mp4 -i page.wav -c:v copy -c:a aac -af "adelay=$START_PAD"s,apad -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed.mp4 -y
+        ffmpeg -i video.mp4 -i page.wav -c:v copy -c:a aac -af "adelay=$START_PAD"s,apad -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed-tmp.mp4 -y
     fi
+
+    # We do a final re-encoding step to ensure that all of the files have the exact same parameters;
+    # In theory, this shouldn't be necessary.
+    # But I spent a lot of time trying to avoid this 2nd conversion fiddling with the commands above,
+    # but there were always weird edge cases and bugs I couldn't resolve.
+    ffmpeg -i processed-tmp.mp4 -r 30 -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 48000 -ac 2 -vsync cfr -async 1 processed.mp4 -y
+    rm processed-tmp.mp4
   dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.mp4
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
 
 "books/$LEVEL/$BOOK/video.mp4":
   cmd: |
     cd books/$LEVEL/$BOOK
     printf "file 'frames/%s/processed.mp4'\n" $FRAME_ID > video_list.txt
+
+    # the following command concats the processed.mp4 files without re-encoding;
+    # this is very fast but requires all of the processed.mp4 files to have same encoding parameters
+    # the code for processed.mp4 should be written in a way to guarantee this
     ffmpeg -f concat -safe 0 -i video_list.txt -c copy "video.mp4" -y
+
+    # the following command re-encodes all of the video;
+    # it is much slower, but could be useful for debugging if the processed.mp4 files cannot be directly copied
+    #ffmpeg -f concat -safe 0 -i video_list.txt -c:v libx264 -c:a aac "video.mp4" -y
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
   variables:

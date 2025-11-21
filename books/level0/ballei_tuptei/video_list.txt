@@ -1,0 +1,8 @@
+file 'frames/lukos_korax_standing/processed.mp4'
+file 'frames/lukos_punches_korax/processed.mp4'
+file 'frames/korax_throws_stone/processed.mp4'
+file 'frames/lukos_staff_attack/processed.mp4'
+file 'frames/korax_shoots_arrow/processed.mp4'
+file 'frames/lukos_sword_strike/processed.mp4'
+file 'frames/korax_catapult_fire/processed.mp4'
+file 'frames/korax_wins/processed.mp4'
