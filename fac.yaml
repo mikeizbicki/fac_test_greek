@@ -157,6 +157,7 @@
   description:
     You are drawing the art for a single page of a children's book that teaches Koine Greek.
     The artwork should help young children learning Koine Greek how to understand the text in the content below.
+    The art should never include written text in any language.
     <content>
     $(jq -r "select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.jsonl)
     </content>
@@ -264,10 +265,23 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/postimage.txt
-  options:
-    model: openai/sora-2
-    size: 1280x720
-    seconds: 8
+      #- books/$LEVEL/$BOOK/frames/$PREV_FRAME_ID/art_1280x720.png
+  options: |
+    $(
+    if [ -z "$PREV_FRAME_ID" ]; then
+      echo "
+      model: openai/sora-2
+      size: 1280x720
+      seconds: 8
+      "
+    else
+      echo "
+      model: fal-ai/veo3.1/first-last-frame-to-video
+      first_frame: books/$LEVEL/$BOOK/frames/$PREV_FRAME_ID/art_1280x720.png
+      last_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+      "
+    fi
+    )
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4":
   cmd: |
