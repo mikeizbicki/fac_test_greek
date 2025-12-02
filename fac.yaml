@@ -296,6 +296,8 @@
   variables:
     REFERENCE_FRAME:
       jq -r "select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.jsonl
+    CHARACTER:
+      jq -r ".characters[]" books/$LEVEL/$BOOK/content.jsonl | sort | uniq
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4":
   cmd: |
