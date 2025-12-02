@@ -275,6 +275,7 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
       #- books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art_1280x720.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
+    - characters/$CHARACTER/about.json
   options: |
     $(
     #if [ -z "$REFERENCE_FRAME" ]; then
