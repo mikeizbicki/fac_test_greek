@@ -336,8 +336,8 @@
     #ffmpeg -sseof -3 -i processed.mp4 -vframes 1 -y last_frame.png
     ffmpeg -sseof -1 -i processed.mp4 -f image2 temp_frame_%03d.png
     # The highest numbered file will be closest to the last frame
-    mv temp_frame_*.png last_frame.png  # rename the last one
-    rm temp_frame_*.png  # clean up others
+    #mv temp_frame_*.png last_frame.png  # rename the last one
+    #rm temp_frame_*.png  # clean up others
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
 
