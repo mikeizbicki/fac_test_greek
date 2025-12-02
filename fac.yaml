@@ -275,11 +275,12 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
       #- books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art_1280x720.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
-    - characters/$CHARACTER/about.json
+      #- characters/$CHARACTER/about.json
+    - characters/$CHARACTER/character_sheet.png
   options: |
     $(
-    #if [ -z "$REFERENCE_FRAME" ]; then
-    if true; then
+    if [ -z "$REFERENCE_FRAME" ]; then
+    #if true; then
     echo "
     model: openai/sora-2
     size: 1280x720
@@ -287,10 +288,15 @@
     "
     else
     echo "
-    model: fal-ai/veo3.1/fast/first-last-frame-to-video
-    first_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
-    last_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    model: fal-ai/kling-video/o1/reference-to-video
+    seconds: 5
+    start_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     "
+    #echo "
+    #model: fal-ai/veo3.1/fast/first-last-frame-to-video
+    #first_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
+    #last_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    #"
     fi
     )
   variables:
