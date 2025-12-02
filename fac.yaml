@@ -261,9 +261,16 @@
     </content>
     The initial frame of the scene has already been drawn and is provided in the attached image.
     You must provide a 1-4 sentence description of how to animate the provided input image.
-    The description should explicitly describe what each character is doing and their final position in the shot (e.g. stage-left, stage-right, off-camera).
+    The description should explicitly describe what each character is doing (e.g. running, sitting, writing), their emotions (e.g. angry, happy, sad), and their final position in the shot (e.g. stage-left, stage-right, off-camera).
   dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    #- books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
+    - characters/$CHARACTER/about.json
+  variables:
+    REFERENCE_FRAME:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.jsonl
+    CHARACTER:
+      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4":
   description:
