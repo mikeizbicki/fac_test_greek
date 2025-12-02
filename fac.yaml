@@ -332,7 +332,12 @@
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png":
   cmd: |
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID/
-    ffmpeg -i processed.mp4 -vf "select=eq(n\,$(ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of csv=p=0 processed.mp4)-1)" -vframes 1 -vsync 0 last_frame.png
+    #ffmpeg -i processed.mp4 -vf "select=eq(n\,$(ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of csv=p=0 processed.mp4)-1)" -vframes 1 -vsync 0 last_frame.png
+    #ffmpeg -sseof -3 -i processed.mp4 -vframes 1 -y last_frame.png
+    ffmpeg -sseof -1 -i processed.mp4 -f image2 temp_frame_%03d.png
+    # The highest numbered file will be closest to the last frame
+    mv temp_frame_*.png last_frame.png  # rename the last one
+    rm temp_frame_*.png  # clean up others
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
 
