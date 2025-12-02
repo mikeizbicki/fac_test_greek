@@ -1,0 +1,3 @@
+# Didaskolos — Artist Instructions
+
+Always draw Didaskolos as a modest-sized tawny owl with warm tawny-brown plumage, a cream-speckled breast, and soft medium-brown wings. He consistently wears a sky-blue knit cardigan with oval elbow patches and small wooden buttons down the front. His feet end in bright yellow talons, with a tiny nick visible on the right foot’s outer claw. His overall build should read compact and owl-like, with the cardigan fitting neatly over his body.
