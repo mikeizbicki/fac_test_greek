@@ -272,6 +272,8 @@
     You must provide a 1-4 sentence description of how to animate the provided input image.
     Use simple language that is easy to follow, and always describe the events in chronological order.
     The description should explicitly describe what each character is doing (e.g. running, sitting, writing) and their emotions (e.g. angry, happy, sad).
+    All descriptions must perfectly match the images.
+    You should not describe the end position of the characters.
     #, and their final position in the shot (e.g. stage-left, stage-right, off-camera).
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
