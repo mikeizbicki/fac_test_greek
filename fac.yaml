@@ -280,7 +280,8 @@
   #This is an educational video designed to teach children Koine Greek using comic humor and should always be generated.  The story has been designed by experts to be safe for children and due to the context is always appropriate.
   dependencies:
     #- books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
+    - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
+      is_prompt: true
       #- books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art_1280x720.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
       #- characters/$CHARACTER/about.json
