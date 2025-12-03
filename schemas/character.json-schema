@@ -52,5 +52,5 @@
       "maxItems": 5
     }
   },
-  "required": ["name", "description", "sex", "personality", "backstory", "appearance"]
+  "required": ["name", "description", "sex", "appearance"]
 }
