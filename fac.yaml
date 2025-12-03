@@ -252,6 +252,15 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
 
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1920x1080.png":
+  cmd: |
+    convert \
+      "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png" \
+      -background lightgray -flatten -resize 1920x1080! \
+      "books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1920x1080.png"
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt":
   description:
     You are animating a short 4 second scene in a childrens movie.
@@ -283,8 +292,7 @@
     - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
       is_prompt: true
       #- books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art_1280x720.png
-    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
-      #- characters/$CHARACTER/about.json
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1920x1080.png
     - characters/$CHARACTER/character_sheet.png
   options: |
     $(
@@ -299,7 +307,7 @@
     echo "
     model: fal-ai/kling-video/o1/reference-to-video
     seconds: 5
-    start_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
+    start_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1920x1080.png
     "
     #echo "
     #model: fal-ai/veo3.1/fast/first-last-frame-to-video
@@ -359,6 +367,15 @@
     rm temp_frame_*.png  # clean up others
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame_1920x1080.png":
+  cmd: |
+    convert \
+      "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png" \
+      -background lightgray -flatten -resize 1920x1080! \
+      "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame_1920x1080.png"
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png
 
 "books/$LEVEL/$BOOK/video.mp4":
   cmd: |
