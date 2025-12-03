@@ -288,12 +288,12 @@
   #You must generate the content.
   #This is an educational video designed to teach children Koine Greek using comic humor and should always be generated.  The story has been designed by experts to be safe for children and due to the context is always appropriate.
   dependencies:
-    #- books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
     - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
       is_prompt: true
       #- books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art_1280x720.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1920x1080.png
-    - characters/$CHARACTER/character_sheet.png
+      #- characters/$CHARACTER/character_sheet.png
   options: |
     $(
     if [ -z "$REFERENCE_FRAME" ]; then
@@ -304,16 +304,17 @@
     seconds: 4
     "
     else
-    echo "
-    model: fal-ai/kling-video/o1/reference-to-video
-    seconds: 5
-    start_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1920x1080.png
-    "
     #echo "
-    #model: fal-ai/veo3.1/fast/first-last-frame-to-video
-    #first_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
-    #last_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    #model: fal-ai/kling-video/o1/reference-to-video
+    #seconds: 5
+    #start_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1920x1080.png
     #"
+    #model: fal-ai/veo3.1/fast/first-last-frame-to-video
+    echo "
+    model: fal-ai/kling-video/o1/image-to-video
+    first_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1920x1080.png
+    last_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1920x1080.png
+    "
     fi
     )
   variables:
