@@ -129,14 +129,13 @@
     The artwork should help young children learning Koine Greek how to understand the text in the content below.
     The art should never include written text in any language.
     <content>
-    $(jq -r "select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.jsonl)
+    $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.json)
     </content>
   options:
-    quality: medium
-    orientation: landscape
+    model: fal-ai/nano-banana
   dependencies:
     - common/art.md
-    - target: books/$LEVEL/$BOOK/content.jsonl
+    - target: books/$LEVEL/$BOOK/content.json
       include: false
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art.png
       # FIXME: these break the build when REFERENCE_FRAME is provided
@@ -146,13 +145,13 @@
     - characters/$CHARACTER/character_sheet.png
   variables:
     FRAME_ID:
-      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
     CHARACTER:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
     LOCATION:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.json
     REFERENCE_FRAME:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf":
   cmd: |
