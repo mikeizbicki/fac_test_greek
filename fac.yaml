@@ -157,16 +157,16 @@
   cmd: |
     cp templates/page_template.tex books/$LEVEL/$BOOK/frames/$FRAME_ID/page.tex
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID
-    jq -r "select(.frame_id == \"$FRAME_ID\") | .text_koine" ../../content.jsonl > content.txt
+    jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text_koine" ../../content.json > content.txt
     lualatex page.tex && lualatex page.tex
   dependencies:
     - templates/page_template.tex
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
-    - books/$LEVEL/$BOOK/content.jsonl
+    - books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/pages.pdf":
   cmd: |
-    ordered_FRAME_IDs=$(jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl)
+    ordered_FRAME_IDs=$(jq -r .frames[].frame_id books/$LEVEL/$BOOK/content.json)
     pdfunite $(printf "books/$LEVEL/$BOOK/frames/%s/page.pdf " $ordered_FRAME_IDs) books/$LEVEL/$BOOK/pages.pdf
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
