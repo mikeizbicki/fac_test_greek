@@ -202,17 +202,7 @@
         "Koala"
       ],
       "locations": [
-        "Agora_Interior"
-      ],
-      "objects": [
-        "A soft tan cloth bag with a drawstring and gentle folds.",
-        "A low round wooden table in warm brown with smooth edges and three stout legs."
-      ],
-      "positioning": [
-        "Panda carries the tan cloth bag at her side near the stall table.",
-        "Koala sleeps tucked inside the bag, the drawstring open.",
-        "The soft tan cloth bag with a drawstring and gentle folds hangs from Panda's paw.",
-        "The low round wooden table in warm brown with smooth edges and three stout legs stands to the right as a market counter."
+        "agora_interior"
       ]
     },
     {
