@@ -47,6 +47,7 @@ Movement verbs:
 - πίπτω (and compounds like: καταπίπτω)
 - τρέχω
 - μένω
+- πέτομαι
 
 Simple activities:
 - βάλλω

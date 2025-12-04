@@ -1,0 +1,293 @@
+{
+  "title": "μετὰ τῆς κοάλας",
+  "learning_goal": "Practice third-person present tense of movement and simple activity verbs (enter/exit, carry, play, throw, find, hide, eat, drink, sleep) with clear article use and common prepositions (ἐν, εἰς/ἐπί, ἐκ/διά, παρά, μετά).",
+  "plot": "Koala eats and drinks at the table, goes outside to play and explore, then returns inside and goes to bed.",
+  "frames": [
+    {
+      "text_koine": "ἡ κοάλα καθίζει παρὰ τῇ τραπέζῃ.",
+      "text_english": "The koala sits beside the table.",
+      "frame_id": "koala_sits_table",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
+        "Small red-clay cup filled with clear water.",
+        "Small round loaf of golden-brown bread with a scored top.",
+        "Shiny red apple with a short brown stem and a small green leaf."
+      ],
+      "positioning": [
+        "Koala sits on the right side of the table, facing left with her hands near the table edge.",
+        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
+        "The small red-clay cup filled with clear water sits near the front-right edge of the table.",
+        "The small round loaf of golden-brown bread with a scored top rests at the center of the table cloth.",
+        "The shiny red apple with a short brown stem and a small green leaf lies beside the loaf toward the back-left of the table."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα ἐσθίει τὸν ἄρτον.",
+      "text_english": "The koala eats the bread.",
+      "frame_id": "koala_eats_bread",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
+        "Small round loaf of golden-brown bread with a scored top.",
+        "Small red-clay cup filled with clear water.",
+        "Shiny red apple with a short brown stem and a small green leaf."
+      ],
+      "positioning": [
+        "Koala sits at the right side of the table, facing left and reaching toward the small round loaf of golden-brown bread with a scored top.",
+        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
+        "The small round loaf of golden-brown bread with a scored top is near Koala’s paws on the table.",
+        "The small red-clay cup filled with clear water is near the near-right edge of the table.",
+        "The shiny red apple with a short brown stem and a small green leaf rests near the back-left of the table."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα ἐσθίει τὸ μῆλον.",
+      "text_english": "The koala eats the apple.",
+      "frame_id": "koala_eats_apple",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
+        "Shiny red apple with a short brown stem and a small green leaf.",
+        "Small red-clay cup filled with clear water."
+      ],
+      "positioning": [
+        "Koala sits at the right side of the table, lifting the shiny red apple with a short brown stem and a small green leaf toward her mouth.",
+        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
+        "The shiny red apple with a short brown stem and a small green leaf is in Koala’s paws above the table.",
+        "The small red-clay cup filled with clear water sits near the front-right edge of the table."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα πίνει τὸ ὕδωρ.",
+      "text_english": "The koala drinks the water.",
+      "frame_id": "koala_drinks_water",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
+        "Small red-clay cup filled with clear water."
+      ],
+      "positioning": [
+        "Koala sits at the right side of the table and lifts the small red-clay cup filled with clear water with both paws.",
+        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
+        "The small red-clay cup filled with clear water tilts slightly toward Koala’s mouth above the front-right edge of the table."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα φέρει τὸ βιβλίον ἐπὶ τὴν τράπεζαν.",
+      "text_english": "The koala carries the book onto the table.",
+      "frame_id": "koala_carries_book_to_table",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
+        "Small blue-covered book with a simple olive branch emblem on the front.",
+        "Small red-clay cup filled with clear water."
+      ],
+      "positioning": [
+        "Koala stands to the right of the table, facing left, holding the small blue-covered book with a simple olive branch emblem on the front just above the cloth.",
+        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
+        "The small blue-covered book with a simple olive branch emblem on the front hovers over the near-right edge of the table where Koala is about to set it down.",
+        "The small red-clay cup filled with clear water sits near the front-right edge of the table."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα ἐξέρχεται διὰ τῆς θύρας.",
+      "text_english": "The koala goes out through the door.",
+      "frame_id": "koala_exits_door",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior",
+        "familyhouse_exterior"
+      ],
+      "objects": [
+        "Simple wooden door with black iron hinges and a bronze ring handle."
+      ],
+      "positioning": [
+        "Koala is mid-step in the doorway, body half inside and half outside, facing to the right.",
+        "The simple wooden door with black iron hinges and a bronze ring handle stands centered, opening outward to the right."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα παίζει μετὰ τῆς σφαίρας.",
+      "text_english": "The koala plays with the ball.",
+      "frame_id": "koala_plays_ball",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "Bright red leather ball, palm-sized, with stitched seams.",
+        "Smooth oval gray river-stone about the size of the ball."
+      ],
+      "positioning": [
+        "Koala stands center-right facing left, holding the bright red leather ball, palm-sized, with stitched seams in both paws.",
+        "The smooth oval gray river-stone about the size of the ball sits on the ground at center-left."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα βάλλει τὴν σφαῖραν ἐπὶ τὸν μέγαν λίθον.",
+      "text_english": "The koala throws the ball onto the big stone.",
+      "frame_id": "koala_throws_ball",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "Bright red leather ball, palm-sized, with stitched seams.",
+        "Smooth oval gray river-stone about the size of the ball."
+      ],
+      "positioning": [
+        "Koala stands at the right edge, arm extended forward after the throw toward the left.",
+        "The bright red leather ball, palm-sized, with stitched seams lands on top of the smooth oval gray river-stone about the size of the ball at center-left."
+      ]
+    },
+    {
+      "text_koine": "ἡ σφαῖρα πίπτει παρὰ τὸν λίθον.",
+      "text_english": "The ball falls beside the stone.",
+      "frame_id": "ball_falls_beside_stone",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "Bright red leather ball, palm-sized, with stitched seams.",
+        "Smooth oval gray river-stone about the size of the ball."
+      ],
+      "positioning": [
+        "Koala watches from center-right, paws lowered after the throw.",
+        "The bright red leather ball, palm-sized, with stitched seams lies on the ground just to the right of the smooth oval gray river-stone about the size of the ball at center-left."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα εὑρίσκει τὸν κύβον ἐν τῇ κιβωτῷ.",
+      "text_english": "The koala finds the cube in the chest.",
+      "frame_id": "koala_finds_cube",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "Small cedar-wood chest with a brass latch and a carved border.",
+        "Matte green wooden cube the size of a fist with slightly rounded edges."
+      ],
+      "positioning": [
+        "Koala kneels at center-left, looking down into the open chest.",
+        "The small cedar-wood chest with a brass latch and a carved border sits open on the ground at center, lid tilted back.",
+        "The matte green wooden cube the size of a fist with slightly rounded edges rests inside the chest near the front edge."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα κρύπτει τὴν σφαῖραν ἐν τῷ σάκκῳ.",
+      "text_english": "The koala hides the ball in the bag.",
+      "frame_id": "koala_hides_ball_in_sack",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "Soft brown cloth sack with a drawstring mouth.",
+        "Bright red leather ball, palm-sized, with stitched seams."
+      ],
+      "positioning": [
+        "Koala crouches center-right, leaning over the open sack.",
+        "The soft brown cloth sack with a drawstring mouth lies open on the ground in front of Koala.",
+        "The bright red leather ball, palm-sized, with stitched seams is halfway inside the open mouth of the sack."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα εἰσέρχεται διὰ τῆς θύρας.",
+      "text_english": "The koala goes in through the door.",
+      "frame_id": "koala_enters_door",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_exterior",
+        "familyhouse_interior"
+      ],
+      "objects": [
+        "Simple wooden door with black iron hinges and a bronze ring handle."
+      ],
+      "positioning": [
+        "Koala steps forward through the doorway from outside to inside, facing left.",
+        "The simple wooden door with black iron hinges and a bronze ring handle stands centered, opening inward to the left."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα εἰσφέρει τὸν κύβον ἐπὶ τὴν τράπεζαν.",
+      "text_english": "The koala carries the cube onto the table.",
+      "frame_id": "koala_carries_cube_to_table",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
+        "Matte green wooden cube the size of a fist with slightly rounded edges.",
+        "Small blue-covered book with a simple olive branch emblem on the front."
+      ],
+      "positioning": [
+        "Koala stands at the right side of the table, placing the matte green wooden cube the size of a fist with slightly rounded edges onto the cloth.",
+        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left.",
+        "The small blue-covered book with a simple olive branch emblem on the front lies near the front-left of the table, and the cube is being set down beside it."
+      ]
+    },
+    {
+      "text_koine": "ἡ κοάλα καθεύδει ἐν τῇ κλίνῃ.",
+      "text_english": "The koala sleeps in the bed.",
+      "frame_id": "koala_sleeps_bed",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "Simple low wooden bed with a forest-green blanket and a cream pillow."
+      ],
+      "positioning": [
+        "Koala lies curled on the left side of the bed with eyes closed.",
+        "The simple low wooden bed with a forest-green blanket and a cream pillow occupies the center-right of the frame."
+      ]
+    }
+  ]
+}
