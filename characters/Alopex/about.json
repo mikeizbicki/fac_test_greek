@@ -2,31 +2,5 @@
   "name": "Alopex",
   "description": "Wily, soft-spoken trickster fox",
   "sex": "male",
-  "personality": "Soft-voiced and flattering, Alopex relies on clever talk and misdirection to get what he wants. He avoids conflict, bolts when cornered, and prefers easy solutions over honest work. Vanity and opportunism color his choices, though rare praise can draw out a better side.",
-  "backstory": "Alopex grew up skirting the edges of the woodland community, learning that quick words and little tricks could fill his belly faster than chores. He became known for flattery, fibs, and slipping away the moment plans went wrong. The community tolerates him because his mischief is reversible and he sometimes makes amends—especially when admired. He secretly fears going hungry or being publicly outwitted.",
-  "appearance": "An anthropomorphic fox with rust-orange fur, a cream muzzle and tail tip, dark ear tips, and charcoal paws; slim limbs and a long brush tail give him a narrow silhouette. He wears a patched chiton or short himation cinched with a rope belt, often topped with a worn traveler's cloak and a wide-brim petasos hat tilted low over his eyes. Half-lidded eyes, a sly grin, and a raised brow dominate his expressions; he tends to tiptoe, freeze, and bow dramatically. Simple sandals complete a muted olive and umber palette.",
-  "strengths": [
-    "Highly observant and quick to notice opportunities and exits.",
-    "Persuasive flatterer who can nudge others with gentle, singsong talk.",
-    "Resourceful in a pinch, improvising with twine, sticks, and found objects.",
-    "Knows many small tricks and disguises that create harmless confusion.",
-    "Can make amends gracefully when praised or given a face-saving out."
-  ],
-  "weaknesses": [
-    "Deceptive and evasive, he avoids direct answers and responsibility.",
-    "Quits when plans require real work or perseverance.",
-    "Vain and envious, he wants admiration more than honesty.",
-    "Cowardly when confronted and terrified of public embarrassment.",
-    "Rationalizes bad behavior and blames the object when he fails (\"the grapes are sour\")."
-  ],
-  "key_objects": [
-    "A small sack or net for \"found\" food and quick getaways.",
-    "A walking stick used for poking, grabbing, and looking respectable.",
-    "A scrap of twine or a simple paper mask for silly, nonthreatening traps and disguises."
-  ],
-  "relationships": [
-    "The woodland community knows him as a tolerated mischief-maker to be watched.",
-    "He tries to outsmart the protagonist family but occasionally helps if it wins praise.",
-    "He flatters authority figures to avoid consequences and slip away politely."
-  ]
+  "appearance": "An anthropomorphic fox with rust-orange fur, a cream muzzle and tail tip, dark ear tips, and charcoal paws; slim limbs and a long brush tail give him a narrow silhouette. He wears a patched chiton or short himation cinched with a rope belt, often topped with a worn traveler's cloak and a wide-brim petasos hat tilted low over his eyes. Half-lidded eyes, a sly grin, and a raised brow dominate his expressions; he tends to tiptoe, freeze, and bow dramatically. Simple sandals complete a muted olive and umber palette."
 }

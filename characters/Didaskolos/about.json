@@ -2,28 +2,5 @@
   "name": "Didaskalos",
   "description": "Patient Koine Greek teacher",
   "sex": "male",
-  "personality": "Patient, warm, and quietly playful, he guides children with gentle repetition and clear gestures. He praises small efforts and never rushes a hesitant voice.",
-  "backstory": "Raised in a small coastal town, he learned to teach by telling stories he heard from elders in the marketplace. He traveled to the woodland village to open a little school where lessons feel like games. Over time he became the neighbor everyone seeks for calm words and simple explanations.",
-  "appearance": "He wears a long undyed wool chiton bound with a braided rope belt and a deep-navy himation with a simple geometric border. Worn leather sandals cross-strap over his feet, and a small olive-wood pointer and a wax tablet in a leather case hang from his belt. Ink-stained fingers, a reed pen tucked behind his belt, and a plain silver ring mark his hands, which children see most often at their eye level. He has short, dark, curly hair and a neatly trimmed beard, though in pictures his head is usually above the frame.",
-  "strengths": [
-    "Uses clear, high-frequency language and gestures to make meaning obvious.",
-    "Radiates patient warmth that helps shy children risk speaking.",
-    "Observes carefully and adapts stories and games to each child's needs.",
-    "Models steady routines that make learning feel safe and predictable."
-  ],
-  "weaknesses": [
-    "He moves slowly through lessons and can lose track of time.",
-    "Traditional in taste, he hesitates to try unfamiliar tools or songs.",
-    "His soft voice is hard to hear when the room grows noisy."
-  ],
-  "key_objects": [
-    "Wax tablet and stylus for tracing words and drawing simple scenes.",
-    "Olive-wood pointer used to tap words and guide eyes across the page.",
-    "Leather satchel holding a rolled story scroll and a small ink pot."
-  ],
-  "relationships": [
-    "Mentor to the neighborhood children, encouraging them gently to speak and play in Greek.",
-    "Trusted helper to busy parents who appreciate his calm, consistent guidance.",
-    "Friendly colleague to other storytellers and singers at village gatherings."
-  ]
+  "appearance": "He wears a long undyed wool chiton bound with a braided rope belt and a deep-navy himation with a simple geometric border. Worn leather sandals cross-strap over his feet, and a small olive-wood pointer and a wax tablet in a leather case hang from his belt. Ink-stained fingers, a reed pen tucked behind his belt, and a plain silver ring mark his hands, which children see most often at their eye level. He has short, dark, curly hair and a neatly trimmed beard, though in pictures his head is usually above the frame."
 }

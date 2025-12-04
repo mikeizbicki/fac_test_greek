@@ -2,29 +2,5 @@
   "name": "Dinosaur",
   "description": "Small friendly green dinosaur",
   "sex": "male",
-  "personality": "Curious, upbeat, and gentle, he encourages others with simple, cheerful Koine phrases. He is patient when solving problems and keeps trying until he succeeds.",
-  "backstory": "He grew up near Panda's cozy home in the woodland community where everyone speaks Koine at home. At first he was shy, but after helping Panda find a lost toy, he discovered he loves helping and exploring. He practices new words while playing games and looking around the house and yard. He visits Panda often to play with the μικροὶ ἄνθρωποι and build little stories together.",
-  "appearance": "Child-sized with a round snout, big expressive eyes, and a short tail, he has smooth pea-green scales with a pale mint belly. Three stubby fingers and toes make his gestures clear and easy to read. Small triangular dorsal nubs run from the back of his head to mid-tail. His posture is upright and friendly, and he smiles wide when he finds a clue.",
-  "strengths": [
-    "He is a gentle helper.",
-    "He is a good observer.",
-    "He is a patient problem-solver.",
-    "He has a strong memory for places.",
-    "He is an encouraging friend."
-  ],
-  "weaknesses": [
-    "He is easily distracted by interesting sounds.",
-    "He is a bit clumsy with tiny pieces.",
-    "He is hesitant in the dark."
-  ],
-  "key_objects": [
-    "He carries a small red backpack.",
-    "He uses a child-safe magnifying glass.",
-    "He keeps a favorite pinecone 'trophy'."
-  ],
-  "relationships": [
-    "Panda is his best friend who invites him to play and explore.",
-    "Koala is a calm neighbor who models gentle manners and shares snacks.",
-    "Owl is a wise friend who answers questions and suggests games."
-  ]
+  "appearance": "Child-sized with a round snout, big expressive eyes, and a short tail, he has smooth pea-green scales with a pale mint belly. Three stubby fingers and toes make his gestures clear and easy to read. Small triangular dorsal nubs run from the back of his head to mid-tail. His posture is upright and friendly, and he smiles wide when he finds a clue."
 }

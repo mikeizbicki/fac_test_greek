@@ -2,32 +2,5 @@
   "name": "Lukos",
   "description": "Sly hungry trickster wolf",
   "sex": "male",
-  "personality": "Cunning, smooth-talking, and self-interested, he flatters and deceives to take easy food. Bold when unopposed but quick to retreat when challenged.",
-  "backstory": "Lukos haunts the edges of the woodland community, learning phrases he overhears and testing boundaries like the wolves of Aesop. He has long survived by tricks and pretexts rather than force, preferring shadows and easy meals. Over time, the children's teamwork and light repeatedly foil him, teaching him small social limits without changing his nature.",
-  "appearance": "He has a tall, narrow triangle silhouette with a long snout, sloped shoulders, and a tapering tail. His fur is charcoal gray with ash highlights, with pale chest and muzzle and yellow-amber eyes. His ears are upright with a small notch in the right ear, and a single small fang sometimes peeks when he smiles slyly. He wears a ragged dark hooded himation or cloak tied with a cord, worn sandals, a frayed rust-red scarf, and a small belt pouch, and he sometimes carries a crooked walking stick.",
-  "strengths": [
-    "Cunning and calculating, he uses flattery and pretexts to get what he wants.",
-    "Observant imitator who repeats phrases he hears, often to manipulate others.",
-    "Patient stalker who prefers ambush and persuasion over direct force.",
-    "Smooth, coaxing voice that tempts the unwary.",
-    "Survival instinct makes him quick to change course and escape when plans fail."
-  ],
-  "weaknesses": [
-    "Bright light from lanterns, morning sun, or fire quickly drives him away.",
-    "Group solidarity and children calling together overwhelm his nerve.",
-    "Staffs, shepherd tools, and visible authority symbols make him retreat.",
-    "He dislikes being seen plainly and depends on shadows and edges to feel confident.",
-    "Cowardly when challenged, he collapses under firm resistance."
-  ],
-  "key_objects": [
-    "A frayed rust-red scarf that serves as his signature accent.",
-    "A small belt pouch that rattles with pebbles and crumbs.",
-    "A crooked walking stick he uses theatrically rather than as a weapon."
-  ],
-  "relationships": [
-    "Targets single children with flattery but is repelled by their teamwork.",
-    "Evasive around adults and retreats the moment a shepherd's crook or broom enters the frame.",
-    "Spooks flocks, while crows and small birds often tattle on him to the children.",
-    "Acts as a recurring foil whose schemes prompt the community to cooperate."
-  ]
+  "appearance": "He has a tall, narrow triangle silhouette with a long snout, sloped shoulders, and a tapering tail. His fur is charcoal gray with ash highlights, with pale chest and muzzle and yellow-amber eyes. His ears are upright with a small notch in the right ear, and a single small fang sometimes peeks when he smiles slyly. He wears a ragged dark hooded himation or cloak tied with a cord, worn sandals, a frayed rust-red scarf, and a small belt pouch, and he sometimes carries a crooked walking stick."
 }

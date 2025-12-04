@@ -1,32 +1,7 @@
 {
   "name": "Ophis",
-  "description": "Sly whispering stone guardian",
+  "description": "Sly whispering snake",
   "sex": "male",
-  "personality": "Soft-spoken, patient, and cunning, Ophis teases but never harms. He is proud of old knowledge, territorial about stones and quiet places, and delights in secrets and riddles.",
   "backstory": "An ageless serpent who has long lived among stones, roots, and thresholds, Ophis feels ancient to the children. He collects shiny and old objects and guards holes and shadows like a careful custodian. He tempts others with shortcuts and trades to prove his cleverness, yet his mischief stays small and fixable. When treated with kindness, he sometimes warns or helps—quietly and on his terms.",
-  "appearance": "Long and slender, he has dark-olive scales with a bronze sheen and a subtle Greek meander pattern along his back. His half-lidded golden eyes have narrow pupils that widen in warm light, and a forked red tongue flicks as a small fang gleams when he smiles. He sometimes wears a narrow scarf-like band near his neck and may coil around a looped cord or ring he ‘guards.’ He moves in low, sinuous S-curves at child eye-level, often arriving from the bottom corner of the frame.",
-  "strengths": [
-    "His soft, sibilant whisper draws attention and keeps dialogue simple and focused.",
-    "He moves silently at ground level and appears from low corners.",
-    "He slips through tiny cracks and reappears where least expected.",
-    "He coils to block, guide, or guard without violence.",
-    "He remembers paths, holes, and hidden objects with precise, place-based memory."
-  ],
-  "weaknesses": [
-    "He avoids bright open spaces and noisy crowds.",
-    "Loud clapping or bells startle him and send him away.",
-    "Pride makes him underestimate simple kindness and clear questions.",
-    "He will not cross a well-lit, bustling hearth or doorway.",
-    "Shiny trinkets easily tempt him into trading or boasting."
-  ],
-  "key_objects": [
-    "A looped cord or ring he insists on guarding.",
-    "A narrow scarf-like band worn near his neck.",
-    "A small shiny coin or button tucked in a coil."
-  ],
-  "relationships": [
-    "He tests the children of the woodland family with tempting shortcuts and trades.",
-    "He slips away when adults approach, meeting them only as hands and elbows in the scene.",
-    "With repeated kindness from the children, he becomes a wary, grudging helper."
-  ]
+  "appearance": "Long and slender, he has dark-olive scales with a bronze sheen and a subtle Greek meander pattern along his back. His half-lidded golden eyes have narrow pupils that widen in warm light, and a forked red tongue flicks as a small fang gleams when he smiles. He sometimes wears a narrow scarf-like band near his neck and may coil around a looped cord or ring he ‘guards.’ He moves in low, sinuous S-curves at child eye-level, often arriving from the bottom corner of the frame."
 }
