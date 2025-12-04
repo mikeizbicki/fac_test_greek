@@ -1,59 +1,87 @@
 {
   "type": "object",
+  "description": "A complete description for a story to teach children Koine Greek.  Downstream tasks will use this information to generate a book and an animation from this story. Downstream tasks may have access to only parts of this JSON object, and so instructions about including/excluding information in sub-objects must be carefully followed for the downstream tasks to succeed.",
   "properties": {
-    "text_koine": {
+    "title": {
       "type": "string",
-      "description": "The text for this frame of the story in Koine greek."
+      "description": "A 1-5 word title for the story in Koine Greek"
     },
-    "text_english": {
+    "learning_goal": {
       "type": "string",
-      "description": "A literal translation of the Koine into English."
+      "description": "A 1 sentence English description of the vocabulary/grammar concepts this story will emphasize.  Other vocab/grammar is allowed to make the story flow, but the vocab/grammar specified here will be repeated over and over."
     },
-    "frame_id": {
+    "plot": {
       "type": "string",
-      "pattern": "^[a-zA-Z0-9_]+$",
-      "description": "1-5 words that uniquely identify the frame."
+      "description": "A 1 sentence English description of the story's plot."
     },
-    "characters": {
+    "frames": {
       "type": "array",
-      "description": "The list of characters involved in this frame. May be empty.",
+      "description": "Each frame represents a single page in a children's book, or a single frame in a comic book.",
       "items": {
-        "type": "string",
-        "description": "Must exactly match the name of a character."
-      }
-    },
-    "locations": {
-      "type": "array",
-      "description": "The list of locations that the scene takes place in.  Normally only a single location will be listed.  Multiple locations will be listed for 'transition scenes' between those locations.  The array will be empty if there are no relevant locations from the 'locations/' folder and the artist should make up a new location.",
-      "items": {
-        "type": "string",
-        "description": "Must exactly match the name of a location."
-      }
-    },
-    "objects": {
-      "type": "array",
-      "description": "Any important objects/landmarks/figures/etc that are not described in the location/characters files must be inserted in this array.  Example objects include: ball, tree, fence, couch, table, statue.",
-      "items": {
-        "type": "string",
-        "description": "A one sentence description of what the object looks like.  The description should include color/shape/texture/size and other information as appropriate for the object. If the object appears in multiple frames, the frames must have the exact same object_notes."
-      }
-    },
-    "positioning": {
-      "type": "array",
-      "description": "Every object/character should have an entry.",
-      "items": {
-        "type": "string",
-        "description": "A one sentence description of where the object/character should be drawn in the picture.  The positioning should be consistent between frames so that if CHAR1 was running towards OBJECT in the previous frame, in the next frame CHAR1 might be holding OBJECT."
+        "type": "object",
+        "properties": {
+          "text_koine": {
+            "type": "string",
+            "description": "The text for this frame of the story in Koine greek."
+          },
+          "text_english": {
+            "type": "string",
+            "description": "A literal translation of the Koine into English."
+          },
+          "frame_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_]+$",
+            "description": "1-5 words that uniquely identify the frame."
+          },
+          "characters": {
+            "type": "array",
+            "description": "The list of characters involved in this frame. May be empty.",
+            "items": {
+              "type": "string",
+              "description": "Must exactly match the name of a character."
+            }
+          },
+          "locations": {
+            "type": "array",
+            "description": "The list of locations that the scene takes place in.  Normally only a single location will be listed.  Multiple locations will be listed for 'transition scenes' between those locations.  The array will be empty if there are no relevant locations from the 'locations/' folder and the artist should make up a new location.",
+            "items": {
+              "type": "string",
+              "description": "Must exactly match the name of a location."
+            }
+          },
+          "objects": {
+            "type": "array",
+            "description": "Any important objects/landmarks/figures/etc that are not described in the location/characters files must be inserted in this array.  Example objects include: ball, tree, fence, couch, table, statue.",
+            "items": {
+              "type": "string",
+              "description": "A one sentence description of what the object looks like.  The description should include color/shape/texture/size and other information as appropriate for the object. If the object appears in multiple frames, the frames must have the exact same description of the object."
+            }
+          },
+          "positioning": {
+            "type": "array",
+            "description": "Every object/character should have an entry.",
+            "items": {
+              "type": "string",
+              "description": "A one sentence description of where the object/character should be drawn in the picture.  The positioning should be consistent between frames so that if CHAR1 was running towards OBJECT in the previous frame, in the next frame CHAR1 might be holding OBJECT."
+            }
+          }
+        },
+        "required": [
+          "text_koine",
+          "text_english",
+          "frame_id",
+          "characters",
+          "locations",
+          "objects",
+          "positioning"
+        ]
       }
     }
   },
   "required": [
-    "text_koine",
-    "text_english",
-    "frame_id",
-    "characters",
-    "locations",
-    "objects",
-    "positioning"
+    "title",
+    "frames",
+    "plot",
+    "learning_goal"
   ]
 }

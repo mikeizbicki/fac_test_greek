@@ -59,8 +59,6 @@
     3. All drawings should respect the instructions in the "art.md" and "characters/$CHARACTER/artist_instructions.md" files.
   options:
     model: fal-ai/nano-banana
-    #quality: medium
-    #orientation: landscape
   dependencies:
     - common/about.md
     - common/art.md
@@ -104,9 +102,8 @@
     LEVEL:
       ls books
 
-"books/$LEVEL/$BOOK/content.jsonl":
+"books/$LEVEL/$BOOK/content.json":
   description:
-    Each JSONL object entry represents a single page in the book.
     The story should be simple but have a clear beginning, middle, and end.
   schema_file: schemas/content.json-schema
   dependencies:
@@ -121,34 +118,6 @@
       # this means that it will not find the `themes.md` file in `books/$LEVEL`;
       # the simpler ls command results in errors from treating that file like a directory
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
-
-"books/$LEVEL/$BOOK/koine.txt":
-  cmd: jq -r '.text_koine' "books/$LEVEL/$BOOK/content.jsonl" > "books/$LEVEL/$BOOK/koine.txt"
-  dependencies:
-    books/$LEVEL/$BOOK/content.jsonl
-
-"books/$LEVEL/$BOOK/word_stats.tsv":
-  cmd: python3 scripts/count_words.py < "books/$LEVEL/$BOOK/koine.txt" > "books/$LEVEL/$BOOK/word_stats.tsv"
-  dependencies:
-    books/$LEVEL/$BOOK/koine.txt
-
-"books/$LEVEL/$BOOK/editor_notes.md":
-  description: '
-    Review the "books/$LEVEL/$BOOK/content.jsonl" file and create comments in the style of a professional editor.
-    Your comments should be divided into two sections:
-      ## Grammar Notes
-      - describes any inconsistencies or mistakes in the koine greek grammar
-      - only describe problems, do not comment if everything is correct
-      ## JSON Notes
-      describes any inconsistencies between the fields of the JSON objects
-    In each section you should use bullet points.
-    Each bullet point should:
-    - start with the line number of the problem (e.g. "LINE 5:")
-    - have a short 1 sentence description of the problem. (For complex problems, it is okay to use up to 5 sentences and provide example fixes.)
-      '
-  model: openai/gpt-5-nano
-  dependencies:
-    books/$LEVEL/$BOOK/content.jsonl
 
 ########################################
 # artwork
