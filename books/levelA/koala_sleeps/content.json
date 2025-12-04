@@ -1,0 +1,262 @@
+{
+  "title": "Κοάλα καθεύδει",
+  "learning_goal": "Practice Koine Greek location prepositions (under, on, beside, in, in front of, through/out of, toward, onto) with clear articles in simple present third-person sentences.",
+  "plot": "Panda, Dinosaur, and Glaux notice Koala sleeping in many strange places and finally bring her to rest on the bed.",
+  "frames": [
+    {
+      "text_koine": "Πάνδα εἰσέρχεται διὰ τῆς θύρας. Κοάλα καθεύδει ὑπὸ τὴν τράπεζαν.",
+      "text_english": "Panda enters through the door. Koala sleeps under the table.",
+      "frame_id": "enter_dining_sleep_under_table",
+      "characters": [
+        "Panda",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "A sturdy wooden door with a bronze ring handle and vertical planks.",
+        "A low round wooden table in warm brown with smooth edges and three stout legs."
+      ],
+      "positioning": [
+        "Panda stands just inside the open door at the left, stepping forward.",
+        "Koala curls asleep under the center of the table, head toward the right.",
+        "The sturdy wooden door with a bronze ring handle and vertical planks opens inward on the left wall.",
+        "The low round wooden table in warm brown with smooth edges and three stout legs sits in the middle of the room."
+      ]
+    },
+    {
+      "text_koine": "Γλαύξ πίνει τὸ ὕδωρ ἐπὶ τῇ τραπέζῃ. Κοάλα καθεύδει ὑπὸ τὴν τράπεζαν.",
+      "text_english": "Glaux drinks the water on the table. Koala sleeps under the table.",
+      "frame_id": "owl_drinks_on_table",
+      "characters": [
+        "Glaux",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "A low round wooden table in warm brown with smooth edges and three stout legs.",
+        "A small clay cup half-filled with clear water."
+      ],
+      "positioning": [
+        "Glaux perches at the near edge of the table on the right.",
+        "Koala sleeps tucked under the table near its left leg.",
+        "The low round wooden table in warm brown with smooth edges and three stout legs remains centered in the scene.",
+        "The small clay cup half-filled with clear water rests on the table near Glaux."
+      ]
+    },
+    {
+      "text_koine": "Δεινόσαυρος ἐσθίει τὸν ἄρτον παρὰ τὴν τράπεζαν. Κοάλα καθεύδει ὑπὸ τὴν τράπεζαν.",
+      "text_english": "Dinosaur eats the bread beside the table. Koala sleeps under the table.",
+      "frame_id": "dino_eats_bread_beside_table",
+      "characters": [
+        "Dinosaur",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "A low round wooden table in warm brown with smooth edges and three stout legs.",
+        "A round rustic loaf of bread with a golden crust."
+      ],
+      "positioning": [
+        "Dinosaur kneels beside the table on the left side.",
+        "Koala still sleeps under the table near the back.",
+        "The low round wooden table in warm brown with smooth edges and three stout legs sits in the middle.",
+        "The round rustic loaf of bread with a golden crust sits on the table near the front edge."
+      ]
+    },
+    {
+      "text_koine": "Πάνδα προσέρχεται πρὸς τὴν κιβωτόν. Κοάλα καθεύδει ἐν τῇ κιβωτῷ.",
+      "text_english": "Panda comes toward the chest. Koala sleeps in the chest.",
+      "frame_id": "approach_chest_sleep_in",
+      "characters": [
+        "Panda",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "A medium lidded wooden chest with bronze hinges and a dark walnut finish."
+      ],
+      "positioning": [
+        "Panda tiptoes toward the chest from the left.",
+        "Koala sleeps curled inside the open chest on the right.",
+        "The medium lidded wooden chest with bronze hinges and a dark walnut finish stands open on the right side of the room."
+      ]
+    },
+    {
+      "text_koine": "Δεινόσαυρος ἀναβαίνει ἐπὶ τὴν κλίνην. Κοάλα καθεύδει παρὰ τὴν κλίνην.",
+      "text_english": "Dinosaur goes up onto the bed. Koala sleeps beside the bed.",
+      "frame_id": "climb_bed_sleep_beside",
+      "characters": [
+        "Dinosaur",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "A small wooden bed with a muted forest-green blanket and a cream pillow."
+      ],
+      "positioning": [
+        "Dinosaur climbs up onto the foot of the bed from the left.",
+        "Koala sleeps on the right side beside the bed.",
+        "A small wooden bed with a muted forest-green blanket and a cream pillow rests along the back wall."
+      ]
+    },
+    {
+      "text_koine": "Γλαύξ φέρει τὸ βιβλίον παρὰ τὴν θυρίδα. Κοάλα καθεύδει ὑπὸ τὴν θυρίδα.",
+      "text_english": "Glaux carries the book beside the window. Koala sleeps under the window.",
+      "frame_id": "book_window_sleep_under",
+      "characters": [
+        "Glaux",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "A small square window with a wooden frame and open shutters.",
+        "A thick blue-covered book with a simple white border."
+      ],
+      "positioning": [
+        "Glaux stands beside the window on the left, holding the book at her side.",
+        "Koala sleeps curled directly under the window on the right.",
+        "The small square window with a wooden frame and open shutters is set in the back wall.",
+        "The thick blue-covered book with a simple white border is held in Glaux's wings."
+      ]
+    },
+    {
+      "text_koine": "Πάνδα ἐκβαίνει ἐκ τῆς θύρας. Κοάλα καθεύδει πρὸ τῆς θύρας.",
+      "text_english": "Panda goes out of the door. Koala sleeps in front of the door.",
+      "frame_id": "exit_door_sleep_in_front",
+      "characters": [
+        "Panda",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_exterior"
+      ],
+      "objects": [
+        "A sturdy wooden door with a bronze ring handle and vertical planks."
+      ],
+      "positioning": [
+        "Panda steps out through the door from inside to the stoop.",
+        "Koala sleeps curled just in front of the door.",
+        "The sturdy wooden door with a bronze ring handle and vertical planks opens outward at the center of the cottage wall."
+      ]
+    },
+    {
+      "text_koine": "Δεινόσαυρος τρέχει πρὸς τὸν λίθον. Κοάλα καθεύδει ἐπὶ τῷ λίθῳ.",
+      "text_english": "Dinosaur runs toward the stone. Koala sleeps on the stone.",
+      "frame_id": "run_to_stone_sleep_on",
+      "characters": [
+        "Dinosaur",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "A smooth oval gray stone with a flat top."
+      ],
+      "positioning": [
+        "Dinosaur runs along the path from the left toward the stone.",
+        "Koala sleeps stretched out on top of the stone.",
+        "A smooth oval gray stone with a flat top sits beside the path in the foreground."
+      ]
+    },
+    {
+      "text_koine": "Γλαύξ βάλλει τὴν σφαῖραν παρὰ τὸν κύβον. Κοάλα καθεύδει παρὰ τὴν σφαῖραν.",
+      "text_english": "Glaux throws the ball beside the block. Koala sleeps beside the ball.",
+      "frame_id": "throw_ball_sleep_beside",
+      "characters": [
+        "Glaux",
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "A small red-and-white striped ball.",
+        "A painted wooden cube, bright green with smooth edges."
+      ],
+      "positioning": [
+        "Glaux stands at the left midground tossing the ball toward the right.",
+        "Koala sleeps curled beside the ball on the right.",
+        "The small red-and-white striped ball rests near Koala.",
+        "The painted wooden cube, bright green with smooth edges, sits just behind the ball."
+      ]
+    },
+    {
+      "text_koine": "Πάνδα φέρει τὸν σάκκον παρὰ τὴν τράπεζαν. Κοάλα καθεύδει ἐν τῷ σάκκῳ.",
+      "text_english": "Panda carries the bag beside the table. Koala sleeps in the bag.",
+      "frame_id": "carry_bag_market_sleep_in",
+      "characters": [
+        "Panda",
+        "Koala"
+      ],
+      "locations": [
+        "Agora_Interior"
+      ],
+      "objects": [
+        "A soft tan cloth bag with a drawstring and gentle folds.",
+        "A low round wooden table in warm brown with smooth edges and three stout legs."
+      ],
+      "positioning": [
+        "Panda carries the tan cloth bag at her side near the stall table.",
+        "Koala sleeps tucked inside the bag, the drawstring open.",
+        "The soft tan cloth bag with a drawstring and gentle folds hangs from Panda's paw.",
+        "The low round wooden table in warm brown with smooth edges and three stout legs stands to the right as a market counter."
+      ]
+    },
+    {
+      "text_koine": "Πάνδα εἰσφέρει τὸν σάκκον εἰς τὴν κλίνην. Κοάλα καθεύδει ἐν τῷ σάκκῳ ἐπὶ τῇ κλίνῃ.",
+      "text_english": "Panda brings the bag onto the bed. Koala sleeps in the bag on the bed.",
+      "frame_id": "bring_bag_to_bed",
+      "characters": [
+        "Panda",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "A soft tan cloth bag with a drawstring and gentle folds.",
+        "A small wooden bed with a muted forest-green blanket and a cream pillow."
+      ],
+      "positioning": [
+        "Panda sets the bag gently on top of the bed near the foot.",
+        "Koala sleeps inside the bag resting on the blanket.",
+        "The soft tan cloth bag with a drawstring and gentle folds lies on the bed.",
+        "A small wooden bed with a muted forest-green blanket and a cream pillow fills the background."
+      ]
+    },
+    {
+      "text_koine": "Γλαύξ καὶ Δεινόσαυρος μένουσι παρὰ τὴν κλίνην. Κοάλα καθεύδει ἐπὶ τῇ κλίνῃ.",
+      "text_english": "Glaux and Dinosaur stay beside the bed. Koala sleeps on the bed.",
+      "frame_id": "friends_wait_bed_end",
+      "characters": [
+        "Glaux",
+        "Dinosaur",
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "A small wooden bed with a muted forest-green blanket and a cream pillow."
+      ],
+      "positioning": [
+        "Glaux and Dinosaur stand quietly beside the left side of the bed.",
+        "Koala sleeps peacefully on the bed near the pillow.",
+        "A small wooden bed with a muted forest-green blanket and a cream pillow sits centered with its blanket smoothed."
+      ]
+    }
+  ]
+}
