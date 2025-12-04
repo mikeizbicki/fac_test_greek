@@ -1,0 +1,3 @@
+# Iatrike — Artist Instructions
+
+Iatrike is a gentle-looking adult woman, immaculately clean and carefully groomed, with soft, reassuring hands. She is always dressed in a pristine white chiton with modest embroidered borders, covered by a soft light blue himation. Her hair is neatly braided and always covered with a simple veil that keeps the braids contained and tidy. Her face should show a calm, kind demeanor, and her overall posture should be composed and non-threatening.

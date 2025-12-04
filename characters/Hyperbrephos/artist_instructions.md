@@ -1,0 +1,3 @@
+# Hyperbrephos — Artist Instructions
+
+Depict Ὑπερβρέφος as a male infant with compact baby proportions but a visibly defined, muscular physique, including clear biceps, a six‑pack abdomen, and powerful legs. His skin is a warm golden‑bronze, his eyes are bright blue, and his hair is short, curly, and golden, framing a cherubic face with an innocent baby smile. He always wears a deep green laurel wreath on his head that never falls off and a pristine, pure‑white cloth diaper with no patterns or additional accessories. Ensure these elements are present and consistent in every depiction.

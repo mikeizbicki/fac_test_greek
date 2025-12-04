@@ -1,0 +1,3 @@
+# Didaskale — Artist Instructions
+
+Draw Didaskale as an adult woman with a warm, approachable expression and dark hair arranged in a neat, tight bun secured with a simple ribbon. She always wears a long pale blue chiton with a darker blue himation draped over one shoulder, fastened by a simple bronze fibula. Soft leather sandals should peek out from beneath the hem of her garments. Her fingertips typically show faint ink stains from frequent writing and copying.

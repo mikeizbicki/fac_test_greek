@@ -1,3 +1,3 @@
-# Didaskalos — Artist Instructions
+# Didaskolos — Artist Instructions
 
-From a child’s low viewpoint, his head is usually out of frame; when visible, he has short, dark, curly hair and a neatly trimmed dark beard. He always wears a long undyed-wool chiton in natural cream, bound with a braided tan rope belt. Over this, he drapes a deep-navy himation with a simple geometric border, with the garment consistently reading as deep navy. His hands and lower body are shown most often: ink-stained fingers, a plain silver ring, a reed pen tucked behind his belt, and cross‑strapped worn leather sandals in weathered brown.
+He is a male adult with short, dark, curly hair and a neatly trimmed dark beard. His attire always includes a long, undyed wool chiton in natural off-white/cream, bound with a braided rope belt in natural beige. Over it he wears a deep-navy himation with a simple geometric border, and on his feet are worn cross‑strapped leather sandals in medium to dark brown. His fingers show dark ink stains, and a plain silver ring is visible on one hand.

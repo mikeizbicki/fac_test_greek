@@ -1,0 +1,3 @@
+# Georgos — Artist Instructions
+
+Georgos is a sun-tanned, olive-bronze–skinned man with earth-stained hands and tough, callused bare feet with darker gray-brown soles. He has dark brown eyes, dark brown hair, and a full dark brown beard. He should always wear a simple undyed wool exomis in pale cream/ivory, pinned at the left shoulder so the right arm is bare. Include a light straw-colored woven grass hat shading his face and a plain natural-tan rope belt at his waist.

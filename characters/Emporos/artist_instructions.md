@@ -1,0 +1,3 @@
+# Emporos — Artist Instructions
+
+Emporos is a stout adult male with kind eyes, weathered hands with visible calluses, and a neatly braided silver-gray beard that should always be present. He always wears a practical knee-length chiton in earthy brown, cinched at the waist with a wide dark-brown leather belt. Over one shoulder, include a colorful striped himation with alternating bands of deep indigo, warm terracotta, and golden ochre on a muted cream base. His sandals are worn but sturdy natural leather—medium tan straps with darker brown soles.

@@ -1,0 +1,3 @@
+# Iatros — Artist Instructions
+
+Iatros is a clean, carefully groomed adult male with neatly trimmed, very dark brown-to-near-black hair and a calm, attentive expression. He should always be shown with gentle, steady hands and a reassuring, observant gaze. He consistently wears a pristine white chiton with a narrow purple border, belted at the waist with a simple cord. Keep the chiton bright white and the border a clear, rich purple, and keep his hair rendered as very dark brown to almost black.

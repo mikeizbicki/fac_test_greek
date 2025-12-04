@@ -1,0 +1,3 @@
+# Emporis — Artist Instructions
+
+Emporis is a female traveling merchant with clever, observant eyes and nimble fingers; her hair is always pinned back neatly away from her face. She should always be drawn wearing a travel-worn chiton in deep green, cinched with a weathered leather belt in warm medium brown fitted with multiple small coin purses. A light road cloak rests over her shoulders in a pale dust-beige tone, suggesting sun-faded fabric. At her throat she consistently wears a short strand of small glass beads in mixed jewel tones: deep blue, amber, and jade green.
