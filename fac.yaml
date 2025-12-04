@@ -58,7 +58,7 @@
     2. Each drawing should have a different camera angle (front, profile, back, angle).
     3. All drawings should respect the instructions in the "art.md" and "characters/$CHARACTER/artist_instructions.md" files.
   options:
-    model: fal-ai/nano-banana
+    model: fal-ai/nano-banana-pro
     #quality: medium
     #orientation: landscape
   dependencies:
