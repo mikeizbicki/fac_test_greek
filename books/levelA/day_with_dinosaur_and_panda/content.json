@@ -1,0 +1,275 @@
+{
+  "title": "Δεινόσαυρος καὶ Πάνδα",
+  "learning_goal": "Practice third-person present movement and location patterns (e.g., ἐξέρχεται, εἰσέρχονται, εἰς/ἐκ/ἐν/πρὸς/παρά) together with hide-and-seek verbs (κλέπτει, ζητεῖ, κρύπτει, εὑρίσκει) using concrete objects like the apple, ball, and chest.",
+  "plot": "Dinosaur and Panda spend a day together; Korax steals Panda’s apple, they search and find it hidden in a chest, and they finish the day safely at home.",
+  "frames": [
+    {
+      "text_koine": "ὁ Δεινόσαυρος ἐξέρχεται ἐκ τῆς κλίνης.",
+      "text_english": "The Dinosaur goes out of the bed.",
+      "frame_id": "dino_out_of_bed",
+      "characters": ["Dinosaur"],
+      "locations": ["familyhouse_interior_bedroom"],
+      "objects": [],
+      "positioning": [
+        "Dinosaur stands at the left side of the cozy bedroom, stepping down from the bed with one foot on the floor and one foot still near the mattress edge."
+      ]
+    },
+    {
+      "text_koine": "ὁ Πάνδα ἐξέρχεται ἐκ τῆς κλίνης.",
+      "text_english": "The Panda goes out of the bed.",
+      "frame_id": "panda_out_of_bed",
+      "characters": ["Panda"],
+      "locations": ["familyhouse_interior_bedroom"],
+      "objects": [],
+      "positioning": [
+        "Panda stands on the right side of the bedroom, climbing down carefully from the bed with both paws reaching toward the floor."
+      ]
+    },
+    {
+      "text_koine": "ὁ Δεινόσαυρος ἐσθίει τὸν ἄρτον, καὶ ὁ Πάνδα πίνει τὸ ὕδωρ.",
+      "text_english": "The Dinosaur eats the bread, and the Panda drinks the water.",
+      "frame_id": "breakfast_eat_drink",
+      "characters": ["Dinosaur", "Panda"],
+      "locations": ["familyhouse_interior_diningroom"],
+      "objects": [
+        "a small round loaf of bread with a golden crust",
+        "a plain clay cup with clear water"
+      ],
+      "positioning": [
+        "Dinosaur sits on the left side of the round wooden table, leaning forward toward the bread.",
+        "Panda sits on the right side of the table, looking at the cup of water.",
+        "The small round loaf of bread with a golden crust rests on the table in front of Dinosaur.",
+        "The plain clay cup with clear water sits on the table in front of Panda."
+      ]
+    },
+    {
+      "text_koine": "ὁ Πάνδα ἔχει τὸ μῆλον, καὶ ὁ Δεινόσαυρος ἔχει τὴν σφαῖραν.",
+      "text_english": "The Panda has the apple, and the Dinosaur has the ball.",
+      "frame_id": "have_apple_and_ball",
+      "characters": ["Dinosaur", "Panda"],
+      "locations": ["familyhouse_interior"],
+      "objects": [
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Panda stands by the open doorway on the right holding something close to his chest.",
+        "Dinosaur stands to the left of Panda with his arm relaxed at his side.",
+        "The round green apple with a short brown stem is in Panda’s right paw.",
+        "The small red leather ball with a stitched seam is in Dinosaur’s left hand."
+      ]
+    },
+    {
+      "text_koine": "ὁ Δεινόσαυρος καὶ ὁ Πάνδα ἐξέρχονται ἐκ τῆς οἰκίας.",
+      "text_english": "The Dinosaur and the Panda go out of the house.",
+      "frame_id": "leave_house",
+      "characters": ["Dinosaur", "Panda"],
+      "locations": ["familyhouse_interior", "familyhouse_exterior"],
+      "objects": [
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Panda steps through the doorway to the right, looking outside.",
+        "Dinosaur follows just behind on the left, heading toward the sunlight.",
+        "The round green apple with a short brown stem is held in Panda’s right paw as he steps out.",
+        "The small red leather ball with a stitched seam is carried in Dinosaur’s left hand as he follows."
+      ]
+    },
+    {
+      "text_koine": "ὁ Δεινόσαυρος παίζει μετὰ τῆς σφαίρας, καὶ ὁ Πάνδα ἔχει τὸ μῆλον.",
+      "text_english": "The Dinosaur plays with the ball, and the Panda has the apple.",
+      "frame_id": "play_ball_outside",
+      "characters": ["Dinosaur", "Panda"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": [
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Dinosaur stands on the left of the cobblestone path, mid-kick toward the right.",
+        "Panda stands on the right near the shady tree, watching the play.",
+        "The round green apple with a short brown stem is held against Panda’s belly with both paws.",
+        "The small red leather ball with a stitched seam rolls from Dinosaur toward the center of the path."
+      ]
+    },
+    {
+      "text_koine": "ὁ Κόραξ προσέρχεται πρὸς τὸν Πάνδαν.",
+      "text_english": "The Korax comes toward the Panda.",
+      "frame_id": "korax_approaches",
+      "characters": ["Dinosaur", "Panda", "Korax"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": [
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Dinosaur stands on the left, turning his head toward Panda and Korax.",
+        "Panda stands on the right beneath the low branches, holding the apple up.",
+        "Korax swoops low from the upper right toward Panda with wings slightly open.",
+        "The round green apple with a short brown stem is in Panda’s paws, held forward.",
+        "The small red leather ball with a stitched seam rests on the ground near Dinosaur’s feet."
+      ]
+    },
+    {
+      "text_koine": "ὁ Κόραξ κλέπτει τὸ μῆλον, καὶ ὁ Πάνδα λυπεῖται.",
+      "text_english": "The Korax steals the apple, and the Panda is sad.",
+      "frame_id": "korax_steals",
+      "characters": ["Dinosaur", "Panda", "Korax"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": [
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Dinosaur stands to the left, surprised and turning toward the action.",
+        "Panda stands on the right with paws outstretched in dismay.",
+        "Korax is in the center-right, pulling away with the apple in his beak.",
+        "The round green apple with a short brown stem is clutched in Korax’s beak as he lifts away.",
+        "The small red leather ball with a stitched seam lies on the path near Dinosaur."
+      ]
+    },
+    {
+      "text_koine": "ὁ Δεινόσαυρος ζητεῖ τὸν Κόρακα, καὶ ὁ Πάνδα ζητεῖ τὸ μῆλον.",
+      "text_english": "The Dinosaur seeks the Korax, and the Panda seeks the apple.",
+      "frame_id": "search_begin",
+      "characters": ["Dinosaur", "Panda"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": [
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Dinosaur stands on the left, peering along the path toward the distance.",
+        "Panda kneels on the right, looking around the base of the tree.",
+        "The small red leather ball with a stitched seam rests near Dinosaur’s left foot on the cobblestones."
+      ]
+    },
+    {
+      "text_koine": "ὁ Κόραξ κρύπτει τὸ μῆλον ἐν τῇ κιβωτῷ.",
+      "text_english": "The Korax hides the apple in the chest.",
+      "frame_id": "korax_hides",
+      "characters": ["Korax"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": [
+        "a medium brown wooden chest with a brass latch",
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Korax crouches at the right side of the path, leaning over an open chest.",
+        "The medium brown wooden chest with a brass latch sits open on the ground under a low branch.",
+        "The round green apple with a short brown stem is placed inside the open chest.",
+        "The small red leather ball with a stitched seam sits unattended on the left side of the scene near the path edge."
+      ]
+    },
+    {
+      "text_koine": "ὁ Δεινόσαυρος εὑρίσκει τὴν κιβωτόν, καὶ ὁ Δεινόσαυρος εὑρίσκει τὸ μῆλον ἐν τῇ κιβωτῷ.",
+      "text_english": "The Dinosaur finds the chest, and the Dinosaur finds the apple in the chest.",
+      "frame_id": "find_chest_and_apple",
+      "characters": ["Dinosaur", "Panda", "Korax"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": [
+        "a medium brown wooden chest with a brass latch",
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Dinosaur kneels at the center, opening the chest and reaching inside.",
+        "Panda stands to the right of Dinosaur, leaning forward to look into the chest.",
+        "Korax perches on a low branch in the upper left, watching the scene.",
+        "The medium brown wooden chest with a brass latch is open in front of Dinosaur.",
+        "The round green apple with a short brown stem rests inside the open chest near Dinosaur’s hand.",
+        "The small red leather ball with a stitched seam lies on the ground just behind Dinosaur."
+      ]
+    },
+    {
+      "text_koine": "ὁ Πάνδα χαίρει, καὶ ὁ Κόραξ λυπεῖται.",
+      "text_english": "The Panda rejoices, and the Korax is sad.",
+      "frame_id": "joy_and_regret",
+      "characters": ["Dinosaur", "Panda", "Korax"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": [
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Dinosaur stands at the center, smiling toward Panda.",
+        "Panda stands on the right holding the apple up with a happy face.",
+        "Korax stands on the left ground with head lowered and wings slightly drooped.",
+        "The round green apple with a short brown stem is raised in Panda’s right paw.",
+        "The small red leather ball with a stitched seam rests by Dinosaur’s feet."
+      ]
+    },
+    {
+      "text_koine": "ὁ Δεινόσαυρος καὶ ὁ Πάνδα εἰσέρχονται εἰς τὴν οἰκίαν.",
+      "text_english": "The Dinosaur and the Panda go into the house.",
+      "frame_id": "enter_house",
+      "characters": ["Dinosaur", "Panda"],
+      "locations": ["familyhouse_exterior", "familyhouse_interior"],
+      "objects": [
+        "a round green apple with a short brown stem",
+        "a small red leather ball with a stitched seam"
+      ],
+      "positioning": [
+        "Dinosaur steps through the doorway first from the right into the cozy interior.",
+        "Panda follows close behind, looking inside.",
+        "The round green apple with a short brown stem is carried in Panda’s left paw as he enters.",
+        "The small red leather ball with a stitched seam is tucked under Dinosaur’s right arm as he enters."
+      ]
+    },
+    {
+      "text_koine": "ὁ Πάνδα ἐσθίει τὸ μῆλον παρὰ τὴν τράπεζαν, καὶ ὁ Δεινόσαυρος πίνει τὸ ὕδωρ.",
+      "text_english": "The Panda eats the apple at the table, and the Dinosaur drinks the water.",
+      "frame_id": "eat_apple_drink_water",
+      "characters": ["Dinosaur", "Panda"],
+      "locations": ["familyhouse_interior_diningroom"],
+      "objects": [
+        "a round green apple with a short brown stem",
+        "a plain clay cup with clear water"
+      ],
+      "positioning": [
+        "Panda sits on the right side of the table, raising the apple toward his mouth.",
+        "Dinosaur sits on the left side of the table, leaning toward the cup.",
+        "The round green apple with a short brown stem is in Panda’s right paw above the table.",
+        "The plain clay cup with clear water sits in front of Dinosaur’s hands."
+      ]
+    },
+    {
+      "text_koine": "ὁ Δεινόσαυρος ἔχει τὸ βιβλίον, καὶ ὁ Πάνδα μένει παρὰ τὴν θύραν.",
+      "text_english": "The Dinosaur has the book, and the Panda stays by the door.",
+      "frame_id": "book_and_door",
+      "characters": ["Dinosaur", "Panda"],
+      "locations": ["familyhouse_interior"],
+      "objects": [
+        "a simple blue-covered book with a white label on the front"
+      ],
+      "positioning": [
+        "Dinosaur sits on a low bench near the center holding a book on his lap.",
+        "Panda stands to the right near the wooden door, looking toward Dinosaur.",
+        "The simple blue-covered book with a white label on the front rests open in Dinosaur’s hands."
+      ]
+    },
+    {
+      "text_koine": "ὁ Δεινόσαυρος καθεύδει ἐν τῇ κλίνῃ.",
+      "text_english": "The Dinosaur sleeps in the bed.",
+      "frame_id": "dino_sleeps",
+      "characters": ["Dinosaur"],
+      "locations": ["familyhouse_interior_bedroom"],
+      "objects": [],
+      "positioning": [
+        "Dinosaur lies under a blanket on the left side of the small wooden bed with eyes closed."
+      ]
+    },
+    {
+      "text_koine": "ὁ Πάνδα καθεύδει ἐν τῇ κλίνῃ.",
+      "text_english": "The Panda sleeps in the bed.",
+      "frame_id": "panda_sleeps",
+      "characters": ["Panda"],
+      "locations": ["familyhouse_interior_bedroom"],
+      "objects": [],
+      "positioning": [
+        "Panda curls up peacefully on the right side of the bed with the blanket pulled to his chin."
+      ]
+    }
+  ]
+}
