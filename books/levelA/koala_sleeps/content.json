@@ -203,11 +203,21 @@
       ],
       "locations": [
         "agora_interior"
+      ],
+      "objects": [
+        "A soft tan cloth bag with a drawstring and gentle folds.",
+        "A low stone table with a smooth marble top and sturdy legs."
+      ],
+      "positioning": [
+        "Panda carries the bag while walking beside the table from left to right.",
+        "Koala sleeps curled inside the bag in Panda's arms.",
+        "The soft tan cloth bag with a drawstring and gentle folds is held by Panda.",
+        "A low stone table with a smooth marble top and sturdy legs sits in the background."
       ]
     },
     {
-      "text_koine": "Πάνδα εἰσφέρει τὸν σάκκον εἰς τὴν κλίνην. Κοάλα καθεύδει ἐν τῷ σάκκῳ ἐπὶ τῇ κλίνῃ.",
-      "text_english": "Panda brings the bag onto the bed. Koala sleeps in the bag on the bed.",
+      "text_koine": "Πάνδα εἰσφέρει τὸν σάκκον εἰς τὴν κλίνην. Κοάλα καθεύδει ἐπὶ τῇ κλίνῃ.",
+      "text_english": "Panda brings the bag onto the bed. Koala sleeps on the bed.",
       "frame_id": "bring_bag_to_bed",
       "characters": [
         "Panda",
@@ -222,14 +232,14 @@
       ],
       "positioning": [
         "Panda sets the bag gently on top of the bed near the foot.",
-        "Koala sleeps inside the bag resting on the blanket.",
+        "Koala sleeps peacefully on the blanket, having emerged from the bag.",
         "The soft tan cloth bag with a drawstring and gentle folds lies on the bed.",
         "A small wooden bed with a muted forest-green blanket and a cream pillow fills the background."
       ]
     },
     {
-      "text_koine": "Γλαύξ καὶ Δεινόσαυρος μένουσι παρὰ τὴν κλίνην. Κοάλα καθεύδει ἐπὶ τῇ κλίνῃ.",
-      "text_english": "Glaux and Dinosaur stay beside the bed. Koala sleeps on the bed.",
+      "text_koine": "Γλαύξ μένει παρὰ τὴν κλίνην. Δεινόσαυρος μένει παρὰ τὴν κλίνην.",
+      "text_english": "Glaux stays beside the bed. Dinosaur stays beside the bed.",
       "frame_id": "friends_wait_bed_end",
       "characters": [
         "Glaux",
@@ -243,7 +253,8 @@
         "A small wooden bed with a muted forest-green blanket and a cream pillow."
       ],
       "positioning": [
-        "Glaux and Dinosaur stand quietly beside the left side of the bed.",
+        "Glaux stands quietly beside the left side of the bed.",
+        "Dinosaur stands quietly beside the right side of the bed.",
         "Koala sleeps peacefully on the bed near the pillow.",
         "A small wooden bed with a muted forest-green blanket and a cream pillow sits centered with its blanket smoothed."
       ]

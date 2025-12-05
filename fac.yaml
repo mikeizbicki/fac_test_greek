@@ -131,6 +131,7 @@
     <content>
     $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.json)
     </content>
+    You must always fill the full picture; i.e. do not include any whitespace/transparent border.
   options:
     model: fal-ai/nano-banana
   dependencies:
