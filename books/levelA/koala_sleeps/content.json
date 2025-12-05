@@ -1,7 +1,7 @@
 {
   "title": "Κοάλα καθεύδει",
-  "learning_goal": "Practice Koine Greek location prepositions (under, on, beside, in, in front of, through/out of, toward, onto) with clear articles in simple present third-person sentences.",
-  "plot": "Panda, Dinosaur, and Glaux notice Koala sleeping in many strange places and finally bring her to rest on the bed.",
+  "learning_goal": "Practice Koine Greek location prepositions (under, on, beside, in, in front of, through/out of, toward, onto) with clear articles in simple present third-person sentences.  There is only one preposition per sentence and no verbs take a direct object.  Each frame contains two sentences (with different subjects and verbs; the preposition is different in both sentences but always has the same 'complement'.",
+  "plot": "Panda, Dinosaur, and Glaux notice Koala sleeping in many strange places.",
   "frames": [
     {
       "text_koine": "Δεινόσαυρος καταβαίνει ἀπὸ τῆς κλίνης. Κοάλα καθεύδει ἐπὶ τῇ κλίνῃ.",
@@ -16,8 +16,8 @@
       ]
     },
     {
-      "text_koine": "Γλαύξ πίνει τὸ ὕδωρ ἐπὶ τῇ τραπέζῃ. Κοάλα καθεύδει ὑπὸ τὴν τράπεζαν.",
-      "text_english": "Glaux drinks the water on the table. Koala sleeps under the table.",
+      "text_koine": "Γλαύξ πίνει ἐπὶ τῇ τραπέζῃ. Κοάλα καθεύδει ὑπὸ τὴν τράπεζαν.",
+      "text_english": "Glaux drinks on the table. Koala sleeps under the table.",
       "frame_id": "owl_drinks_on_table",
       "characters": [
         "Glaux",
@@ -38,8 +38,8 @@
       ]
     },
     {
-      "text_koine": "Δεινόσαυρος ἐσθίει τὸν ἄρτον παρὰ τὴν τράπεζαν. Κοάλα καθεύδει ὑπὸ τὴν τράπεζαν.",
-      "text_english": "Dinosaur eats the bread beside the table. Koala sleeps under the table.",
+      "text_koine": "Δεινόσαυρος ἐσθίει παρὰ τὴν τράπεζαν. Κοάλα καθεύδει ὑπὸ τὴν τράπεζαν.",
+      "text_english": "Dinosaur eats beside the table. Koala sleeps under the table.",
       "frame_id": "dino_eats_bread_beside_table",
       "characters": [
         "Dinosaur",
@@ -100,8 +100,8 @@
       ]
     },
     {
-      "text_koine": "Γλαύξ φέρει τὸ βιβλίον παρὰ τὴν θυρίδα. Κοάλα καθεύδει ὑπὸ τὴν θυρίδα.",
-      "text_english": "Glaux carries the book beside the window. Koala sleeps under the window.",
+      "text_koine": "Γλαύξ μένει παρὰ τὴν θυρίδα. Κοάλα καθεύδει ὑπὸ τὴν θυρίδα.",
+      "text_english": "Glaux stays beside the window. Koala sleeps under the window.",
       "frame_id": "book_window_sleep_under",
       "characters": [
         "Glaux",
@@ -162,8 +162,8 @@
       ]
     },
     {
-      "text_koine": "Γλαύξ βάλλει τὴν σφαῖραν παρὰ τὸν κύβον. Κοάλα καθεύδει παρὰ τὴν σφαῖραν.",
-      "text_english": "Glaux throws the ball beside the block. Koala sleeps beside the ball.",
+      "text_koine": "Γλαύξ παίζει παρὰ τὸν κύβον. Κοάλα καθεύδει παρὰ τὴν σφαῖραν.",
+      "text_english": "Glaux plays beside the block. Koala sleeps beside the ball.",
       "frame_id": "throw_ball_sleep_beside",
       "characters": [
         "Glaux",
@@ -177,15 +177,15 @@
         "A painted wooden cube, bright green with smooth edges."
       ],
       "positioning": [
-        "Glaux stands at the left midground tossing the ball toward the right.",
+        "Glaux stands at the left midground playing beside the cube.",
         "Koala sleeps curled beside the ball on the right.",
         "The small red-and-white striped ball rests near Koala.",
         "The painted wooden cube, bright green with smooth edges, sits just behind the ball."
       ]
     },
     {
-      "text_koine": "Πάνδα φέρει τὸν σάκκον παρὰ τὴν τράπεζαν. Κοάλα καθεύδει ἐν τῷ σάκκῳ.",
-      "text_english": "Panda carries the bag beside the table. Koala sleeps in the bag.",
+      "text_koine": "Πάνδα μένει παρὰ τὴν τράπεζαν. Κοάλα καθεύδει ἐν τῷ σάκκῳ.",
+      "text_english": "Panda stays beside the table. Koala sleeps in the bag.",
       "frame_id": "carry_bag_market_sleep_in",
       "characters": [
         "Panda",
@@ -199,15 +199,15 @@
         "A low stone table with a smooth marble top and sturdy legs."
       ],
       "positioning": [
-        "Panda carries the bag while walking beside the table from left to right.",
-        "Koala sleeps curled inside the bag in Panda's arms.",
-        "The soft tan cloth bag with a drawstring and gentle folds is held by Panda.",
+        "Panda stands beside the table on the left.",
+        "Koala sleeps curled inside the bag on the table.",
+        "The soft tan cloth bag with a drawstring and gentle folds sits on the table.",
         "A low stone table with a smooth marble top and sturdy legs sits in the background."
       ]
     },
     {
-      "text_koine": "Πάνδα εἰσφέρει τὸν σάκκον εἰς τὴν κλίνην. Κοάλα καθεύδει ἐπὶ τῇ κλίνῃ.",
-      "text_english": "Panda brings the bag onto the bed. Koala sleeps on the bed.",
+      "text_koine": "Πάνδα μένει εἰς τὴν κλίνην. Κοάλα καθεύδει ἐπὶ τῇ κλίνῃ.",
+      "text_english": "Panda stays at the bed. Koala sleeps on the bed.",
       "frame_id": "bring_bag_to_bed",
       "characters": [
         "Panda",
@@ -221,7 +221,7 @@
         "A small wooden bed with a muted forest-green blanket and a cream pillow."
       ],
       "positioning": [
-        "Panda sets the bag gently on top of the bed near the foot.",
+        "Panda stands at the foot of the bed.",
         "Koala sleeps peacefully on the blanket, having emerged from the bag.",
         "The soft tan cloth bag with a drawstring and gentle folds lies on the bed.",
         "A small wooden bed with a muted forest-green blanket and a cream pillow fills the background."
