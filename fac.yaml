@@ -133,7 +133,7 @@
     </content>
     You must always fill the full picture; i.e. do not include any whitespace/transparent border.
   options:
-    model: fal-ai/nano-banana-pro
+    model: fal-ai/nano-banana
   dependencies:
     - common/art.md
     - target: books/$LEVEL/$BOOK/content.json
