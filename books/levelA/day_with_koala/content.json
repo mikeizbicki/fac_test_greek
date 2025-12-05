@@ -4,8 +4,7 @@
   "plot": "Koala wakes, packs an apple, bread, and a ball, goes to school where Korax steals and hides the bag; Koala searches under a table and a chair, finds the bag in a box, eats and plays, then goes home and sleeps.",
   "frames": [
     {
-      "text_koine": "ἡ Κοάλα καθεύδει ἐν τῇ κλίνῃ. ἡ Κοάλα ἐκβαίνει ἐκ τῆς κλίνης.",
-      "text_english": "The Koala sleeps in the bed. The Koala goes out from the bed.",
+      "text": "ἡ Κοάλα ἐκβαίνει ἐκ τῆς κλίνης.",
       "frame_id": "wake_up",
       "characters": [
         "Koala"
@@ -22,8 +21,7 @@
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα εἰσφέρει εἰς τὸν σάκκον τὸ μῆλον καὶ τὸν ἄρτον καὶ τὴν σφαῖραν.",
-      "text_english": "The Koala brings into the bag the apple and the bread and the ball.",
+      "text": "ἡ Κοάλα εἰσφέρει εἰς τὸν σάκκον τὸ μῆλον καὶ τὸν ἄρτον καὶ τὴν σφαῖραν.",
       "frame_id": "pack_bag",
       "characters": [
         "Koala"
@@ -43,11 +41,11 @@
         "The shiny red apple with a small green leaf rests beside the backpack flap ready to go in.",
         "The small round loaf of bread with a golden crust sits near the apple at Koala’s toes.",
         "The blue-and-white leather ball about the size of a grapefruit rests to the right of the backpack."
-      ]
+      ],
+      "reference_frame": "wake_up"
     },
     {
-      "text_koine": "ἡ Κοάλα ἐξέρχεται ἐκ τῆς οἰκίας μετὰ τοῦ σάκκου.",
-      "text_english": "The Koala goes out from the house with the bag.",
+      "text": "ἡ Κοάλα ἐξέρχεται ἐκ τῆς οἰκίας μετὰ τοῦ σάκκου.",
       "frame_id": "leave_house",
       "characters": [
         "Koala"
@@ -64,8 +62,7 @@
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα βαίνει πρὸς τὴν σχολὴν μετὰ τοῦ σάκκου.",
-      "text_english": "The Koala goes toward the school with the bag.",
+      "text": "ἡ Κοάλα βαίνει πρὸς τὴν σχολὴν.",
       "frame_id": "walk_to_school",
       "characters": [
         "Koala"
@@ -79,11 +76,11 @@
       "positioning": [
         "Koala walks along the curved cobblestone path from left toward right, the cottage tiny in the far background.",
         "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child rides on Koala’s back bouncing lightly as she walks."
-      ]
+      ],
+      "reference_frame": "leave_house"
     },
     {
-      "text_koine": "ἡ Κοάλα εἰσέρχεται εἰς τὴν σχολὴν μετὰ τοῦ σάκκου.",
-      "text_english": "The Koala goes into the school with the bag.",
+      "text": "ἡ Κοάλα εἰσέρχεται εἰς τὴν σχολὴν.",
       "frame_id": "enter_school",
       "characters": [
         "Koala"
@@ -97,11 +94,32 @@
       "positioning": [
         "Koala steps over the stone threshold at the school door at center, facing inward.",
         "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is on Koala’s back as she enters."
+      ],
+      "reference_frame": "walk_to_school"
+    },
+    {
+      "text": "ἡ Κοάλα τίθησι τὸν σάκκον ἐπὶ τὴν τράπεζαν καὶ καθίζει ἐπὶ τὴν καθέδραν.",
+      "frame_id": "koala_sits",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+        "a low honey-brown wooden table with four sturdy legs",
+        "a simple wooden chair with a woven rush seat and a short back"
+      ],
+      "positioning": [
+        "Koala stands at left placing the bag on the table with both paws, then sits in the chair.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits on the tabletop at center.",
+        "The low honey-brown wooden table with four sturdy legs stands at center.",
+        "The simple wooden chair with a woven rush seat and a short back is positioned at the table where Koala sits."
       ]
     },
     {
-      "text_koine": "ὁ Κόραξ προσέρχεται καὶ κλέπτει τὸν σάκκον.",
-      "text_english": "Korax comes near and steals the bag.",
+      "text": "οἴμοι! ὁ Κόραξ προσέρχεται καὶ κλέπτει τὸν σάκκον ἀπὸ τῆς τραπέζης. ἡ Κοάλα λυπεῖται.",
       "frame_id": "korax_steals",
       "characters": [
         "Koala",
@@ -116,16 +134,16 @@
         "a simple wooden chair with a woven rush seat and a short back"
       ],
       "positioning": [
-        "Koala stands at right looking toward the front of the room, not seeing Korax.",
-        "Korax creeps in from the left with wings half-open, reaching for the bag.",
-        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits on the floor near the table leg at center-left.",
-        "The low honey-brown wooden table with four sturdy legs stands near the center with space beneath it.",
-        "The simple wooden chair with a woven rush seat and a short back sits tucked beside the table on the right."
-      ]
+        "Koala sits in the chair facing away from the table, not seeing Korax approach.",
+        "Korax swoops in from the right with wings spread, grabbing the bag from the table.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is being lifted from the table by Korax.",
+        "The low honey-brown wooden table with four sturdy legs stands at center.",
+        "The simple wooden chair with a woven rush seat and a short back holds Koala at the table."
+      ],
+      "reference_frame": "koala_sits"
     },
     {
-      "text_koine": "ὁ Κόραξ κρύπτει τὸν σάκκον ἐν τῇ κιβωτῷ.",
-      "text_english": "Korax hides the bag in the box.",
+      "text": "ὁ Κόραξ κρύπτει τὸν σάκκον ἐν τῇ κιβωτῷ. ὁ κόραξ κακός ἐστιν.",
       "frame_id": "korax_hides",
       "characters": [
         "Korax"
@@ -148,30 +166,7 @@
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα οὐκ ἔχει τὸν σάκκον καὶ λυπεῖται.",
-      "text_english": "The Koala does not have the bag and is sad.",
-      "frame_id": "koala_sad",
-      "characters": [
-        "Koala"
-      ],
-      "locations": [
-        "school_interior"
-      ],
-      "objects": [
-        "a cedar storage box with a hinged lid and a small bronze latch",
-        "a low honey-brown wooden table with four sturdy legs",
-        "a simple wooden chair with a woven rush seat and a short back"
-      ],
-      "positioning": [
-        "Koala stands at center with drooping ears and empty paws, looking around the room.",
-        "The cedar storage box with a hinged lid and a small bronze latch sits closed near the wall at right.",
-        "The low honey-brown wooden table with four sturdy legs is at left casting a small shadow beneath.",
-        "The simple wooden chair with a woven rush seat and a short back is slightly pulled back from the table."
-      ]
-    },
-    {
-      "text_koine": "ἡ Κοάλα ζητεῖ τὸν σάκκον ὑπὸ τὴν τράπεζαν.",
-      "text_english": "The Koala seeks the bag under the table.",
+      "text": "ἡ Κοάλα ζητεῖ τὸν σάκκον ὑπὸ τὴν τράπεζαν. ὁ σάκκος οὐκ ἔστιν.",
       "frame_id": "look_under_table",
       "characters": [
         "Koala"
@@ -183,13 +178,13 @@
         "a low honey-brown wooden table with four sturdy legs"
       ],
       "positioning": [
-        "Koala kneels at right and leans to look beneath the tabletop.",
+        "Koala kneels at right and leans to look beneath the tabletop. He is sad.",
         "The low honey-brown wooden table with four sturdy legs sits at left with clear space under it."
-      ]
+      ],
+      "artist_notes": "Koala is sad because the bag is missing. Do not draw a bag."
     },
     {
-      "text_koine": "ἡ Κοάλα ζητεῖ τὸν σάκκον ὑπὸ τὴν καθέδραν.",
-      "text_english": "The Koala seeks the bag under the chair.",
+      "text": "ἡ Κοάλα ζητεῖ ὑπὸ τὴν καθέδραν. ὁ σάκκος οὐκ ἔστιν.",
       "frame_id": "look_under_chair",
       "characters": [
         "Koala"
@@ -201,13 +196,12 @@
         "a simple wooden chair with a woven rush seat and a short back"
       ],
       "positioning": [
-        "Koala crouches low at left, peering beneath the chair.",
+        "Koala crouches low at left, peering beneath the chair. He is sad and crying.",
         "The simple wooden chair with a woven rush seat and a short back stands at center with a small shadow under it."
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα εὑρίσκει τὸν σάκκον ἐν τῇ κιβωτῷ καὶ χαίρει.",
-      "text_english": "The Koala finds the bag in the box and rejoices.",
+      "text": "ἡ Κοάλα ζητεῖ ἐν τῇ κιβωτῷ. ἡ Κοάλα εὑρίσκει τὸν σάκκον καὶ χαίρει.",
       "frame_id": "find_in_box",
       "characters": [
         "Koala"
@@ -226,9 +220,29 @@
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα ἐκφέρει ἐκ τοῦ σάκκου τὸ μῆλον καὶ τὸν ἄρτον καὶ τὴν σφαῖραν. ἡ Κοάλα ἐσθίει τὸ μῆλον καὶ τὸν ἄρτον καὶ παίζει τῇ σφαίρᾳ.",
-      "text_english": "The Koala carries out from the bag the apple and the bread and the ball. The Koala eats the apple and the bread and plays with the ball.",
-      "frame_id": "eat_and_play",
+      "text": "ἡ Κοάλα πάλιν βαίνει πρὸς τὴν τράπεζαν καὶ καθίζει ἐπὶ τὴν καθέδραν μετὰ τοῦ σάκκου.",
+      "frame_id": "return_to_table",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+        "a low honey-brown wooden table with four sturdy legs",
+        "a simple wooden chair with a woven rush seat and a short back"
+      ],
+      "positioning": [
+        "Koala walks from right toward the table carrying the closed backpack, then sits in the chair.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is held in Koala's arms.",
+        "The low honey-brown wooden table with four sturdy legs stands at center.",
+        "The simple wooden chair with a woven rush seat and a short back is positioned at the table where Koala sits."
+      ]
+    },
+    {
+      "text": "ἡ Κοάλα ἐκφέρει ἐκ τοῦ σάκκου τὸ μῆλον καὶ τὸν ἄρτον. ἡ Κοάλα ἐσθίει τὸ μῆλον καὶ τὸν ἄρτον.",
+      "frame_id": "eat_food",
       "characters": [
         "Koala"
       ],
@@ -239,23 +253,43 @@
         "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
         "a shiny red apple with a small green leaf",
         "a small round loaf of bread with a golden crust",
-        "a blue-and-white leather ball about the size of a grapefruit",
         "a low honey-brown wooden table with four sturdy legs",
         "a simple wooden chair with a woven rush seat and a short back"
       ],
       "positioning": [
-        "Koala sits on the chair at right, leaning over the table with a happy face.",
-        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child lies open on the tabletop with its flap spread.",
-        "The shiny red apple with a small green leaf sits on the table near Koala’s left paw.",
-        "The small round loaf of bread with a golden crust rests on a cloth at the center of the table.",
-        "The blue-and-white leather ball about the size of a grapefruit is on the floor beside Koala’s right foot ready to roll.",
+        "Koala sits at the table with a happy face, holding the apple in one paw.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child lies open on the tabletop.",
+        "The shiny red apple with a small green leaf is in Koala's left paw near her mouth.",
+        "The small round loaf of bread with a golden crust sits on the table within reach.",
         "The low honey-brown wooden table with four sturdy legs fills the center of the scene.",
         "The simple wooden chair with a woven rush seat and a short back supports Koala at the table."
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα ἐξέρχεται ἐκ τῆς σχολῆς μετὰ τοῦ σάκκου.",
-      "text_english": "The Koala goes out from the school with the bag.",
+      "text": "ἡ Κοάλα ἐκφέρει ἐκ τοῦ σάκκου τὴν σφαῖραν καὶ παίζει τῇ σφαίρᾳ.",
+      "frame_id": "play_with_ball",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+        "a blue-and-white leather ball about the size of a grapefruit",
+        "a low honey-brown wooden table with four sturdy legs",
+        "a simple wooden chair with a woven rush seat and a short back"
+      ],
+      "positioning": [
+        "Koala stands beside the chair bouncing the ball with both paws, smiling.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child remains open on the tabletop.",
+        "The blue-and-white leather ball about the size of a grapefruit is in the air between Koala's paws.",
+        "The low honey-brown wooden table with four sturdy legs stands at center.",
+        "The simple wooden chair with a woven rush seat and a short back is pushed slightly back from the table."
+      ]
+    }, 
+    {
+      "text": "ἡ Κοάλα ἐξέρχεται ἐκ τῆς σχολῆς μετὰ τοῦ σάκκου.",
       "frame_id": "leave_school",
       "characters": [
         "Koala"
@@ -272,8 +306,7 @@
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα βαίνει πρὸς τὴν οἰκίαν μετὰ τοῦ σάκκου.",
-      "text_english": "The Koala goes toward the house with the bag.",
+      "text": "ἡ Κοάλα βαίνει πρὸς τὴν οἰκίαν.",
       "frame_id": "walk_home",
       "characters": [
         "Koala"
@@ -290,8 +323,7 @@
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα εἰσέρχεται εἰς τὴν οἰκίαν μετὰ τοῦ σάκκου.",
-      "text_english": "The Koala goes into the house with the bag.",
+      "text": "ἡ Κοάλα εἰσέρχεται εἰς τὴν οἰκίαν.",
       "frame_id": "enter_home",
       "characters": [
         "Koala"
@@ -309,8 +341,24 @@
       ]
     },
     {
-      "text_koine": "ἡ Κοάλα καθεύδει ἐν τῇ κλίνῃ.",
-      "text_english": "The Koala sleeps in the bed.",
+      "text": "ἡ Κοάλα τίθησι τὸν σάκκον παρὰ τὴν κλίνην καὶ ἀναβαίνει εἰς τὴν κλίνην.",
+      "frame_id": "prepare_for_bed",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
+      ],
+      "positioning": [
+        "Koala stands beside the bed at right, placing the backpack gently on the floor, then climbs onto the bed.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is being set down beside the bed leg by Koala."
+      ]
+    },
+    {
+      "text": "ἡ Κοάλα καθεύδει ἐν τῇ κλίνῃ.",
       "frame_id": "sleep",
       "characters": [
         "Koala"
