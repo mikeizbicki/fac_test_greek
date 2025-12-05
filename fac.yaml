@@ -128,7 +128,7 @@
     You are drawing the keyframe for an animation that will help young children learning Koine Greek how to understand the text in the content below.
     The art should never include written text in any language and should fill the entire picture.
     <content>
-    $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.json)
+    $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes}" books/$LEVEL/$BOOK/content.json)
     </content>
   options:
     model: fal-ai/nano-banana/edit
