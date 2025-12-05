@@ -1,143 +1,72 @@
 {
-  "title": "μετὰ τῆς κοάλας",
-  "learning_goal": "Practice third-person present tense of movement and simple activity verbs (enter/exit, carry, play, throw, find, hide, eat, drink, sleep) with clear article use and common prepositions (ἐν, εἰς/ἐπί, ἐκ/διά, παρά, μετά).",
-  "plot": "Koala eats and drinks at the table, goes outside to play and explore, then returns inside and goes to bed.",
+  "title": "ἡ ἡμέρα τῆς Κοάλας",
+  "learning_goal": "Practice present-tense third-person movement and search verbs with location prepositions: ἐξέρχεται/εἰσέρχεται/βαίνει with ἐκ/εἰς/πρὸς, and ζητεῖ/εὑρίσκει/κρύπτει/κλέπτει with ἐν and ὑπό.",
+  "plot": "Koala wakes, packs an apple, bread, and a ball, goes to school where Korax steals and hides the bag; Koala searches under a table and a chair, finds the bag in a box, eats and plays, then goes home and sleeps.",
   "frames": [
     {
-      "text_koine": "ἡ κοάλα καθίζει παρὰ τῇ τραπέζῃ.",
-      "text_english": "The koala sits beside the table.",
-      "frame_id": "koala_sits_table",
+      "text_koine": "ἡ Κοάλα καθεύδει ἐν τῇ κλίνῃ. ἡ Κοάλα ἐκβαίνει ἐκ τῆς κλίνης.",
+      "text_english": "The Koala sleeps in the bed. The Koala goes out from the bed.",
+      "frame_id": "wake_up",
       "characters": [
         "Koala"
       ],
       "locations": [
-        "familyhouse_interior_diningroom"
+        "familyhouse_interior_bedroom"
       ],
       "objects": [
-        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
-        "Small red-clay cup filled with clear water.",
-        "Small round loaf of golden-brown bread with a scored top.",
-        "Shiny red apple with a short brown stem and a small green leaf."
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
       ],
       "positioning": [
-        "Koala sits on the right side of the table, facing left with her hands near the table edge.",
-        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
-        "The small red-clay cup filled with clear water sits near the front-right edge of the table.",
-        "The small round loaf of golden-brown bread with a scored top rests at the center of the table cloth.",
-        "The shiny red apple with a short brown stem and a small green leaf lies beside the loaf toward the back-left of the table."
+        "Koala lies under the green blanket on the small bed at right, then she sits up and swings her feet to the floor.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child rests closed on the floor at the foot of the bed on the left."
       ]
     },
     {
-      "text_koine": "ἡ κοάλα ἐσθίει τὸν ἄρτον.",
-      "text_english": "The koala eats the bread.",
-      "frame_id": "koala_eats_bread",
+      "text_koine": "ἡ Κοάλα εἰσφέρει εἰς τὸν σάκκον τὸ μῆλον καὶ τὸν ἄρτον καὶ τὴν σφαῖραν.",
+      "text_english": "The Koala brings into the bag the apple and the bread and the ball.",
+      "frame_id": "pack_bag",
       "characters": [
         "Koala"
       ],
       "locations": [
-        "familyhouse_interior_diningroom"
+        "familyhouse_interior_bedroom"
       ],
       "objects": [
-        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
-        "Small round loaf of golden-brown bread with a scored top.",
-        "Small red-clay cup filled with clear water.",
-        "Shiny red apple with a short brown stem and a small green leaf."
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+        "a shiny red apple with a small green leaf",
+        "a small round loaf of bread with a golden crust",
+        "a blue-and-white leather ball about the size of a grapefruit"
       ],
       "positioning": [
-        "Koala sits at the right side of the table, facing left and reaching toward the small round loaf of golden-brown bread with a scored top.",
-        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
-        "The small round loaf of golden-brown bread with a scored top is near Koala’s paws on the table.",
-        "The small red-clay cup filled with clear water is near the near-right edge of the table.",
-        "The shiny red apple with a short brown stem and a small green leaf rests near the back-left of the table."
+        "Koala sits on the edge of the bed at left, reaching down with both hands toward the open backpack.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits open on the floor in front of Koala.",
+        "The shiny red apple with a small green leaf rests beside the backpack flap ready to go in.",
+        "The small round loaf of bread with a golden crust sits near the apple at Koala’s toes.",
+        "The blue-and-white leather ball about the size of a grapefruit rests to the right of the backpack."
       ]
     },
     {
-      "text_koine": "ἡ κοάλα ἐσθίει τὸ μῆλον.",
-      "text_english": "The koala eats the apple.",
-      "frame_id": "koala_eats_apple",
+      "text_koine": "ἡ Κοάλα ἐξέρχεται ἐκ τῆς οἰκίας μετὰ τοῦ σάκκου.",
+      "text_english": "The Koala goes out from the house with the bag.",
+      "frame_id": "leave_house",
       "characters": [
         "Koala"
       ],
       "locations": [
-        "familyhouse_interior_diningroom"
-      ],
-      "objects": [
-        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
-        "Shiny red apple with a short brown stem and a small green leaf.",
-        "Small red-clay cup filled with clear water."
-      ],
-      "positioning": [
-        "Koala sits at the right side of the table, lifting the shiny red apple with a short brown stem and a small green leaf toward her mouth.",
-        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
-        "The shiny red apple with a short brown stem and a small green leaf is in Koala’s paws above the table.",
-        "The small red-clay cup filled with clear water sits near the front-right edge of the table."
-      ]
-    },
-    {
-      "text_koine": "ἡ κοάλα πίνει τὸ ὕδωρ.",
-      "text_english": "The koala drinks the water.",
-      "frame_id": "koala_drinks_water",
-      "characters": [
-        "Koala"
-      ],
-      "locations": [
-        "familyhouse_interior_diningroom"
-      ],
-      "objects": [
-        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
-        "Small red-clay cup filled with clear water."
-      ],
-      "positioning": [
-        "Koala sits at the right side of the table and lifts the small red-clay cup filled with clear water with both paws.",
-        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
-        "The small red-clay cup filled with clear water tilts slightly toward Koala’s mouth above the front-right edge of the table."
-      ]
-    },
-    {
-      "text_koine": "ἡ κοάλα φέρει τὸ βιβλίον ἐπὶ τὴν τράπεζαν.",
-      "text_english": "The koala carries the book onto the table.",
-      "frame_id": "koala_carries_book_to_table",
-      "characters": [
-        "Koala"
-      ],
-      "locations": [
-        "familyhouse_interior_diningroom"
-      ],
-      "objects": [
-        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
-        "Small blue-covered book with a simple olive branch emblem on the front.",
-        "Small red-clay cup filled with clear water."
-      ],
-      "positioning": [
-        "Koala stands to the right of the table, facing left, holding the small blue-covered book with a simple olive branch emblem on the front just above the cloth.",
-        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left in the frame.",
-        "The small blue-covered book with a simple olive branch emblem on the front hovers over the near-right edge of the table where Koala is about to set it down.",
-        "The small red-clay cup filled with clear water sits near the front-right edge of the table."
-      ]
-    },
-    {
-      "text_koine": "ἡ κοάλα ἐξέρχεται διὰ τῆς θύρας.",
-      "text_english": "The koala goes out through the door.",
-      "frame_id": "koala_exits_door",
-      "characters": [
-        "Koala"
-      ],
-      "locations": [
-        "familyhouse_interior",
         "familyhouse_exterior"
       ],
       "objects": [
-        "Simple wooden door with black iron hinges and a bronze ring handle."
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
       ],
       "positioning": [
-        "Koala is mid-step in the doorway, body half inside and half outside, facing to the right.",
-        "The simple wooden door with black iron hinges and a bronze ring handle stands centered, opening outward to the right."
+        "Koala steps through the open cottage doorway at center-right onto the cobblestone path, smiling toward the garden.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is worn on Koala’s back with the flap closed."
       ]
     },
     {
-      "text_koine": "ἡ κοάλα παίζει μετὰ τῆς σφαίρας.",
-      "text_english": "The koala plays with the ball.",
-      "frame_id": "koala_plays_ball",
+      "text_koine": "ἡ Κοάλα βαίνει πρὸς τὴν σχολὴν μετὰ τοῦ σάκκου.",
+      "text_english": "The Koala goes toward the school with the bag.",
+      "frame_id": "walk_to_school",
       "characters": [
         "Koala"
       ],
@@ -145,18 +74,207 @@
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "Bright red leather ball, palm-sized, with stitched seams.",
-        "Smooth oval gray river-stone about the size of the ball."
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
       ],
       "positioning": [
-        "Koala stands center-right facing left, holding the bright red leather ball, palm-sized, with stitched seams in both paws.",
-        "The smooth oval gray river-stone about the size of the ball sits on the ground at center-left."
+        "Koala walks along the curved cobblestone path from left toward right, the cottage tiny in the far background.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child rides on Koala’s back bouncing lightly as she walks."
       ]
     },
     {
-      "text_koine": "ἡ κοάλα βάλλει τὴν σφαῖραν ἐπὶ τὸν μέγαν λίθον.",
-      "text_english": "The koala throws the ball onto the big stone.",
-      "frame_id": "koala_throws_ball",
+      "text_koine": "ἡ Κοάλα εἰσέρχεται εἰς τὴν σχολὴν μετὰ τοῦ σάκκου.",
+      "text_english": "The Koala goes into the school with the bag.",
+      "frame_id": "enter_school",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_exterior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
+      ],
+      "positioning": [
+        "Koala steps over the stone threshold at the school door at center, facing inward.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is on Koala’s back as she enters."
+      ]
+    },
+    {
+      "text_koine": "ὁ Κόραξ προσέρχεται καὶ κλέπτει τὸν σάκκον.",
+      "text_english": "Korax comes near and steals the bag.",
+      "frame_id": "korax_steals",
+      "characters": [
+        "Koala",
+        "Korax"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+        "a low honey-brown wooden table with four sturdy legs",
+        "a simple wooden chair with a woven rush seat and a short back"
+      ],
+      "positioning": [
+        "Koala stands at right looking toward the front of the room, not seeing Korax.",
+        "Korax creeps in from the left with wings half-open, reaching for the bag.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits on the floor near the table leg at center-left.",
+        "The low honey-brown wooden table with four sturdy legs stands near the center with space beneath it.",
+        "The simple wooden chair with a woven rush seat and a short back sits tucked beside the table on the right."
+      ]
+    },
+    {
+      "text_koine": "ὁ Κόραξ κρύπτει τὸν σάκκον ἐν τῇ κιβωτῷ.",
+      "text_english": "Korax hides the bag in the box.",
+      "frame_id": "korax_hides",
+      "characters": [
+        "Korax"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+        "a cedar storage box with a hinged lid and a small bronze latch",
+        "a low honey-brown wooden table with four sturdy legs",
+        "a simple wooden chair with a woven rush seat and a short back"
+      ],
+      "positioning": [
+        "Korax crouches at right, glancing over his shoulder as he pushes the bag into the box.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is halfway inside the open box.",
+        "The cedar storage box with a hinged lid and a small bronze latch sits against the wall at right with the lid raised.",
+        "The low honey-brown wooden table with four sturdy legs stands a little left of center in the background.",
+        "The simple wooden chair with a woven rush seat and a short back is angled near the table with its front legs visible."
+      ]
+    },
+    {
+      "text_koine": "ἡ Κοάλα οὐκ ἔχει τὸν σάκκον καὶ λυπεῖται.",
+      "text_english": "The Koala does not have the bag and is sad.",
+      "frame_id": "koala_sad",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a cedar storage box with a hinged lid and a small bronze latch",
+        "a low honey-brown wooden table with four sturdy legs",
+        "a simple wooden chair with a woven rush seat and a short back"
+      ],
+      "positioning": [
+        "Koala stands at center with drooping ears and empty paws, looking around the room.",
+        "The cedar storage box with a hinged lid and a small bronze latch sits closed near the wall at right.",
+        "The low honey-brown wooden table with four sturdy legs is at left casting a small shadow beneath.",
+        "The simple wooden chair with a woven rush seat and a short back is slightly pulled back from the table."
+      ]
+    },
+    {
+      "text_koine": "ἡ Κοάλα ζητεῖ τὸν σάκκον ὑπὸ τὴν τράπεζαν.",
+      "text_english": "The Koala seeks the bag under the table.",
+      "frame_id": "look_under_table",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a low honey-brown wooden table with four sturdy legs"
+      ],
+      "positioning": [
+        "Koala kneels at right and leans to look beneath the tabletop.",
+        "The low honey-brown wooden table with four sturdy legs sits at left with clear space under it."
+      ]
+    },
+    {
+      "text_koine": "ἡ Κοάλα ζητεῖ τὸν σάκκον ὑπὸ τὴν καθέδραν.",
+      "text_english": "The Koala seeks the bag under the chair.",
+      "frame_id": "look_under_chair",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a simple wooden chair with a woven rush seat and a short back"
+      ],
+      "positioning": [
+        "Koala crouches low at left, peering beneath the chair.",
+        "The simple wooden chair with a woven rush seat and a short back stands at center with a small shadow under it."
+      ]
+    },
+    {
+      "text_koine": "ἡ Κοάλα εὑρίσκει τὸν σάκκον ἐν τῇ κιβωτῷ καὶ χαίρει.",
+      "text_english": "The Koala finds the bag in the box and rejoices.",
+      "frame_id": "find_in_box",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+        "a cedar storage box with a hinged lid and a small bronze latch"
+      ],
+      "positioning": [
+        "Koala kneels at center-right, lifting the lid with one paw and smiling wide.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits inside the open box.",
+        "The cedar storage box with a hinged lid and a small bronze latch is open at center-right with the lid tilted back."
+      ]
+    },
+    {
+      "text_koine": "ἡ Κοάλα ἐκφέρει ἐκ τοῦ σάκκου τὸ μῆλον καὶ τὸν ἄρτον καὶ τὴν σφαῖραν. ἡ Κοάλα ἐσθίει τὸ μῆλον καὶ τὸν ἄρτον καὶ παίζει τῇ σφαίρᾳ.",
+      "text_english": "The Koala carries out from the bag the apple and the bread and the ball. The Koala eats the apple and the bread and plays with the ball.",
+      "frame_id": "eat_and_play",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_interior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+        "a shiny red apple with a small green leaf",
+        "a small round loaf of bread with a golden crust",
+        "a blue-and-white leather ball about the size of a grapefruit",
+        "a low honey-brown wooden table with four sturdy legs",
+        "a simple wooden chair with a woven rush seat and a short back"
+      ],
+      "positioning": [
+        "Koala sits on the chair at right, leaning over the table with a happy face.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child lies open on the tabletop with its flap spread.",
+        "The shiny red apple with a small green leaf sits on the table near Koala’s left paw.",
+        "The small round loaf of bread with a golden crust rests on a cloth at the center of the table.",
+        "The blue-and-white leather ball about the size of a grapefruit is on the floor beside Koala’s right foot ready to roll.",
+        "The low honey-brown wooden table with four sturdy legs fills the center of the scene.",
+        "The simple wooden chair with a woven rush seat and a short back supports Koala at the table."
+      ]
+    },
+    {
+      "text_koine": "ἡ Κοάλα ἐξέρχεται ἐκ τῆς σχολῆς μετὰ τοῦ σάκκου.",
+      "text_english": "The Koala goes out from the school with the bag.",
+      "frame_id": "leave_school",
+      "characters": [
+        "Koala"
+      ],
+      "locations": [
+        "school_exterior"
+      ],
+      "objects": [
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
+      ],
+      "positioning": [
+        "Koala steps down from the school threshold toward the path facing right.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is closed and worn on Koala’s back."
+      ]
+    },
+    {
+      "text_koine": "ἡ Κοάλα βαίνει πρὸς τὴν οἰκίαν μετὰ τοῦ σάκκου.",
+      "text_english": "The Koala goes toward the house with the bag.",
+      "frame_id": "walk_home",
       "characters": [
         "Koala"
       ],
@@ -164,77 +282,17 @@
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "Bright red leather ball, palm-sized, with stitched seams.",
-        "Smooth oval gray river-stone about the size of the ball."
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
       ],
       "positioning": [
-        "Koala stands at the right edge, arm extended forward after the throw toward the left.",
-        "The bright red leather ball, palm-sized, with stitched seams lands on top of the smooth oval gray river-stone about the size of the ball at center-left."
+        "Koala walks along the cobblestone path from right toward left with the cottage appearing ahead.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child rests on Koala’s back as she walks."
       ]
     },
     {
-      "text_koine": "ἡ σφαῖρα πίπτει παρὰ τὸν λίθον.",
-      "text_english": "The ball falls beside the stone.",
-      "frame_id": "ball_falls_beside_stone",
-      "characters": [
-        "Koala"
-      ],
-      "locations": [
-        "familyhouse_exterior_tree"
-      ],
-      "objects": [
-        "Bright red leather ball, palm-sized, with stitched seams.",
-        "Smooth oval gray river-stone about the size of the ball."
-      ],
-      "positioning": [
-        "Koala watches from center-right, paws lowered after the throw.",
-        "The bright red leather ball, palm-sized, with stitched seams lies on the ground just to the right of the smooth oval gray river-stone about the size of the ball at center-left."
-      ]
-    },
-    {
-      "text_koine": "ἡ κοάλα εὑρίσκει τὸν κύβον ἐν τῇ κιβωτῷ.",
-      "text_english": "The koala finds the cube in the chest.",
-      "frame_id": "koala_finds_cube",
-      "characters": [
-        "Koala"
-      ],
-      "locations": [
-        "familyhouse_exterior_tree"
-      ],
-      "objects": [
-        "Small cedar-wood chest with a brass latch and a carved border.",
-        "Matte green wooden cube the size of a fist with slightly rounded edges."
-      ],
-      "positioning": [
-        "Koala kneels at center-left, looking down into the open chest.",
-        "The small cedar-wood chest with a brass latch and a carved border sits open on the ground at center, lid tilted back.",
-        "The matte green wooden cube the size of a fist with slightly rounded edges rests inside the chest near the front edge."
-      ]
-    },
-    {
-      "text_koine": "ἡ κοάλα κρύπτει τὴν σφαῖραν ἐν τῷ σάκκῳ.",
-      "text_english": "The koala hides the ball in the bag.",
-      "frame_id": "koala_hides_ball_in_sack",
-      "characters": [
-        "Koala"
-      ],
-      "locations": [
-        "familyhouse_exterior_tree"
-      ],
-      "objects": [
-        "Soft brown cloth sack with a drawstring mouth.",
-        "Bright red leather ball, palm-sized, with stitched seams."
-      ],
-      "positioning": [
-        "Koala crouches center-right, leaning over the open sack.",
-        "The soft brown cloth sack with a drawstring mouth lies open on the ground in front of Koala.",
-        "The bright red leather ball, palm-sized, with stitched seams is halfway inside the open mouth of the sack."
-      ]
-    },
-    {
-      "text_koine": "ἡ κοάλα εἰσέρχεται διὰ τῆς θύρας.",
-      "text_english": "The koala goes in through the door.",
-      "frame_id": "koala_enters_door",
+      "text_koine": "ἡ Κοάλα εἰσέρχεται εἰς τὴν οἰκίαν μετὰ τοῦ σάκκου.",
+      "text_english": "The Koala goes into the house with the bag.",
+      "frame_id": "enter_home",
       "characters": [
         "Koala"
       ],
@@ -243,38 +301,17 @@
         "familyhouse_interior"
       ],
       "objects": [
-        "Simple wooden door with black iron hinges and a bronze ring handle."
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
       ],
       "positioning": [
-        "Koala steps forward through the doorway from outside to inside, facing left.",
-        "The simple wooden door with black iron hinges and a bronze ring handle stands centered, opening inward to the left."
+        "Koala moves through the open doorway from the porch into the warm interior.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is on Koala’s back as she crosses the threshold."
       ]
     },
     {
-      "text_koine": "ἡ κοάλα εἰσφέρει τὸν κύβον ἐπὶ τὴν τράπεζαν.",
-      "text_english": "The koala carries the cube onto the table.",
-      "frame_id": "koala_carries_cube_to_table",
-      "characters": [
-        "Koala"
-      ],
-      "locations": [
-        "familyhouse_interior_diningroom"
-      ],
-      "objects": [
-        "Low round wooden table with a cream cloth and two small green cushions on the floor.",
-        "Matte green wooden cube the size of a fist with slightly rounded edges.",
-        "Small blue-covered book with a simple olive branch emblem on the front."
-      ],
-      "positioning": [
-        "Koala stands at the right side of the table, placing the matte green wooden cube the size of a fist with slightly rounded edges onto the cloth.",
-        "The low round wooden table with a cream cloth and two small green cushions on the floor stands center-left.",
-        "The small blue-covered book with a simple olive branch emblem on the front lies near the front-left of the table, and the cube is being set down beside it."
-      ]
-    },
-    {
-      "text_koine": "ἡ κοάλα καθεύδει ἐν τῇ κλίνῃ.",
-      "text_english": "The koala sleeps in the bed.",
-      "frame_id": "koala_sleeps_bed",
+      "text_koine": "ἡ Κοάλα καθεύδει ἐν τῇ κλίνῃ.",
+      "text_english": "The Koala sleeps in the bed.",
+      "frame_id": "sleep",
       "characters": [
         "Koala"
       ],
@@ -282,11 +319,11 @@
         "familyhouse_interior_bedroom"
       ],
       "objects": [
-        "Simple low wooden bed with a forest-green blanket and a cream pillow."
+        "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
       ],
       "positioning": [
-        "Koala lies curled on the left side of the bed with eyes closed.",
-        "The simple low wooden bed with a forest-green blanket and a cream pillow occupies the center-right of the frame."
+        "Koala curls under the forest-green blanket on the bed at right with eyes closed.",
+        "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits neatly on the floor beside the bed leg."
       ]
     }
   ]
