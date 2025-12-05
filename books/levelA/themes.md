@@ -37,6 +37,12 @@ Objects to hold / play with:
 - ὁ κύβος
 - ὁ λίθος
 
+Locations:
+- ἡ σχολή
+- ἡ οἰκία
+- ὁ ἀγρός
+- ἡ ἀγορά
+
 ### Verbs
 
 Movement verbs:
@@ -48,6 +54,7 @@ Movement verbs:
 - τρέχω
 - μένω
 - πέτομαι
+- ἕρπω
 
 Simple activities:
 - βάλλω
@@ -56,6 +63,7 @@ Simple activities:
 - πίνω
 - παίζω
 - ἐσθίω
+- ἀναγινώσκω
 
 Hide-and-seek:
 - εὑρίσκω
@@ -86,6 +94,12 @@ Colors:
 - μέλας
 - ἐρυθρός
 - χλωρός
+
+### Adverbs
+
+Location:
+- ἔσω
+- ἔξω
 
 ### Prepositions
 

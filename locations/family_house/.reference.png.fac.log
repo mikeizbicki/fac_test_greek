@@ -1,1 +1,0 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-12-05T05:57:35.315760+00:00", "path": "locations/family_house/reference.png", "build_id": 146541058100929657462503234473535283842, "cost": 0.065725, "usage": {"model_details": {"openai/gpt-image-1": {"text/in": 601, "image/out": 1568, "cost": 0.065725}}, "tools_used": {}}}
