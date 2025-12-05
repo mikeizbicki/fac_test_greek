@@ -137,10 +137,10 @@
     - common/art.md
     - target: books/$LEVEL/$BOOK/content.json
       include: false
-        #- books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art.png
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art.png
       # FIXME: these break the build when REFERENCE_FRAME is provided
-    - locations/$LOCATION/about.json
-    - locations/$LOCATION/reference.png
+    - locations/$MAYBE_LOCATION/about.json
+    - locations/$MAYBE_LOCATION/reference.png
     - characters/$CHARACTER/about.json
     - characters/$CHARACTER/character_sheet.png
   variables:
@@ -149,9 +149,13 @@
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
     LOCATION:
-      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.json
+       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.json
     REFERENCE_FRAME:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
+    MAYBE_LOCATION: |
+      if [ -z $REFERENCE_FRAME ]; then
+        jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.json
+      fi
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf":
   cmd: |

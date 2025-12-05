@@ -112,7 +112,7 @@
         "a simple wooden chair with a woven rush seat and a short back"
       ],
       "positioning": [
-        "Koala stands at left placing the bag on the table with both paws, then sits in the chair.",
+        "Koala sits in the chair.",
         "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits on the tabletop at center.",
         "The low honey-brown wooden table with four sturdy legs stands at center.",
         "The simple wooden chair with a woven rush seat and a short back is positioned at the table where Koala sits."
@@ -358,7 +358,7 @@
       ]
     },
     {
-      "text": "ἡ Κοάλα καθεύδει ἐν τῇ κλίνῃ.",
+      "text": "ἡ Κοάλα πάλιν καθεύδει ἐν τῇ κλίνῃ.",
       "frame_id": "sleep",
       "characters": [
         "Koala"
