@@ -126,17 +126,18 @@
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png":
   description:
     You are drawing the keyframe for an animation that will help young children learning Koine Greek how to understand the text in the content below.
-    The art should never include written text in any language and should fill the entire picture.
     <content>
     $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes}" books/$LEVEL/$BOOK/content.json)
     </content>
+    The art should never include written text in any language and should fill the entire picture with no whitespace or transparency.
   options:
     model: fal-ai/nano-banana/edit
+    aspect_ratio: '16:9'
   dependencies:
     - common/art.md
     - target: books/$LEVEL/$BOOK/content.json
       include: false
-    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art.png
+        #- books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art.png
       # FIXME: these break the build when REFERENCE_FRAME is provided
     - locations/$LOCATION/about.json
     - locations/$LOCATION/reference.png
