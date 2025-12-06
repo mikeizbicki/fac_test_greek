@@ -127,7 +127,7 @@
   description:
     You are drawing the keyframe for an animation that will help young children learning Koine Greek how to understand the text in the content below.
     <content>
-    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes}" books/$LEVEL/$BOOK/content.json)
+    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
     </content>
     The art should never include written text in any language.
     The result should be full-bleed with no margin/padding/border/whitespace.
@@ -140,7 +140,7 @@
       include: false
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art.png
       # FIXME: these break the build when REFERENCE_FRAME is provided
-      #- locations/$MAYBE_LOCATION/about.json
+    - locations/$MAYBE_LOCATION/about.json
     - locations/$MAYBE_LOCATION/reference.png
     - characters/$CHARACTER/about.json
     - characters/$CHARACTER/character_sheet.png
