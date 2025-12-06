@@ -129,7 +129,8 @@
     <content>
     $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes}" books/$LEVEL/$BOOK/content.json)
     </content>
-    The art should never include written text in any language and should fill the entire picture with no whitespace or transparency.
+    The art should never include written text in any language.
+    The result should be full-bleed with no margin/padding/border/whitespace.
   options:
     model: fal-ai/nano-banana/edit
     aspect_ratio: '16:9'
