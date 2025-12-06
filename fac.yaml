@@ -139,7 +139,7 @@
       include: false
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art.png
       # FIXME: these break the build when REFERENCE_FRAME is provided
-    - locations/$MAYBE_LOCATION/about.json
+      #- locations/$MAYBE_LOCATION/about.json
     - locations/$MAYBE_LOCATION/reference.png
     - characters/$CHARACTER/about.json
     - characters/$CHARACTER/character_sheet.png

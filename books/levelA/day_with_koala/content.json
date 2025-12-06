@@ -68,7 +68,8 @@
         "Koala"
       ],
       "locations": [
-        "familyhouse_exterior_tree"
+        "familyhouse_exterior_tree",
+        "school_exterior"
       ],
       "objects": [
         "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
@@ -76,8 +77,7 @@
       "positioning": [
         "Koala walks along the curved cobblestone path from left toward right, the cottage tiny in the far background.",
         "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child rides on Koala’s back bouncing lightly as she walks."
-      ],
-      "reference_frame": "leave_house"
+      ]
     },
     {
       "text": "ἡ Κοάλα εἰσέρχεται εἰς τὴν σχολὴν.",
