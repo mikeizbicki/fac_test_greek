@@ -58,7 +58,7 @@
             "description": "Every object/character should have an entry.",
             "items": {
               "type": "string",
-              "description": "A one sentence description of where the object/character should be drawn in the picture.  The positioning should be consistent between frames so that if CHAR1 was running towards OBJECT in the previous frame, in the next frame CHAR1 might be holding OBJECT."
+              "description": "A one sentence description of where the object/character should be drawn in the picture.  The positioning should be consistent between frames so that if CHAR1 was running towards OBJECT in the previous frame, in the next frame CHAR1 might be holding OBJECT. You must specify where every character is looking at whether we have a front/side/back/three-quarter/etc view."
             }
           },
           "artist_notes": {
