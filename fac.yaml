@@ -233,18 +233,26 @@
 # video
 ################################################################################
 
+####################
+# audio
+####################
+
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav":
   dependencies:
     - books/$LEVEL/$BOOK/content.jsonl
   options:
     voice: fable
     input: 
-      $(jq -r "select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.jsonl)
+      $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
     instructions:
       You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
   variables:
     FRAME_ID:
-      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+      jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
+
+####################
+# keyframes
+####################
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png":
   cmd: |
@@ -264,12 +272,38 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
 
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png":
+  cmd: |
+    cd books/$LEVEL/$BOOK/frames/$FRAME_ID/
+    #ffmpeg -i processed.mp4 -vf "select=eq(n\,$(ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of csv=p=0 processed.mp4)-1)" -vframes 1 -vsync 0 last_frame.png
+    #ffmpeg -sseof -3 -i processed.mp4 -vframes 1 -y last_frame.png
+    ffmpeg -sseof -1 -i processed.mp4 -f image2 temp_frame_%03d.png
+    # The highest numbered file will be closest to the last frame
+    LAST_FRAME=$(ls temp_frame_*.png | sort -V | tail -n 1)
+    cp "$LAST_FRAME" last_frame.png
+    rm temp_frame_*.png  # clean up others
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame_1920x1080.png":
+  cmd: |
+    convert \
+      "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png" \
+      -background lightgray -flatten -resize 1920x1080! \
+      "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame_1920x1080.png"
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png
+
+####################
+# video generation
+####################
+
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt":
   description:
     You are animating a short 4 second scene in a childrens movie.
     The animation should help young children learning Koine Greek how to understand the text in the content below.
     <content>
-    $(jq -r "select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.jsonl)
+    $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.json)
     </content>
     The start/stop frames of the scene have already been drawn and is provided in the attached images.
     You must provide a 1-4 sentence description of how to animate the provided input image.
@@ -284,9 +318,9 @@
     - characters/$CHARACTER/about.json
   variables:
     REFERENCE_FRAME:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
     CHARACTER:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4":
   dependencies:
@@ -328,9 +362,13 @@
     )
   variables:
     REFERENCE_FRAME:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
     CHARACTER:
-      jq -r "select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
+
+####################
+# video post-processing
+####################
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4":
   cmd: |
@@ -365,28 +403,6 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png":
-  cmd: |
-    cd books/$LEVEL/$BOOK/frames/$FRAME_ID/
-    #ffmpeg -i processed.mp4 -vf "select=eq(n\,$(ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of csv=p=0 processed.mp4)-1)" -vframes 1 -vsync 0 last_frame.png
-    #ffmpeg -sseof -3 -i processed.mp4 -vframes 1 -y last_frame.png
-    ffmpeg -sseof -1 -i processed.mp4 -f image2 temp_frame_%03d.png
-    # The highest numbered file will be closest to the last frame
-    LAST_FRAME=$(ls temp_frame_*.png | sort -V | tail -n 1)
-    cp "$LAST_FRAME" last_frame.png
-    rm temp_frame_*.png  # clean up others
-  dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
-
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame_1920x1080.png":
-  cmd: |
-    convert \
-      "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png" \
-      -background lightgray -flatten -resize 1920x1080! \
-      "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame_1920x1080.png"
-  dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png
-
 "books/$LEVEL/$BOOK/video.mp4":
   cmd: |
     cd books/$LEVEL/$BOOK
@@ -404,7 +420,7 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
   variables:
     FRAME_ID:
-      jq -r .frame_id books/$LEVEL/$BOOK/content.jsonl
+      jq -r ".frames[] | .frame_id" books/$LEVEL/$BOOK/content.json
 
 "videos/$LEVEL-$BOOK.mp4":
   cmd: ln -s "../books/$LEVEL/$BOOK/video.mp4" "videos/$LEVEL-$BOOK.mp4"
