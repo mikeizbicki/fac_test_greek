@@ -1,0 +1,20 @@
+{
+  "name": "school_interior_table",
+  "description": "A cozy classroom corner centered on a long shared table where animal children gather to learn, craft, and share stories.",
+  "visual_style": {
+    "color_palette": [
+      "Soft blue (#ADD8E6) for walls and table trim to create a calm, Mediterranean classroom feel.",
+      "Warm golden yellow (#FFD700) for seat cushions, pottery accents, and drawer pulls to add cheerful energy.",
+      "Rich green (#228B22) for plants, book spines, and rug borders to symbolize growth and learning."
+    ],
+    "architectural_style": "Simple, clean lines with low ceilings typical of traditional Greek village schoolhouses, with whitewashed walls and exposed wooden beams. Large windows near the table bring in fresh air and sunlight.",
+    "lighting": "bright natural sunlight",
+    "furniture": "A long honey-colored oak table with blue-painted edges sits at the center, surrounded by low stools and small-backed chairs in soft blue and warm yellow. Low white shelves with blue trim line the walls around the table, keeping slates, scrolls, and clay jars within easy reach. Geometric woven rugs in blues and greens anchor the table area and muffle little footsteps.",
+    "materials": [
+      "Whitewashed stucco walls with exposed wooden beams",
+      "Honey-colored oak table and stools with blue-painted edges",
+      "Stone floor with indigo-and-green woven rugs",
+      "Ceramic jars and wicker baskets for storage"
+    ]
+  }
+}

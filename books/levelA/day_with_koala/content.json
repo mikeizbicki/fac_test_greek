@@ -89,7 +89,7 @@
         "Koala"
       ],
       "locations": [
-        "school_interior"
+        "school_interior_entrance"
       ],
       "objects": [
         "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
@@ -128,7 +128,7 @@
         "Koala"
       ],
       "locations": [
-        "school_interior"
+        "school_interior_table"
       ],
       "objects": [
         "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
@@ -144,7 +144,8 @@
         "The small round loaf of bread with a golden crust sits on the table within reach.",
         "The low honey-brown wooden table with four sturdy legs fills the center of the scene.",
         "The simple wooden chair with a woven rush seat and a short back supports Koala at the table."
-      ]
+      ],
+      "reference_frame": "koala_sits"
     },
     {
       "text": "ἡ Κοάλα ἐκφέρει ἐκ τοῦ σάκκου τὴν σφαῖραν καὶ παίζει τῇ σφαίρᾳ.",
@@ -167,7 +168,8 @@
         "The blue-and-white leather ball about the size of a grapefruit is in the air between Koala's paws.",
         "The low honey-brown wooden table with four sturdy legs stands at center.",
         "The simple wooden chair with a woven rush seat and a short back is pushed slightly back from the table."
-      ]
+      ],
+      "reference_frame": "eat_food"
     }, 
     {
       "text": "ἡ Κοάλα ἐξέρχεται ἐκ τῆς σχολῆς μετὰ τοῦ σάκκου.",
@@ -176,13 +178,13 @@
         "Koala"
       ],
       "locations": [
-        "school_exterior"
+        "school_interior_entrance"
       ],
       "objects": [
         "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
       ],
       "positioning": [
-        "Koala steps down from the school threshold toward the path facing right.",
+        "Koala is exiting the door with her back towards us.",
         "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is closed and worn on Koala’s back."
       ]
     },
