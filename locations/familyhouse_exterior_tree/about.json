@@ -1,21 +1,20 @@
 {
   "name": "familyhouse_exterior_tree",
-  "description": "A shady spot beneath the old tree along the cobblestone path, with the cozy cottage’s terracotta roof, soft-brown wood walls, and sage shutters barely visible in the far background.",
+  "description": "The cozy cottage sits in the far background while a friendly shade tree and the winding cobblestone path take center stage.",
   "visual_style": {
     "color_palette": [
-      "Leafy green (#6B8E23) for the canopy leaves and low grass underfoot.",
-      "Weathered bark brown (#8B5A2B) for the tree trunk and branches, and cool cobblestone gray (#7D7D7D) for the path stones.",
-      "Far-background house accents: soft sage green (#8A9A5B) shutters, warm terracotta (#CC7357) roof tiles, and soft brown (#D69242) natural wood siding."
+      "Soft sage green (#8A9A5B) for shutters and garden plants, warm terracotta (#CC7357) for roof tiles and flower pots, and soft brown (#D69242) for the house walls to match the original exterior.",
+      "Lush olive green (#6B8E23) and fresh spring green (#A8D08D) for the foreground tree canopy and leaves, with warm sandstone beige (#D9B385) and cool pebble gray (#9AA3A8) highlighting the cobblestone path."
     ],
-    "architectural_style": "A natural outdoor vignette beneath a broad-limbed tree beside the cobblestone path that leads to the cottage. When glimpsed, the cottage matches the main exterior: pitched roof with wide eaves and terracotta tiles, shuttered windows, natural wood siding in soft brown, a tiny front porch, and a low stone foundation; framing stays low to a child’s eye level with adults cropped at elbows and below.",
-    "flora_fauna": "Clover, dandelions, and lavender peep through the grass; butterflies, ladybugs, and robins visit, while a curious squirrel may perch on a low branch.",
-    "weather": "sunny with breeze",
-    "lighting": "dappled sunlight",
+    "architectural_style": "The same charming, small-scale cottage with pitched roof, wide eaves, shuttered windows, small front porch, and stone foundation—unchanged in structure and perspective from the main exterior. The house is placed in the far background to keep the foreground emphasis on the tree and path, with scale consistent for small animal inhabitants.",
+    "flora_fauna": "A broad, friendly shade tree (oak-like) anchors the foreground beside a winding cobblestone path, while sunflowers, lavender, and low berry bushes continue around the house and fence line. Robins and butterflies frequent the tree canopy; bunnies and squirrels occasionally cross the path.",
+    "weather": "sunny",
+    "lighting": "bright sunlight",
     "materials": [
-      "Rounded cobblestone path of gray stones curving past the tree",
-      "Rough-barked hardwood tree with sturdy low branches and dense leaves",
-      "Simple wooden fence slats and small terracotta pots near the path",
-      "Distant cottage details: terracotta roof tiles, soft brown natural wood siding with soft sage shutters, a low stone foundation, and a tiny front porch"
+      "Natural wood siding for the house exterior",
+      "Terracotta roof tiles",
+      "Small cobblestones forming the garden pathway",
+      "Low stone edging along the flowerbeds"
     ]
   }
 }
