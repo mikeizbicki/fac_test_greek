@@ -344,7 +344,7 @@
     #"
     echo "
     model: fal-ai/kling-video/v2.5-turbo/standard/image-to-video
-    first_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    first_frame: $START_IMAGE
     duration: 5
     "
     #echo "
