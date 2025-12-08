@@ -76,9 +76,16 @@
   schema_file: schemas/location.json-schema
   dependencies:
     - common/about.md
+    - locations/$ANCESTOR_LOCATIONS/about.json
   variables:
     LOCATION:
       ls locations
+    ANCESTOR_LOCATIONS: |
+      echo "$LOCATION" | tr '_' '\n' | awk '{line = (NR == 1) ? $1 : line "_" $1; print line}' | while read path; do
+        if [[ -d "locations/$path" ]]; then
+          echo "$path"
+        fi
+      done
 
 "locations/$LOCATION/reference.png":
   description:
@@ -197,6 +204,7 @@
     pdfunite $(printf "books/$LEVEL/$BOOK/frames/%s/page_debug.pdf " $ordered_FRAME_IDs) books/$LEVEL/$BOOK/pages_debug.pdf
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page_debug.pdf
+    - books/$LEVEL/$BOOK/content.json
 
 ################################################################################
 # video
