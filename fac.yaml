@@ -322,6 +322,43 @@
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
 
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/video_startframeonly.mp4":
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
+      is_prompt: true
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1280x720.png
+  options: |
+    $(
+    RES=1280x720
+    if [ -z "$REFERENCE_FRAME" ]; then
+      START_IMAGE=books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_${RES}.png
+    else
+      START_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/art_${RES}.png
+    fi
+
+    #echo "
+    #model: openai/sora-2
+    #size: 1280x720
+    #seconds: 4
+    #"
+    echo "
+    model: fal-ai/kling-video/v2.5-turbo/standard/image-to-video
+    first_frame: books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
+    duration: 5
+    "
+    #echo "
+    #model: fal-ai/kling-video/o1/reference-to-video
+    #seconds: 5
+    #start_frame: books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1920x1080.png
+    #"
+    )
+  variables:
+    REFERENCE_FRAME:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
+    CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
+
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4":
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
