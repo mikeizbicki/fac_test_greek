@@ -197,7 +197,7 @@
     </content>
     Your job is to "undo" the action and create what the scene looked like about 5 seconds ago before the action happened.
   options:
-    model: fal-ai/nano-banana/edit
+    model: fal-ai/nano-banana-pro/edit
     aspect_ratio: '16:9'
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
