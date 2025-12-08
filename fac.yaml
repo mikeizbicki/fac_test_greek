@@ -105,7 +105,7 @@
     A reference image for the location described in the file "locations/$LOCATION/about.json".
     The image should have no characters, and display the location empty.
   options:
-    model: fal-ai/nano-banana-pro
+    model: fal-ai/nano-banana
   dependencies:
     - common/art.md
     - locations/$LOCATION/about.json
@@ -162,7 +162,7 @@
     The art should never include written text in any language.
     The result should be full-bleed with no margin/padding/border/whitespace.
   options:
-    model: fal-ai/nano-banana-pro/edit
+    model: fal-ai/nano-banana/edit
     aspect_ratio: '16:9'
   dependencies:
     - common/art.md
