@@ -105,7 +105,7 @@
     A reference image for the location described in the file "locations/$LOCATION/about.json".
     The image should have no characters, and display the location empty.
   options:
-    model: fal-ai/nano-banana
+    model: fal-ai/nano-banana-pro
   dependencies:
     - common/art.md
     - locations/$LOCATION/about.json
