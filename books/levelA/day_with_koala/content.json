@@ -110,16 +110,12 @@
     "school_interior_table"
   ],
   "objects": [
-    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
-    "a low honey-brown wooden table with four sturdy legs",
-    "a simple wooden chair with a woven rush seat and a short back"
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
   ],
   "positioning": [
     "Koala sits in the chair at the table.",
     "Glaux perches on the edge of the table, watching Koala with friendly amber eyes.",
-    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits on the tabletop at center.",
-    "The low honey-brown wooden table with four sturdy legs stands at center.",
-    "The simple wooden chair with a woven rush seat and a short back is positioned at the table where Koala sits."
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits on the tabletop at center."
   ],
   "artist_notes": "Koala is sitting in the chair. Koala does not wear a backpack."
 },
@@ -136,18 +132,14 @@
   "objects": [
     "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
     "a shiny red apple with a small green leaf",
-    "a small round loaf of bread with a golden crust",
-    "a low honey-brown wooden table with four sturdy legs",
-    "a simple wooden chair with a woven rush seat and a short back"
+    "a small round loaf of bread with a golden crust"
   ],
   "positioning": [
     "Koala sits at the table holding the apple in one paw and extending the bread toward Glaux with the other paw.",
     "Glaux perches on the table edge, leaning forward to accept the bread from Koala.",
     "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child lies open on the tabletop.",
     "The shiny red apple with a small green leaf is in Koala's left paw.",
-    "The small round loaf of bread with a golden crust is being passed from Koala to Glaux.",
-    "The low honey-brown wooden table with four sturdy legs fills the center of the scene.",
-    "The simple wooden chair with a woven rush seat and a short back supports Koala at the table."
+    "The small round loaf of bread with a golden crust is being passed from Koala to Glaux."
   ],
   "reference_frame": "koala_sits"
 },
@@ -164,18 +156,14 @@
   "objects": [
     "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
     "a shiny red apple with a small green leaf",
-    "a small round loaf of bread with a golden crust",
-    "a low honey-brown wooden table with four sturdy legs",
-    "a simple wooden chair with a woven rush seat and a short back"
+    "a small round loaf of bread with a golden crust"
   ],
   "positioning": [
     "Koala sits at the table taking a bite of the apple with a happy expression.",
     "Glaux perches on the table edge, pecking at the bread held in her talons.",
     "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child lies open on the tabletop.",
     "The shiny red apple with a small green leaf is near Koala's mouth.",
-    "The small round loaf of bread with a golden crust is in Glaux's talons.",
-    "The low honey-brown wooden table with four sturdy legs fills the center of the scene.",
-    "The simple wooden chair with a woven rush seat and a short back supports Koala at the table."
+    "The small round loaf of bread with a golden crust is in Glaux's talons."
   ],
   "reference_frame": "give_bread_to_glaux"
 },
@@ -187,21 +175,17 @@
     "Glaux"
   ],
   "locations": [
-    "school_interior"
+    "school_interior_table"
   ],
   "objects": [
     "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
-    "a blue-and-white leather ball about the size of a grapefruit",
-    "a low honey-brown wooden table with four sturdy legs",
-    "a simple wooden chair with a woven rush seat and a short back"
+    "a blue-and-white leather ball about the size of a grapefruit"
   ],
   "positioning": [
     "Koala stands beside the chair tossing the ball upward with both paws, smiling.",
     "Glaux perches on the chair back, wings slightly spread as she catches or deflects the ball playfully.",
     "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child remains open on the tabletop.",
-    "The blue-and-white leather ball about the size of a grapefruit is in the air between Koala and Glaux.",
-    "The low honey-brown wooden table with four sturdy legs stands at center.",
-    "The simple wooden chair with a woven rush seat and a short back serves as Glaux's perch."
+    "The blue-and-white leather ball about the size of a grapefruit is in the air between Koala and Glaux."
   ],
   "reference_frame": "eat_together"
 },
@@ -214,24 +198,18 @@
     "Didaskalos"
   ],
   "locations": [
-    "school_interior"
+    "school_interior_table"
   ],
   "objects": [
     "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
     "a blue-and-white leather ball about the size of a grapefruit",
-    "a low honey-brown wooden table with four sturdy legs",
-    "a simple wooden chair with a woven rush seat and a short back",
     "a small green leather-bound book with bronze clasps",
     "a small red leather-bound book with bronze clasps"
   ],
   "positioning": [
     "Koala stands beside the chair, reaching up to receive the red book from Didaskalos with both paws.",
     "Glaux perches on the chair back, extending one wing to accept the green book from Didaskalos.",
-    "Didaskalos stands at center, his hands visible at child-level as he gives out the books, but his head is above the frame.",
-    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits open on the tabletop.",
-    "The blue-and-white leather ball about the size of a grapefruit rests on the floor near the chair.",
-    "The low honey-brown wooden table with four sturdy legs stands at center.",
-    "The simple wooden chair with a woven rush seat and a short back serves as Glaux's perch.",
+    "Didaskalos stands at the left side of the table in a profile view looking at Koala and Glaux.",
     "The small green leather-bound book with bronze clasps is being handed to Glaux.",
     "The small red leather-bound book with bronze clasps is being given to Koala."
   ],
@@ -245,13 +223,11 @@
     "Glaux"
   ],
   "locations": [
-    "school_interior"
+    "school_interior_table"
   ],
   "objects": [
     "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
     "a blue-and-white leather ball about the size of a grapefruit",
-    "a low honey-brown wooden table with four sturdy legs",
-    "a simple wooden chair with a woven rush seat and a short back",
     "a small green leather-bound book with bronze clasps",
     "a small red leather-bound book with bronze clasps"
   ],
@@ -260,8 +236,6 @@
     "Glaux perches on the table edge with the green book open before her, head tilted as she reads.",
     "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits closed on the tabletop.",
     "The blue-and-white leather ball about the size of a grapefruit rests forgotten on the floor.",
-    "The low honey-brown wooden table with four sturdy legs stands at center.",
-    "The simple wooden chair with a woven rush seat and a short back supports Koala as she reads.",
     "The small green leather-bound book with bronze clasps lies open in front of Glaux.",
     "The small red leather-bound book with bronze clasps is open in Koala's lap."
   ],
