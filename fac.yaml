@@ -330,11 +330,10 @@
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_1280x720.png
   options: |
     $(
-    RES=1280x720
     if [ -z "$REFERENCE_FRAME" ]; then
-      START_IMAGE=books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame_${RES}.png
+      START_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
     else
-      START_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/art_${RES}.png
+      START_IMAGE=books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     fi
 
     #echo "
