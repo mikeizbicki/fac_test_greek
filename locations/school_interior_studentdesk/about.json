@@ -1,0 +1,20 @@
+{
+  "name": "school_interior_studentdesk",
+  "description": "An intimate corner of a cozy Greek classroom in isometric view, featuring exactly one wooden student desk and one chair placed directly behind it facing the viewer.",
+  "visual_style": {
+    "color_palette": [
+      "Soft blue (#ADD8E6) covers the walls to create a calm classroom backdrop.",
+      "Warm yellow (#FFD700) accents the desk edges and trim to add cheerful focus.",
+      "Honey oak brown (#C68642) finishes the single desk and chair, with subtle rich green accents (#228B22) in simple painted motifs."
+    ],
+    "architectural_style": "Simple, clean lines typical of a traditional Greek village schoolhouse, with whitewashed stucco walls lightly tinted soft blue and exposed wooden beams. The composition centers on a single study spot framed in a neat isometric view near a large window.",
+    "lighting": "Bright natural light",
+    "furniture": "Exactly one honey-oak wooden student desk and one matching chair with warm yellow accents are set at a three-quarter isometric angle; the chair is directly behind the desk so a seated student faces the viewer. No other furniture is present.",
+    "materials": [
+      "Whitewashed stucco walls with exposed wooden beam accents",
+      "Light gray stone floor with a smooth, worn texture",
+      "Honey oak wood for the single desk and chair with hand-painted yellow and green details",
+      "Blue-and-white ceramic trim for subtle Mediterranean detailing"
+    ]
+  }
+}

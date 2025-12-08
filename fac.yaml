@@ -80,6 +80,19 @@
   variables:
     LOCATION:
       ls locations
+
+    # NOTE:
+    # Locations are defined in a way where underscores determine a hierarchical relationship.
+    # For example:
+    # - "house_exterior" would be a parent of "house_exterior_frontyard".
+    # - "house_exterior" would be a child of house.
+    # When defining a new descendent location, we want it to be aware of all of its ancestors to ensure consistency between them.
+    # This variable extracts all of the ancestors.
+    # For example:
+    # - if LOCATION is "house_exterior", ANCESTOR_LOCATIONS will be "house"
+    # - if LOCATION is "house_exterior_frontyard", ANCESTOR_LOCATIONS will be "house" and "house_exterior"
+    # There is also a check to ensure that these locations already exist.
+    # If the ancestor locations do not already exist, they will not be built automatically.
     ANCESTOR_LOCATIONS: |
       echo "$LOCATION" | tr '_' '\n' | awk '{line = (NR == 1) ? $1 : line "_" $1; print line}' | head -n -1 | while read path; do
         if [[ -d "locations/$path" ]]; then
