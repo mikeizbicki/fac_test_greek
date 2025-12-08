@@ -171,7 +171,6 @@
   dependencies:
     - templates/page_template.tex
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
-    - books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/pages.pdf":
   cmd: |
@@ -179,6 +178,7 @@
     pdfunite $(printf "books/$LEVEL/$BOOK/frames/%s/page.pdf " $ordered_FRAME_IDs) books/$LEVEL/$BOOK/pages.pdf
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
+    - books/$LEVEL/$BOOK/content.json
 
 ####################
 ## redo the book with debugging info added
