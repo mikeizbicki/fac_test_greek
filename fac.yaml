@@ -188,25 +188,6 @@
         jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.json
       fi
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/warmstart.png":
-  description:
-    The attached image is a keyframe for an animation;
-    the image shows the result of the action described below.
-    <content>
-    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
-    </content>
-    Your job is to "undo" the action and create what the scene looked like about 5 seconds ago before the action happened.
-  options:
-    model: fal-ai/nano-banana-pro/edit
-    aspect_ratio: '16:9'
-  dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
-  variables:
-    FRAME_ID:
-      jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
-    CHARACTER:
-      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
-
 ########################################
 # print book
 ########################################
@@ -261,7 +242,20 @@
     - books/$LEVEL/$BOOK/content.jsonl
   options:
     voice: fable
-    input: 
+    input:
+      $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
+    instructions:
+      You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
+  variables:
+    FRAME_ID:
+      jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/translation_$LANG.txt":
+  dependencies:
+    - books/$LEVEL/$BOOK/content.jsonl
+  options:
+    voice: fable
+    input:
       $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
     instructions:
       You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
@@ -272,24 +266,6 @@
 ####################
 # keyframes
 ####################
-
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png":
-  cmd: |
-    convert \
-      "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png" \
-      -background lightgray -flatten -resize 1280x720! \
-      "books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png"
-  dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
-
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1920x1080.png":
-  cmd: |
-    convert \
-      "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png" \
-      -background lightgray -flatten -resize 1920x1080! \
-      "books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1920x1080.png"
-  dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png":
   cmd: |
@@ -304,14 +280,24 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame_1920x1080.png":
-  cmd: |
-    convert \
-      "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png" \
-      -background lightgray -flatten -resize 1920x1080! \
-      "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame_1920x1080.png"
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/warmstart.png":
+  description:
+    The attached image is a keyframe for an animation;
+    the image shows the result of the action described below.
+    <content>
+    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
+    </content>
+    Your job is to "undo" the action and create what the scene looked like about 5 seconds ago before the action happened.
+  options:
+    model: fal-ai/nano-banana-pro/edit
+    aspect_ratio: '16:9'
   dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+  variables:
+    FRAME_ID:
+      jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
+    CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
 
 ####################
 # video generation
