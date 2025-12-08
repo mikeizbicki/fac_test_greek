@@ -188,6 +188,25 @@
         jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.json
       fi
 
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/warmstart.png":
+  description:
+    The attached image is a keyframe for an animation;
+    the image shows the result of the action described below.
+    <content>
+    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
+    </content>
+    Your job is to "undo" the action and create what the scene looked like about 5 seconds ago before the action happened.
+  options:
+    model: fal-ai/nano-banana/edit
+    aspect_ratio: '16:9'
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+  variables:
+    FRAME_ID:
+      jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
+    CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
+
 ########################################
 # print book
 ########################################
