@@ -58,7 +58,7 @@
     2. Each drawing should have a different camera angle (front, profile, back, angle).
     3. All drawings should respect the instructions in the "art.md" and "characters/$CHARACTER/artist_instructions.md" files.
   options:
-    model: fal-ai/nano-banana
+    model: fal-ai/nano-banana-pro
   dependencies:
     - common/about.md
     - common/art.md
@@ -105,8 +105,7 @@
     A reference image for the location described in the file "locations/$LOCATION/about.json".
     The image should have no characters, and display the location empty.
   options:
-    quality: medium
-    orientation: landscape
+    model: fal-ai/nano-banana-pro
   dependencies:
     - common/art.md
     - locations/$LOCATION/about.json
