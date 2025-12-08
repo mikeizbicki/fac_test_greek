@@ -110,6 +110,15 @@
   dependencies:
     - common/art.md
     - locations/$LOCATION/about.json
+    - locations/$ANCESTOR_LOCATIONS/reference.png
+  variables:
+    ANCESTOR_LOCATIONS: |
+      echo "$LOCATION" | tr '_' '\n' | awk '{line = (NR == 1) ? $1 : line "_" $1; print line}' | head -n -1 | while read path; do
+        if [[ -d "locations/$path" ]]; then
+          echo "$path"
+        fi
+      done
+
 
 ################################################################################
 # books/
