@@ -112,6 +112,8 @@
     - locations/$LOCATION/about.json
     - locations/$ANCESTOR_LOCATIONS/reference.png
   variables:
+    # FIXME:
+    # We should redefine the build-system to inherit this variable from the about.json
     ANCESTOR_LOCATIONS: |
       echo "$LOCATION" | tr '_' '\n' | awk '{line = (NR == 1) ? $1 : line "_" $1; print line}' | head -n -1 | while read path; do
         if [[ -d "locations/$path" ]]; then

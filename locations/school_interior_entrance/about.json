@@ -1,0 +1,21 @@
+{
+  "name": "school_interior_entrance",
+  "description": "A welcoming foyer of the Greek village school where children enter, with open arched doors revealing the sunlit exterior courtyard.",
+  "visual_style": {
+    "color_palette": [
+      "Soft blue (#ADD8E6) for interior walls to keep continuity with the classrooms and create a calm arrival.",
+      "Warm yellow (#FFD700) for trim, signage, and accents to feel cheerful and inviting.",
+      "Aegean blue (#0F4C81) for the double door frames and hooks to emphasize the Mediterranean character and draw the eye to the open doorway.",
+      "Rich green (#228B22) in a small potted plant and rug motifs to suggest growth and welcome."
+    ],
+    "architectural_style": "Whitewashed stucco with exposed wooden beams and a low, cozy ceiling typical of traditional Greek village schools. An arched, wide double doorway remains open to frame a clear view of the sunlit exterior facade and courtyard.",
+    "lighting": "bright natural sunlight",
+    "furniture": "Honey-oak benches with cubbies (accented in warm yellow) line the side walls at child height, with Aegean-blue pegs above for cloaks and bags. A narrow console table in soft blue near the door holds a clay bowl for notes, and a patterned runner guides children to the open doorway.",
+    "materials": [
+      "Whitewashed stucco walls with exposed wooden beams",
+      "Stone floor with a Greek-key mosaic threshold and woven wool runner",
+      "Double wooden doors painted Aegean blue with simple wrought-iron pulls",
+      "Blue-and-white ceramic tiles for a small entry splash zone"
+    ]
+  }
+}
