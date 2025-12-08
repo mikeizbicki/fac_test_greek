@@ -97,8 +97,7 @@
       "positioning": [
         "Koala steps over the stone threshold at the school door at center, facing inward.",
         "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is on Koala’s back as she enters."
-      ],
-      "reference_frame": "walk_to_school"
+      ]
     },
     {
       "text": "ἡ Κοάλα τίθησι τὸν σάκκον ἐπὶ τὴν τράπεζαν καὶ καθίζει ἐπὶ τὴν καθέδραν.",

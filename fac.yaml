@@ -158,6 +158,10 @@
         jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.json
       fi
 
+########################################
+# print book
+########################################
+
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf":
   cmd: |
     cp templates/page_template.tex books/$LEVEL/$BOOK/frames/$FRAME_ID/page.tex
@@ -176,29 +180,23 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
 
-"books/$LEVEL/$BOOK/description.json":
-  description:
-    A structured summary of the book contents used for generating the front/back cover of the book.
-  schema: "
-    title_koine: the title in koine,
-    title_english: a literal translation of the koine,
-    back_cover: a 1-3 English sentence description of the plot,
-    key_vocab: a list of 2-10 key vocabulary words used in the story,
-    art_instructions: a 2-5 sentence description of what should appear on the cover of this story (do not include style information as that will be added later),
-    art_characters: a list of the character's names that appear in the art
-    "
+####################
+## redo the book with debugging info added
+####################
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/page_debug.pdf":
+  cmd: |
+    cd books/$LEVEL/$BOOK/frames/$FRAME_ID
+    convert page.pdf \( -background white -fill black -pointsize 20 -size x30 label:"$FRAME_ID" \) -gravity northeast -geometry +10+10 -composite page_debug.pdf
   dependencies:
-    common/about.md
-    common/writing.md
-    characters/$CHARACTER/about.json
-    locations/$LOCATION/about.json
-    books/$LEVEL/$BOOK/content.jsonl
-    books/$LEVEL/themes.md
-  variables:
-    CHARACTER:
-      jq -r ".characters[]" books/$LEVEL/$BOOK/content.jsonl | sort | uniq
-    LOCATION:
-      jq -r ".location" books/$LEVEL/$BOOK/content.jsonl | sort | uniq
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
+
+"books/$LEVEL/$BOOK/pages_debug.pdf":
+  cmd: |
+    ordered_FRAME_IDs=$(jq -r .frames[].frame_id books/$LEVEL/$BOOK/content.json)
+    pdfunite $(printf "books/$LEVEL/$BOOK/frames/%s/page_debug.pdf " $ordered_FRAME_IDs) books/$LEVEL/$BOOK/pages_debug.pdf
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page_debug.pdf
 
 ################################################################################
 # video
