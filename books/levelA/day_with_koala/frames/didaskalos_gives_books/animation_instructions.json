@@ -16,5 +16,10 @@
     "Didaskalos stands at the left side of the table in a profile view looking at Koala and Glaux.",
     "The small green leather-bound book with bronze clasps is being handed to Glaux.",
     "The small red leather-bound book with bronze clasps is being given to Koala."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Koala",
+    "Glaux"
   ]
 }
