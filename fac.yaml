@@ -289,7 +289,7 @@
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/add_character.png":
   description:
-    The attached image is a keyframe for an animation and a character sheet for a new character that will be added to the animation.
+    The attached image is a keyframe for an animation and a character sheet for a new character ($NEW_CHARACTER) that will be added to the animation.
     The animation will be only 5 seconds long and should illustrate the actions described in the collowing content.
     <content>
     $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
