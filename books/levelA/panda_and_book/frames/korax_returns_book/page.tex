@@ -1,0 +1,164 @@
+\documentclass[landscape]{article}
+\usepackage[paperwidth=11.25in, paperheight=8.75in, margin=0in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{luacode}
+
+\begin{luacode}
+function autofitgreek(filename)
+    local file = io.open(filename, "r")
+    if not file then
+        tex.print("\\centering\\Huge\\begin{greek}File not found\\end{greek}")
+        return
+    end
+    local text = file:read("*all")
+    file:close()
+
+    text = text:gsub("%s+$", "")
+
+    local words = {}
+    for word in text:gmatch("%S+") do
+        table.insert(words, word)
+    end
+
+    local total_words = #words
+    if total_words <= 1 then
+        tex.print("\\centering\\Huge\\begin{greek}" .. text .. "\\end{greek}")
+        return
+    end
+
+    -- Find quote boundaries to avoid splitting within quotes
+    local quote_ranges = {}
+    local in_quote = false
+    local quote_start = nil
+    
+    for i = 1, total_words do
+        if words[i]:match("«") then
+            in_quote = true
+            quote_start = i
+        elseif words[i]:match("»") then
+            if in_quote and quote_start then
+                table.insert(quote_ranges, {start = quote_start, finish = i})
+            end
+            in_quote = false
+            quote_start = nil
+        end
+    end
+
+    -- Collect potential split points, prioritizing quotes
+    local quote_splits = {}
+    local other_splits = {}
+    
+    for i = 1, total_words - 1 do
+        -- Check if this position is within any quote
+        local within_quote = false
+        for _, range in ipairs(quote_ranges) do
+            if i >= range.start and i < range.finish then
+                within_quote = true
+                break
+            end
+        end
+        
+        if not within_quote then
+            -- Check for quote boundaries
+            if words[i]:match("«") or words[i+1]:match("«") then
+                table.insert(quote_splits, i)
+            elseif words[i]:match("»") then
+                table.insert(quote_splits, i)
+            -- Check for sentence endings
+            elseif words[i]:match("[.!?]$") then
+                table.insert(other_splits, i)
+            -- Check for other punctuation
+            elseif words[i]:match("[;:·,]$") then
+                table.insert(other_splits, i)
+            end
+        end
+    end
+
+    -- Use quote splits if available, otherwise use other splits
+    local split_points = #quote_splits > 0 and quote_splits or other_splits
+
+    if #split_points == 0 then
+        tex.print("\\centering\\Huge\\begin{greek}" .. text .. "\\end{greek}")
+        return
+    end
+
+    -- Find split point closest to middle
+    local middle = total_words / 2
+    local best_pos = split_points[1]
+    local best_distance = math.abs(split_points[1] - middle)
+
+    for _, pos in ipairs(split_points) do
+        local distance = math.abs(pos - middle)
+        if distance < best_distance then
+            best_distance = distance
+            best_pos = pos
+        end
+    end
+
+    local first_half = {}
+    local second_half = {}
+
+    for i = 1, best_pos do
+        table.insert(first_half, words[i])
+    end
+    for i = best_pos + 1, total_words do
+        table.insert(second_half, words[i])
+    end
+
+    local first_text = table.concat(first_half, " ")
+    local second_text = table.concat(second_half, " ")
+
+    tex.print("\\parbox{\\linewidth}{%")
+    tex.print("\\centering")
+    tex.print("\\begin{greek}" .. first_text .. "\\end{greek}\\\\")
+    tex.print("\\begin{greek}" .. second_text .. "\\end{greek}%")
+    tex.print("}")
+end
+\end{luacode}
+
+\newcommand{\autofitgreekfile}[1]{%
+    \directlua{autofitgreek("#1")}%
+}
+
+% Set up Greek language support
+\setdefaultlanguage{english}
+\setotherlanguage[variant=ancient]{greek}
+
+% Set fonts (optional - you can specify specific fonts for Greek)
+\setmainfont{Latin Modern Roman}
+\newfontfamily\greekfont{DejaVu Serif}[Script=Greek]
+
+% Remove page numbers and headers
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture,overlay]
+    % Background image filling entire page
+    \node[anchor=north west,inner sep=0pt] at (current page.north west) {
+        %\includegraphics[width=\paperwidth,height=\paperheight]{art.png}
+        \includegraphics[width=\paperwidth,height=\dimexpr\paperheight-2in\relax]{art.png}
+        %\includegraphics[width=\paperwidth]{art.png}
+    };
+
+    % Text box in bottom 2 inches
+    \node[anchor=center,inner sep=0.75in,text width=\paperwidth-2in]
+      at ([yshift=1.125in]current page.south) {
+    \begin{minipage}[c][2in][c]{\linewidth}
+        %\spaceskip=1.5\fontdimen2\font plus 1\fontdimen3\font minus 0.5\fontdimen4\font
+        %\renewcommand{\baselinestretch}{1.4}
+        %\fontsize{36}{43.2}\selectfont
+        \renewcommand{\baselinestretch}{1.4}
+        \Huge
+        %\fontsize{36}{43.2}\selectfont
+        %\fontsize{48}{57.6}\selectfont
+        \spaceskip=1.5\fontdimen2\font plus 1\fontdimen3\font minus 0.5\fontdimen4\font
+        \autofitgreekfile{content.txt}
+    \end{minipage}
+};
+\end{tikzpicture}
+
+\end{document}
