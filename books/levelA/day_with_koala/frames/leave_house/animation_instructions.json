@@ -11,6 +11,8 @@
     "Koala steps through the open cottage doorway at center-right onto the cobblestone path, smiling toward the garden. Koala is facing the viewer and leaving the house.",
     "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is worn on Koala’s back with the flap closed."
   ],
-  "characters_that_enter": [],
+  "characters_that_enter": [
+    "Koala"
+  ],
   "characters_that_exit": []
 }

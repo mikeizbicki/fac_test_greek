@@ -11,6 +11,8 @@
     "Koala is exiting the door with her back towards us.",
     "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is closed and worn on Koala’s back."
   ],
-  "characters_that_enter": [],
+  "characters_that_enter": [
+    "Koala"
+  ],
   "characters_that_exit": []
 }

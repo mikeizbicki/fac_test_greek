@@ -260,9 +260,6 @@
       jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
     REFERENCE_FRAME:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
-    REFERENCE_FRAME_CHARACTER:
-      jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
-
     # NOTE:
     # The complex grep commands below compute the difference between the characters in REFERENCE_FRAME and FRAME_ID.
     # This generates a list of new characters to add and old characters to remove from the scene.
@@ -270,6 +267,12 @@
       echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
     EXIT_CHARACTER: |
       echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
+    
+    # This helper variable is only used in the calculation of ENTER_CHARACTER and EXIT_CHARACTER above.
+    # It lists all the characters in the reference frame.
+    REFERENCE_FRAME_CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
+
 
 ####################
 # audio

@@ -17,5 +17,9 @@
     "The blue-and-white leather ball about the size of a grapefruit rests forgotten on the floor.",
     "The small green leather-bound book with bronze clasps lies open in front of Glaux.",
     "The small red leather-bound book with bronze clasps is open in Koala's lap."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Didaskalos"
   ]
 }

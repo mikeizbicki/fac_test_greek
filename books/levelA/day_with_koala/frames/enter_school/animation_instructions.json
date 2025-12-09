@@ -11,6 +11,8 @@
     "Koala steps over the stone threshold at the school door at center, facing inward.",
     "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is on Koala’s back as she enters."
   ],
-  "characters_that_enter": [],
+  "characters_that_enter": [
+    "Koala"
+  ],
   "characters_that_exit": []
 }
