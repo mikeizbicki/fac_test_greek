@@ -310,7 +310,7 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - characters/$CHARACTER/about.json
-    - characters/$ADD_CHARACTER/character_sheet.png
+      #- characters/$ADD_CHARACTER/character_sheet.png
   variables:
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
@@ -425,7 +425,8 @@
     RM_CHARACTER: |
       echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
     REFERENCE_FRAME_CHARACTER_TRANSITION: |
-      if [[ ! -z "$REFERENCE_FRAME" && ( ! -z "$ADD_CHARACTER" || ! -z "$RM_CHARACTER" ) ]]; then
+      #if [[ ! -z "$REFERENCE_FRAME" && ( ! -z "$ADD_CHARACTER" || ! -z "$RM_CHARACTER" ) ]]; then
+      if [[ ! -z "$REFERENCE_FRAME" && ! -z "$ADD_CHARACTER" ]]; then
         echo "$FRAME_ID"
       fi
 
