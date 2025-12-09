@@ -264,9 +264,13 @@
     # The complex grep commands below compute the difference between the characters in REFERENCE_FRAME and FRAME_ID.
     # This generates a list of new characters to add and old characters to remove from the scene.
     ENTER_CHARACTER: |
-      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
+      if [ ! -z "$REFERENCE_FRAME" ]; then
+        echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
+      fi
     EXIT_CHARACTER: |
-      echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
+      if [ ! -z "$REFERENCE_FRAME" ]; then
+        echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
+      fi
     
     # This helper variable is only used in the calculation of ENTER_CHARACTER and EXIT_CHARACTER above.
     # It lists all the characters in the reference frame.

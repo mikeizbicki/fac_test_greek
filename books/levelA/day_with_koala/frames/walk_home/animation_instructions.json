@@ -11,8 +11,6 @@
     "Koala walks along the cobblestone path facing the house.",
     "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child rests on Koala’s back as she walks."
   ],
-  "characters_that_enter": [
-    "Koala"
-  ],
+  "characters_that_enter": [],
   "characters_that_exit": []
 }
