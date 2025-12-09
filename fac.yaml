@@ -380,21 +380,19 @@
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt":
   description:
-    You are animating a short 4 second scene in a childrens movie.
-    The animation should help young children learning Koine Greek how to understand the text in the content below.
-    <content>
-    $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\")" books/$LEVEL/$BOOK/content.json)
-    </content>
+    You are animating a short 4 second scene described by the file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json".
     The start/stop frames of the scene have already been drawn and is provided in the attached images.
-    You must provide a 1-4 sentence description of how to animate the provided input image.
+    You must provide a 1-10 sentence description of how to animate the provided input image.
     Use simple language that is easy to follow, and always describe the events in chronological order.
     The description should explicitly describe what each character is doing (e.g. running, sitting, writing) and their emotions (e.g. angry, happy, sad).
+    If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, or enters through the door).
     All descriptions must perfectly match the images.
     You should not describe the end position of the characters.
     #, and their final position in the shot (e.g. stage-left, stage-right, off-camera).
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
     - characters/$CHARACTER/about.json
   variables:
     REFERENCE_FRAME:
