@@ -376,11 +376,28 @@
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4":
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME_CHARACTER_TRANSITION/character_transition.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
       is_prompt: true
   options: |
     $(
+    # The REFERENCE_FRAME_CHARACTER_TRANSITION variable will be defined
+    # whenever the REFERENCE_FRAME is defined and the characters have changed
+    # between REFERENCE_FRAME and FRAME_ID.
+    # This is the only situation where we use a video model with a start and end frame.
+    if [ ! -z $REFERENCE_FRAME_CHARACTER_TRANSITION ]; then
+    START_IMAGE=books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
+    END_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/character_transition.png
+    echo "
+    model: fal-ai/kling-video/o1/image-to-video
+    first_frame: $START_IMAGE
+    last_frame: $END_IMAGE
+    duration: 5
+    "
+
+    # Use the cheaper start-frame only to video.
+    else
     if [ -z "$REFERENCE_FRAME" ]; then
       START_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
     else
@@ -391,12 +408,26 @@
     first_frame: $START_IMAGE
     duration: 5
     "
+    fi
     )
   variables:
     REFERENCE_FRAME:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
+
+    # NOTE:
+    # The REFERENCE_FRAME_CHARACTER_TRANSITION variable will only be defined when the characters have changed between the REFERENCE_FRAME and FRAME_ID.
+    REFERENCE_FRAME_CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
+    ADD_CHARACTER: |
+      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
+    RM_CHARACTER: |
+      echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
+    REFERENCE_FRAME_CHARACTER_TRANSITION: |
+      if [[ ! -z "$REFERENCE_FRAME" && ( ! -z "$ADD_CHARACTER" || ! -z "$RM_CHARACTER" ) ]]; then
+        echo "$FRAME_ID"
+      fi
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video_old.mp4":
   dependencies:
