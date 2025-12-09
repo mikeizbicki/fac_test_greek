@@ -235,7 +235,9 @@
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json":
   cmd: |
-    jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+    # NOTE:
+    # If we need to compress this to fit within a context window, use jq -c
+    jq ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
   dependencies:
   - books/$LEVEL/$BOOK/content.json
 
