@@ -277,7 +277,6 @@
     REFERENCE_FRAME_CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
 
-
 ####################
 # audio
 ####################
@@ -333,10 +332,10 @@
   description: |
     Attached is a keyframe for the start of a 5 second animation. Your job is to create a final keyframe for what the scene looks like at the end of the 5 seconds. The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json" contains a description of the scene you are to animate.
     $(
-    if [ ! -z $ADD_CHARACTER ]; then
+    if [ ! -z $ENTER_CHARACTER ]; then
     echo "You must add the following characters to the scene: ${ADD_CHARACTER}. Character sheets and descriptions are attached."
     fi
-    if [ ! -z $RM_CHARACTER ]; then
+    if [ ! -z $EXIT_CHARACTER ]; then
     echo "You must remove the following characters from the scene: ${RM_CHARACTER}. Character descriptions are attached."
     fi
     )
@@ -347,21 +346,14 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - characters/$CHARACTER/about.json
-      #- characters/$ADD_CHARACTER/character_sheet.png
+    - characters/$ENTER_CHARACTER/character_sheet.png
   variables:
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
     REFERENCE_FRAME:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
-    REFERENCE_FRAME_CHARACTER:
-      jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
-    # NOTE:
-    # The complex grep commands below compute the difference between the characters in REFERENCE_FRAME and FRAME_ID.
-    # This generates a list of new characters to add and old characters to remove from the scene.
-    ADD_CHARACTER: |
-      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
-    RM_CHARACTER: |
-      echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
+    ENTER_CHARACTER:
+      jq -r ".characters_that_enter" books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/warmstart.png":
   description:

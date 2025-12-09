@@ -1,0 +1,33 @@
+{
+  "title": "Πάνδα καὶ τὸ βιβλίον",
+  "learning_goal": "This story emphasizes emotions (λυπέομαι, χαίρω) and the verbs δίδωμι and ἀναγινώσκω with present tense third person forms.",
+  "plot": "A sad panda receives a book from her teacher and becomes happy while reading it.",
+  "frames": [
+    {
+      "text": "ἡ Πάνδα καθίζει παρὰ τὴν σχολήν. λυπεῖται.",
+      "frame_id": "sad_panda_sits",
+      "characters": ["Panda"],
+      "locations": ["school_exterior"],
+      "objects": [],
+      "positioning": ["Panda sits on the ground looking downward with sad expression, positioned center-left of the frame"]
+    },
+    {
+      "text": "ὁ διδάσκαλος ἔρχεται. δίδωσι βιβλίον τῇ Πάνδᾳ.",
+      "frame_id": "teacher_gives_book",
+      "characters": ["Panda", "Didaskalos"],
+      "locations": ["school_exterior"],
+      "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
+      "positioning": ["Panda sits looking up hopefully at the teacher", "Didaskalos stands beside Panda extending the book toward her with a gentle smile, shown from three-quarter view"],
+      "reference_frame": "sad_panda_sits"
+    },
+    {
+      "text": "ἡ Πάνδα χαίρει καὶ ἀναγινώσκει τὸ βιβλίον.",
+      "frame_id": "happy_panda_reads",
+      "characters": ["Panda"],
+      "locations": ["school_exterior"],
+      "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
+      "positioning": ["Panda sits upright holding the open book in her paws, looking down at the pages with a bright, joyful expression"],
+      "reference_frame": "teacher_gives_book"
+    }
+  ]
+}
