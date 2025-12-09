@@ -233,22 +233,25 @@
 # video
 ################################################################################
 
+      #"books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json":
+      #cmd: |
+      #jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+      #dependencies:
+      #- books/$LEVEL/$BOOK/content.json
+
 ####################
 # audio
 ####################
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav":
   dependencies:
-    - books/$LEVEL/$BOOK/content.jsonl
+  - books/$LEVEL/$BOOK/content.json
   options:
     voice: fable
     input:
       $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
     instructions:
       You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
-  variables:
-    FRAME_ID:
-      jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/translation_$LANG.txt":
   description:
@@ -258,7 +261,7 @@
     $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
     </text>
   dependencies:
-    - books/$LEVEL/$BOOK/content.jsonl
+    - books/$LEVEL/$BOOK/content.json
   variables:
     FRAME_ID:
       jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
@@ -287,20 +290,23 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/add_character.png":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/character_transition.png":
   description:
-    The attached image is a keyframe for an animation and a character sheet for a new character ($NEW_CHARACTER) that will be added to the animation.
-    The animation will be only 5 seconds long and should illustrate the actions described in the collowing content.
-    <content>
-    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
-    </content>
-    Your job is to create a final keyframe for what the scene looks like with the new character added and the content having occurred.
+    #$(
+    #if [ ! -z $ADD_CHARACTER && ! -z $RM_CHARACTER ]; then
+    #fi
+    #)
+    The attached image is a keyframe for an animation and a character sheet for a new character ($ADD_CHARACTER) that will be added to the animation.
+    The animation will be only 5 seconds long and should illustrate the actions described in the file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json".
+    Your job is to create a final keyframe for what the scene looks like with the new character at the end of the animation.
   options:
-    model: fal-ai/nano-banana-pro/edit
+    model: fal-ai/nano-banana/edit
     aspect_ratio: '16:9'
   dependencies:
+    #- books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
-    - characters/$NEW_CHARACTER/character_sheet.png
+    - characters/$CHARACTER/about.json
+    - characters/$ADD_CHARACTER/character_sheet.png
   variables:
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
@@ -309,9 +315,12 @@
     REFERENCE_FRAME_CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
     # NOTE:
-    # The command below lists all of the characters in NEW_CHARACTER that are not in CHARACTER.
-    NEW_CHARACTER: |
-      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER")
+    # The complex grep commands below compute the difference between the characters in REFERENCE_FRAME and FRAME_ID.
+    # This generates a list of new characters to add and old characters to remove from the scene.
+    ADD_CHARACTER: |
+      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
+    RM_CHARACTER: |
+      echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/warmstart.png":
   description:
