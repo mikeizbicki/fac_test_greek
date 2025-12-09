@@ -1,0 +1,18 @@
+{
+  "text": "ὁ κόραξ ἔρχεται καὶ κλέπτει τὸ βιβλίον.",
+  "objects": [
+    "A small leather-bound book with bronze clasps and parchment pages"
+  ],
+  "locations": [
+    "school_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda sits looking startled as her book is taken",
+    "Korax swoops down from above, grabbing the book in his beak, wings spread wide, shown from side view"
+  ],
+  "characters_that_enter": [
+    "Korax"
+  ],
+  "characters_that_exit": []
+}

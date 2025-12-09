@@ -28,6 +28,59 @@
       "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
       "positioning": ["Panda sits upright holding the open book in her paws, looking down at the pages with a bright, joyful expression"],
       "reference_frame": "teacher_gives_book"
+    },
+    {
+      "text": "ὁ κόραξ ἔρχεται καὶ κλέπτει τὸ βιβλίον.",
+      "frame_id": "korax_steals_book",
+      "characters": ["Panda", "Korax"],
+      "locations": ["school_exterior"],
+      "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
+      "positioning": ["Panda sits looking startled as her book is taken", "Korax swoops down from above, grabbing the book in his beak, wings spread wide, shown from side view"],
+      "reference_frame": "happy_panda_reads"
+    },
+    {
+      "text": "ἡ Πάνδα λυπεῖται πάλιν. οὐκ ἔχει τὸ βιβλίον.",
+      "frame_id": "panda_sad_again",
+      "characters": ["Panda"],
+      "locations": ["school_exterior"],
+      "objects": [],
+      "positioning": ["Panda sits with her paws empty, looking down sadly with tears in her eyes"],
+      "reference_frame": "korax_steals_book"
+    },
+    {
+      "text": "ἰδού! ὁ ὑπερβρέφος ἔρχεται. φέρει τὸν κόρακα πρὸς τὴν Πάνδαν.",
+      "frame_id": "hyperbrephos_brings_korax",
+      "characters": ["Panda", "Korax", "Hyperbrephos"],
+      "locations": ["school_exterior"],
+      "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
+      "positioning": ["Panda sits looking up hopefully", "Hyperbrephos crawls forward powerfully, dragging Korax by the wing", "Korax is being pulled along reluctantly, still holding the book in his beak, looking annoyed"],
+      "reference_frame": "panda_sad_again"
+    },
+    {
+      "text": "ὁ κόραξ δίδωσι τὸ βιβλίον τῇ Πάνδᾳ.",
+      "frame_id": "korax_returns_book",
+      "characters": ["Panda", "Korax", "Hyperbrephos"],
+      "locations": ["school_exterior"],
+      "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
+      "positioning": ["Panda reaches out to receive the book, looking grateful", "Korax reluctantly extends the book toward Panda, looking sheepish", "Hyperbrephos sits nearby watching with arms crossed, making sure Korax complies"],
+      "reference_frame": "hyperbrephos_brings_korax"
+    },
+    {
+      "text": "ὁ ὑπερβρέφος φέρει τὸν κόρακα ἐκ τῆς σχολῆς.",
+      "frame_id": "hyperbrephos_drags_korax_away",
+      "characters": ["Panda", "Korax", "Hyperbrephos"],
+      "locations": ["school_exterior"],
+      "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
+      "positioning": ["Panda sits contentedly holding her book again, waving goodbye", "Hyperbrephos crawls away dragging Korax by the wing toward the edge of the frame", "Korax is being pulled along looking defeated and embarrassed"],
+      "reference_frame": "korax_returns_book"
+    },
+    {
+      "text": "ἡ Πάνδα χαίρει καὶ ἀναγινώσκει τὸ βιβλίον πάλιν.",
+      "frame_id": "panda_happy_reading_again",
+      "characters": ["Panda"],
+      "locations": ["school_exterior"],
+      "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
+      "positioning": ["Panda sits peacefully reading the open book, with a content smile on her face"]
     }
   ]
 }

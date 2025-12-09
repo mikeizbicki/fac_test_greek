@@ -1,0 +1,20 @@
+{
+  "text": "ἰδού! ὁ ὑπερβρέφος ἔρχεται. φέρει τὸν κόρακα πρὸς τὴν Πάνδαν.",
+  "objects": [
+    "A small leather-bound book with bronze clasps and parchment pages"
+  ],
+  "locations": [
+    "school_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda sits looking up hopefully",
+    "Hyperbrephos crawls forward powerfully, dragging Korax by the wing",
+    "Korax is being pulled along reluctantly, still holding the book in his beak, looking annoyed"
+  ],
+  "characters_that_enter": [
+    "Korax",
+    "Hyperbrephos"
+  ],
+  "characters_that_exit": []
+}

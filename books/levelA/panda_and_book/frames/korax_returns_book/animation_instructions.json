@@ -1,0 +1,17 @@
+{
+  "text": "ὁ κόραξ δίδωσι τὸ βιβλίον τῇ Πάνδᾳ.",
+  "objects": [
+    "A small leather-bound book with bronze clasps and parchment pages"
+  ],
+  "locations": [
+    "school_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda reaches out to receive the book, looking grateful",
+    "Korax reluctantly extends the book toward Panda, looking sheepish",
+    "Hyperbrephos sits nearby watching with arms crossed, making sure Korax complies"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}
