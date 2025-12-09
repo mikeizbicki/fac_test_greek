@@ -254,6 +254,8 @@
   - books/$LEVEL/$BOOK/content.json
 
   variables:
+    CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
     FRAME_ID:
       jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
     REFERENCE_FRAME:
