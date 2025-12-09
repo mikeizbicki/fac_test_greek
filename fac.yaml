@@ -303,7 +303,7 @@
     model: fal-ai/nano-banana/edit
     aspect_ratio: '16:9'
   dependencies:
-    #- books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - characters/$CHARACTER/about.json
     - characters/$ADD_CHARACTER/character_sheet.png
