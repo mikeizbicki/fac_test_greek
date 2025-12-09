@@ -1,0 +1,3 @@
+file 'frames/sad_panda_sits/processed.mp4'
+file 'frames/teacher_gives_book/processed.mp4'
+file 'frames/happy_panda_reads/processed.mp4'

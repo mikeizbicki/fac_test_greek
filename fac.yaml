@@ -265,16 +265,16 @@
     # This generates a list of new characters to add and old characters to remove from the scene.
     ENTER_CHARACTER: |
       if [ ! -z "$REFERENCE_FRAME" ]; then
-        echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
+        echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_CHARACTER") || true
       fi
     EXIT_CHARACTER: |
       if [ ! -z "$REFERENCE_FRAME" ]; then
-        echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
+        echo "$REFERENCE_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
       fi
     
     # This helper variable is only used in the calculation of ENTER_CHARACTER and EXIT_CHARACTER above.
     # It lists all the characters in the reference frame.
-    REFERENCE_FRAME_CHARACTER:
+    REFERENCE_CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
 
 ####################
@@ -332,10 +332,10 @@
   description: |
     Attached is a keyframe for the start of a 5 second animation. Your job is to create a final keyframe for what the scene looks like at the end of the 5 seconds. The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json" contains a description of the scene you are to animate.
     $(
-    if [ ! -z $ENTER_CHARACTER ]; then
+    if [ ! -z "$ENTER_CHARACTER" ]; then
     echo "You must add the following characters to the scene: ${ADD_CHARACTER}. Character sheets and descriptions are attached."
     fi
-    if [ ! -z $EXIT_CHARACTER ]; then
+    if [ ! -z "$EXIT_CHARACTER" ]; then
     echo "You must remove the following characters from the scene: ${RM_CHARACTER}. Character descriptions are attached."
     fi
     )
@@ -353,7 +353,9 @@
     REFERENCE_FRAME:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
     ENTER_CHARACTER:
-      jq -r ".characters_that_enter" books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+      jq -r ".characters_that_enter[] // empty" books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+    EXIT_CHARACTER:
+      jq -r ".characters_that_exit[] // empty" books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/warmstart.png":
   description:
@@ -403,17 +405,17 @@
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4":
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
-    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME_CHARACTER_TRANSITION/character_transition.png
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_TRANSITION/character_transition.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
       is_prompt: true
   options: |
     $(
-    # The REFERENCE_FRAME_CHARACTER_TRANSITION variable will be defined
+    # The REFERENCE_TRANSITION variable will be defined
     # whenever the REFERENCE_FRAME is defined and the characters have changed
     # between REFERENCE_FRAME and FRAME_ID.
     # This is the only situation where we use a video model with a start and end frame.
-    if [ ! -z $REFERENCE_FRAME_CHARACTER_TRANSITION ]; then
+    if [ ! -z $REFERENCE_TRANSITION ]; then
     START_IMAGE=books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     END_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/character_transition.png
     echo "
@@ -444,14 +446,14 @@
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
 
     # NOTE:
-    # The REFERENCE_FRAME_CHARACTER_TRANSITION variable will only be defined when the characters have changed between the REFERENCE_FRAME and FRAME_ID.
-    REFERENCE_FRAME_CHARACTER:
+    # The REFERENCE_TRANSITION variable will only be defined when the characters have changed between the REFERENCE_FRAME and FRAME_ID.
+    REFERENCE_CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
     ADD_CHARACTER: |
-      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
+      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_CHARACTER") || true
     RM_CHARACTER: |
-      echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
-    REFERENCE_FRAME_CHARACTER_TRANSITION: |
+      echo "$REFERENCE_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
+    REFERENCE_TRANSITION: |
       #if [[ ! -z "$REFERENCE_FRAME" && ( ! -z "$ADD_CHARACTER" || ! -z "$RM_CHARACTER" ) ]]; then
       if [[ ! -z "$REFERENCE_FRAME" && ! -z "$ADD_CHARACTER" ]]; then
         echo "$FRAME_ID"

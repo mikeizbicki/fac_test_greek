@@ -1,0 +1,17 @@
+{
+  "text": "ἡ Πάνδα χαίρει καὶ ἀναγινώσκει τὸ βιβλίον.",
+  "objects": [
+    "A small leather-bound book with bronze clasps and parchment pages"
+  ],
+  "locations": [
+    "school_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda sits upright holding the open book in her paws, looking down at the pages with a bright, joyful expression"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Didaskalos"
+  ]
+}
