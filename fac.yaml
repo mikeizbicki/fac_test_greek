@@ -293,14 +293,18 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/character_transition.png":
-  description:
-    #$(
-    #if [ ! -z $ADD_CHARACTER && ! -z $RM_CHARACTER ]; then
-    #fi
-    #)
-    The attached image is a keyframe for an animation and a character sheet for a new character ($ADD_CHARACTER) that will be added to the animation.
-    The animation will be only 5 seconds long and should illustrate the actions described in the file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json".
-    Your job is to create a final keyframe for what the scene looks like with the new character at the end of the animation.
+  description: |
+    Attached is a keyframe for the start of a 5 second animation.
+    Your job is to create a final keyframe for what the scene looks like at the end of the 5 seconds.
+    The description of what happens is contained in the file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json".
+    $(
+    if [ ! -z $ADD_CHARACTER ]; then
+    echo "You must add the following characters to the scene: ${ADD_CHARACTER}. Character sheets and descriptions are attached."
+    fi
+    if [ ! -z $RM_CHARACTER ]; then
+    echo "You must remove the following characters from the scene: ${RM_CHARACTER}. Character descriptions are attached."
+    fi
+    )
   options:
     model: fal-ai/nano-banana/edit
     aspect_ratio: '16:9'
