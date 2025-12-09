@@ -1,0 +1,22 @@
+{
+  "text": "ἡ Κοάλα ἐκφέρει ἐκ τοῦ σάκκου τὴν σφαῖραν. ἡ Κοάλα καὶ ἡ Γλαὺξ παίζουσι τῇ σφαίρᾳ.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "school_interior_table"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala stands beside the chair tossing the ball upward with both paws, smiling.",
+    "Glaux perches on the chair back, wings slightly spread as she catches or deflects the ball playfully.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child remains open on the tabletop.",
+    "The blue-and-white leather ball about the size of a grapefruit is in the air between Koala and Glaux."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Koala",
+    "Glaux"
+  ]
+}

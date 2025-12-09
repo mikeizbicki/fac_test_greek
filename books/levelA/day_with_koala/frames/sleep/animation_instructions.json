@@ -1,0 +1,18 @@
+{
+  "text": "ἡ Κοάλα πάλιν καθεύδει ἐν τῇ κλίνῃ.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
+  ],
+  "locations": [
+    "familyhouse_interior_bedroom"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala curls under the forest-green blanket on the bed at right with eyes closed.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits neatly on the floor beside the bed leg."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Koala"
+  ]
+}

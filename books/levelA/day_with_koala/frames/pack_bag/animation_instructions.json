@@ -1,0 +1,24 @@
+{
+  "text": "ἡ Κοάλα εἰσφέρει εἰς τὸν σάκκον τὸ μῆλον καὶ τὸν ἄρτον καὶ τὴν σφαῖραν.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+    "a shiny red apple with a small green leaf",
+    "a small round loaf of bread with a golden crust",
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "familyhouse_interior_bedroom"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala sits on the edge of the bed at left, reaching down with both hands toward the open backpack.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits open on the floor in front of Koala.",
+    "The shiny red apple with a small green leaf rests beside the backpack flap ready to go in.",
+    "The small round loaf of bread with a golden crust sits near the apple at Koala’s toes.",
+    "The blue-and-white leather ball about the size of a grapefruit rests to the right of the backpack."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Koala"
+  ]
+}

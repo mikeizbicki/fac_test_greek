@@ -237,9 +237,37 @@
   cmd: |
     # NOTE:
     # If we need to compress this to fit within a context window, use jq -c
-    jq ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+    #jq ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+    jq ".frames[] |
+    select(.frame_id == \"$FRAME_ID\") |
+    {
+        text,
+        objects,
+        locations,
+        artist_notes,
+        positioning,
+        characters_that_enter: \"$ENTER_CHARACTER\" | split(\"\n\") | map(select(length > 0)),
+        characters_that_exit: \"$EXIT_CHARACTER\" | split(\"\n\") | map(select(length > 0))
+    }" \
+    books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
   dependencies:
   - books/$LEVEL/$BOOK/content.json
+
+  variables:
+    FRAME_ID:
+      jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
+    REFERENCE_FRAME:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
+    REFERENCE_FRAME_CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
+
+    # NOTE:
+    # The complex grep commands below compute the difference between the characters in REFERENCE_FRAME and FRAME_ID.
+    # This generates a list of new characters to add and old characters to remove from the scene.
+    ENTER_CHARACTER: |
+      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER") || true
+    EXIT_CHARACTER: |
+      echo "$REFERENCE_FRAME_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
 
 ####################
 # audio

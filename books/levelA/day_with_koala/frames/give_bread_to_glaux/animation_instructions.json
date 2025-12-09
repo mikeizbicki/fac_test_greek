@@ -1,0 +1,24 @@
+{
+  "text": "ἡ Κοάλα ἐκφέρει ἐκ τοῦ σάκκου τὸ μῆλον καὶ τὸν ἄρτον. ἡ Κοάλα δίδωσι τὸν ἄρτον τῇ Γλαυκί.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+    "a shiny red apple with a small green leaf",
+    "a small round loaf of bread with a golden crust"
+  ],
+  "locations": [
+    "school_interior_table"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala sits at the table holding the apple in one paw and extending the bread toward Glaux with the other paw.",
+    "Glaux perches on the table edge, leaning forward to accept the bread from Koala.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child lies open on the tabletop.",
+    "The shiny red apple with a small green leaf is in Koala's left paw.",
+    "The small round loaf of bread with a golden crust is being passed from Koala to Glaux."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Koala",
+    "Glaux"
+  ]
+}

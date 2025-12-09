@@ -1,0 +1,16 @@
+{
+  "text": "ἡ Κοάλα τίθησι τὸν σάκκον παρὰ τὴν κλίνην καὶ ἀναβαίνει εἰς τὴν κλίνην.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
+  ],
+  "locations": [
+    "familyhouse_interior_bedroom"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala stands beside the bed at right, placing the backpack gently on the floor, then climbs onto the bed.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is being set down beside the bed leg by Koala."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

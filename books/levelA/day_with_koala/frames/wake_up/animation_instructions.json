@@ -1,0 +1,20 @@
+{
+  "text": "ἡ Κοάλα ἐκβαίνει ἐκ τῆς κλίνης.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+    "a shiny red apple with a small green leaf",
+    "a small round loaf of bread with a golden crust",
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "familyhouse_interior_bedroom"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala lies under the green blanket on the small bed at right, then she sits up and swings her feet to the floor.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child rests closed on the floor at the foot of the bed on the left.",
+    "The red apple, round loaf of bread, and blue-and-white leather ball are arranged in a pile near the backpack"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

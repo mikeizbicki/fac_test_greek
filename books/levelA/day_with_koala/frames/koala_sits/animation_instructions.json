@@ -1,0 +1,17 @@
+{
+  "text": "ἡ Κοάλα τίθησι τὸν σάκκον ἐπὶ τὴν τράπεζαν καὶ καθίζει ἐπὶ τὴν καθέδραν παρὰ τὴν γλαῦκα.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
+  ],
+  "locations": [
+    "school_interior_table"
+  ],
+  "artist_notes": "Koala is sitting in the chair. Koala does not wear a backpack.",
+  "positioning": [
+    "Koala sits in the chair at the table.",
+    "Glaux perches on the edge of the table, watching Koala with friendly amber eyes.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child sits on the tabletop at center."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

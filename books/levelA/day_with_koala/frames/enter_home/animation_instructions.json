@@ -1,0 +1,16 @@
+{
+  "text": "ἡ Κοάλα εἰσέρχεται εἰς τὴν οἰκίαν.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
+  ],
+  "locations": [
+    "familyhouse_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala moves through the open doorway from the porch into the warm interior.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is on Koala’s back as she crosses the threshold."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

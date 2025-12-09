@@ -1,0 +1,24 @@
+{
+  "text": "ἡ Γλαὺξ ἐσθίει τὸν ἄρτον καὶ ἡ Κοάλα ἐσθίει τὸ μῆλον.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+    "a shiny red apple with a small green leaf",
+    "a small round loaf of bread with a golden crust"
+  ],
+  "locations": [
+    "school_interior_table"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala sits at the table taking a bite of the apple with a happy expression.",
+    "Glaux perches on the table edge, pecking at the bread held in her talons.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child lies open on the tabletop.",
+    "The shiny red apple with a small green leaf is near Koala's mouth.",
+    "The small round loaf of bread with a golden crust is in Glaux's talons."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Koala",
+    "Glaux"
+  ]
+}

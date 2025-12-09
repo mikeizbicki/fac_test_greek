@@ -1,0 +1,16 @@
+{
+  "text": "ἡ Κοάλα ἐξέρχεται ἐκ τῆς σχολῆς μετὰ τοῦ σάκκου.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child"
+  ],
+  "locations": [
+    "school_interior_entrance"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala is exiting the door with her back towards us.",
+    "The small acorn-brown backpack with leaf-green straps and a flap, sized for a child is closed and worn on Koala’s back."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}
