@@ -1,1 +1,20 @@
-{"text":"ὁ Διδάσκαλος δίδωσι χλωρὸν βιβλίον τῇ Γλαυκὶ καὶ ἐρυθρὸν βιβλίον τῇ Κοάλᾳ.","objects":["a small acorn-brown backpack with leaf-green straps and a flap, sized for a child","a blue-and-white leather ball about the size of a grapefruit","a small green leather-bound book with bronze clasps","a small red leather-bound book with bronze clasps"],"locations":["school_interior_table"],"artist_notes":null,"positioning":["Koala stands beside the chair, reaching up to receive the red book from Didaskalos with both paws.","Glaux perches on the chair back, extending one wing to accept the green book from Didaskalos.","Didaskalos stands at the left side of the table in a profile view looking at Koala and Glaux.","The small green leather-bound book with bronze clasps is being handed to Glaux.","The small red leather-bound book with bronze clasps is being given to Koala."]}
+{
+  "text": "ὁ Διδάσκαλος δίδωσι χλωρὸν βιβλίον τῇ Γλαυκὶ καὶ ἐρυθρὸν βιβλίον τῇ Κοάλᾳ.",
+  "objects": [
+    "a small acorn-brown backpack with leaf-green straps and a flap, sized for a child",
+    "a blue-and-white leather ball about the size of a grapefruit",
+    "a small green leather-bound book with bronze clasps",
+    "a small red leather-bound book with bronze clasps"
+  ],
+  "locations": [
+    "school_interior_table"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala stands beside the chair, reaching up to receive the red book from Didaskalos with both paws.",
+    "Glaux perches on the chair back, extending one wing to accept the green book from Didaskalos.",
+    "Didaskalos stands at the left side of the table in a profile view looking at Koala and Glaux.",
+    "The small green leather-bound book with bronze clasps is being handed to Glaux.",
+    "The small red leather-bound book with bronze clasps is being given to Koala."
+  ]
+}
