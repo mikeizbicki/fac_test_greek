@@ -233,11 +233,11 @@
 # video
 ################################################################################
 
-      #"books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json":
-      #cmd: |
-      #jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
-      #dependencies:
-      #- books/$LEVEL/$BOOK/content.json
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json":
+  cmd: |
+    jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+  dependencies:
+  - books/$LEVEL/$BOOK/content.json
 
 ####################
 # audio
