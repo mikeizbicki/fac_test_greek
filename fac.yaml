@@ -251,17 +251,24 @@
       jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/translation_$LANG.txt":
+  description:
+    Generate a literal translation into $LANG of the following text.
+    Do not provide any explanation or any other output.
+    <text>
+    $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
+    </text>
   dependencies:
     - books/$LEVEL/$BOOK/content.jsonl
-  options:
-    voice: fable
-    input:
-      $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
-    instructions:
-      You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
   variables:
     FRAME_ID:
       jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
+    LANG:
+      echo "
+      English
+      Spanish
+      Hebrew (Biblical)
+      Latin (Ecclesiastical)
+      "
 
 ####################
 # keyframes
@@ -279,6 +286,32 @@
     rm temp_frame_*.png  # clean up others
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/add_character.png":
+  description:
+    The attached image is a keyframe for an animation and a character sheet for a new character that will be added to the animation.
+    The animation will be only 5 seconds long and should illustrate the actions described in the collowing content.
+    <content>
+    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
+    </content>
+    Your job is to create a final keyframe for what the scene looks like with the new character added and the content having occurred.
+  options:
+    model: fal-ai/nano-banana-pro/edit
+    aspect_ratio: '16:9'
+  dependencies:
+    - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
+    - characters/$NEW_CHARACTER/character_sheet.png
+  variables:
+    CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
+    REFERENCE_FRAME:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
+    REFERENCE_FRAME_CHARACTER:
+      jq -r ".frames[] | select(.frame_id == \"$REFERENCE_FRAME\") | .characters[]" books/$LEVEL/$BOOK/content.json
+    # NOTE:
+    # The command below lists all of the characters in NEW_CHARACTER that are not in CHARACTER.
+    NEW_CHARACTER: |
+      echo "$CHARACTER" | grep -v -F -x -f <(echo "$REFERENCE_FRAME_CHARACTER")
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/warmstart.png":
   description:
