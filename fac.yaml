@@ -417,7 +417,7 @@
     You should not describe the end position of the characters.
     #, and their final position in the shot (e.g. stage-left, stage-right, off-camera).
   dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+    - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
     - characters/$CHARACTER/about.json
@@ -425,7 +425,7 @@
     REFERENCE_FRAME:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
     MAYBE_FRAME: |
-      if [ -z "$REFERENCE_FRAME" ]; then
+      if [ -e "$REFERENCE_FRAME" ]; then
         echo "$FRAME_ID"
       fi
     CHARACTER:
