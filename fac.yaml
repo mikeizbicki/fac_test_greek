@@ -600,7 +600,7 @@
             LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)_processed\.wav/\1/')
             FFMPEG_CMD="$FFMPEG_CMD -i $audio_file"
             MAP_OPTS="$MAP_OPTS -map $input_index:a:0"
-            METADATA="$METADATA -metadata:s:a:$audio_track_index language='$LANG' -metadata:s:a:$audio_track_index title='$LANG'"
+            METADATA="$METADATA -metadata:s:a:$audio_track_index language=$LANG -metadata:s:a:$audio_track_index title=$LANG"
 
             input_index=$((input_index + 1))
             audio_track_index=$((audio_track_index + 1))
@@ -609,7 +609,7 @@
             if [ -f "translation_${LANG}.srt" ]; then
                 FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.srt"
                 MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
-                METADATA="$METADATA -metadata:s:s:$subtitle_track_index language='$LANG' -metadata:s:s:$subtitle_track_index title='$LANG'"
+                METADATA="$METADATA -metadata:s:s:$subtitle_track_index language=$LANG -metadata:s:s:$subtitle_track_index title=$LANG"
                 input_index=$((input_index + 1))
                 subtitle_track_index=$((subtitle_track_index + 1))
             fi
@@ -618,12 +618,8 @@
 
     $FFMPEG_CMD $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s mov_text -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
 
-    # We do a final re-encoding step to ensure that all of the files have the exact same parameters;
-    # In theory, this shouldn't be necessary.
-    # But I spent a lot of time trying to avoid this 2nd conversion fiddling with the commands above,
-    # but there were always weird edge cases and bugs I couldn't resolve.
-    #ffmpeg -i processed-tmp.mp4 -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 48000 -ac 2 -vsync cfr -async 1 processed.mp4 -y
-    #rm processed-tmp.mp4 audio_*_processed.wav
+    # We do a final re-encoding step to ensure that all of the files have the exact same parameters
+    rm processed-tmp.mp4 audio_*_processed.wav
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
