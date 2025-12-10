@@ -309,8 +309,19 @@
       Spanish (Mexico)
       Spanish (Spain)
       Hebrew (Biblical)
+      Greek (Koine)
       Latin (Ecclesiastical)
       "
+
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/audio.wav":
+  dependencies:
+  - books/$LEVEL/$BOOK/content.json
+  options:
+    voice: fable
+    input:
+      $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
+    instructions:
+      You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
 
 ####################
 # keyframes
