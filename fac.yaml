@@ -418,11 +418,19 @@
     if [ ! -z $REFERENCE_TRANSITION ]; then
     START_IMAGE=books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     END_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/character_transition.png
+    #echo "
+    #model: fal-ai/kling-video/o1/image-to-video
+    #first_frame: $START_IMAGE
+    #last_frame: $END_IMAGE
+    #duration: 5
+    #"
     echo "
-    model: fal-ai/kling-video/o1/image-to-video
+    model: fal-ai/veo3.1/first-last-frame-to-video
     first_frame: $START_IMAGE
     last_frame: $END_IMAGE
     duration: 5
+    generate_audio: false
+    resolution: 1080p
     "
 
     # Use the cheaper start-frame only to video.

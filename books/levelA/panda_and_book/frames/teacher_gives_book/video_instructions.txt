@@ -1,7 +1,6 @@
-- The scene opens outside the school: Panda sits on the ground between the swing and the slide, covering his eyes with his paws and looking sad. 
-- Didaskalos enters from the right side of the yard along the porch, walking toward Panda. 
-- He wears his light chiton and deep-navy himation and carries a small leather-bound book with bronze clasps. 
-- As he comes close, he smiles gently and stops beside Panda. 
-- Panda lowers his paws, wipes a tear, and looks up at the teacher with hopeful, wide eyes. 
-- The teacher opens the parchment pages and extends the book toward Panda in a kind offering. 
-- Panda brightens and leans forward eagerly while watching the book, his mood turning curious and hopeful.
+- Panda sits on the ground outside the blue-trimmed school, looking a little sad, then lifts his eyes hopefully toward the right.
+- Didaskalos enters from the right near the porch, walking calmly and holding a small leather-bound book.
+- He approaches Panda and slows with a gentle smile.
+- Panda’s ears perk, and he keeps sitting while looking up at the teacher with wide, hopeful eyes.
+- Didaskalos opens the book to show the parchment pages and extends it toward Panda with a kind nod.
+- Panda raises his paws slightly toward the book, his face bright and eager, as the teacher continues offering it with warmth.
