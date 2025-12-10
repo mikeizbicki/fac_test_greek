@@ -584,7 +584,7 @@
             LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)_processed\.wav/\1/')
             FFMPEG_CMD="$FFMPEG_CMD -i $audio_file"
             MAP_OPTS="$MAP_OPTS -map $input_index:a:0"
-            METADATA="$METADATA -metadata:s:a:$input_index language=$LANG -metadata:s:a:$audio_track_index title=$LANG"
+            METADATA="$METADATA -metadata:s:a:$input_index language=$LANG -metadata:s:a:$input_index title=$LANG"
             
             input_index=$((input_index + 1))
             
