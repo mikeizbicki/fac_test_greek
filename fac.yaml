@@ -553,6 +553,7 @@
 
     # Process additional audio files to match page.wav duration
     for audio_file in audio_*.wav; do
+        echo ">> $audio_file"
         # Skip if it's a processed file
         if [[ "$audio_file" == *"_processed.wav" ]]; then
             continue
@@ -581,6 +582,7 @@
     track_num=1
 
     for audio_file in audio_*_processed.wav; do
+        echo $audio_file
         if [ -f "$audio_file" ]; then
             LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)_processed\.wav/\1/')
             FFMPEG_CMD="$FFMPEG_CMD -i $audio_file"
