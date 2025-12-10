@@ -309,6 +309,7 @@
       English
       Greek (Modern)
       Hebrew
+      Korean
       Latin
       Spanish (Mexico)
       Spanish (Spain)
@@ -573,32 +574,50 @@
         fi
     done
 
-    # Execute final conversion - map original audio directly, no filters needed since processed files are already the right duration
+    # Convert text files to SRT format before processing
+    for txt_file in translation_*.txt; do
+        if [ -f "$txt_file" ]; then
+            LANG=$(echo "$txt_file" | sed 's/translation_\(.*\)\.txt/\1/')
+            srt_file="translation_${LANG}.srt"
+
+            # Convert text to SRT format - assumes the entire text should be shown for the full duration
+            echo "1" > "$srt_file"
+            echo "00:00:00,200 --> 00:00:$(printf "%02d" $(echo "$AUDIO_DURATION" | cut -d. -f1)),$(echo "scale=0; ($AUDIO_DURATION - $(echo "$AUDIO_DURATION" | cut -d. -f1)) * 1000" | bc | cut -d. -f1)" >> "$srt_file"
+            cat "$txt_file" >> "$srt_file"
+            echo "" >> "$srt_file"
+        fi
+    done
+
+    # Execute final conversion
     FFMPEG_CMD="ffmpeg -i processed-tmp.mp4"
     MAP_OPTS="-map 0:v:0 -map 0:a:0"
     METADATA=""
     input_index=1
+    audio_track_index=1
+    subtitle_track_index=0
 
     for audio_file in audio_*_processed.wav; do
         if [ -f "$audio_file" ]; then
             LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)_processed\.wav/\1/')
             FFMPEG_CMD="$FFMPEG_CMD -i $audio_file"
             MAP_OPTS="$MAP_OPTS -map $input_index:a:0"
-            METADATA="$METADATA -metadata:s:a:$input_index language=$LANG -metadata:s:a:$input_index title=$LANG"
-            
+            METADATA="$METADATA -metadata:s:a:$audio_track_index language=$LANG -metadata:s:a:$audio_track_index title=$LANG"
+
             input_index=$((input_index + 1))
-            
+            audio_track_index=$((audio_track_index + 1))
+
             # Add subtitle if it exists
-            #if [ -f "translation_${LANG}.txt" ]; then
-            #FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.txt"
-            #MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
-            #METADATA="$METADATA -metadata:s:s:$((input_index-1)) language=$LANG"
-            #input_index=$((input_index + 1))
-            #fi
+            if [ -f "translation_${LANG}.srt" ]; then
+                FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.srt"
+                MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
+                METADATA="$METADATA -metadata:s:s:$subtitle_track_index language=$LANG -metadata:s:s:$subtitle_track_index title=$LANG"
+                input_index=$((input_index + 1))
+                subtitle_track_index=$((subtitle_track_index + 1))
+            fi
         fi
     done
 
-    $FFMPEG_CMD $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s srt -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
+    $FFMPEG_CMD $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s mov_text -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
 
     # We do a final re-encoding step to ensure that all of the files have the exact same parameters;
     # In theory, this shouldn't be necessary.
