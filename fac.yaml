@@ -306,11 +306,10 @@
     LANG: |
       echo "
       English
-      Spanish (Mexico)
-      Spanish (Spain)
-      Hebrew (Biblical)
-      Greek (Koine)
-      Latin (Ecclesiastical)
+      Greek
+      Hebrew
+      Latin
+      Spanish
       "
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/audio.wav":
