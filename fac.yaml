@@ -428,7 +428,7 @@
     model: fal-ai/veo3.1/first-last-frame-to-video
     first_frame: $START_IMAGE
     last_frame: $END_IMAGE
-    duration: 5
+    duration: 8
     generate_audio: false
     resolution: 1080p
     "
@@ -542,7 +542,7 @@
     # In theory, this shouldn't be necessary.
     # But I spent a lot of time trying to avoid this 2nd conversion fiddling with the commands above,
     # but there were always weird edge cases and bugs I couldn't resolve.
-    ffmpeg -i processed-tmp.mp4 -r 30 -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 48000 -ac 2 -vsync cfr -async 1 processed.mp4 -y
+    ffmpeg -i processed-tmp.mp4 -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 48000 -ac 2 -vsync cfr -async 1 processed.mp4 -y
     rm processed-tmp.mp4
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
