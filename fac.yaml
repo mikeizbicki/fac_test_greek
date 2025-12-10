@@ -551,6 +551,42 @@
         ffmpeg -i video.mp4 -i page.wav -c:v copy -c:a aac -af "adelay=$START_PAD"s,apad -map 0:v:0 -map 1:a:0 -t $TARGET_DURATION processed-tmp.mp4 -y
     fi
 
+    # Process additional audio files to match page.wav duration
+    for audio_file in audio_*.wav; do
+        if [ -f "$audio_file" ]; then
+            LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)\.wav/\1/')
+            CURR_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 "$audio_file")
+
+            if (( $(echo "$CURR_DURATION > $AUDIO_DURATION" | bc -l) )); then
+                # Speed up audio to match target duration
+                SPEED_FACTOR=$(echo "scale=6; $CURR_DURATION / $AUDIO_DURATION" | bc -l)
+                ffmpeg -i "$audio_file" -af "atempo=$SPEED_FACTOR" "audio_${LANG}_processed.wav" -y
+            else
+                # Audio is shorter or equal, just copy and pad
+                ffmpeg -i "$audio_file" -af "apad=pad_dur=$AUDIO_DURATION" "audio_${LANG}_processed.wav" -y
+            fi
+        fi
+    done
+
+    # Execute final conversion with audio delay and padding
+    AUDIO_FILTER_OPTS=""
+    track_num=1
+    for audio_file in audio_*_processed.wav; do
+        if [ -f "$audio_file" ]; then
+            if [ -z "$AUDIO_FILTER_OPTS" ]; then
+                AUDIO_FILTER_OPTS="[$track_num:a:0]adelay=${START_PAD}s,apad=pad_dur=${END_PAD}[a$track_num]"
+            else
+                AUDIO_FILTER_OPTS="$AUDIO_FILTER_OPTS;[$track_num:a:0]adelay=${START_PAD}s,apad=pad_dur=${END_PAD}[a$track_num]"
+            fi
+            track_num=$((track_num + 1))
+        fi
+    done
+    if [ -n "$AUDIO_FILTER_OPTS" ]; then
+        $FFMPEG_CMD -filter_complex "$AUDIO_FILTER_OPTS" $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s srt -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
+    else
+        $FFMPEG_CMD $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s srt -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
+    fi
+
     # We do a final re-encoding step to ensure that all of the files have the exact same parameters;
     # In theory, this shouldn't be necessary.
     # But I spent a lot of time trying to avoid this 2nd conversion fiddling with the commands above,
