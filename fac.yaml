@@ -608,6 +608,7 @@
         fi
     done
 
+    echo "=========="
     if [ -n "$AUDIO_FILTER_OPTS" ]; then
         $FFMPEG_CMD -filter_complex "$AUDIO_FILTER_OPTS" $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s srt -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
     else
