@@ -299,7 +299,8 @@
     $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
     </text>
   dependencies:
-    - books/$LEVEL/$BOOK/content.json
+    - target: books/$LEVEL/$BOOK/content.json
+      include: false
   variables:
     FRAME_ID:
       jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
