@@ -303,16 +303,15 @@
       include: false
   variables:
     FRAME_ID:
-      jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
+      jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
     LANG: |
       echo "
       English
-      Greek (Modern)
+      Greek
       Hebrew
       Korean
       Latin
-      Spanish (Mexico)
-      Spanish (Spain)
+      Spanish
       "
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/audio_$LANG.wav":
@@ -601,7 +600,7 @@
             LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)_processed\.wav/\1/')
             FFMPEG_CMD="$FFMPEG_CMD -i $audio_file"
             MAP_OPTS="$MAP_OPTS -map $input_index:a:0"
-            METADATA="$METADATA -metadata:s:a:$audio_track_index language=$LANG -metadata:s:a:$audio_track_index title=$LANG"
+            METADATA="$METADATA -metadata:s:a:$audio_track_index language='$LANG' -metadata:s:a:$audio_track_index title='$LANG'"
 
             input_index=$((input_index + 1))
             audio_track_index=$((audio_track_index + 1))
@@ -610,7 +609,7 @@
             if [ -f "translation_${LANG}.srt" ]; then
                 FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.srt"
                 MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
-                METADATA="$METADATA -metadata:s:s:$subtitle_track_index language=$LANG -metadata:s:s:$subtitle_track_index title=$LANG"
+                METADATA="$METADATA -metadata:s:s:$subtitle_track_index language='$LANG' -metadata:s:s:$subtitle_track_index title='$LANG'"
                 input_index=$((input_index + 1))
                 subtitle_track_index=$((subtitle_track_index + 1))
             fi
@@ -628,6 +627,7 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/audio_$LANG.wav
 
 "books/$LEVEL/$BOOK/video.mp4":
   cmd: |
@@ -646,7 +646,7 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
   variables:
     FRAME_ID:
-      jq -r ".frames[] | .frame_id" books/$LEVEL/$BOOK/content.json
+      jq -r ".frames[].frame_id" books/$LEVEL/$BOOK/content.json
 
 "videos/$LEVEL-$BOOK.mp4":
   cmd: ln -s "../books/$LEVEL/$BOOK/video.mp4" "videos/$LEVEL-$BOOK.mp4"
