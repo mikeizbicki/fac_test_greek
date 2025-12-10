@@ -313,15 +313,15 @@
       Spanish
       "
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/audio.wav":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/audio_$LANG.wav":
   dependencies:
-  - books/$LEVEL/$BOOK/content.json
+  - books/$LEVEL/$BOOK/frames/$FRAME_ID/translation_$LANG.txt
   options:
     voice: fable
     input:
-      $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
+      $(cat "books/$LEVEL/$BOOK/frames/$FRAME_ID/translation_$LANG.txt")
     instructions:
-      You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
+      Speak slowly with crystal-clear articulation, ensuring every syllable is distinct for young language learners to follow easily. Use a warm, gentle tone with slightly higher pitch than your natural register, matching the story's emotions—bright and animated for exciting scenes, soft for tender moments. Pause between sentences and naturally emphasize key vocabulary words, maintaining an encouraging, big-brother energy throughout the narration.
 
 ####################
 # keyframes
