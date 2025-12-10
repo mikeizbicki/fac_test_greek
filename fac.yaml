@@ -589,12 +589,12 @@
             input_index=$((input_index + 1))
             
             # Add subtitle if it exists
-            if [ -f "translation_${LANG}.txt" ]; then
-                FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.txt"
-                MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
-                METADATA="$METADATA -metadata:s:s:$((input_index-1)) language=$LANG"
-                input_index=$((input_index + 1))
-            fi
+            #if [ -f "translation_${LANG}.txt" ]; then
+            #FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.txt"
+            #MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
+            #METADATA="$METADATA -metadata:s:s:$((input_index-1)) language=$LANG"
+            #input_index=$((input_index + 1))
+            #fi
         fi
     done
 
