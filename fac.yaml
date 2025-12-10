@@ -307,10 +307,11 @@
     LANG: |
       echo "
       English
-      Greek
+      Greek (Modern)
       Hebrew
       Latin
-      Spanish
+      Spanish (Mexico)
+      Spanish (Spain)
       "
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/audio_$LANG.wav":
