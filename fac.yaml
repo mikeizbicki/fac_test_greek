@@ -424,6 +424,10 @@
   variables:
     REFERENCE_FRAME:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
+    MAYBE_FRAME: |
+      if [ -z "$REFERENCE_FRAME" ]; then
+        echo "$FRAME_ID"
+      fi
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
 
