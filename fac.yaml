@@ -331,18 +331,24 @@
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/last_frame.png":
   cmd: |
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID/
-    # the strategy here for computing the last frame is to generate all the frames as files
-    # and then select the last of those files;
-    # this is relatively slow :(
-    # unfortunately, other solutions get weird corruption artifacts or fail;
-    # this is because the processed.mp4 file can have weird structures/codecs that break faster solutions;
-    # since the videos are limited in size to <10seconds,
-    # this procedure will never consume all that much disk space/time,
-    # even if it is inelegant
-    ffmpeg -i processed.mp4 -q:v 1 temp_frame_%05d.png
-    LAST_FRAME=$(ls temp_frame_*.png | sort -V | tail -n 1)
-    cp "$LAST_FRAME" last_frame.png
-    rm temp_frame_*.png  # clean up others
+
+    # this strategy for computing the last frame is to reverse the movie and then extract the first frame
+    # this seems to work better than than the commented method below,
+    # but is also a bit slower than strictly necessary
+    ffmpeg -i processed.mp4 -vf reverse -vframes 1 -q:v 1 -y last_frame.png
+
+      # the strategy here for computing the last frame is to generate all the frames as files
+      # and then select the last of those files;
+      # this is relatively slow :(
+      # unfortunately, other solutions get weird corruption artifacts or fail;
+      # this is because the processed.mp4 file can have weird structures/codecs that break faster solutions;
+      # since the videos are limited in size to <10seconds,
+      # this procedure will never consume all that much disk space/time,
+      # even if it is inelegant
+      #ffmpeg -i processed.mp4 -q:v 1 temp_frame_%05d.png
+      #LAST_FRAME=$(ls temp_frame_*.png | sort -V | tail -n 1)
+      #cp "$LAST_FRAME" last_frame.png
+      #rm temp_frame_*.png  # clean up others
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/processed.mp4
 
@@ -402,21 +408,26 @@
   description:
     You are animating a short 4 second scene described by the file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json".
     The start/stop frames of the scene have already been drawn and is provided in the attached images.
-    You must provide a 1-10 sentence description of how to animate the provided input image.
+    You must provide a 3-5 sentence description of how to animate the provided input image.
     Use simple language that is easy to follow, and always describe the events in chronological order.
     The description should explicitly describe what each character is doing (e.g. running, sitting, writing) and their emotions (e.g. angry, happy, sad).
     If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, or enters through the door).
     All descriptions must perfectly match the images.
+    You should not describe any animals/objects/items/etc that are not in the images.
     You should not describe the end position of the characters.
     #, and their final position in the shot (e.g. stage-left, stage-right, off-camera).
   dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+    - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
     - characters/$CHARACTER/about.json
   variables:
     REFERENCE_FRAME:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
+    MAYBE_FRAME: |
+      if [ -e "$REFERENCE_FRAME" ]; then
+        echo "$FRAME_ID"
+      fi
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
 
@@ -624,7 +635,8 @@
     $FFMPEG_CMD $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s mov_text -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
 
     # We do a final re-encoding step to ensure that all of the files have the exact same parameters
-    rm processed-tmp.mp4 audio_*_processed.wav
+    rm processed-tmp.mp4
+    rm audio_*_processed.wav || true # we shouldn't fail the script if the files don't exist
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
