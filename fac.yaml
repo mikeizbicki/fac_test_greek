@@ -553,6 +553,10 @@
 
     # Process additional audio files to match page.wav duration
     for audio_file in audio_*.wav; do
+        # Skip if it's a processed file
+        if [[ "$audio_file" == *"_processed.wav" ]]; then
+            continue
+        fi
         if [ -f "$audio_file" ]; then
             LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)\.wav/\1/')
             CURR_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 "$audio_file")
@@ -569,18 +573,39 @@
     done
 
     # Execute final conversion with audio delay and padding
+    FFMPEG_CMD="ffmpeg -i processed-tmp.mp4"
+    MAP_OPTS="-map 0:v:0 -map 0:a:0"
+    METADATA=""
     AUDIO_FILTER_OPTS=""
+    input_index=1
     track_num=1
+
     for audio_file in audio_*_processed.wav; do
         if [ -f "$audio_file" ]; then
+            LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)_processed\.wav/\1/')
+            FFMPEG_CMD="$FFMPEG_CMD -i $audio_file"
+            MAP_OPTS="$MAP_OPTS -map $input_index:a:0"
+            METADATA="$METADATA -metadata:s:a:$input_index language=$LANG"
+
             if [ -z "$AUDIO_FILTER_OPTS" ]; then
-                AUDIO_FILTER_OPTS="[$track_num:a:0]adelay=${START_PAD}s,apad=pad_dur=${END_PAD}[a$track_num]"
+                AUDIO_FILTER_OPTS="[$input_index:a:0]adelay=${START_PAD}s,apad=pad_dur=${END_PAD}[a$track_num]"
             else
-                AUDIO_FILTER_OPTS="$AUDIO_FILTER_OPTS;[$track_num:a:0]adelay=${START_PAD}s,apad=pad_dur=${END_PAD}[a$track_num]"
+                AUDIO_FILTER_OPTS="$AUDIO_FILTER_OPTS;[$input_index:a:0]adelay=${START_PAD}s,apad=pad_dur=${END_PAD}[a$track_num]"
             fi
+
+            input_index=$((input_index + 1))
             track_num=$((track_num + 1))
+
+            # Add subtitle if it exists
+            if [ -f "translation_${LANG}.txt" ]; then
+                FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.txt"
+                MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
+                METADATA="$METADATA -metadata:s:s:$((input_index-input_index+track_num-2)) language=$LANG"
+                input_index=$((input_index + 1))
+            fi
         fi
     done
+
     if [ -n "$AUDIO_FILTER_OPTS" ]; then
         $FFMPEG_CMD -filter_complex "$AUDIO_FILTER_OPTS" $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s srt -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
     else
@@ -592,7 +617,7 @@
     # But I spent a lot of time trying to avoid this 2nd conversion fiddling with the commands above,
     # but there were always weird edge cases and bugs I couldn't resolve.
     #ffmpeg -i processed-tmp.mp4 -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 48000 -ac 2 -vsync cfr -async 1 processed.mp4 -y
-    rm processed-tmp.mp4
+    rm processed-tmp.mp4 audio_*_processed.wav
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
