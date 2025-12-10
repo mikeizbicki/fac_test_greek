@@ -303,7 +303,7 @@
   variables:
     FRAME_ID:
       jq -r .frames[] | .frame_id books/$LEVEL/$BOOK/content.json
-    LANG:
+    LANG: |
       echo "
       English
       Spanish (Mexico)
