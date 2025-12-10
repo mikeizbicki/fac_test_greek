@@ -1,0 +1,3 @@
+1
+00:00:00,200 --> 00:00:06,50
+El maestro viene. Da un libro a Panda.

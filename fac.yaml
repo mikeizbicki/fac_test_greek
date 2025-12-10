@@ -431,20 +431,20 @@
     if [ ! -z $REFERENCE_TRANSITION ]; then
     START_IMAGE=books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     END_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/character_transition.png
-    #echo "
-    #model: fal-ai/kling-video/o1/image-to-video
-    #first_frame: $START_IMAGE
-    #last_frame: $END_IMAGE
-    #duration: 5
-    #"
     echo "
-    model: fal-ai/veo3.1/first-last-frame-to-video
+    model: fal-ai/kling-video/o1/image-to-video
     first_frame: $START_IMAGE
     last_frame: $END_IMAGE
-    duration: 8
-    generate_audio: false
-    resolution: 1080p
+    duration: 5
     "
+    #echo "
+    #model: fal-ai/veo3.1/first-last-frame-to-video
+    #first_frame: $START_IMAGE
+    #last_frame: $END_IMAGE
+    #duration: 8
+    #generate_audio: false
+    #resolution: 1080p
+    #"
 
     # Use the cheaper start-frame only to video.
     else
@@ -623,7 +623,7 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/audio_$LANG.wav
+      #- books/$LEVEL/$BOOK/frames/$FRAME_ID/audio_$LANG.wav
 
 "books/$LEVEL/$BOOK/video.mp4":
   cmd: |
