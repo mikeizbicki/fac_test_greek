@@ -306,7 +306,8 @@
     LANG:
       echo "
       English
-      Spanish
+      Spanish (Mexico)
+      Spanish (Spain)
       Hebrew (Biblical)
       Latin (Ecclesiastical)
       "

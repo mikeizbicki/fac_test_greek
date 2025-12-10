@@ -1,0 +1,5 @@
+English: The Panda sits beside the school. She is sad.
+Spanish (Mexico): La Panda se sienta junto a la escuela. Está triste.
+Spanish (Spain): La Panda se sienta junto al colegio. Está triste.
+Hebrew (Biblical): הפנדה יושבת אצל בית הספר. היא עצובה.
+Latin (Ecclesiastical): Panda sedet iuxta scholam. Tristis est.
