@@ -573,47 +573,32 @@
         fi
     done
 
-    # Execute final conversion with audio delay and padding
+    # Execute final conversion - map original audio directly, no filters needed since processed files are already the right duration
     FFMPEG_CMD="ffmpeg -i processed-tmp.mp4"
     MAP_OPTS="-map 0:v:0 -map 0:a:0"
     METADATA=""
-    AUDIO_FILTER_OPTS=""
     input_index=1
-    track_num=1
 
     for audio_file in audio_*_processed.wav; do
-        echo $audio_file
         if [ -f "$audio_file" ]; then
             LANG=$(echo "$audio_file" | sed 's/audio_\(.*\)_processed\.wav/\1/')
             FFMPEG_CMD="$FFMPEG_CMD -i $audio_file"
             MAP_OPTS="$MAP_OPTS -map $input_index:a:0"
             METADATA="$METADATA -metadata:s:a:$input_index language=$LANG"
-
-            if [ -z "$AUDIO_FILTER_OPTS" ]; then
-                AUDIO_FILTER_OPTS="[$input_index:a:0]adelay=${START_PAD}s,apad=pad_dur=${END_PAD}[a$track_num]"
-            else
-                AUDIO_FILTER_OPTS="$AUDIO_FILTER_OPTS;[$input_index:a:0]adelay=${START_PAD}s,apad=pad_dur=${END_PAD}[a$track_num]"
-            fi
-
+            
             input_index=$((input_index + 1))
-            track_num=$((track_num + 1))
-
+            
             # Add subtitle if it exists
-            #if [ -f "translation_${LANG}.txt" ]; then
-            #FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.txt"
-            #MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
-            #METADATA="$METADATA -metadata:s:s:$((input_index-input_index+track_num-2)) language=$LANG"
-            #input_index=$((input_index + 1))
-            #fi
+            if [ -f "translation_${LANG}.txt" ]; then
+                FFMPEG_CMD="$FFMPEG_CMD -i translation_${LANG}.txt"
+                MAP_OPTS="$MAP_OPTS -map $input_index:s:0"
+                METADATA="$METADATA -metadata:s:s:$((input_index-1)) language=$LANG"
+                input_index=$((input_index + 1))
+            fi
         fi
     done
 
-    echo "=========="
-    if [ -n "$AUDIO_FILTER_OPTS" ]; then
-        $FFMPEG_CMD -filter_complex "$AUDIO_FILTER_OPTS" $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s srt -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
-    else
-        $FFMPEG_CMD $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s srt -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
-    fi
+    $FFMPEG_CMD $MAP_OPTS -r 30 -s 1280x720 -c:v libx264 -pix_fmt yuv420p -c:a aac -c:s srt -ar 48000 -ac 2 -vsync cfr $METADATA processed.mp4 -y
 
     # We do a final re-encoding step to ensure that all of the files have the exact same parameters;
     # In theory, this shouldn't be necessary.
