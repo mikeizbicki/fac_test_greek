@@ -11,5 +11,8 @@
     "Panda sits peacefully reading the open book, with a content smile on her face"
   ],
   "characters_that_enter": [],
-  "characters_that_exit": []
+  "characters_that_exit": [
+    "Korax",
+    "Hyperbrephos"
+  ]
 }

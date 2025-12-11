@@ -452,7 +452,7 @@
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4":
   dependencies:
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
+    - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_TRANSITION/character_transition.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt
@@ -512,6 +512,10 @@
     REFERENCE_TRANSITION: |
       #if [[ ! -z "$REFERENCE_FRAME" && ( ! -z "$ADD_CHARACTER" || ! -z "$RM_CHARACTER" ) ]]; then
       if [[ ! -z "$REFERENCE_FRAME" && ! -z "$ADD_CHARACTER" ]]; then
+        echo "$FRAME_ID"
+      fi
+    MAYBE_FRAME: |
+      if [ -z "$REFERENCE_FRAME" ]; then
         echo "$FRAME_ID"
       fi
 
