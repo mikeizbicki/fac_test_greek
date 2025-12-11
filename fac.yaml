@@ -433,7 +433,7 @@
     If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, or enters through the door). Whenever possible prefer "natural" exits/entrances through something in the location (e.g. enter through a doors, or from behind a house/bush, or even through a window if humor is called for); it is okay to exit stage left/right if there are no natural entrances/exits.
     All descriptions must perfectly match the images.
     You should describe the end position of the characters and any items.
-    You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
+    You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.      Your instructions must explicitly state that all listed characters must stay in the shot (at least from the knees up).
   dependencies:
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
