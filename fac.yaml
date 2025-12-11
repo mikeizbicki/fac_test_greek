@@ -104,6 +104,8 @@
   description:
     A reference image for the location described in the file "locations/$LOCATION/about.json".
     The image should have no characters, and display the location empty.
+    The view should be from ground level.
+    The result should be full-bleed with no margin/padding/border/whitespace.
   options:
     model: fal-ai/nano-banana
   dependencies:
