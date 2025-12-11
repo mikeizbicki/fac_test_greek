@@ -154,13 +154,25 @@
 ########################################
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png":
-  description:
+  description: |
     You are drawing the keyframe for an animation that will help young children learning Koine Greek how to understand the text in the content below.
     <content>
     $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
     </content>
     The art should never include written text in any language.
     The result should be full-bleed with no margin/padding/border/whitespace.
+    $(
+    if [ -z "$REFERENCE_FRAME" ]; then
+    echo "The attached images include one reference frame of the background scene, and a number of character sprite sheets. The characters should be inserted into the reference frame at the appropriate locations."
+    else
+    echo "The attached images include:
+    - one reference frame of what the scene looked like 5 seconds ago before the current action takes place, and
+    - a number of character sprite sheets.
+    The characters should remain in their location in the reference frame unless the action species they should move.
+    Any characters in the reference frame that do not have their sprite sheets (and about.json file) attached should be removed from the scene.
+    "
+    fi
+    )
   options:
     model: fal-ai/nano-banana/edit
     aspect_ratio: '16:9'

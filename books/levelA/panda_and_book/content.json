@@ -17,7 +17,7 @@
       "characters": ["Panda", "Didaskalos"],
       "locations": ["school_exterior"],
       "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
-      "positioning": ["Panda sits looking up hopefully at the teacher", "Didaskalos stands beside Panda extending the book toward her with a gentle smile, shown from three-quarter view"],
+      "positioning": ["Panda sits on the swing looking up hopefully at the teacher", "Didaskalos stands beside Panda extending the book toward her with a gentle smile, shown from three-quarter view"],
       "reference_frame": "sad_panda_sits"
     },
     {
