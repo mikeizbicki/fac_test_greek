@@ -176,7 +176,7 @@
     fi
     )
   options:
-    model: fal-ai/nano-banana-pro/edit
+    model: fal-ai/nano-banana/edit
     aspect_ratio: '16:9'
   dependencies:
     - common/art.md
