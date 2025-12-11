@@ -30,6 +30,7 @@
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Dinosaur runs forward with an angry expression, his short arms pumping as he chases", "Korax flies low ahead of Dinosaur, looking back with the stolen ball still in his talons", "The blue-and-white leather ball about the size of a grapefruit dangles from Korax's grip as he flies"],
       "motivations": ["Dinosaur is angry and determined because Korax has stolen his ball and he wants it back immediately.", "Korax is excited and taunting because he enjoys being chased while clutching the stolen ball."],
+      "artist_notes": "ensure that dinosaur stays behind Korax since Dinosaur is chasing",
       "reference_frame": "korax_steals_ball"
     },
     {
