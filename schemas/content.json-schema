@@ -62,8 +62,12 @@
             }
           },
           "motivations": {
-            "type": "string",
-            "description": "1-2 sentences describing what has previously happened in the story and why the characters are behaving/feeling the way they are. These motivations are used to ensure consistent art between frames, and so any information that could help build consistency should be included here. The artist will not have access to the previous frames and will have to rely in this motivations section to draw this frame consistently with the previous/next frames."
+            "type": "array",
+            "description": "Every character should have an entry.",
+            "items": {
+              "type": "string",
+              "description": "1 sentence describing what has previously happened to the character (or what will happen) that explains why they are feeling the way they are. These motivations are used to ensure consistent art between frames, and so any information that could help build consistency should be included here. You must be specific about WHY and WITH WHOM the characters are feeling emotions. The artist will not have access to the previous frames and will have to rely in this motivations section to draw this frame consistently with the previous/next frames."
+            }
           },
           "artist_notes": {
             "type": "string",

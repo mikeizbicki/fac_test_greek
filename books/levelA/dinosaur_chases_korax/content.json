@@ -9,7 +9,8 @@
       "characters": ["Dinosaur"],
       "locations": ["familyhouse_exterior_tree"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
-      "positioning": ["Dinosaur stands near the large shade tree bouncing the ball happily with both hands, smiling contentedly", "The blue-and-white leather ball about the size of a grapefruit is in the air just above Dinosaur's outstretched hands"]
+      "positioning": ["Dinosaur stands near the large shade tree bouncing the ball happily with both hands, smiling contentedly", "The blue-and-white leather ball about the size of a grapefruit is in the air just above Dinosaur's outstretched hands"],
+      "motivations": ["Dinosaur is relaxed and happy because he has his own blue-and-white ball and plays quietly under the familiar shade tree."]
     },
     {
       "text": "ὁ κόραξ ἔρχεται καὶ κλέπτει τὴν σφαῖραν.",
@@ -18,6 +19,7 @@
       "locations": ["familyhouse_exterior_tree"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax swoops down with wings spread wide, grabbing the ball in his talons with a mischievous look", "Dinosaur reaches up with startled eyes and open mouth as his ball is taken", "The blue-and-white leather ball about the size of a grapefruit is clutched in Korax's black talons"],
+      "motivations": ["Dinosaur is startled and upset because Korax suddenly swoops in and snatches his ball out of his hands.", "Korax is gleefully mischievous because he decides to steal Dinosaur’s ball to cause trouble and get attention."],
       "reference_frame": "dinosaur_plays_alone"
     },
     {
@@ -27,6 +29,7 @@
       "locations": ["familyhouse_exterior_tree"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Dinosaur runs forward with an angry expression, his short arms pumping as he chases", "Korax flies low ahead of Dinosaur, looking back with the stolen ball still in his talons", "The blue-and-white leather ball about the size of a grapefruit dangles from Korax's grip as he flies"],
+      "motivations": ["Dinosaur is angry and determined because Korax has stolen his ball and he wants it back immediately.", "Korax is excited and taunting because he enjoys being chased while clutching the stolen ball."],
       "reference_frame": "korax_steals_ball"
     },
     {
@@ -36,6 +39,7 @@
       "locations": ["familyhouse_exterior_tree", "school_exterior"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax flies low across the school courtyard with the ball, wings beating rapidly", "Dinosaur runs behind him on the cobblestone path, still looking angry and determined", "Didaskalos and Didaskale stand near the school entrance having a peaceful conversation", "The blue-and-white leather ball about the size of a grapefruit is still clutched in Korax's talons"],
+      "motivations": ["Dinosaur continues the chase angrily because Korax still has his ball and heads toward the school.", "Korax is fleeing low and fast because he wants to keep the stolen ball away from Dinosaur.", "Didaskalos is calm and unaware because he is chatting peacefully at the school entrance before the chase reaches him.", "Didaskale is calm and unaware because she stands talking by the doorway and does not notice the approaching chaos."],
       "reference_frame": "dinosaur_gets_mad_chases"
     },
     {
@@ -45,6 +49,7 @@
       "locations": ["school_exterior"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax flies directly into Didaskalos, causing him to stumble backward", "Dinosaur crashes into Didaskale, knocking her wax tablet from her hands", "Didaskalos throws his hands up in frustration with an angry expression", "Didaskale steps back with her materials scattered, looking very annoyed", "The blue-and-white leather ball about the size of a grapefruit remains in Korax's possession during the collision"],
+      "motivations": ["Dinosaur is flustered and off-balance because the fast chase makes him crash into Didaskale while trying to catch Korax.", "Korax is careless and colliding because his low flight slams into Didaskalos while he clings to the ball.", "Didaskalos is angry and frustrated because Korax crashes into him and scatters his composure.", "Didaskale is angry and annoyed because Dinosaur bumps into her and knocks her tablet and things down."],
       "reference_frame": "chase_to_school"
     },
     {
@@ -54,6 +59,7 @@
       "locations": ["school_exterior"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax flies away quickly from the angry teachers, still clutching the ball", "Dinosaur resumes his chase, running past the frustrated educators", "Didaskalos and Didaskale brush themselves off, still looking upset", "The blue-and-white leather ball about the size of a grapefruit is carried away by the fleeing Korax"],
+      "motivations": ["Korax is fleeing in a hurry because the teachers are angry and Dinosaur still chases him for the stolen ball.", "Dinosaur is focused and relentless because he still wants his ball back from Korax.", "Didaskalos is irritated and disheveled because he was just crashed into and now watches the troublemakers run off.", "Didaskale is upset and brushing herself off because Dinosaur knocked her things and the chase continues."],
       "reference_frame": "crash_into_teachers"
     },
     {
@@ -63,6 +69,7 @@
       "locations": ["school_exterior", "agros"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax flies over the cultivated field with the ball still in his grip", "Dinosaur runs along the dirt path between the planted rows, panting but still determined", "Georgos and George work peacefully in the field, tending to their crops", "The blue-and-white leather ball about the size of a grapefruit dangles from Korax as he flies over the farmland"],
+      "motivations": ["Korax is darting toward the fields because he hopes to escape with the ball through the open rows.", "Dinosaur is tired but determined because the chase has gone on and he still does not have his ball.", "Georgos is content and focused because he was working his crops peacefully before the chase arrives.", "George is calm and busy because she tends the field, unaware that the runners are about to collide."],
       "reference_frame": "korax_flees_from_school"
     },
     {
@@ -72,6 +79,7 @@
       "locations": ["agros"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax crashes into Georgos, causing him to drop his farming tools", "Dinosaur collides with George, knocking over her basket of vegetables", "Georgos shakes his fist angrily at the disruption", "George stands with her hands on her hips, glaring at the chaos caused by the collision", "The blue-and-white leather ball about the size of a grapefruit is still held by Korax during the crash"],
+      "motivations": ["Korax is reckless and collides with Georgos because he flies too low while clinging to the stolen ball.", "Dinosaur is winded and crashes into George because he looks at the ball and not at the path.", "Georgos is angry and startled because Korax slams into him and makes him drop his tools.", "George is angry and exasperated because Dinosaur knocks over her basket and squashes her vegetables."],
       "reference_frame": "chase_to_field"
     },
     {
@@ -81,6 +89,7 @@
       "locations": ["agros"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax takes flight again, escaping from the angry farmers with the stolen ball", "Dinosaur continues his pursuit, running through the trampled crops", "Georgos and George survey the damage to their field with frustrated expressions", "The blue-and-white leather ball about the size of a grapefruit is carried away by the escaping Korax"],
+      "motivations": ["Korax flees again because the farmers are angry and he still wants to keep the ball away from Dinosaur.", "Dinosaur presses on through the field because he refuses to give up his ball.", "Georgos is disgruntled because he surveys the mess left by the crash.", "George is frustrated because her produce is spilled and trampled by the chase."],
       "reference_frame": "crash_into_farmers"
     },
     {
@@ -90,6 +99,7 @@
       "locations": ["agros", "agora"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax flies between the market stalls with the stolen ball", "Dinosaur runs through the crowded marketplace, still in pursuit", "Emporos and Emporis stand at their merchant stalls displaying their wares", "The blue-and-white leather ball about the size of a grapefruit remains firmly in Korax's grasp"],
+      "motivations": ["Korax weaves into the market because stalls and crowds might help him hide with the stolen ball.", "Dinosaur is determined and pushes through the market because Korax still holds his ball.", "Emporos is cheerful and busy at first because he displays goods before noticing the incoming ruckus.", "Emporis is attentive and calm at first because she arranges her wares before the collision."],
       "reference_frame": "korax_flees_from_field"
     },
     {
@@ -99,6 +109,7 @@
       "locations": ["agora"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax crashes into Emporos's stall, scattering pottery and goods everywhere", "Dinosaur collides with Emporis, knocking over her display of fruits and fabrics", "Emporos waves his arms angrily as his merchandise flies in all directions", "Emporis looks furious as her carefully arranged wares are destroyed", "The blue-and-white leather ball about the size of a grapefruit is still clutched by Korax during the collision"],
+      "motivations": ["Korax is panicked and careless because he slams into Emporos's stall while gripping the ball.", "Dinosaur is clumsy and collides with Emporis because he focuses on the ball instead of the path.", "Emporos is angry and protective because his goods scatter when Korax crashes into his stall.", "Emporis is furious and upset because Dinosaur topples her carefully arranged fruits and fabrics."],
       "reference_frame": "chase_to_market"
     },
     {
@@ -108,6 +119,7 @@
       "locations": ["agora"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax flies away from the chaos he created, still holding the ball tightly", "Dinosaur runs past the destroyed stalls, continuing his relentless pursuit", "Emporos and Emporis stand amid their scattered goods, shaking their fists angrily", "The blue-and-white leather ball about the size of a grapefruit is carried away by the fleeing troublemaker"],
+      "motivations": ["Korax bolts away from the wrecked stalls because he wants to escape both the merchants' anger and Dinosaur's chase.", "Dinosaur keeps running because he is still determined to retrieve his stolen ball.", "Emporos is fuming because his merchandise lies scattered after the collision.", "Emporis is frustrated and scolding because her stall is a mess and the culprits are fleeing."],
       "reference_frame": "crash_into_merchants"
     },
     {
@@ -117,6 +129,7 @@
       "locations": ["agora", "familyhouse_exterior_tree"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Korax flies back toward the familiar shade tree, looking tired from the long chase", "Dinosaur runs behind, also showing signs of fatigue but still determined", "The blue-and-white leather ball about the size of a grapefruit is still in Korax's tired grip"],
+      "motivations": ["Korax is tired from the long chase and heads back toward the tree, still stubbornly holding the ball.", "Dinosaur is weary but resolute because the ball is still with Korax and the chase nears home."],
       "reference_frame": "korax_flees_from_market"
     },
     {
@@ -126,6 +139,7 @@
       "locations": ["familyhouse_exterior_tree"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Hyperbrephos sits calmly under the shade tree with his arms crossed, waiting with a determined expression", "Korax flies toward the tree, not yet noticing the super-baby", "Dinosaur runs behind, still in pursuit", "The blue-and-white leather ball about the size of a grapefruit dangles from Korax's grip"],
+      "motivations": ["Hyperbrephos waits by the tree because he plans to stop the mischief and help Dinosaur.", "Korax is focused only on flying homeward and does not notice Hyperbrephos waiting ahead.", "Dinosaur is hopeful and still chasing because he sees they are near the tree and the end might be close."],
       "reference_frame": "chase_back_to_house"
     },
     {
@@ -135,6 +149,7 @@
       "locations": ["familyhouse_exterior_tree"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Hyperbrephos reaches up and grabs Korax firmly with one powerful hand", "Korax is caught in surprise and alarm, his eyes wide with shock", "Dinosaur stops running and looks up hopefully at the falling ball", "The blue-and-white leather ball about the size of a grapefruit falls toward the ground from Korax's released grip"],
+      "motivations": ["Hyperbrephos acts decisively because he intends to end the chase by catching Korax.", "Korax is shocked and afraid because Hyperbrephos suddenly grabs him and he loses the ball.", "Dinosaur is hopeful and ready because he sees the ball drop toward him."],
       "reference_frame": "hyperbrephos_waiting"
     },
     {
@@ -144,6 +159,7 @@
       "locations": ["familyhouse_exterior_tree"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Dinosaur catches the falling ball with both hands, his face lighting up with joy", "Korax hangs in Hyperbrephos's grip looking defeated and embarrassed", "Hyperbrephos holds Korax firmly while looking satisfied", "The blue-and-white leather ball about the size of a grapefruit is safely back in Dinosaur's happy possession"],
+      "motivations": ["Dinosaur is joyful and relieved because he finally catches his blue-and-white ball.", "Korax is embarrassed and subdued because Hyperbrephos holds him after stopping his mischief.", "Hyperbrephos is satisfied and firm because he restrains Korax to keep peace."],
       "reference_frame": "hyperbrephos_catches_korax"
     },
     {
@@ -153,6 +169,7 @@
       "locations": ["familyhouse_exterior_tree"],
       "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
       "positioning": ["Dinosaur bounces the ball happily near the tree, his anger completely gone", "Hyperbrephos crawls away dragging the struggling Korax toward the edge of the frame", "Korax is being pulled along looking ashamed and defeated", "The blue-and-white leather ball about the size of a grapefruit bounces cheerfully in Dinosaur's hands"],
+      "motivations": ["Dinosaur is happy and relaxed because he has his ball back and can play peacefully again.", "Korax is ashamed and compliant because Hyperbrephos drags him away after the trouble he caused.", "Hyperbrephos is calm and purposeful because he carries Korax off to prevent more mischief."],
       "reference_frame": "dinosaur_gets_ball_back"
     }
   ]
