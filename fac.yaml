@@ -372,13 +372,32 @@
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/character_transition.png":
   description: |
-    Attached is a keyframe for the start of a 5 second animation. Your job is to create a final keyframe for what the scene looks like at the end of the 5 seconds. The files books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.* contains a description of the scene you are to animate.
+    Attached is a keyframe for the start of a 5 second animation. Your job is to create a final keyframe for what the scene looks like at the end of the 5 seconds. The files books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.* describe what happens in the scene.
     $(
     if [ ! -z "$ENTER_CHARACTER" ]; then
     echo "You must add the following characters to the scene: ${ENTER_CHARACTER}. Character sheets and descriptions are attached."
     fi
     if [ ! -z "$EXIT_CHARACTER" ]; then
     echo "You must remove the following characters from the scene: ${EXIT_CHARACTER}. Character descriptions are attached."
+    fi
+    )
+    The art should never include written text in any language.
+    The art should be full-bleed with no margin/padding/border/whitespace.
+    The art should use the attached files to guide the drawing.
+    $(
+    echo "- There is one location reference frame that shows the background without characters. There is a corresponding about.json file for the location that describes the location."
+    )
+    - For each character:
+      - There is an about.json document that describes the character's appearance.
+      - There is an attached sprite sheet.
+      - The character should be drawn exactly once. Place the character "inside" the scene at an appropriate location and not just in the foreground.
+    $(
+    if [ ! -z "$REFERENCE_FRAME" ]; then
+    echo "- There is an attached reference_frame image.
+      - The reference_frame is similar to the location image but also includes the characters from 5 seconds in the past.
+      - When drawing, you should ensure that characters always have the exact same proportions relative to each other and the location as depicted in the reference_frame.
+      - The characters should be placed in the same location as this reference_frame.
+      - If there is a character in the reference_frame but there is no corresponding sprite sheet or about.json file, then this character has moved out of the scene and should not be drawn."
     fi
     )
   options:
@@ -389,7 +408,11 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - characters/$CHARACTER/about.json
+    - characters/$CHARACTER/character_sheet.png
     - characters/$ENTER_CHARACTER/character_sheet.png
+    - characters/$EXIT_CHARACTER/about.json
+    - locations/$LOCATION/reference.png
+    - locations/$LOCATION/about.json
   variables:
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
@@ -399,6 +422,9 @@
       jq -r ".characters_that_enter[] // empty" books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
     EXIT_CHARACTER:
       jq -r ".characters_that_exit[] // empty" books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+
+    LOCATION: |
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .locations[]" books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/warmstart.png":
   description:
