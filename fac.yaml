@@ -170,7 +170,7 @@
       - There is an attached sprite sheet.
       - The character should be drawn exactly once.
     $(
-    if [ -z "$REFERENCE_FRAME" ]; then
+    if [ ! -z "$REFERENCE_FRAME" ]; then
     echo "- There is an attached reference_frame image. This is similar to the location image but also includes the characters from 5 seconds in the past. The characters should be placed in the same location as this reference_frame (unless the content specifies they should be somewhere else). If there is a character in the reference_frame but there is no corresponding sprite sheet or about.json file, then this character has moved out of the scene and should not be drawn."
     fi
     )
