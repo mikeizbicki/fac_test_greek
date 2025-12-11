@@ -1,0 +1,22 @@
+{
+  "text": "τὰ ζῷα χαίρει καὶ πάλιν παίζει τῇ σφαίρᾳ.",
+  "objects": [
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "familyhouse_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Dinosaur picks up the ball again with a cheerful smile",
+    "Panda claps his paws happily while sitting",
+    "Koala stretches her arms out ready to play",
+    "Glaux perches contentedly on the fence post",
+    "The blue-and-white leather ball about the size of a grapefruit is in Dinosaur's hands"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Korax",
+    "Hyperbrephos"
+  ]
+}

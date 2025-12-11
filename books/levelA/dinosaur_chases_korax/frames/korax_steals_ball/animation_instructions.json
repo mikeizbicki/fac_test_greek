@@ -1,0 +1,19 @@
+{
+  "text": "ὁ κόραξ ἔρχεται καὶ κλέπτει τὴν σφαῖραν.",
+  "objects": [
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Korax swoops down with wings spread wide, grabbing the ball in his talons with a mischievous look",
+    "Dinosaur reaches up with startled eyes and open mouth as his ball is taken",
+    "The blue-and-white leather ball about the size of a grapefruit is clutched in Korax's black talons"
+  ],
+  "characters_that_enter": [
+    "Korax"
+  ],
+  "characters_that_exit": []
+}

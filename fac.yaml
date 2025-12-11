@@ -178,7 +178,7 @@
       - If there is a character in the reference_frame but there is no corresponding sprite sheet or about.json file, then this character has moved out of the scene and should not be drawn."
     fi
     )
-    - You should adjust the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background.
+    - You should adjust the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
   options:
     model: fal-ai/nano-banana-pro/edit
     aspect_ratio: '16:9'
@@ -455,6 +455,7 @@
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_TRANSITION/character_transition.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
     - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt
       is_prompt: true
   options: |
@@ -483,15 +484,29 @@
 
     # Use the cheaper start-frame only to video.
     else
+
+    # compute duration;
+    # if the frame text is long, we want the video to be generated long,
+    # but if the frame text is short, we want the video to be short
+    AUDIO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav)
+    if [ "${AUDIO_DURATION%.*}" -gt 5 ]; then
+      DURATION=10
+    else
+      DURATION=5
+    fi
+
+    # compute start frame
     if [ -z "$REFERENCE_FRAME" ]; then
       START_IMAGE=books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
     else
       START_IMAGE=books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     fi
+
+    # print options
     echo "
     model: fal-ai/kling-video/v2.5-turbo/standard/image-to-video
     first_frame: $START_IMAGE
-    duration: 5
+    duration: $DURATION
     "
     fi
     )

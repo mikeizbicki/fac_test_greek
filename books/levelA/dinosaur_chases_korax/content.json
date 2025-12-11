@@ -1,0 +1,159 @@
+{
+  "title": "Διναύσαρος καὶ ὁ κόραξ τρέχουσιν",
+  "learning_goal": "Practice movement verbs τρέχω, διώκω, φεύγω, and ἐμπίπτω with compound verbs and directional prepositions, plus emotions ὀργίζομαι and χαίρω through a chase sequence.",
+  "plot": "Dinosaur plays alone until Korax steals his ball, leading to a chase through various locations where they crash into other characters, until Hyperbrephos intervenes at the end.",
+  "frames": [
+    {
+      "text": "ὁ Διναύσαρος παίζει τῇ σφαίρᾳ παρὰ τὸ δένδρον.",
+      "frame_id": "dinosaur_plays_alone",
+      "characters": ["Dinosaur"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur stands near the large shade tree bouncing the ball happily with both hands, smiling contentedly", "The blue-and-white leather ball about the size of a grapefruit is in the air just above Dinosaur's outstretched hands"]
+    },
+    {
+      "text": "ὁ κόραξ ἔρχεται καὶ κλέπτει τὴν σφαῖραν.",
+      "frame_id": "korax_steals_ball",
+      "characters": ["Dinosaur", "Korax"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax swoops down with wings spread wide, grabbing the ball in his talons with a mischievous look", "Dinosaur reaches up with startled eyes and open mouth as his ball is taken", "The blue-and-white leather ball about the size of a grapefruit is clutched in Korax's black talons"],
+      "reference_frame": "dinosaur_plays_alone"
+    },
+    {
+      "text": "ὁ Διναύσαρος ὀργίζεται καὶ διώκει τὸν κόρακα.",
+      "frame_id": "dinosaur_gets_mad_chases",
+      "characters": ["Dinosaur", "Korax"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur runs forward with an angry expression, his short arms pumping as he chases", "Korax flies low ahead of Dinosaur, looking back with the stolen ball still in his talons", "The blue-and-white leather ball about the size of a grapefruit dangles from Korax's grip as he flies"],
+      "reference_frame": "korax_steals_ball"
+    },
+    {
+      "text": "ὁ κόραξ καὶ ὁ Διναύσαρος τρέχουσιν πρὸς τὴν σχολήν.",
+      "frame_id": "chase_to_school",
+      "characters": ["Dinosaur", "Korax", "Didaskalos", "Didaskale"],
+      "locations": ["familyhouse_exterior_tree", "school_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax flies low across the school courtyard with the ball, wings beating rapidly", "Dinosaur runs behind him on the cobblestone path, still looking angry and determined", "Didaskalos and Didaskale stand near the school entrance having a peaceful conversation", "The blue-and-white leather ball about the size of a grapefruit is still clutched in Korax's talons"],
+      "reference_frame": "dinosaur_gets_mad_chases"
+    },
+    {
+      "text": "ὁ κόραξ καὶ ὁ Διναύσαρος ἐμπίπτουσιν εἰς τὸν Διδάσκαλον καὶ τὴν Διδασκάλην. ὁ Διδάσκαλος καὶ ἡ Διδασκάλη ὀργίζονται.",
+      "frame_id": "crash_into_teachers",
+      "characters": ["Dinosaur", "Korax", "Didaskalos", "Didaskale"],
+      "locations": ["school_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax flies directly into Didaskalos, causing him to stumble backward", "Dinosaur crashes into Didaskale, knocking her wax tablet from her hands", "Didaskalos throws his hands up in frustration with an angry expression", "Didaskale steps back with her materials scattered, looking very annoyed", "The blue-and-white leather ball about the size of a grapefruit remains in Korax's possession during the collision"],
+      "reference_frame": "chase_to_school"
+    },
+    {
+      "text": "ὁ κόραξ φεύγει καὶ ὁ Διναύσαρος διώκει πάλιν.",
+      "frame_id": "korax_flees_from_school",
+      "characters": ["Dinosaur", "Korax", "Didaskalos", "Didaskale"],
+      "locations": ["school_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax flies away quickly from the angry teachers, still clutching the ball", "Dinosaur resumes his chase, running past the frustrated educators", "Didaskalos and Didaskale brush themselves off, still looking upset", "The blue-and-white leather ball about the size of a grapefruit is carried away by the fleeing Korax"],
+      "reference_frame": "crash_into_teachers"
+    },
+    {
+      "text": "ὁ κόραξ καὶ ὁ Διναύσαρος τρέχουσιν πρὸς τὸν ἀγρόν.",
+      "frame_id": "chase_to_field",
+      "characters": ["Dinosaur", "Korax", "Georgos", "George"],
+      "locations": ["school_exterior", "agros"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax flies over the cultivated field with the ball still in his grip", "Dinosaur runs along the dirt path between the planted rows, panting but still determined", "Georgos and George work peacefully in the field, tending to their crops", "The blue-and-white leather ball about the size of a grapefruit dangles from Korax as he flies over the farmland"],
+      "reference_frame": "korax_flees_from_school"
+    },
+    {
+      "text": "ὁ κόραξ καὶ ὁ Διναύσαρος ἐμπίπτουσιν εἰς τὸν Γεωργὸν καὶ τὴν Γεωργήν. ὁ Γεωργὸς καὶ ἡ Γεωργὴ ὀργίζονται.",
+      "frame_id": "crash_into_farmers",
+      "characters": ["Dinosaur", "Korax", "Georgos", "George"],
+      "locations": ["agros"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax crashes into Georgos, causing him to drop his farming tools", "Dinosaur collides with George, knocking over her basket of vegetables", "Georgos shakes his fist angrily at the disruption", "George stands with her hands on her hips, glaring at the chaos caused by the collision", "The blue-and-white leather ball about the size of a grapefruit is still held by Korax during the crash"],
+      "reference_frame": "chase_to_field"
+    },
+    {
+      "text": "ὁ κόραξ φεύγει καὶ ὁ Διναύσαρος διώκει πάλιν.",
+      "frame_id": "korax_flees_from_field",
+      "characters": ["Dinosaur", "Korax", "Georgos", "George"],
+      "locations": ["agros"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax takes flight again, escaping from the angry farmers with the stolen ball", "Dinosaur continues his pursuit, running through the trampled crops", "Georgos and George survey the damage to their field with frustrated expressions", "The blue-and-white leather ball about the size of a grapefruit is carried away by the escaping Korax"],
+      "reference_frame": "crash_into_farmers"
+    },
+    {
+      "text": "ὁ κόραξ καὶ ὁ Διναύσαρος τρέχουσιν πρὸς τὴν ἀγοράν.",
+      "frame_id": "chase_to_market",
+      "characters": ["Dinosaur", "Korax", "Emporos", "Emporis"],
+      "locations": ["agros", "agora"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax flies between the market stalls with the stolen ball", "Dinosaur runs through the crowded marketplace, still in pursuit", "Emporos and Emporis stand at their merchant stalls displaying their wares", "The blue-and-white leather ball about the size of a grapefruit remains firmly in Korax's grasp"],
+      "reference_frame": "korax_flees_from_field"
+    },
+    {
+      "text": "ὁ κόραξ καὶ ὁ Διναύσαρος ἐμπίπτουσιν εἰς τὸν Ἔμπορον καὶ τὴν Ἐμπορίν. ὁ Ἔμπορος καὶ ἡ Ἐμπορὶς ὀργίζονται.",
+      "frame_id": "crash_into_merchants",
+      "characters": ["Dinosaur", "Korax", "Emporos", "Emporis"],
+      "locations": ["agora"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax crashes into Emporos's stall, scattering pottery and goods everywhere", "Dinosaur collides with Emporis, knocking over her display of fruits and fabrics", "Emporos waves his arms angrily as his merchandise flies in all directions", "Emporis looks furious as her carefully arranged wares are destroyed", "The blue-and-white leather ball about the size of a grapefruit is still clutched by Korax during the collision"],
+      "reference_frame": "chase_to_market"
+    },
+    {
+      "text": "ὁ κόραξ φεύγει καὶ ὁ Διναύσαρος διώκει πάλιν.",
+      "frame_id": "korax_flees_from_market",
+      "characters": ["Dinosaur", "Korax", "Emporos", "Emporis"],
+      "locations": ["agora"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax flies away from the chaos he created, still holding the ball tightly", "Dinosaur runs past the destroyed stalls, continuing his relentless pursuit", "Emporos and Emporis stand amid their scattered goods, shaking their fists angrily", "The blue-and-white leather ball about the size of a grapefruit is carried away by the fleeing troublemaker"],
+      "reference_frame": "crash_into_merchants"
+    },
+    {
+      "text": "ὁ κόραξ καὶ ὁ Διναύσαρος τρέχουσιν πρὸς τὸ δένδρον πάλιν.",
+      "frame_id": "chase_back_to_house",
+      "characters": ["Dinosaur", "Korax"],
+      "locations": ["agora", "familyhouse_exterior_tree"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax flies back toward the familiar shade tree, looking tired from the long chase", "Dinosaur runs behind, also showing signs of fatigue but still determined", "The blue-and-white leather ball about the size of a grapefruit is still in Korax's tired grip"],
+      "reference_frame": "korax_flees_from_market"
+    },
+    {
+      "text": "ἰδού! ὁ ὑπερβρέφος μένει παρὰ τὸ δένδρον.",
+      "frame_id": "hyperbrephos_waiting",
+      "characters": ["Dinosaur", "Korax", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos sits calmly under the shade tree with his arms crossed, waiting with a determined expression", "Korax flies toward the tree, not yet noticing the super-baby", "Dinosaur runs behind, still in pursuit", "The blue-and-white leather ball about the size of a grapefruit dangles from Korax's grip"],
+      "reference_frame": "chase_back_to_house"
+    },
+    {
+      "text": "ὁ ὑπερβρέφος λαμβάνει τὸν κόρακα. ἡ σφαῖρα πίπτει.",
+      "frame_id": "hyperbrephos_catches_korax",
+      "characters": ["Dinosaur", "Korax", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos reaches up and grabs Korax firmly with one powerful hand", "Korax is caught in surprise and alarm, his eyes wide with shock", "Dinosaur stops running and looks up hopefully at the falling ball", "The blue-and-white leather ball about the size of a grapefruit falls toward the ground from Korax's released grip"],
+      "reference_frame": "hyperbrephos_waiting"
+    },
+    {
+      "text": "ὁ Διναύσαρος λαμβάνει τὴν σφαῖραν καὶ χαίρει.",
+      "frame_id": "dinosaur_gets_ball_back",
+      "characters": ["Dinosaur", "Korax", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur catches the falling ball with both hands, his face lighting up with joy", "Korax hangs in Hyperbrephos's grip looking defeated and embarrassed", "Hyperbrephos holds Korax firmly while looking satisfied", "The blue-and-white leather ball about the size of a grapefruit is safely back in Dinosaur's happy possession"],
+      "reference_frame": "hyperbrephos_catches_korax"
+    },
+    {
+      "text": "ὁ Διναύσαρος πάλιν παίζει τῇ σφαίρᾳ. ὁ ὑπερβρέφος ἀποφέρει τὸν κόρακα.",
+      "frame_id": "happy_ending",
+      "characters": ["Dinosaur", "Korax", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior_tree"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur bounces the ball happily near the tree, his anger completely gone", "Hyperbrephos crawls away dragging the struggling Korax toward the edge of the frame", "Korax is being pulled along looking ashamed and defeated", "The blue-and-white leather ball about the size of a grapefruit bounces cheerfully in Dinosaur's hands"],
+      "reference_frame": "dinosaur_gets_ball_back"
+    }
+  ]
+}

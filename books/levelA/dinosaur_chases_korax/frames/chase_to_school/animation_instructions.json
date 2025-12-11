@@ -1,0 +1,22 @@
+{
+  "text": "ὁ κόραξ καὶ ὁ Διναύσαρος τρέχουσιν πρὸς τὴν σχολήν.",
+  "objects": [
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree",
+    "school_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Korax flies low across the school courtyard with the ball, wings beating rapidly",
+    "Dinosaur runs behind him on the cobblestone path, still looking angry and determined",
+    "Didaskalos and Didaskale stand near the school entrance having a peaceful conversation",
+    "The blue-and-white leather ball about the size of a grapefruit is still clutched in Korax's talons"
+  ],
+  "characters_that_enter": [
+    "Didaskalos",
+    "Didaskale"
+  ],
+  "characters_that_exit": []
+}
