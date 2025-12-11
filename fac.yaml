@@ -415,8 +415,8 @@
     All descriptions must perfectly match the images.
     You should not describe any animals/objects/items/etc that are not in the images.
     You should not describe the end position of the characters.
-    #, and their final position in the shot (e.g. stage-left, stage-right, off-camera).
   dependencies:
+    # FIXME: build errors if we replace FRAME_ID with MAYBE_FRAME
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
