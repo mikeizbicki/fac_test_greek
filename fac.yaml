@@ -432,9 +432,8 @@
     The description should explicitly describe what each character is doing (e.g. running, sitting, writing) and their emotions (e.g. angry, happy, sad).
     If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, or enters through the door). Whenever possible prefer "natural" exits/entrances through something in the location (e.g. enter through a doors, or from behind a house/bush, or even through a window if humor is called for); it is okay to exit stage left/right if there are no natural entrances/exits.
     All descriptions must perfectly match the images.
-    You should not describe any animals/objects/items/etc that are not in the images.
-    You should not describe the end position of the characters.
-    Explicitly describe camera movement and framing so that the main characters and action are the focus of the shot.
+    You should describe the end position of the characters and any items.
+    You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
   dependencies:
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
