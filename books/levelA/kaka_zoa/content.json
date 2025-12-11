@@ -1,0 +1,159 @@
+{
+  "title": "ὁ Ὑπερβρέφος καὶ τὰ κακὰ ζῷα",
+  "learning_goal": "Practice emotions φοβέομαι and χαίρω with repeated patterns, plus movement verbs ἔρχομαι and φέρω, emphasizing the cycle of fear and relief through repetition.",
+  "plot": "Four animal friends play ball outside, but scary creatures keep appearing one by one; each time Hyperbrephos arrives to drag the troublemaker away, allowing the friends to resume their happy game.",
+  "frames": [
+    {
+      "text": "ὁ Διναύσαρος καὶ ἡ Πάνδα καὶ ἡ Κοάλα καὶ ἡ Γλαὺξ παίζουσι τῇ σφαίρᾳ παρὰ τὴν οἰκίαν.",
+      "frame_id": "animals_playing_start",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur stands in the center tossing the ball upward with a happy smile", "Panda sits on the ground to the left, clapping his paws cheerfully", "Koala stands to the right with her arms outstretched to catch the ball", "Glaux perches on a low garden fence post with wings spread in joy", "The blue-and-white leather ball about the size of a grapefruit is in the air above Dinosaur"]
+    },
+    {
+      "text": "οἴμοι! ὁ κόραξ ἔρχεται. τὰ ζῷα φοβεῖται.",
+      "frame_id": "korax_appears",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Korax"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Korax swoops down from above with his wings spread wide, looking menacing and angry", "Dinosaur drops his arms and looks up with wide, frightened eyes", "Panda stops clapping and cowers backward with a scared expression", "Koala takes a step back toward the house with her paws raised defensively", "Glaux flutters nervously on her perch", "The blue-and-white leather ball about the size of a grapefruit falls to the ground forgotten"],
+      "reference_frame": "animals_playing_start"
+    },
+    {
+      "text": "ἰδού! ὁ ὑπερβρέφος ἔρχεται.",
+      "frame_id": "hyperbrephos_comes_for_korax",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Korax", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos crawls into view from the edge of the frame with determination, approaching Korax", "Korax looks startled and nervous as he notices the approaching super-baby", "The four animal friends watch with growing hope as their protector arrives", "Dinosaur, Panda, Koala, and Glaux all turn their attention to Hyperbrephos with relief beginning to show", "The blue-and-white leather ball about the size of a grapefruit lies forgotten on the ground"],
+      "reference_frame": "korax_appears"
+    },
+    {
+      "text": "ὁ ὑπερβρέφος φέρει τὸν κόρακα ἐκ τοῦ ἀγροῦ.",
+      "frame_id": "hyperbrephos_drags_korax",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Korax", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos drags Korax by the wing toward the edge of the frame", "Korax is being pulled along reluctantly, squawking and looking annoyed", "The four animal friends watch with relief as the troublemaker is removed", "Dinosaur, Panda, Koala, and Glaux all have hopeful expressions returning to their faces", "The blue-and-white leather ball about the size of a grapefruit lies on the ground nearby"],
+      "reference_frame": "hyperbrephos_comes_for_korax"
+    },
+    {
+      "text": "τὰ ζῷα χαίρει καὶ πάλιν παίζει τῇ σφαίρᾳ.",
+      "frame_id": "happy_play_after_korax",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur picks up the ball again with a cheerful smile", "Panda claps his paws happily while sitting", "Koala stretches her arms out ready to play", "Glaux perches contentedly on the fence post", "The blue-and-white leather ball about the size of a grapefruit is in Dinosaur's hands"],
+      "reference_frame": "hyperbrephos_drags_korax"
+    },
+    {
+      "text": "οἴμοι! ὁ Λύκος ἔρχεται. τὰ ζῷα φοβεῖται πάλιν.",
+      "frame_id": "lukos_appears",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Lukos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Lukos emerges from behind the shade tree with his yellow eyes gleaming menacingly and his tattered cloak flowing", "Dinosaur freezes with the ball in his hands, eyes wide with fear", "Panda scrambles backward on all fours looking terrified", "Koala steps back toward the house with a frightened expression", "Glaux ruffles her feathers in alarm", "The blue-and-white leather ball about the size of a grapefruit is clutched tightly in Dinosaur's scared grip"],
+      "reference_frame": "happy_play_after_korax"
+    },
+    {
+      "text": "ἰδού! ὁ ὑπερβρέφος ἔρχεται.",
+      "frame_id": "hyperbrephos_comes_for_lukos",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Lukos", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos crawls into the scene with confidence, heading straight toward Lukos", "Lukos looks around nervously as he spots the approaching super-baby", "The four friends begin to show signs of relief as they see their hero approaching", "All four animals watch with anticipation as help arrives", "The blue-and-white leather ball about the size of a grapefruit remains clutched in Dinosaur's grip"],
+      "reference_frame": "lukos_appears"
+    },
+    {
+      "text": "ὁ ὑπερβρέφος φέρει τὸν Λύκον ἐκ τοῦ ἀγροῦ.",
+      "frame_id": "hyperbrephos_drags_lukos",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Lukos", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos drags Lukos by his tattered cloak toward the edge of the scene", "Lukos is being pulled along with his paws dragging in the dirt, looking defeated and embarrassed", "The four friends watch with growing relief as their protector handles the situation", "All four animals begin to smile again as safety returns", "The blue-and-white leather ball about the size of a grapefruit remains in Dinosaur's loosening grip"],
+      "reference_frame": "hyperbrephos_comes_for_lukos"
+    },
+    {
+      "text": "τὰ ζῷα χαίρει καὶ πάλιν παίζει τῇ σφαίρᾳ.",
+      "frame_id": "happy_play_after_lukos",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur tosses the ball up in the air with renewed joy", "Panda claps enthusiastically from his seated position", "Koala reaches up with both paws to catch the ball, smiling widely", "Glaux spreads her wings in celebration on her perch", "The blue-and-white leather ball about the size of a grapefruit soars through the air between the friends"],
+      "reference_frame": "hyperbrephos_drags_lukos"
+    },
+    {
+      "text": "οἴμοι! ὁ ὄφις ἔρχεται. τὰ ζῷα φοβεῖται πάλιν.",
+      "frame_id": "ophis_appears",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Ophis"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Ophis slithers into view from the bottom corner of the frame, his dark-olive scales gleaming and golden eyes half-lidded with menace", "Dinosaur drops his arms and steps back with alarm", "Panda stops clapping and looks down nervously at the approaching serpent", "Koala takes a defensive step backward", "Glaux flutters her wings anxiously on her perch", "The blue-and-white leather ball about the size of a grapefruit falls toward the ground again"],
+      "reference_frame": "happy_play_after_lukos"
+    },
+    {
+      "text": "ἰδού! ὁ ὑπερβρέφος ἔρχεται.",
+      "frame_id": "hyperbrephos_comes_for_ophis",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Ophis", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos crawls forward decisively, approaching the slithering serpent", "Ophis notices the super-baby's approach and looks wary", "The animal friends watch with familiar relief as their protector comes to save them again", "Dinosaur, Panda, Koala, and Glaux all show hopeful expressions", "The blue-and-white leather ball about the size of a grapefruit lies on the ground near the action"],
+      "reference_frame": "ophis_appears"
+    },
+    {
+      "text": "ὁ ὑπερβρέφος φέρει τὸν ὄφιν ἐκ τοῦ ἀγροῦ.",
+      "frame_id": "hyperbrephos_drags_ophis",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Ophis", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos drags Ophis by the tail toward the edge of the frame", "Ophis is being pulled along in reluctant S-curves, his forked tongue flicking in annoyance", "The animal friends watch with familiar relief as their hero saves the day once more", "Dinosaur, Panda, Koala, and Glaux all show grateful expressions", "The blue-and-white leather ball about the size of a grapefruit sits on the ground waiting to be retrieved"],
+      "reference_frame": "hyperbrephos_comes_for_ophis"
+    },
+    {
+      "text": "τὰ ζῷα χαίρει καὶ πάλιν παίζει τῇ σφαίρᾳ.",
+      "frame_id": "happy_play_after_ophis",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur bends down to pick up the ball with a relieved smile", "Panda resumes his cheerful clapping", "Koala gets ready to catch the ball again", "Glaux settles comfortably on her fence post perch", "The blue-and-white leather ball about the size of a grapefruit is being lifted by Dinosaur's hands"],
+      "reference_frame": "hyperbrephos_drags_ophis"
+    },
+    {
+      "text": "οἴμοι! ὁ ἀλώπηξ ἔρχεται. τὰ ζῷα φοβεῖται πάλιν.",
+      "frame_id": "alopex_appears",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Alopex"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Alopex creeps into view with his narrow silhouette, rust-orange fur, and sly grin, his patched chiton and worn cloak making him look suspicious", "Dinosaur clutches the ball protectively with worried eyes", "Panda cowers low to the ground with fear", "Koala backs toward the house once more", "Glaux ruffles her feathers and leans away from the fox", "The blue-and-white leather ball about the size of a grapefruit is held tight against Dinosaur's chest"],
+      "reference_frame": "happy_play_after_ophis"
+    },
+    {
+      "text": "ἰδού! ὁ ὑπερβρέφος ἔρχεται.",
+      "frame_id": "hyperbrephos_comes_for_alopex",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Alopex", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos crawls forward with authority, heading toward the sly fox", "Alopex's sly grin fades as he realizes he's been spotted by the super-baby", "The four friends watch with deep relief and anticipation as their hero approaches", "All animals show expressions of thankfulness as help arrives once more", "The blue-and-white leather ball about the size of a grapefruit remains safely in Dinosaur's protective grip"],
+      "reference_frame": "alopex_appears"
+    },
+    {
+      "text": "ὁ ὑπερβρέφος φέρει τὸν ἀλώπηκα ἐκ τοῦ ἀγροῦ.",
+      "frame_id": "hyperbrephos_drags_alopex",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux", "Alopex", "Hyperbrephos"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Hyperbrephos drags Alopex by his worn traveler's cloak toward the frame's edge", "Alopex is being pulled along with his paws sliding in the dirt, his sly grin replaced by embarrassment", "The four friends watch with deep relief and gratitude as peace is restored once again", "All animals show expressions of thankfulness toward their mighty protector", "The blue-and-white leather ball about the size of a grapefruit remains safely in Dinosaur's protective grip"],
+      "reference_frame": "hyperbrephos_comes_for_alopex"
+    },
+    {
+      "text": "τὰ ζῷα χαίρει καὶ πάλιν παίζει τῇ σφαίρᾳ. νῦν οὐ φοβεῖται.",
+      "frame_id": "final_happy_play",
+      "characters": ["Dinosaur", "Panda", "Koala", "Glaux"],
+      "locations": ["familyhouse_exterior"],
+      "objects": ["a blue-and-white leather ball about the size of a grapefruit"],
+      "positioning": ["Dinosaur throws the ball high into the air with the biggest smile yet, completely relaxed", "Panda claps joyfully while laughing with pure happiness", "Koala jumps up with both paws reaching for the ball, grinning widely", "Glaux spreads her wings in triumph and celebration on her perch", "The blue-and-white leather ball about the size of a grapefruit flies high above them all in a perfect arc"],
+      "reference_frame": "hyperbrephos_drags_alopex"
+    }
+  ]
+}

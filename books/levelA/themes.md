@@ -55,6 +55,8 @@ Movement verbs:
 - μένω
 - πέτομαι
 - ἕρπω
+- φεύγω
+- διώκω
 
 Simple activities:
 - βάλλω

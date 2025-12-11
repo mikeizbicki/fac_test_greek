@@ -430,7 +430,7 @@
     You must provide a 3-5 sentence description of how to animate the provided input image.
     Use simple language that is easy to follow, and always describe the events in chronological order.
     The description should explicitly describe what each character is doing (e.g. running, sitting, writing) and their emotions (e.g. angry, happy, sad).
-    If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, or enters through the door). Whenever possible prefer exits/entrances through doors/windows/portals rather than stage left/right.
+    If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, or enters through the door). Whenever possible prefer "natural" exits/entrances through something in the location (e.g. enter through a doors, or from behind a house/bush, or even through a window if humor is called for); it is okay to exit stage left/right if there are no natural entrances/exits.
     All descriptions must perfectly match the images.
     You should not describe any animals/objects/items/etc that are not in the images.
     You should not describe the end position of the characters.

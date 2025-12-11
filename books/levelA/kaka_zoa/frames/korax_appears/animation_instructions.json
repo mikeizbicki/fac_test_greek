@@ -1,0 +1,22 @@
+{
+  "text": "οἴμοι! ὁ κόραξ ἔρχεται. τὰ ζῷα φοβεῖται.",
+  "objects": [
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "familyhouse_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Korax swoops down from above with his wings spread wide, looking menacing and angry",
+    "Dinosaur drops his arms and looks up with wide, frightened eyes",
+    "Panda stops clapping and cowers backward with a scared expression",
+    "Koala takes a step back toward the house with her paws raised defensively",
+    "Glaux flutters nervously on her perch",
+    "The blue-and-white leather ball about the size of a grapefruit falls to the ground forgotten"
+  ],
+  "characters_that_enter": [
+    "Korax"
+  ],
+  "characters_that_exit": []
+}
