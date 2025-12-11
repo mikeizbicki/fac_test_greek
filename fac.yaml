@@ -171,7 +171,11 @@
       - The character should be drawn exactly once. Place the character "inside" the scene at an appropriate location and not just in the foreground.
     $(
     if [ ! -z "$REFERENCE_FRAME" ]; then
-    echo "- There is an attached reference_frame image. This is similar to the location image but also includes the characters from 5 seconds in the past. The characters should be placed in the same location as this reference_frame (unless the content specifies they should be somewhere else). If there is a character in the reference_frame but there is no corresponding sprite sheet or about.json file, then this character has moved out of the scene and should not be drawn."
+    echo "- There is an attached reference_frame image.
+      - The reference_frame is similar to the location image but also includes the characters from 5 seconds in the past.
+      - When drawing, you should ensure that characters always have the exact same proportions relative to each other and the location as depicted in the reference_frame.
+      - The characters should be placed in the same location as this reference_frame (unless the content specifies they should be somewhere else).
+      - If there is a character in the reference_frame but there is no corresponding sprite sheet or about.json file, then this character has moved out of the scene and should not be drawn."
     fi
     )
   options:
