@@ -9,7 +9,7 @@
       "characters": ["Panda"],
       "locations": ["school_exterior"],
       "objects": [],
-      "positioning": ["Panda sits on the ground looking downward with sad expression, positioned center-left of the frame"]
+      "positioning": ["Panda sits on the swing looking downward. She is sad and crying."]
     },
     {
       "text": "ὁ διδάσκαλος ἔρχεται. δίδωσι βιβλίον τῇ Πάνδᾳ.",
@@ -80,7 +80,8 @@
       "characters": ["Panda"],
       "locations": ["school_exterior"],
       "objects": ["A small leather-bound book with bronze clasps and parchment pages"],
-      "positioning": ["Panda sits peacefully reading the open book, with a content smile on her face"]
+      "positioning": ["Panda sits peacefully reading the open book, with a content smile on her face"],
+      "reference_frame": "hyperbrephos_drags_korax_away"
     }
   ]
 }
