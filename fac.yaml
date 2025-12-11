@@ -162,17 +162,16 @@
     $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
     </content>
     The art should never include written text in any language.
-    The result should be full-bleed with no margin/padding/border/whitespace.
+    The art should be full-bleed with no margin/padding/border/whitespace.
+    The art should use the attached files to guide the drawing.
+    - There is one location reference frame that shows the background without characters.
+    - For each character:
+      - There is an about.json document that describes the character's appearance.
+      - There is an attached sprite sheet.
+      - The character should be drawn exactly once.
     $(
     if [ -z "$REFERENCE_FRAME" ]; then
-    echo "The attached images include one reference frame of the background scene, and a number of character sprite sheets. The characters should be inserted into the reference frame at the appropriate locations."
-    else
-    echo "The attached images include:
-    - one reference frame of what the scene looked like 5 seconds ago before the current action takes place, and
-    - a number of character sprite sheets.
-    The characters should remain in their location in the reference frame unless the action species they should move.
-    Any characters in the reference frame that do not have their sprite sheets (and about.json file) attached should be removed from the scene.
-    "
+    echo "- There is an attached reference_frame image. This is similar to the location image but also includes the characters from 5 seconds in the past. The characters should be placed in the same location as this reference_frame (unless the content specifies they should be somewhere else). If there is a character in the reference_frame but there is no corresponding sprite sheet or about.json file, then this character has moved out of the scene and should not be drawn."
     fi
     )
   options:
