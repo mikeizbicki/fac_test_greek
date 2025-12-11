@@ -372,7 +372,7 @@
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/character_transition.png":
   description: |
-    Attached is a keyframe for the start of a 5 second animation. Your job is to create a final keyframe for what the scene looks like at the end of the 5 seconds. The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json" contains a description of the scene you are to animate.
+    Attached is a keyframe for the start of a 5 second animation. Your job is to create a final keyframe for what the scene looks like at the end of the 5 seconds. The files books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.* contains a description of the scene you are to animate.
     $(
     if [ ! -z "$ENTER_CHARACTER" ]; then
     echo "You must add the following characters to the scene: ${ENTER_CHARACTER}. Character sheets and descriptions are attached."
@@ -386,6 +386,7 @@
     aspect_ratio: '16:9'
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
+    - books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
     - characters/$CHARACTER/about.json
     - characters/$ENTER_CHARACTER/character_sheet.png
@@ -422,7 +423,7 @@
 # video generation
 ####################
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt":
+"books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt":
   description:
     You are animating a short 4 second scene described by the file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json".
     The start/stop frames of the scene have already been drawn and is provided in the attached images.
@@ -454,7 +455,7 @@
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_TRANSITION/character_transition.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
-    - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
+    - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt
       is_prompt: true
   options: |
     $(
@@ -518,7 +519,7 @@
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1280x720.png
       #- books/$LEVEL/$BOOK/frames/$FRAME_ID/art_1920x1080.png
-    - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/video_instructions.txt
+    - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt
       is_prompt: true
       #- books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/art_1280x720.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
