@@ -178,6 +178,7 @@
       - If there is a character in the reference_frame but there is no corresponding sprite sheet or about.json file, then this character has moved out of the scene and should not be drawn."
     fi
     )
+    - You should adjust the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background.
   options:
     model: fal-ai/nano-banana/edit
     aspect_ratio: '16:9'
