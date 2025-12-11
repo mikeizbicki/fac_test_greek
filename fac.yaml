@@ -472,8 +472,9 @@
     #last_frame: $END_IMAGE
     #duration: 5
     #"
+    #model: fal-ai/veo3.1/first-last-frame-to-video
     echo "
-    model: fal-ai/veo3.1/first-last-frame-to-video
+    model: fal-ai/veo3.1/fast/first-last-frame-to-video
     first_frame: $START_IMAGE
     last_frame: $END_IMAGE
     duration: 8
