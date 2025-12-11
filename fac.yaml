@@ -375,10 +375,10 @@
     Attached is a keyframe for the start of a 5 second animation. Your job is to create a final keyframe for what the scene looks like at the end of the 5 seconds. The file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json" contains a description of the scene you are to animate.
     $(
     if [ ! -z "$ENTER_CHARACTER" ]; then
-    echo "You must add the following characters to the scene: ${ADD_CHARACTER}. Character sheets and descriptions are attached."
+    echo "You must add the following characters to the scene: ${ENTER_CHARACTER}. Character sheets and descriptions are attached."
     fi
     if [ ! -z "$EXIT_CHARACTER" ]; then
-    echo "You must remove the following characters from the scene: ${RM_CHARACTER}. Character descriptions are attached."
+    echo "You must remove the following characters from the scene: ${EXIT_CHARACTER}. Character descriptions are attached."
     fi
     )
   options:
