@@ -164,7 +164,7 @@
     The art should never include written text in any language.
     The art should be full-bleed with no margin/padding/border/whitespace.
     The art should use the attached files to guide the drawing.
-    - There is one location reference frame that shows the background without characters.
+    - There is one location reference frame that shows the background without characters. There is a corresponding about.json file for the location that describes the location.
     - For each character:
       - There is an about.json document that describes the character's appearance.
       - There is an attached sprite sheet.
