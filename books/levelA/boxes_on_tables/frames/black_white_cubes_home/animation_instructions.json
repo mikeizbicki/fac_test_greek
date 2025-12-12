@@ -1,0 +1,19 @@
+{
+  "text": "ἰδού! μέλας κύβος καὶ λευκὸς κύβος ἐπὶ τῇ τραπέζῃ.",
+  "objects": [
+    "a small black wooden cube with smooth edges",
+    "a small white wooden cube with smooth edges",
+    "a rectangular wooden table with sturdy legs"
+  ],
+  "locations": [
+    "familyhouse_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "The small black wooden cube with smooth edges sits on the left side of the table",
+    "The small white wooden cube with smooth edges sits on the right side of the table",
+    "The rectangular wooden table with sturdy legs is centered in the room"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

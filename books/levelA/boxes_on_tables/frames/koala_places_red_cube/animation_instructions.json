@@ -1,0 +1,23 @@
+{
+  "text": "ἡ Κοάλα ἔρχεται καὶ τίθησιν ἐρυθρὸν κύβον ἐπὶ τὴν τράπεζαν.",
+  "objects": [
+    "a small black wooden cube with smooth edges",
+    "a small white wooden cube with smooth edges",
+    "a small red wooden cube with smooth edges",
+    "a rectangular wooden table with sturdy legs"
+  ],
+  "locations": [
+    "familyhouse_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala stands beside the table placing the red cube in the center",
+    "The small red wooden cube with smooth edges is being set down between the other cubes",
+    "The small black wooden cube with smooth edges remains on the left",
+    "The small white wooden cube with smooth edges remains on the right"
+  ],
+  "characters_that_enter": [
+    "Koala"
+  ],
+  "characters_that_exit": []
+}

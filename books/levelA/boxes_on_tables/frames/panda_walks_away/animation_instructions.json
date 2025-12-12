@@ -1,0 +1,19 @@
+{
+  "text": "ὁ Πάνδα ἀποβαίνει ἀπὸ τῆς τραπέζης.",
+  "objects": [
+    "a small red wooden cube with smooth edges",
+    "a small green wooden cube with smooth edges",
+    "a small black wooden cube with smooth edges",
+    "a low stone table with a smooth marble top"
+  ],
+  "locations": [
+    "agora_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda walks away from the table looking content",
+    "All three cubes sit arranged on the marble table"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

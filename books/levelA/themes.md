@@ -25,11 +25,11 @@ Household objects:
 - ὁ σάκκος
 - ἡ θύρα
 - ἡ θυρίς
-- τὸ μῆλον
 
 Food/drink:
-- ὁ ἄρτος (bread)
-- τὸ ὕδωρ (water)
+- ὁ ἄρτος
+- τὸ μῆλον
+- τὸ ὕδωρ
 
 Objects to hold / play with:
 - τὸ βιβλίον

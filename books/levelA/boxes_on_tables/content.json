@@ -1,0 +1,258 @@
+{
+  "title": "κύβοι ἐπὶ ταῖς τραπέζαις",
+  "learning_goal": "Practice color adjectives with masculine nouns (κύβος) and location prepositions (ἐπί) with repeated τίθημι and βαίνω patterns.",
+  "plot": "Different animals place colored cubes on tables in various locations until Lukos arrives and falls, requiring Hyperbrephos to help.",
+  "frames": [
+    {
+      "text": "ἰδού! μέλας κύβος καὶ λευκὸς κύβος ἐπὶ τῇ τραπέζῃ.",
+      "frame_id": "black_white_cubes_home",
+      "characters": [],
+      "locations": ["familyhouse_interior"],
+      "objects": [
+        "a small black wooden cube with smooth edges",
+        "a small white wooden cube with smooth edges",
+        "a rectangular wooden table with sturdy legs"
+      ],
+      "positioning": [
+        "The small black wooden cube with smooth edges sits on the left side of the table",
+        "The small white wooden cube with smooth edges sits on the right side of the table",
+        "The rectangular wooden table with sturdy legs is centered in the room"
+      ],
+      "motivations": []
+    },
+    {
+      "text": "ἡ Κοάλα ἔρχεται καὶ τίθησιν ἐρυθρὸν κύβον ἐπὶ τὴν τράπεζαν.",
+      "frame_id": "koala_places_red_cube",
+      "characters": ["Koala"],
+      "locations": ["familyhouse_interior"],
+      "objects": [
+        "a small black wooden cube with smooth edges",
+        "a small white wooden cube with smooth edges", 
+        "a small red wooden cube with smooth edges",
+        "a rectangular wooden table with sturdy legs"
+      ],
+      "positioning": [
+        "Koala stands beside the table placing the red cube in the center",
+        "The small red wooden cube with smooth edges is being set down between the other cubes",
+        "The small black wooden cube with smooth edges remains on the left",
+        "The small white wooden cube with smooth edges remains on the right"
+      ],
+      "motivations": [
+        "Koala is helpful and calm because she wants to add her red cube to the collection on the table"
+      ],
+      "reference_frame": "black_white_cubes_home"
+    },
+    {
+      "text": "ἡ Κοάλα ἀποβαίνει ἀπὸ τῆς τραπέζης.",
+      "frame_id": "koala_walks_away",
+      "characters": ["Koala"],
+      "locations": ["familyhouse_interior"],
+      "objects": [
+        "a small black wooden cube with smooth edges",
+        "a small white wooden cube with smooth edges",
+        "a small red wooden cube with smooth edges", 
+        "a rectangular wooden table with sturdy legs"
+      ],
+      "positioning": [
+        "Koala walks away from the table toward the edge of the room",
+        "All three cubes sit neatly arranged on the table"
+      ],
+      "motivations": [
+        "Koala is satisfied because she completed her task of placing the red cube"
+      ],
+      "reference_frame": "koala_places_red_cube"
+    },
+    {
+      "text": "ἰδού! χλωρὸς κύβος καὶ μέλας κύβος ἐπὶ τῇ τραπέζῃ.",
+      "frame_id": "green_black_cubes_school",
+      "characters": [],
+      "locations": ["school_interior_table"],
+      "objects": [
+        "a small green wooden cube with smooth edges",
+        "a small black wooden cube with smooth edges"
+      ],
+      "positioning": [
+        "The small green wooden cube with smooth edges sits on the left side of the school table",
+        "The small black wooden cube with smooth edges sits on the right side of the school table"
+      ],
+      "motivations": []
+    },
+    {
+      "text": "ὁ Διναύσαρος ἔρχεται καὶ τίθησιν λευκὸν κύβον ἐπὶ τὴν τράπεζαν.",
+      "frame_id": "dinosaur_places_white_cube",
+      "characters": ["Dinosaur"],
+      "locations": ["school_interior_table"],
+      "objects": [
+        "a small green wooden cube with smooth edges",
+        "a small black wooden cube with smooth edges",
+        "a small white wooden cube with smooth edges"
+      ],
+      "positioning": [
+        "Dinosaur stands beside the table carefully placing the white cube in the center",
+        "The small white wooden cube with smooth edges is being set between the other cubes"
+      ],
+      "motivations": [
+        "Dinosaur is focused and gentle because he wants to carefully add his white cube to the arrangement"
+      ],
+      "reference_frame": "green_black_cubes_school"
+    },
+    {
+      "text": "ὁ Διναύσαρος ἀποβαίνει ἀπὸ τῆς τραπέζης.",
+      "frame_id": "dinosaur_walks_away", 
+      "characters": ["Dinosaur"],
+      "locations": ["school_interior_table"],
+      "objects": [
+        "a small green wooden cube with smooth edges",
+        "a small black wooden cube with smooth edges", 
+        "a small white wooden cube with smooth edges"
+      ],
+      "positioning": [
+        "Dinosaur walks away from the table with a satisfied expression",
+        "All three cubes are neatly arranged on the school table"
+      ],
+      "motivations": [
+        "Dinosaur is pleased because he successfully placed his white cube"
+      ],
+      "reference_frame": "dinosaur_places_white_cube"
+    },
+    {
+      "text": "ἰδού! ἐρυθρὸς κύβος καὶ χλωρὸς κύβος ἐπὶ τῇ τραπέζῃ.",
+      "frame_id": "red_green_cubes_market",
+      "characters": [],
+      "locations": ["agora_interior"],
+      "objects": [
+        "a small red wooden cube with smooth edges",
+        "a small green wooden cube with smooth edges",
+        "a low stone table with a smooth marble top"
+      ],
+      "positioning": [
+        "The small red wooden cube with smooth edges sits on the left side of the marble table",
+        "The small green wooden cube with smooth edges sits on the right side of the marble table",
+        "The low stone table with a smooth marble top is positioned in the market space"
+      ],
+      "motivations": []
+    },
+    {
+      "text": "ὁ Πάνδα ἔρχεται καὶ τίθησιν μέλανα κύβον ἐπὶ τὴν τράπεζαν.",
+      "frame_id": "panda_places_black_cube",
+      "characters": ["Panda"],
+      "locations": ["agora_interior"],
+      "objects": [
+        "a small red wooden cube with smooth edges",
+        "a small green wooden cube with smooth edges",
+        "a small black wooden cube with smooth edges",
+        "a low stone table with a smooth marble top"
+      ],
+      "positioning": [
+        "Panda stands beside the marble table placing the black cube in the center",
+        "The small black wooden cube with smooth edges is being set between the other cubes"
+      ],
+      "motivations": [
+        "Panda is cheerful and purposeful because he wants to contribute his black cube to the collection"
+      ],
+      "reference_frame": "red_green_cubes_market"
+    },
+    {
+      "text": "ὁ Πάνδα ἀποβαίνει ἀπὸ τῆς τραπέζης.",
+      "frame_id": "panda_walks_away",
+      "characters": ["Panda"],
+      "locations": ["agora_interior"],
+      "objects": [
+        "a small red wooden cube with smooth edges",
+        "a small green wooden cube with smooth edges",
+        "a small black wooden cube with smooth edges",
+        "a low stone table with a smooth marble top"
+      ],
+      "positioning": [
+        "Panda walks away from the table looking content",
+        "All three cubes sit arranged on the marble table"
+      ],
+      "motivations": [
+        "Panda is content because he successfully added his black cube to the arrangement"
+      ],
+      "reference_frame": "panda_places_black_cube"
+    },
+    {
+      "text": "ἰδού! λευκὸς κύβος καὶ ἐρυθρὸς κύβος ἐπὶ τῇ τραπέζῃ.",
+      "frame_id": "white_red_cubes_field",
+      "characters": [],
+      "locations": ["agros"],
+      "objects": [
+        "a small white wooden cube with smooth edges",
+        "a small red wooden cube with smooth edges",
+        "a rough wooden table made from planks"
+      ],
+      "positioning": [
+        "The small white wooden cube with smooth edges sits on the left side of the plank table",
+        "The small red wooden cube with smooth edges sits on the right side of the plank table",
+        "The rough wooden table made from planks is set up in the field"
+      ],
+      "motivations": []
+    },
+    {
+      "text": "ὁ Λύκος ἔρχεται. οἴμοι! ὁ Λύκος πίπτει.",
+      "frame_id": "lukos_falls",
+      "characters": ["Lukos"],
+      "locations": ["agros"],
+      "objects": [
+        "a small white wooden cube with smooth edges",
+        "a small red wooden cube with smooth edges",
+        "a small green wooden cube with smooth edges",
+        "a rough wooden table made from planks"
+      ],
+      "positioning": [
+        "Lukos creeps forward with a sneaky expression, then trips and falls beside the table, the green cube flying from his hands",
+        "The small green wooden cube with smooth edges tumbles through the air",
+        "The white and red cubes remain on the table"
+      ],
+      "motivations": [
+        "Lukos is sneaky and greedy because he was trying to steal the cubes, but his evil intentions cause him to fall clumsily"
+      ],
+      "reference_frame": "white_red_cubes_field"
+    },
+    {
+      "text": "ὁ ὑπερβρέφος ἔρχεται.",
+      "frame_id": "hyperbrephos_arrives",
+      "characters": ["Lukos", "Hyperbrephos"],
+      "locations": ["agros"],
+      "objects": [
+        "a small white wooden cube with smooth edges",
+        "a small red wooden cube with smooth edges",
+        "a small green wooden cube with smooth edges",
+        "a rough wooden table made from planks"
+      ],
+      "positioning": [
+        "Hyperbrephos approaches with a stern, determined expression",
+        "Lukos lies on the ground looking angry that he just fell",
+        "The small green wooden cube with smooth edges lies scattered on the ground near the table"
+      ],
+      "motivations": [
+        "Lukos is angry because he just fell on his face",
+        "Hyperbrephos is stern and authoritative because he arrives to apprehend the bad Lukos"
+      ],
+      "reference_frame": "lukos_falls"
+    },
+    {
+      "text": "ὁ ὑπερβρέφος ἀποφέρει τὸν Λύκον.",
+      "frame_id": "hyperbrephos_carries_lukos",
+      "characters": ["Lukos", "Hyperbrephos"],
+      "locations": ["agros"],
+      "objects": [
+        "a small white wooden cube with smooth edges",
+        "a small red wooden cube with smooth edges",
+        "a small green wooden cube with smooth edges",
+        "a rough wooden table made from planks"
+      ],
+      "positioning": [
+        "Hyperbrephos firmly grips Lukos and drags him away toward the edge of the frame",
+        "Lukos struggles weakly but is overpowered, looking defeated and ashamed",
+        "The small green wooden cube with smooth edges remains abandoned on the ground"
+      ],
+      "motivations": [
+        "Lukos is defeated and ashamed because he was caught stealing and is being taken to face punishment",
+        "Hyperbrephos is firm and just because he enforces justice by taking the thief Lukos to jail"
+      ],
+      "reference_frame": "hyperbrephos_arrives"
+    }
+  ]
+}

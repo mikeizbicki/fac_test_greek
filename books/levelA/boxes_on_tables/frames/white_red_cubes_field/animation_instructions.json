@@ -1,0 +1,19 @@
+{
+  "text": "ἰδού! λευκὸς κύβος καὶ ἐρυθρὸς κύβος ἐπὶ τῇ τραπέζῃ.",
+  "objects": [
+    "a small white wooden cube with smooth edges",
+    "a small red wooden cube with smooth edges",
+    "a rough wooden table made from planks"
+  ],
+  "locations": [
+    "agros"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "The small white wooden cube with smooth edges sits on the left side of the plank table",
+    "The small red wooden cube with smooth edges sits on the right side of the plank table",
+    "The rough wooden table made from planks is set up in the field"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

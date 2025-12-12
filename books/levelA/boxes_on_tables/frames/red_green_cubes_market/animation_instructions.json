@@ -1,0 +1,19 @@
+{
+  "text": "ἰδού! ἐρυθρὸς κύβος καὶ χλωρὸς κύβος ἐπὶ τῇ τραπέζῃ.",
+  "objects": [
+    "a small red wooden cube with smooth edges",
+    "a small green wooden cube with smooth edges",
+    "a low stone table with a smooth marble top"
+  ],
+  "locations": [
+    "agora_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "The small red wooden cube with smooth edges sits on the left side of the marble table",
+    "The small green wooden cube with smooth edges sits on the right side of the marble table",
+    "The low stone table with a smooth marble top is positioned in the market space"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

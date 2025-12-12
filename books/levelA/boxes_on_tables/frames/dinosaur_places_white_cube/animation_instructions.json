@@ -1,0 +1,20 @@
+{
+  "text": "ὁ Διναύσαρος ἔρχεται καὶ τίθησιν λευκὸν κύβον ἐπὶ τὴν τράπεζαν.",
+  "objects": [
+    "a small green wooden cube with smooth edges",
+    "a small black wooden cube with smooth edges",
+    "a small white wooden cube with smooth edges"
+  ],
+  "locations": [
+    "school_interior_table"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Dinosaur stands beside the table carefully placing the white cube in the center",
+    "The small white wooden cube with smooth edges is being set between the other cubes"
+  ],
+  "characters_that_enter": [
+    "Dinosaur"
+  ],
+  "characters_that_exit": []
+}

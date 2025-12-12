@@ -1,0 +1,17 @@
+{
+  "text": "ἰδού! χλωρὸς κύβος καὶ μέλας κύβος ἐπὶ τῇ τραπέζῃ.",
+  "objects": [
+    "a small green wooden cube with smooth edges",
+    "a small black wooden cube with smooth edges"
+  ],
+  "locations": [
+    "school_interior_table"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "The small green wooden cube with smooth edges sits on the left side of the school table",
+    "The small black wooden cube with smooth edges sits on the right side of the school table"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

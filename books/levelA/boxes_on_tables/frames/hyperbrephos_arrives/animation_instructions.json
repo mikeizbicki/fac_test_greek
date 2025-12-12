@@ -1,0 +1,22 @@
+{
+  "text": "ὁ ὑπερβρέφος ἔρχεται.",
+  "objects": [
+    "a small white wooden cube with smooth edges",
+    "a small red wooden cube with smooth edges",
+    "a small green wooden cube with smooth edges",
+    "a rough wooden table made from planks"
+  ],
+  "locations": [
+    "agros"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Hyperbrephos approaches with a stern, determined expression",
+    "Lukos lies on the ground looking fearful and guilty",
+    "The small green wooden cube with smooth edges lies scattered on the ground near the table"
+  ],
+  "characters_that_enter": [
+    "Hyperbrephos"
+  ],
+  "characters_that_exit": []
+}

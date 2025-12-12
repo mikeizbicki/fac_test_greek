@@ -1,0 +1,19 @@
+{
+  "text": "ἡ Κοάλα ἀποβαίνει ἀπὸ τῆς τραπέζης.",
+  "objects": [
+    "a small black wooden cube with smooth edges",
+    "a small white wooden cube with smooth edges",
+    "a small red wooden cube with smooth edges",
+    "a rectangular wooden table with sturdy legs"
+  ],
+  "locations": [
+    "familyhouse_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Koala walks away from the table toward the edge of the room",
+    "All three cubes sit neatly arranged on the table"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

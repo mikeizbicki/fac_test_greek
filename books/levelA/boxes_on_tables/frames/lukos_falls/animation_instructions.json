@@ -1,0 +1,22 @@
+{
+  "text": "ὁ Λύκος ἔρχεται. οἴμοι! ὁ Λύκος πίπτει.",
+  "objects": [
+    "a small white wooden cube with smooth edges",
+    "a small red wooden cube with smooth edges",
+    "a small green wooden cube with smooth edges",
+    "a rough wooden table made from planks"
+  ],
+  "locations": [
+    "agros"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Lukos creeps forward with a sneaky expression, then trips and falls beside the table, the green cube flying from his hands",
+    "The small green wooden cube with smooth edges tumbles through the air",
+    "The white and red cubes remain on the table"
+  ],
+  "characters_that_enter": [
+    "Lukos"
+  ],
+  "characters_that_exit": []
+}

@@ -1,0 +1,21 @@
+{
+  "text": "ὁ Πάνδα ἔρχεται καὶ τίθησιν μέλανα κύβον ἐπὶ τὴν τράπεζαν.",
+  "objects": [
+    "a small red wooden cube with smooth edges",
+    "a small green wooden cube with smooth edges",
+    "a small black wooden cube with smooth edges",
+    "a low stone table with a smooth marble top"
+  ],
+  "locations": [
+    "agora_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda stands beside the marble table placing the black cube in the center",
+    "The small black wooden cube with smooth edges is being set between the other cubes"
+  ],
+  "characters_that_enter": [
+    "Panda"
+  ],
+  "characters_that_exit": []
+}
