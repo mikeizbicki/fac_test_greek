@@ -480,7 +480,8 @@
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_TRANSITION/character_transition.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
+    - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
+      include: false
     - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt
       is_prompt: true
   options: |
