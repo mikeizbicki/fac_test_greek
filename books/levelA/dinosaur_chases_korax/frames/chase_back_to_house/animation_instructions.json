@@ -1,0 +1,21 @@
+{
+  "text": "ὁ κόραξ καὶ ὁ Διναύσαρος τρέχουσιν πρὸς τὸ δένδρον πάλιν.",
+  "objects": [
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "agora",
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Korax flies back toward the familiar shade tree, looking tired from the long chase",
+    "Dinosaur runs behind, also showing signs of fatigue but still determined",
+    "The blue-and-white leather ball about the size of a grapefruit is still in Korax's tired grip"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Emporos",
+    "Emporis"
+  ]
+}

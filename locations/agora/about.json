@@ -1,0 +1,22 @@
+{
+  "name": "Agora_Market",
+  "description": "A bustling open-air marketplace in an ancient Greek town with shaded colonnades and cheerful vendor stalls.",
+  "visual_style": {
+    "color_palette": [
+      "Terracotta #D36C4E for roof tiles, amphorae, and clay lamps.",
+      "White Marble #F2F2F2 for columns, statues, and stoa walls.",
+      "Olive Green #6B8E23 for olive leaves, wreaths, and stall accents.",
+      "Aegean Blue #2E86AB for fabric awnings and water vessels.",
+      "Sandstone Beige #D8C3A5 for sun-baked paving stones and dust."
+    ],
+    "architectural_style": "Classical Greek stoa and colonnades with simple Doric columns, whitewashed stone, and red-tiled roofs framing an open square. Stalls are light wooden frames with colorful linen awnings and hanging amphorae. Signage uses painted symbols rather than words to suit young learners.",
+    "flora_fauna": "Potted olive and fig trees provide shade, with laurel shrubs near statues. Sparrows flit between stalls, and friendly stray cats lounge by fishmongers.",
+    "weather": "sunny with sea breeze",
+    "lighting": "bright sunlight",
+    "materials": [
+      "White limestone and marble blocks for colonnades, steps, and paving.",
+      "Sun-bleached wood and rope for market stalls, awnings, and signs.",
+      "Terracotta tiles and pottery for roofs, jars, and lamps; bronze fittings for scales and handles."
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "text": "ὁ κόραξ καὶ ὁ Διναύσαρος τρέχουσιν πρὸς τὸν ἀγρόν.",
+  "objects": [
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "school_exterior",
+    "agros"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Korax flies over the cultivated field with the ball still in his grip",
+    "Dinosaur runs along the dirt path between the planted rows, panting but still determined",
+    "Georgos and George work peacefully in the field, tending to their crops",
+    "The blue-and-white leather ball about the size of a grapefruit dangles from Korax as he flies over the farmland"
+  ],
+  "characters_that_enter": [
+    "Georgos",
+    "George"
+  ],
+  "characters_that_exit": [
+    "Didaskalos",
+    "Didaskale"
+  ]
+}

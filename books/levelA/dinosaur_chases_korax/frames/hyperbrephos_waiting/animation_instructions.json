@@ -1,0 +1,20 @@
+{
+  "text": "ἰδού! ὁ ὑπερβρέφος μένει παρὰ τὸ δένδρον.",
+  "objects": [
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Hyperbrephos sits calmly under the shade tree with his arms crossed, waiting with a determined expression",
+    "Korax flies toward the tree, not yet noticing the super-baby",
+    "Dinosaur runs behind, still in pursuit",
+    "The blue-and-white leather ball about the size of a grapefruit dangles from Korax's grip"
+  ],
+  "characters_that_enter": [
+    "Hyperbrephos"
+  ],
+  "characters_that_exit": []
+}

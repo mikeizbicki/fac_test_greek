@@ -1,0 +1,25 @@
+{
+  "text": "ὁ κόραξ καὶ ὁ Διναύσαρος τρέχουσιν πρὸς τὴν ἀγοράν.",
+  "objects": [
+    "a blue-and-white leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "agros",
+    "agora"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Korax flies between the market stalls with the stolen ball",
+    "Dinosaur runs through the crowded marketplace, still in pursuit",
+    "Emporos and Emporis stand at their merchant stalls displaying their wares",
+    "The blue-and-white leather ball about the size of a grapefruit remains firmly in Korax's grasp"
+  ],
+  "characters_that_enter": [
+    "Emporos",
+    "Emporis"
+  ],
+  "characters_that_exit": [
+    "Georgos",
+    "George"
+  ]
+}
