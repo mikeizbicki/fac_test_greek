@@ -136,9 +136,14 @@
 
 "books/$LEVEL/$BOOK/script.fountain":
   description:
-    Generate a script file (in fountain format) for an animated short based on the file 'description.md'.
-
+    Generate a script file (in fountain format) for an animated short based on the file "books/$LEVEL/$BOOK/description.md".
     Provide lots of information about scene visual descriptions and movement details, ensuring that the final script is reasonable to animate.
+    Use only characters that have a corresponding "characters/*/about.json" file.
+    All scenes in the script must take place at one of the locations specified in the "locations/*/about.json" file.
+    You should explicitly annotate
+    - when one scene ends and another begins,
+    - any cuts/camera movements
+    Levels A and B do not support dialogue, and so only the narrator will be talking.
   dependencies:
     common/about.md
     common/writing.md
@@ -467,13 +472,15 @@
   description:
     You are animating a short 4 second scene described by the file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json".
     The start/stop frames of the scene have already been drawn and is provided in the attached images.
-    You must provide a 3-5 sentence description of how to animate the provided input image.
+    You must provide a 3-7 sentence description of how to animate the provided input image.
     Use simple language that is easy to follow, and always describe the events in chronological order.
     The description should explicitly describe what each character is doing (e.g. running, sitting, writing) and their emotions (e.g. angry, happy, sad).
     If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, enters through the door, camera pans to show the character). Whenever possible prefer "natural" exits/entrances through something in the location (e.g. enter through a doors, or from behind a house/bush, or even through a window if humor is called for); revealing the characer through camera movement is also good; it is acceptable to exit stage left/right if there are no natural entrances/exits.
     All descriptions must perfectly match the images.
     You should describe the end position of the characters and any items.
-    You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.      Your instructions must explicitly state that all listed characters must stay in the shot (at least from the knees up) and they must not occlude one another.
+    You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
+    Your instructions must explicitly state that all listed characters must stay in the shot (at least from the knees up) and they must not occlude one another.
+    You must also explicitly state that objects should not move near each other unless absolutely necessary for the action to take place.
   dependencies:
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
@@ -567,7 +574,6 @@
     RM_CHARACTER: |
       echo "$REFERENCE_CHARACTER" | grep -v -F -x -f <(echo "$CHARACTER") || true
     REFERENCE_TRANSITION: |
-      #if [[ ! -z "$REFERENCE_FRAME" && ( ! -z "$ADD_CHARACTER" || ! -z "$RM_CHARACTER" ) ]]; then
       if [[ ! -z "$REFERENCE_FRAME" && ! -z "$ADD_CHARACTER" ]]; then
         echo "$FRAME_ID"
       fi
