@@ -1,0 +1,138 @@
+{
+  "title": "ὁ λύκος ἔρχεται",
+  "learning_goal": "Practice present tense verbs of fear and movement (φοβέομαι, φεύγω, εἰσέρχομαι, ἐξέρχομαι) with simple emotional responses and the interjections ἰδού and οἴμοι.",
+  "plot": "Good animals eat peacefully until they spot Lukos at the window, then flee when he enters the house.",
+  "frames": [
+    {
+      "text": "τὰ καλὰ ζῷα ἐσθίει τὸν ἄρτον ἐπὶ τῇ τραπέζῃ.",
+      "frame_id": "eating_together",
+      "characters": [
+        "Panda",
+        "Koala", 
+        "Dinosaur",
+        "Glaux"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "a round rustic loaf of bread with a golden crust torn into pieces"
+      ],
+      "positioning": [
+        "Panda sits at the table on the left side taking a bite of bread.",
+        "Koala sits across from Panda on the right side holding a piece of bread.",
+        "Dinosaur sits at the near side of the table with bread crumbs around him.",
+        "Glaux perches on the table edge pecking at bread pieces.",
+        "The round rustic loaf of bread with a golden crust torn into pieces is scattered across the table center."
+      ],
+      "motivations": [
+        "Panda is content and relaxed because she enjoys sharing bread with her friends at home.",
+        "Koala is happy and peaceful because she sits with friends eating warm bread together.",
+        "Dinosaur is cheerful and satisfied because he munches bread with his companions.",
+        "Glaux is calm and pleased because she shares the meal with her friends."
+      ]
+    },
+    {
+      "text": "ἰδού! ὁ λύκος ἐστὶ κακὸν ζῷον ἐν τῇ θυρίδι!",
+      "frame_id": "lukos_at_window",
+      "characters": [
+        "Panda",
+        "Koala",
+        "Dinosaur", 
+        "Glaux",
+        "Lukos"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "a round rustic loaf of bread with a golden crust torn into pieces",
+        "a small square window with a wooden frame; we have switched to a very wide angle shot to reveal the window off to the right hand side"
+      ],
+      "positioning": [
+        "Panda drops her bread piece and stares wide-eyed at the window with alarm.",
+        "Koala freezes mid-bite, looking toward the window with concern.",
+        "Dinosaur turns his head sharply toward the window with his mouth open in surprise.",
+        "Glaux spreads her wings slightly, looking alert toward the window.",
+        "Lukos's head and upper body appear in the window frame, grinning slyly with amber eyes gleaming.",
+        "The small square window with a wooden frame shows Lukos from outside."
+      ],
+      "motivations": [
+        "Panda is startled and worried because she suddenly sees the threatening wolf at their window.",
+        "Koala is concerned and alert because Lukos appears unexpectedly during their peaceful meal.",
+        "Dinosaur is surprised and uneasy because the wolf's presence feels dangerous.",
+        "Glaux is watchful and tense because she spots the predator watching them.",
+        "Lukos is hungry and calculating because he sees the animals with food and plans to take it."
+      ],
+      "reference_frame": "eating_together"
+    },
+    {
+      "text": "οἴμοι! ὁ λύκος εἰσέρχεται διὰ τῆς θυρίδος εἰς τὴν οἰκίαν. τὰ καλὰ ζῷα φοβεῖται.",
+      "frame_id": "lukos_enters",
+      "characters": [
+        "Panda",
+        "Koala",
+        "Dinosaur",
+        "Glaux", 
+        "Lukos"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom"
+      ],
+      "objects": [
+        "a round rustic loaf of bread with a golden crust torn into pieces",
+        "a small square window with a wooden frame"
+      ],
+      "positioning": [
+        "Panda pushes back from the table in terror, preparing to run.",
+        "Koala scrambles backward from her seat with wide frightened eyes.",
+        "Dinosaur starts to rise from the table, looking panicked.",
+        "Glaux takes flight, wings spread as she moves away from the window.",
+        "Lukos climbs through the window into the room, his cloak flowing behind him.",
+        "The small square window with a wooden frame shows Lukos halfway through it."
+      ],
+      "motivations": [
+        "Panda is panicking because Lukos is entering their safe home and she must escape.",
+        "Koala is terrified and retreating because the wolf is coming inside to threaten them.",
+        "Dinosaur is scared and preparing to flee because Lukos enters their peaceful house.",
+        "Glaux is alarmed and taking flight because the dangerous predator invades their space.",
+        "Lukos is determined and predatory because he wants the food and to frighten the animals."
+      ],
+      "reference_frame": "lukos_at_window"
+    },
+    {
+      "text": "τὰ καλὰ ζῷα φεύγει ἐκ τῆς οἰκίας.",
+      "frame_id": "animals_flee",
+      "characters": [
+        "Panda",
+        "Koala", 
+        "Dinosaur",
+        "Glaux",
+        "Lukos"
+      ],
+      "locations": [
+        "familyhouse_interior_diningroom",
+        "familyhouse_exterior"
+      ],
+      "objects": [
+        "a round rustic loaf of bread with a golden crust torn into pieces"
+      ],
+      "positioning": [
+        "Panda runs toward the door in the background, fleeing quickly.",
+        "Koala follows behind Panda, also running toward the exit.",
+        "Dinosaur rushes past the table toward the door, looking back fearfully.",
+        "Glaux flies rapidly toward the open doorway to escape.",
+        "Lukos stands by the window inside the house, watching them flee with satisfaction.",
+        "The round rustic loaf of bread with a golden crust torn into pieces remains abandoned on the table."
+      ],
+      "motivations": [
+        "Panda is fleeing desperately because Lukos threatens her and her friends in their home.",
+        "Koala is running away in fear because the wolf has invaded and she needs safety.",
+        "Dinosaur is escaping quickly because Lukos scares him and he follows his friends.",
+        "Glaux is flying to safety because the predator forces her to abandon the meal.",
+        "Lukos is pleased and triumphant because he has successfully frightened away the animals and claimed their food."
+      ],
+      "reference_frame": "lukos_enters"
+    }
+  ]
+}
