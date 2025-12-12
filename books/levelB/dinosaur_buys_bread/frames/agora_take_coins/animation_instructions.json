@@ -1,0 +1,27 @@
+{
+  "text": "ὁ Δεινόσαυρος ἀνοίγει τὸν σάκκον καὶ λαμβάνει ἐκ τοῦ σάκκου τὰ νομίσματα.",
+  "objects": [
+    "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+    "five bright silver coins, flat and round with simple stamped designs, about the size of large buttons.",
+    "a merchant’s stall table of chalk-white wood with neat woven baskets and a blue-painted edge.",
+    "a round rustic loaf of bread with a golden-brown crust and a cross-slashed top, about the size of Dinosaur’s head.",
+    "a basket of red apples, glossy and firm, heaped in a shallow wicker tray.",
+    "a tall clay water jar, terracotta with a simple blue band near the shoulder."
+  ],
+  "locations": [
+    "agora_interior"
+  ],
+  "artist_notes": "Slight push-in on hands, but keep both faces readable for emotion.",
+  "positioning": [
+    "Dinosaur stands at the stall’s edge, front three-quarter view, looking down into his sack as he opens it.",
+    "Emporos waits behind the table, gentle smile, eyes on the coins and Dinosaur’s hands.",
+    "The small woven sack is open at chest height in Dinosaur’s hands.",
+    "The five bright silver coins glint in Dinosaur’s right hand just above the sack’s mouth.",
+    "The merchant’s stall table remains in front of Emporos, edge close to Dinosaur.",
+    "The round rustic loaf is still in its basket within easy reach, foreground right.",
+    "The basket of red apples remains piled beside the bread.",
+    "The tall clay water jar stands steady near the table’s back corner."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

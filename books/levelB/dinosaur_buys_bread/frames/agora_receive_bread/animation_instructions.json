@@ -1,0 +1,25 @@
+{
+  "text": "δίδωσιν ὁ Ἔμπορος τὸν ἄρτον τῷ Δεινοσαύρῳ.",
+  "objects": [
+    "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+    "a merchant’s stall table of chalk-white wood with neat woven baskets and a blue-painted edge.",
+    "a round rustic loaf of bread with a golden-brown crust and a cross-slashed top, about the size of Dinosaur’s head.",
+    "a basket of red apples, glossy and firm, heaped in a shallow wicker tray.",
+    "a tall clay water jar, terracotta with a simple blue band near the shoulder."
+  ],
+  "locations": [
+    "agora_interior"
+  ],
+  "artist_notes": "Capture the exchange clearly with warm smiles and gentle hands.",
+  "positioning": [
+    "Dinosaur holds out both hands to receive the loaf, front three-quarter view, smiling and looking at the bread.",
+    "Emporos leans slightly forward, front view, placing the loaf into Dinosaur’s hands.",
+    "The small woven sack hangs at Dinosaur’s left side, closed.",
+    "The merchant’s stall table anchors the foreground between them.",
+    "The round rustic loaf is mid-handover between Emporos and Dinosaur at center.",
+    "The basket of red apples remains mounded beside the handover space.",
+    "The tall clay water jar stands steady at the back corner."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}
