@@ -2,7 +2,8 @@
   "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος κρύπτονται ὑπὸ τὸν Ἔμπορον.",
   "objects": [],
   "locations": [
-    "agora_interior"
+    "agora_interior",
+    "agora_exterior"
   ],
   "artist_notes": null,
   "positioning": [

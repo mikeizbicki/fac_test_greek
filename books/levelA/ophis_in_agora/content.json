@@ -67,13 +67,14 @@
       ],
       "motivations": [
         "Ophis is curious and persistent because he wants to follow the children into the market"
-      ]
+      ],
+      "reference_frame": "children_flee_to_agora"
     },
     {
       "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος κρύπτονται ὑπὸ τὸν Ἔμπορον.",
       "frame_id": "hiding_behind_emporos",
       "characters": ["Panda", "Dinosaur", "Emporos"],
-      "locations": ["agora_interior"],
+      "locations": ["agora_interior", "agora_exterior"],
       "objects": [],
       "positioning": [
         "Panda crouches behind Emporos on the left, peeking out nervously",
@@ -87,7 +88,7 @@
       ]
     },
     {
-      "text": "ὁ Ἔμπορος ὁρᾷ τὸν ὄφιν καὶ βάλλει λίθον κατὰ τὸν ὄφιν.",
+      "text": "ὁ Ἔμπορος βάλλει λίθον κατὰ τὸν ὄφιν.",
       "frame_id": "emporos_throws_rock",
       "characters": ["Panda", "Dinosaur", "Emporos", "Ophis"],
       "locations": ["agora_interior"],
@@ -113,7 +114,7 @@
       "locations": ["agora_interior"],
       "objects": ["a smooth round gray stone about the size of an apple"],
       "positioning": [
-        "Ophis slithers away quickly with a flattened, defeated posture",
+        "Ophis slithers away quickly with a flattened, defeated posture; he is half-way off the screen by the scene's end.",
         "Emporos stands victorious with his hands on his hips",
         "Panda and Dinosaur emerge from hiding with relieved smiles",
         "The smooth round gray stone about the size of an apple lies on the ground near where Ophis was"
