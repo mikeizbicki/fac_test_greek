@@ -134,6 +134,19 @@
     LEVEL:
       ls books
 
+"books/$LEVEL/$BOOK/script.fountain":
+  description:
+    Generate a script file (in fountain format) for an animated short based on the file 'description.md'.
+
+    Provide lots of information about scene visual descriptions and movement details, ensuring that the final script is reasonable to animate.
+  dependencies:
+    common/about.md
+    common/writing.md
+    books/$LEVEL/themes.md
+    books/$LEVEL/$BOOK/description.md
+    characters/$CHARACTER/about.json
+    locations/$LOCATION/about.json
+
 "books/$LEVEL/$BOOK/content.json":
   description:
     The story should be simple but have a clear beginning, middle, and end.
@@ -460,7 +473,7 @@
     If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, enters through the door, camera pans to show the character). Whenever possible prefer "natural" exits/entrances through something in the location (e.g. enter through a doors, or from behind a house/bush, or even through a window if humor is called for); revealing the characer through camera movement is also good; it is acceptable to exit stage left/right if there are no natural entrances/exits.
     All descriptions must perfectly match the images.
     You should describe the end position of the characters and any items.
-    You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.      Your instructions must explicitly state that all listed characters must stay in the shot (at least from the knees up).
+    You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.      Your instructions must explicitly state that all listed characters must stay in the shot (at least from the knees up) and they must not occlude one another.
   dependencies:
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
