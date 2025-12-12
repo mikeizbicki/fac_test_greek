@@ -1,0 +1,19 @@
+{
+  "text": "τὰ καλὰ ζῷα ἐσθίει τὸν ἄρτον ἐπὶ τῇ τραπέζῃ.",
+  "objects": [
+    "a round rustic loaf of bread with a golden crust torn into pieces"
+  ],
+  "locations": [
+    "familyhouse_interior_diningroom"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda sits at the table on the left side taking a bite of bread.",
+    "Koala sits across from Panda on the right side holding a piece of bread.",
+    "Dinosaur sits at the near side of the table with bread crumbs around him.",
+    "Glaux perches on the table edge pecking at bread pieces.",
+    "The round rustic loaf of bread with a golden crust torn into pieces is scattered across the table center."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

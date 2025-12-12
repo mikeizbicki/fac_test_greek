@@ -1,0 +1,21 @@
+{
+  "text": "τὰ καλὰ ζῷα φεύγει ἐκ τῆς οἰκίας.",
+  "objects": [
+    "a round rustic loaf of bread with a golden crust torn into pieces"
+  ],
+  "locations": [
+    "familyhouse_interior_diningroom",
+    "familyhouse_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda runs toward the door in the background, fleeing quickly.",
+    "Koala follows behind Panda, also running toward the exit.",
+    "Dinosaur rushes past the table toward the door, looking back fearfully.",
+    "Glaux flies rapidly toward the open doorway to escape.",
+    "Lukos stands by the window inside the house, watching them flee with satisfaction.",
+    "The round rustic loaf of bread with a golden crust torn into pieces remains abandoned on the table."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

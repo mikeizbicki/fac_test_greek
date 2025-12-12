@@ -1,0 +1,23 @@
+{
+  "text": "ἰδού! ὁ λύκος ἐστὶ κακὸν ζῷον ἐν τῇ θυρίδι!",
+  "objects": [
+    "a round rustic loaf of bread with a golden crust torn into pieces",
+    "a small square window with a wooden frame; we have switched to a very wide angle shot to reveal the window off to the right hand side"
+  ],
+  "locations": [
+    "familyhouse_interior_diningroom"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda drops her bread piece and stares wide-eyed at the window with alarm.",
+    "Koala freezes mid-bite, looking toward the window with concern.",
+    "Dinosaur turns his head sharply toward the window with his mouth open in surprise.",
+    "Glaux spreads her wings slightly, looking alert toward the window.",
+    "Lukos's head and upper body appear in the window frame, grinning slyly with amber eyes gleaming.",
+    "The small square window with a wooden frame shows Lukos from outside."
+  ],
+  "characters_that_enter": [
+    "Lukos"
+  ],
+  "characters_that_exit": []
+}

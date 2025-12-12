@@ -1,0 +1,21 @@
+{
+  "text": "οἴμοι! ὁ λύκος εἰσέρχεται διὰ τῆς θυρίδος εἰς τὴν οἰκίαν. τὰ καλὰ ζῷα φοβεῖται.",
+  "objects": [
+    "a round rustic loaf of bread with a golden crust torn into pieces",
+    "a small square window with a wooden frame"
+  ],
+  "locations": [
+    "familyhouse_interior_diningroom"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda pushes back from the table in terror, preparing to run.",
+    "Koala scrambles backward from her seat with wide frightened eyes.",
+    "Dinosaur starts to rise from the table, looking panicked.",
+    "Glaux takes flight, wings spread as she moves away from the window.",
+    "Lukos climbs through the window into the room, his cloak flowing behind him.",
+    "The small square window with a wooden frame shows Lukos halfway through it."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}
