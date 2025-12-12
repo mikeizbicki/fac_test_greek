@@ -1,114 +1,101 @@
 {
-  "title": "ὁ Δεινόσαυρος ἄρτον ἀγοράζει",
-  "learning_goal": "Practice infinitive complements with δεῖ and βούλομαι, alongside trade verbs (ἀγοράζω, πωλέω) and basic need vocabulary (πεινᾷ), within a simple market errand.",
-  "plot": "A hungry Dinosaur finds coins at home, goes to the agora, pays a friendly merchant for bread, and eats until he is no longer hungry.",
+  "title": "ὁ Δεινόσαυρος ἀγοράζει ἄρτον",
+  "learning_goal": "Practice δεῖ + infinitive with present-tense narration and trade verbs (ἀγοράζω, πωλέω, δίδωμι) in a simple market scene about buying bread.",
+  "plot": "Hungry Dinosaur finds coins, goes to the market, buys bread from a merchant, and eats until satisfied.",
   "frames": [
     {
-      "text": "ὁ Δεινόσαυρος ἐν τῇ οἰκίᾳ ἐστίν. πεινᾷ· βούλεται φαγεῖν τὸν ἄρτον.",
-      "frame_id": "home_intro",
+      "text": "ὁ Δεινόσαυρος ἐν τῇ οἰκίᾳ ἐστίν. πεινᾷ καὶ βούλεται φαγεῖν τὸν ἄρτον.",
+      "frame_id": "home_hungry",
       "characters": [
         "Dinosaur"
       ],
       "locations": [
-        "familyhouse_interior"
+        "familyhouse_interior_diningroom"
       ],
       "objects": [
-        "a low round wooden table with a smooth oak surface and sturdy legs at child height",
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "several small round silver coins with Greek letters stamped on both sides"
+        "an empty cream ceramic plate with a subtle rim, round and child-hand-span wide, resting on the wooden dining table."
       ],
       "positioning": [
-        "Dinosaur stands in the left foreground in three-quarter view facing right toward the table, eyes looking down at the coins with a hopeful, hungry expression.",
-        "The low round wooden table sits center midground, top visible from a slight overhead angle.",
-        "The small brown cloth sack rests on the right edge of the table, drawstring loose, angled toward Dinosaur.",
-        "The several small round silver coins lie clustered near the center of the table, glinting in the warm light."
+        "Dinosaur stands left of the round table, three-quarter view facing right, rubbing his belly and looking down at the plate.",
+        "The plate sits centered on the table in the foreground, top-down three-quarter view showing its empty surface."
       ],
       "motivations": [
-        "Dinosaur’s stomach is empty and he wants to eat bread, so he looks hopefully at anything that might help him get food."
+        "Hungry at home and wanting bread, Dinosaur is sad because no food is on the table yet."
       ],
-      "artist_notes": "Warm interior light; keep the room cozy and simple so the table, coins, and sack read clearly."
+      "artist_notes": "Warm interior light; close on the empty plate first, then reveal Dinosaur rubbing his tummy."
     },
     {
       "text": "ζητεῖ τὸν ἄρτον, ἀλλ᾽ οὐκ ἔστιν ὁ ἄρτος ἐν τῇ οἰκίᾳ.",
-      "frame_id": "search_bread",
+      "frame_id": "home_no_bread",
       "characters": [
         "Dinosaur"
       ],
       "locations": [
-        "familyhouse_interior"
+        "familyhouse_interior_diningroom"
       ],
       "objects": [
-        "a low round wooden table with a smooth oak surface and sturdy legs at child height",
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "several small round silver coins with Greek letters stamped on both sides"
+        "an empty cream ceramic plate with a subtle rim, round and child-hand-span wide, resting on the wooden dining table."
       ],
       "positioning": [
-        "Dinosaur is still left foreground, now leaning slightly back from the table in three-quarter view, eyes scanning the room and then back to the table, puzzled.",
-        "The low round wooden table remains center midground, unchanged in angle and placement.",
-        "The small brown cloth sack remains on the right edge of the table, drawstring loose.",
-        "The several small round silver coins remain clustered at the center of the table, untouched."
+        "Dinosaur leans closer to the table, three-quarter rear view from left, glancing around the room and then back at the empty plate.",
+        "The plate remains centered on the table, clearly empty, seen in a tighter top-down angle."
       ],
       "motivations": [
-        "Dinosaur has searched for bread inside but found none, so he looks around uncertainly and a bit disappointed."
+        "Finding no bread in the house, Dinosaur grows more determined to get food soon."
       ],
-      "artist_notes": "Hold the composition from the previous frame for continuity; let Dinosaur’s head motion suggest searching.",
-      "reference_frame": "home_intro"
+      "artist_notes": "Keep continuity with previous frame; slightly tighter crop on table and Dinosaur’s searching glance.",
+      "reference_frame": "home_hungry"
     },
     {
-      "text": "δεῖ ἀγοράζειν τὸν ἄρτον· δεῖ ἔρχεσθαι εἰς τὴν ἀγοράν.",
-      "frame_id": "decide_market",
+      "text": "δεῖ ἀγοράζειν τὸν ἄρτον· δεῖ ἔρχεσθαι εἰς τὴν ἀγοράν. ὁ Δεινόσαυρος εὑρίσκει ἐπὶ τῆς κλίνης τὰ νομίσματα.",
+      "frame_id": "bedroom_finds_money",
       "characters": [
         "Dinosaur"
       ],
       "locations": [
-        "familyhouse_interior"
+        "familyhouse_interior_bedroom"
       ],
       "objects": [
-        "a low round wooden table with a smooth oak surface and sturdy legs at child height",
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "several small round silver coins with Greek letters stamped on both sides"
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+        "five bright silver coins, flat and round with simple stamped designs, about the size of large buttons."
       ],
       "positioning": [
-        "Dinosaur shifts closer to the table in three-quarter view facing right, right hand reaching toward the sack while glancing toward the doorway off-frame with a determined look.",
-        "The low round wooden table remains center midground, top visible.",
-        "The small brown cloth sack lies on the right edge of the table, slightly wrinkled, within Dinosaur’s reach.",
-        "The several small round silver coins sit near the table center, just ahead of Dinosaur’s reach."
+        "Dinosaur steps through the bedroom doorway from left, front three-quarter view, eyes fixed on the bed where the coins and sack lie.",
+        "The small woven sack lies open near the foot of the bed, drawstring draped over the green blanket.",
+        "The five bright silver coins are spread in a small cluster beside the open sack atop the blanket."
       ],
       "motivations": [
-        "Realizing there is no bread at home, Dinosaur decides it is necessary to go to the market to buy bread and looks resolute."
+        "Because there is no bread at home, Dinosaur decides he must go to the market and becomes hopeful upon spotting coins."
       ],
-      "artist_notes": "Subtle body language shift from uncertainty to determination; keep warm interior light consistent.",
-      "reference_frame": "search_bread"
+      "artist_notes": "Warm lamplight; emphasize the sparkle of the coins on the green blanket."
     },
     {
-      "text": "εὑρίσκει ἐπὶ τῆς τραπέζης τὰ νομίσματα· λαμβάνει καὶ τίθησιν εἰς τὸν σάκκον.",
-      "frame_id": "take_coins",
+      "text": "λαμβάνει ὁ Δεινόσαυρος τὰ νομίσματα καὶ εἰσφέρει εἰς τὸν σάκκον.",
+      "frame_id": "bedroom_packs_sack",
       "characters": [
         "Dinosaur"
       ],
       "locations": [
-        "familyhouse_interior"
+        "familyhouse_interior_bedroom"
       ],
       "objects": [
-        "a low round wooden table with a smooth oak surface and sturdy legs at child height",
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "several small round silver coins with Greek letters stamped on both sides"
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+        "five bright silver coins, flat and round with simple stamped designs, about the size of large buttons."
       ],
       "positioning": [
-        "Dinosaur stands close at the table, three-quarter view facing right, left hand holding the sack open while right hand scoops the coins, eyes focused on the coins.",
-        "The low round wooden table remains center midground, steady in angle.",
-        "The small brown cloth sack is on the table’s right edge, mouth open toward Dinosaur’s hands.",
-        "The several small round silver coins are mid-motion between the table center and the open sack, a few still on the tabletop."
+        "Dinosaur stands at the bedside, front three-quarter view, holding the open sack in his left hand and reaching for the coins with his right, looking at them.",
+        "The small woven sack is held open at waist height toward the coins, mouth wide and ready to receive them.",
+        "The five bright silver coins hover just above the sack’s mouth as his fingers scoop them in."
       ],
       "motivations": [
-        "Dinosaur needs money to buy bread, so he carefully gathers the coins into the sack to prepare for the trip."
+        "He prepares for the trip, carefully packing money so he can buy bread."
       ],
-      "artist_notes": "Show a couple of coins mid-air to emphasize action; keep continuity of layout.",
-      "reference_frame": "decide_market"
+      "artist_notes": "Keep the sack and coins prominent; show motion of coins dropping toward the sack.",
+      "reference_frame": "bedroom_finds_money"
     },
     {
-      "text": "ἐξέρχεται ἐκ τῆς οἰκίας καὶ φέρει τὸν σάκκον.",
-      "frame_id": "leave_house",
+      "text": "ἐξέρχεται ὁ Δεινόσαυρος ἐκ τῆς οἰκίας καὶ φέρει τὸν σάκκον.",
+      "frame_id": "house_exit",
       "characters": [
         "Dinosaur"
       ],
@@ -116,22 +103,20 @@
         "familyhouse_exterior"
       ],
       "objects": [
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "a winding cobblestone path leading from the door toward town"
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands."
       ],
       "positioning": [
-        "Dinosaur steps from the doorway in rightward three-quarter view, eyes forward along the path, holding the sack at his side.",
-        "The small brown cloth sack hangs from Dinosaur’s right hand near his hip, drawstring gently pulled closed.",
-        "The winding cobblestone path begins at the threshold in the foreground and curves off to the right toward town."
+        "Dinosaur steps out through the cottage door into sunlight, side view facing right toward the path, smiling slightly.",
+        "The small woven sack hangs from his right hand at his side, lightly weighted by coins."
       ],
       "motivations": [
-        "With coins secured, Dinosaur heads out carrying the sack, eager to reach the market for bread."
+        "With coins packed, he leaves home carrying the sack to buy bread."
       ],
-      "artist_notes": "Bright sunlight outside; keep the cozy house visible behind to connect with previous interior."
+      "artist_notes": "Bright sunlight; include garden path leading away from the door."
     },
     {
-      "text": "βαίνει ἐπὶ τῇ ὁδῷ εἰς τὴν ἀγοράν.",
-      "frame_id": "walk_road",
+      "text": "βαίνει ὁ Δεινόσαυρος ἐπὶ τῇ ὁδῷ εἰς τὴν ἀγοράν.",
+      "frame_id": "house_walks",
       "characters": [
         "Dinosaur"
       ],
@@ -139,23 +124,21 @@
         "familyhouse_exterior"
       ],
       "objects": [
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "a winding cobblestone path leading from the door toward town"
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands."
       ],
       "positioning": [
-        "Dinosaur is mid-path in profile walking to the right, eyes focused ahead with a purposeful stride.",
-        "The small brown cloth sack bounces lightly against Dinosaur’s side as he walks, drawstring closed.",
-        "The winding cobblestone path stretches from the left background (house) to the right foreground, guiding the movement."
+        "Dinosaur walks along the cobblestone path mid-frame, three-quarter view moving right, eyes forward toward town.",
+        "The small woven sack swings gently at his right side as he walks."
       ],
       "motivations": [
-        "Dinosaur is on his way to buy bread, so he walks with determination and focus."
+        "He heads purposefully to the market to purchase bread and stop his hunger."
       ],
-      "artist_notes": "Use a gentle follow-shot feel; add small garden details receding to emphasize movement.",
-      "reference_frame": "leave_house"
+      "artist_notes": "Follow shot with gentle parallax on plants and path stones.",
+      "reference_frame": "house_exit"
     },
     {
-      "text": "ἔρχεται πρὸς τὴν ἀγοράν καὶ εἰσέρχεται εἰς τὴν ἀγοράν.",
-      "frame_id": "arrive_agora",
+      "text": "ὁ Δεινόσαυρος ἔρχεται πρὸς τὴν ἀγοράν καὶ εἰσέρχεται εἰς τὴν ἀγοράν.",
+      "frame_id": "agora_arrival",
       "characters": [
         "Dinosaur"
       ],
@@ -163,20 +146,20 @@
         "agora_exterior"
       ],
       "objects": [
-        "a small brown cloth sack with a simple drawstring and soft wrinkles"
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands."
       ],
       "positioning": [
-        "Dinosaur climbs the stoa steps in three-quarter view facing right, eyes up toward the colonnade entrance.",
-        "The small brown cloth sack hangs at Dinosaur’s right side as he steps upward, ready for use."
+        "Dinosaur stands at the bottom of the stoa steps, front three-quarter view, looking up toward the colonnade entrance.",
+        "The small woven sack rests against his right hip, gripped by his hand."
       ],
       "motivations": [
-        "Dinosaur sees the market and moves inside, anticipating buying bread soon."
+        "Arriving at the agora, he feels hopeful to find bread quickly."
       ],
-      "artist_notes": "Show Doric columns and sunny steps; keep the sack clearly visible against Dinosaur’s green body."
+      "artist_notes": "Wide shot to show Doric columns and sunny square."
     },
     {
-      "text": "βαίνει πρὸς τὸν Ἔμπορον. ὁ Ἔμπορος πωλεῖ τὸν ἄρτον καὶ τὰ μῆλα καὶ τὸ ὕδωρ.",
-      "frame_id": "approach_merchant",
+      "text": "βαίνει ὁ Δεινόσαυρος πρὸς τὸν Ἔμπορον. ὁ Ἔμπορος πωλεῖ ἄρτον καὶ μῆλα καὶ ὕδωρ.",
+      "frame_id": "agora_meet_merchant",
       "characters": [
         "Dinosaur",
         "Emporos"
@@ -185,32 +168,30 @@
         "agora_interior"
       ],
       "objects": [
-        "a tidy wooden market table with baskets and a small blue-painted sign",
-        "a round golden-brown loaf of bread with a lightly scored top on a wooden board",
-        "a pile of shiny red apples inside a woven wicker basket",
-        "a clay jug of clear water with a cork stopper and simple painted band",
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "several small round silver coins with Greek letters stamped on both sides"
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+        "a merchant’s stall table of chalk-white wood with neat woven baskets and a blue-painted edge.",
+        "a round rustic loaf of bread with a golden-brown crust and a cross-slashed top, about the size of Dinosaur’s head.",
+        "a basket of red apples, glossy and firm, heaped in a shallow wicker tray.",
+        "a tall clay water jar, terracotta with a simple blue band near the shoulder."
       ],
       "positioning": [
-        "Dinosaur approaches from the left midground in three-quarter view facing right, eyes on the merchant and the goods.",
-        "Emporos stands behind the market table center midground, three-quarter view facing left toward Dinosaur, smiling.",
-        "The tidy wooden market table sits between them, front edge parallel to the frame.",
-        "The round golden-brown loaf of bread rests atop a small wooden board near the table center front.",
-        "The pile of shiny red apples fills a woven basket on the left side of the table.",
-        "The clay jug of clear water stands on the right side of the table near Emporos’ hand.",
-        "The small brown cloth sack hangs at Dinosaur’s right hip, drawstring closed.",
-        "The several small round silver coins are inside the sack, not visible but implied by its weight."
+        "Dinosaur approaches from left, front three-quarter view, looking at the merchant behind the stall, stopping before the table.",
+        "Emporos stands behind the stall, front view leaning slightly forward with a welcoming smile, looking at Dinosaur.",
+        "The small woven sack hangs at Dinosaur’s right side, closed with its drawstring.",
+        "The merchant’s stall table spans mid-right at waist height, baskets neatly arranged on top.",
+        "The round rustic loaf sits in the front basket atop a cloth, clearly visible.",
+        "The basket of red apples rests to one side of the bread, mounded high.",
+        "The tall clay water jar stands near the back corner of the table."
       ],
       "motivations": [
-        "Dinosaur is hungry and wants to buy bread, so he heads straight to the seller’s table with interest.",
-        "Emporos is a cheerful merchant ready to sell bread, apples, and water to the new customer approaching."
+        "Hungry and wanting bread, Dinosaur approaches the friendly merchant expectantly.",
+        "Emporos enjoys helping customers and notices the hungry Dinosaur, ready to sell bread kindly."
       ],
-      "artist_notes": "Soft daylight filters through the stoa; keep table items neatly arranged and readable from child height."
+      "artist_notes": "Soft daylight inside the stoa; keep columns and tidy displays in view."
     },
     {
-      "text": "λαμβάνει ἐκ τοῦ σάκκου τὰ νομίσματα· δίδωσιν τῷ Ἐμπόρῳ καὶ ἀγοράζει τὸν ἄρτον.",
-      "frame_id": "pay_for_bread",
+      "text": "ὁ Δεινόσαυρος ἀνοίγει τὸν σάκκον καὶ λαμβάνει ἐκ τοῦ σάκκου τὰ νομίσματα.",
+      "frame_id": "agora_take_coins",
       "characters": [
         "Dinosaur",
         "Emporos"
@@ -219,33 +200,33 @@
         "agora_interior"
       ],
       "objects": [
-        "a tidy wooden market table with baskets and a small blue-painted sign",
-        "a round golden-brown loaf of bread with a lightly scored top on a wooden board",
-        "a pile of shiny red apples inside a woven wicker basket",
-        "a clay jug of clear water with a cork stopper and simple painted band",
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "several small round silver coins with Greek letters stamped on both sides"
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+        "five bright silver coins, flat and round with simple stamped designs, about the size of large buttons.",
+        "a merchant’s stall table of chalk-white wood with neat woven baskets and a blue-painted edge.",
+        "a round rustic loaf of bread with a golden-brown crust and a cross-slashed top, about the size of Dinosaur’s head.",
+        "a basket of red apples, glossy and firm, heaped in a shallow wicker tray.",
+        "a tall clay water jar, terracotta with a simple blue band near the shoulder."
       ],
       "positioning": [
-        "Dinosaur stands at the table edge in three-quarter view facing right, left hand opening the sack while right hand extends coins toward Emporos.",
-        "Emporos leans slightly forward behind the table, right hand open to accept the coins, eyes kind.",
-        "The tidy wooden market table remains centered, front edge straight.",
-        "The round golden-brown loaf of bread sits within Emporos’ reach on the small board at center front.",
-        "The pile of shiny red apples remains in the woven basket at the left side of the table.",
-        "The clay jug of clear water remains at the right side of the table near Emporos.",
-        "The small brown cloth sack hangs open from Dinosaur’s left hand, mouth tilted upward.",
-        "The several small round silver coins are between Dinosaur’s right hand and Emporos’ open hand, a few already above the table."
+        "Dinosaur stands at the stall’s edge, front three-quarter view, looking down into his sack as he opens it.",
+        "Emporos waits behind the table, gentle smile, eyes on the coins and Dinosaur’s hands.",
+        "The small woven sack is open at chest height in Dinosaur’s hands.",
+        "The five bright silver coins glint in Dinosaur’s right hand just above the sack’s mouth.",
+        "The merchant’s stall table remains in front of Emporos, edge close to Dinosaur.",
+        "The round rustic loaf is still in its basket within easy reach, foreground right.",
+        "The basket of red apples remains piled beside the bread.",
+        "The tall clay water jar stands steady near the table’s back corner."
       ],
       "motivations": [
-        "Dinosaur wants the bread and is paying with the coins he brought, feeling hopeful and focused.",
-        "Emporos is happy to make a fair sale and reaches to take the payment and give the bread."
+        "Ready to buy, Dinosaur takes out coins so he can pay for bread.",
+        "Emporos watches patiently, ready to accept payment and complete the sale."
       ],
-      "artist_notes": "Keep hands and coins clearly visible; maintain consistent table layout and lighting.",
-      "reference_frame": "approach_merchant"
+      "artist_notes": "Slight push-in on hands, but keep both faces readable for emotion.",
+      "reference_frame": "agora_meet_merchant"
     },
     {
-      "text": "ὁ Ἔμπορος δίδωσιν τὸν ἄρτον τῷ Δεινοσαύρῳ. ὁ Δεινόσαυρος ἐσθίει· νῦν οὐ πεινᾷ.",
-      "frame_id": "eat_bread",
+      "text": "δίδωσιν ὁ Δεινόσαυρος τὰ νομίσματα τῷ Ἐμπόρῳ καὶ ἀγοράζει τὸν ἄρτον.",
+      "frame_id": "agora_pay",
       "characters": [
         "Dinosaur",
         "Emporos"
@@ -254,29 +235,95 @@
         "agora_interior"
       ],
       "objects": [
-        "a tidy wooden market table with baskets and a small blue-painted sign",
-        "a round golden-brown loaf of bread with a lightly scored top on a wooden board",
-        "a pile of shiny red apples inside a woven wicker basket",
-        "a clay jug of clear water with a cork stopper and simple painted band",
-        "a small brown cloth sack with a simple drawstring and soft wrinkles",
-        "several small round silver coins with Greek letters stamped on both sides"
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+        "five bright silver coins, flat and round with simple stamped designs, about the size of large buttons.",
+        "a merchant’s stall table of chalk-white wood with neat woven baskets and a blue-painted edge.",
+        "a round rustic loaf of bread with a golden-brown crust and a cross-slashed top, about the size of Dinosaur’s head.",
+        "a basket of red apples, glossy and firm, heaped in a shallow wicker tray.",
+        "a tall clay water jar, terracotta with a simple blue band near the shoulder."
       ],
       "positioning": [
-        "Dinosaur stands at the table in three-quarter view facing right, holding the loaf with both hands and taking a happy bite, eyes bright.",
-        "Emporos stands behind the table, hand just released after giving the loaf, smiling warmly at Dinosaur.",
-        "The tidy wooden market table remains centered, front edge straight.",
-        "The round golden-brown loaf of bread is now in Dinosaur’s hands with a small bite missing.",
-        "The pile of shiny red apples remains in the woven basket on the left side of the table.",
-        "The clay jug of clear water remains on the right side of the table, undisturbed.",
-        "The small brown cloth sack hangs closed at Dinosaur’s side again.",
-        "The several small round silver coins now lie in a small stack on the table near Emporos’ side."
+        "Dinosaur extends his right hand forward over the stall, three-quarter view, looking at Emporos while offering the coins.",
+        "Emporos reaches out with open palm to receive the coins, front view, watching the payment.",
+        "The small woven sack dangles closed from Dinosaur’s left hand at his side.",
+        "The five bright silver coins rest across Dinosaur’s outstretched fingers mid-transfer over the table.",
+        "The merchant’s stall table stays between them, edge aligned with their hands.",
+        "The round rustic loaf remains within reach at the table’s front.",
+        "The basket of red apples sits to the side, slightly behind the loaf.",
+        "The tall clay water jar stands near the back corner of the table."
       ],
       "motivations": [
-        "Dinosaur has finally received bread and eats happily, relieved that he is no longer hungry.",
-        "Emporos is pleased with the successful sale and satisfied to see the customer content."
+        "Dinosaur is eager to pay and obtain the bread to satisfy his hunger.",
+        "Emporos gladly accepts fair payment and prepares to hand over the loaf."
       ],
-      "artist_notes": "Show a clear bite mark in the loaf; keep expressions joyful and satisfied; maintain the same stall arrangement.",
-      "reference_frame": "pay_for_bread"
+      "artist_notes": "Hands and coins centered over the table; keep eye-lines clear.",
+      "reference_frame": "agora_take_coins"
+    },
+    {
+      "text": "δίδωσιν ὁ Ἔμπορος τὸν ἄρτον τῷ Δεινοσαύρῳ.",
+      "frame_id": "agora_receive_bread",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+        "a merchant’s stall table of chalk-white wood with neat woven baskets and a blue-painted edge.",
+        "a round rustic loaf of bread with a golden-brown crust and a cross-slashed top, about the size of Dinosaur’s head.",
+        "a basket of red apples, glossy and firm, heaped in a shallow wicker tray.",
+        "a tall clay water jar, terracotta with a simple blue band near the shoulder."
+      ],
+      "positioning": [
+        "Dinosaur holds out both hands to receive the loaf, front three-quarter view, smiling and looking at the bread.",
+        "Emporos leans slightly forward, front view, placing the loaf into Dinosaur’s hands.",
+        "The small woven sack hangs at Dinosaur’s left side, closed.",
+        "The merchant’s stall table anchors the foreground between them.",
+        "The round rustic loaf is mid-handover between Emporos and Dinosaur at center.",
+        "The basket of red apples remains mounded beside the handover space.",
+        "The tall clay water jar stands steady at the back corner."
+      ],
+      "motivations": [
+        "Relieved to receive bread, Dinosaur anticipates eating soon.",
+        "Satisfied with the sale, Emporos kindly hands over the loaf."
+      ],
+      "artist_notes": "Capture the exchange clearly with warm smiles and gentle hands.",
+      "reference_frame": "agora_pay"
+    },
+    {
+      "text": "ἐσθίει ὁ Δεινόσαυρος τὸν ἄρτον· νῦν οὐ πεινᾷ.",
+      "frame_id": "agora_eat",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+        "a merchant’s stall table of chalk-white wood with neat woven baskets and a blue-painted edge.",
+        "a round rustic loaf of bread with a golden-brown crust and a cross-slashed top, about the size of Dinosaur’s head.",
+        "a basket of red apples, glossy and firm, heaped in a shallow wicker tray.",
+        "a tall clay water jar, terracotta with a simple blue band near the shoulder."
+      ],
+      "positioning": [
+        "Dinosaur stands just to the side of the stall, three-quarter view, holding the loaf with both hands and taking a big bite, eyes happy.",
+        "Emporos remains behind the stall, front view, watching with a pleased smile.",
+        "The small woven sack rests at Dinosaur’s left side, undisturbed.",
+        "The merchant’s stall table remains in place with baskets tidy.",
+        "The round rustic loaf is in Dinosaur’s hands with a fresh bite missing at the edge.",
+        "The basket of red apples sits prominently near the front corner of the table.",
+        "The tall clay water jar stands near the back, catching a soft highlight."
+      ],
+      "motivations": [
+        "Having bought bread, Dinosaur eats and is no longer hungry, feeling happy and satisfied.",
+        "Emporos is content seeing the customer enjoy fresh bread at his stall."
+      ],
+      "artist_notes": "Add a few breadcrumbs in the air and a big satisfied smile.",
+      "reference_frame": "agora_receive_bread"
     }
   ]
 }
