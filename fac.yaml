@@ -154,7 +154,8 @@
 
 "books/$LEVEL/$BOOK/content.json":
   description:
-    The story should be simple but have a clear beginning, middle, and end.
+    Convert the provided fountain script into provided JSON schema.
+    It is okay to use frames without any text to create animated sequences that do not have dialogue/narration.
   schema_file: schemas/content.json-schema
   dependencies:
     common/about.md
