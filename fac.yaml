@@ -137,20 +137,23 @@
 "books/$LEVEL/$BOOK/script.fountain":
   description:
     Generate a script file (in fountain format) for an animated short based on the file "books/$LEVEL/$BOOK/description.md".
-    Provide lots of information about scene visual descriptions and movement details, ensuring that the final script is reasonable to animate.
-    Use only characters that have a corresponding "characters/*/about.json" file.
-    All scenes in the script must take place at one of the locations specified in the "locations/*/about.json" file.
+    Use only characters that have a corresponding "characters/*/about.json" file. Do not describe the characters in detail, only reference the appropriate character.
+    All scenes in the script must take place at one of the locations specified in the "locations/*/about.json" file. Do not describe the location in detail, only reference the appropriate scene.
+    You may mention objects that are needed for the story line, but do not be excessive in your details and only mention those objects that are strictly needed.
     You should explicitly annotate
     - when one scene ends and another begins,
     - any cuts/camera movements
     Levels A and B do not support dialogue, and so only the narrator will be talking.
   dependencies:
-    common/about.md
-    common/writing.md
-    books/$LEVEL/themes.md
-    books/$LEVEL/$BOOK/description.md
-    characters/$CHARACTER/about.json
-    locations/$LOCATION/about.json
+    - common/about.md
+    - common/writing.md
+    - books/$PREVIOUS_LEVEL/themes.md
+    - books/$LEVEL/$BOOK/description.md
+    - characters/$CHARACTER/about.json
+    - locations/$LOCATION/about.json
+  variables:
+    PREVIOUS_LEVEL: |
+      ls books/level* | grep -E "level[A-$(echo $LEVEL | sed 's/level//')]*$" | sort
 
 "books/$LEVEL/$BOOK/content.json":
   description:
