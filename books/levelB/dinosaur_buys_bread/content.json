@@ -1,0 +1,115 @@
+{
+  "title": "ὁ Διναύσαρος ἀγοράζει ἄρτον",
+  "learning_goal": "Practice infinitive verbs with βούλομαι, δεῖ, and πεινάω, plus trade verbs πωλέω and ἀγοράζω.",
+  "plot": "Dinosaur gets hungry at home, realizes he needs to buy bread, travels to the agora, purchases bread from Emporos with coins, and satisfies his hunger.",
+  "frames": [
+    {
+      "text": "ὁ Διναύσαρος ἐστὶν ἐν τῇ οἰκίᾳ.",
+      "frame_id": "dinosaur_at_home",
+      "characters": ["Dinosaur"],
+      "locations": ["house_interior"],
+      "objects": [],
+      "positioning": ["Dinosaur stands in the center of the room looking around calmly"],
+      "motivations": ["Dinosaur is content and relaxed because he is safely at home"]
+    },
+    {
+      "text": "ὁ Διναύσαρος πεινᾷ. βούλεται φαγεῖν ἄρτον.",
+      "frame_id": "dinosaur_hungry",
+      "characters": ["Dinosaur"],
+      "locations": ["house_interior"],
+      "objects": [],
+      "positioning": ["Dinosaur holds his belly with both hands and has a longing expression on his face"],
+      "motivations": ["Dinosaur is hungry and uncomfortable because he hasn't eaten and really wants some bread"]
+    },
+    {
+      "text": "ὁ Διναύσαρος ζητεῖ ἄρτον, ἀλλὰ οὐκ εὑρίσκει ἄρτον.",
+      "frame_id": "searching_for_bread",
+      "characters": ["Dinosaur"],
+      "locations": ["house_interior"],
+      "objects": ["an empty wooden bread basket on the table"],
+      "positioning": ["Dinosaur looks into the empty wooden bread basket with a disappointed expression"],
+      "motivations": ["Dinosaur is frustrated and disappointed because he searched for bread but found none in the house"]
+    },
+    {
+      "text": "δεῖ τὸν Διναύσαρον ἀγοράζειν ἄρτον. δεῖ ἔρχεσθαι εἰς τὴν ἀγοράν.",
+      "frame_id": "must_buy_bread",
+      "characters": ["Dinosaur"],
+      "locations": ["house_interior"],
+      "objects": ["an empty wooden bread basket on the table"],
+      "positioning": ["Dinosaur points toward the door with determination while looking at the empty basket"],
+      "motivations": ["Dinosaur is determined and purposeful because he realizes he must go to the market to buy bread"]
+    },
+    {
+      "text": "ὁ Διναύσαρος ἐξέρχεται ἐκ τῆς οἰκίας.",
+      "frame_id": "leaving_house",
+      "characters": ["Dinosaur"],
+      "locations": ["house_interior"],
+      "objects": ["several silver coins in his hand"],
+      "positioning": ["Dinosaur walks through the doorway holding several silver coins in his hand"],
+      "motivations": ["Dinosaur is focused and ready because he has his coins and is heading out to buy bread"]
+    },
+    {
+      "text": "ὁ Διναύσαρος βαδίζει πρὸς τὴν ἀγοράν.",
+      "frame_id": "walking_to_agora",
+      "characters": ["Dinosaur"],
+      "locations": ["house_exterior", "agora_exterior"],
+      "objects": ["several silver coins in his hand"],
+      "positioning": ["Dinosaur walks along the path between his house and the agora, still holding his coins"],
+      "motivations": ["Dinosaur is hopeful and eager because he is on his way to buy the bread he needs"]
+    },
+    {
+      "text": "ὁ Διναύσαρος εἰσέρχεται εἰς τὴν ἀγοράν.",
+      "frame_id": "entering_agora",
+      "characters": ["Dinosaur"],
+      "locations": ["agora_interior"],
+      "objects": ["several silver coins in his hand"],
+      "positioning": ["Dinosaur steps through the agora entrance looking around at the market stalls"],
+      "motivations": ["Dinosaur is excited and alert because he has arrived at the market where he can buy bread"]
+    },
+    {
+      "text": "ὁ Διναύσαρος ἔρχεται πρὸς τὸν Ἔμπορον.",
+      "frame_id": "approaching_emporos",
+      "characters": ["Dinosaur", "Emporos"],
+      "locations": ["agora_interior"],
+      "objects": ["several silver coins in his hand"],
+      "positioning": ["Dinosaur walks toward Emporos who stands behind his stall", "Emporos looks up at the approaching customer with a welcoming expression"],
+      "motivations": ["Dinosaur is focused and purposeful because he has found the merchant who can sell him bread", "Emporos is welcoming and attentive because a customer approaches his stall"]
+    },
+    {
+      "text": "ὁ Ἔμπορος ἔχει ἄρτον καὶ μῆλα καὶ ὕδωρ.",
+      "frame_id": "emporos_has_goods",
+      "characters": ["Dinosaur", "Emporos"],
+      "locations": ["agora_interior"],
+      "objects": ["several silver coins in his hand", "three round loaves of bread on the stall", "red apples arranged in a basket", "clay water jars on the counter"],
+      "positioning": ["Emporos gestures proudly at his goods displayed on the stall", "Dinosaur looks eagerly at the bread with hungry eyes", "Three round loaves of bread sit prominently on the stall", "Red apples are arranged in a basket", "Clay water jars stand on the counter"],
+      "motivations": ["Emporos is proud and hopeful because he has good wares to sell to the hungry customer", "Dinosaur is excited and relieved because he sees the bread he desperately wants"]
+    },
+    {
+      "text": "ὁ Διναύσαρος δίδωσι νομίσματα τῷ Ἐμπόρῳ.",
+      "frame_id": "dinosaur_pays_coins",
+      "characters": ["Dinosaur", "Emporos"],
+      "locations": ["agora_interior"],
+      "objects": ["several silver coins being exchanged", "three round loaves of bread on the stall", "red apples arranged in a basket", "clay water jars on the counter"],
+      "positioning": ["Dinosaur extends his hand giving coins to Emporos", "Emporos reaches out to receive the silver coins with a satisfied smile", "Several silver coins are being passed between them"],
+      "motivations": ["Dinosaur is eager and determined because he is paying for the bread he needs", "Emporos is pleased and businesslike because he is making a good sale"]
+    },
+    {
+      "text": "ὁ Ἔμπορος δίδωσι ἄρτον τῷ Διναυσάρῳ.",
+      "frame_id": "emporos_gives_bread",
+      "characters": ["Dinosaur", "Emporos"],
+      "locations": ["agora_interior"],
+      "objects": ["one round loaf of bread being given", "red apples arranged in a basket", "clay water jars on the counter"],
+      "positioning": ["Emporos hands a loaf of bread to Dinosaur with a generous expression", "Dinosaur receives the bread eagerly with both hands"],
+      "motivations": ["Emporos is satisfied and generous because he has completed a fair trade", "Dinosaur is grateful and excited because he finally has the bread he wanted"]
+    },
+    {
+      "text": "ὁ Διναύσαρος ἐσθίει τὸν ἄρτον. οὐκέτι πεινᾷ.",
+      "frame_id": "dinosaur_eats_satisfied",
+      "characters": ["Dinosaur", "Emporos"],
+      "locations": ["agora_interior"],
+      "objects": ["one round loaf of bread being eaten", "red apples arranged in a basket", "clay water jars on the counter"],
+      "positioning": ["Dinosaur takes a big bite of the bread with a contented smile", "Emporos watches approvingly from behind his stall"],
+      "motivations": ["Dinosaur is happy and satisfied because he is no longer hungry after eating the bread", "Emporos is pleased and proud because his customer is satisfied with the purchase"]
+    }
+  ]
+}
