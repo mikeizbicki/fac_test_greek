@@ -1,0 +1,17 @@
+{
+  "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος βάλλουσι τὴν ἐρυθρὰν σφαῖραν παρὰ τὴν ἀγοράν.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "agora_exterior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda stands on the left throwing the ball with both hands toward Dinosaur",
+    "Dinosaur stands on the right with arms outstretched ready to catch the ball",
+    "The bright red leather ball about the size of a grapefruit flies through the air between them"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

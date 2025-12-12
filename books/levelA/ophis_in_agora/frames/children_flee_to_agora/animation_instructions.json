@@ -1,0 +1,19 @@
+{
+  "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος φοβοῦνται καὶ φεύγουσιν εἰς τὴν ἀγοράν.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit"
+  ],
+  "locations": [
+    "agora_exterior",
+    "agora_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Panda runs toward the agora entrance with a frightened expression",
+    "Dinosaur follows close behind, also looking scared",
+    "Ophis watches them from behind with his head raised curiously",
+    "The bright red leather ball about the size of a grapefruit lies abandoned on the ground"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

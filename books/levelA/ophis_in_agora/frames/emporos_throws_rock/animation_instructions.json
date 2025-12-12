@@ -1,0 +1,20 @@
+{
+  "text": "ὁ Ἔμπορος ὁρᾷ τὸν ὄφιν καὶ βάλλει λίθον κατὰ τὸν ὄφιν.",
+  "objects": [
+    "a smooth round gray stone about the size of an apple"
+  ],
+  "locations": [
+    "agora_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Emporos hurls the stone with one arm extended toward Ophis, his face showing determination",
+    "Ophis recoils as the stone flies toward him, his eyes wide with alarm",
+    "Panda and Dinosaur peek out from behind Emporos with hopeful expressions",
+    "The smooth round gray stone about the size of an apple hurtles through the air toward Ophis"
+  ],
+  "characters_that_enter": [
+    "Ophis"
+  ],
+  "characters_that_exit": []
+}

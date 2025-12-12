@@ -1,0 +1,23 @@
+{
+  "text": "ἡ Ἐμπορὶς ἔρχεται καὶ δίδωσι ἄρτον τῷ Πάνδᾳ καὶ τῷ Διναυσάρῳ.",
+  "objects": [
+    "two small round loaves of bread with golden crusts"
+  ],
+  "locations": [
+    "agora_interior"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Emporis approaches from the left carrying bread in her hands",
+    "Panda reaches out to accept one loaf with both hands",
+    "Dinosaur extends his arms to receive the other loaf",
+    "Emporos watches approvingly from behind",
+    "Two small round loaves of bread with golden crusts are being offered to the children"
+  ],
+  "characters_that_enter": [
+    "Emporis"
+  ],
+  "characters_that_exit": [
+    "Ophis"
+  ]
+}

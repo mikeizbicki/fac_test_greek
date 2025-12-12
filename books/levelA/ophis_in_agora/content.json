@@ -1,0 +1,171 @@
+{
+  "title": "ὄφις καὶ ὁ λίθος",
+  "learning_goal": "Practice movement verbs ἔρχομαι, φεύγω, εἰσέρχομαι, ἐξέρχομαι with emotional verbs φοβέομαι, χαίρω, and the preposition κατά with accusative for throwing.",
+  "plot": "Panda and Dinosaur play ball outside the agora until Ophis appears and scares them into hiding behind Emporos, who throws a rock at the snake, making him flee before Emporis gives them bread.",
+  "frames": [
+    {
+      "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος βάλλουσι τὴν ἐρυθρὰν σφαῖραν παρὰ τὴν ἀγοράν.",
+      "frame_id": "playing_outside_agora",
+      "characters": ["Panda", "Dinosaur"],
+      "locations": ["agora_exterior"],
+      "objects": ["a bright red leather ball about the size of a grapefruit"],
+      "positioning": [
+        "Panda stands on the left throwing the ball with both hands toward Dinosaur",
+        "Dinosaur stands on the right with arms outstretched ready to catch the ball",
+        "The bright red leather ball about the size of a grapefruit flies through the air between them"
+      ],
+      "motivations": [
+        "Panda is happy and playful because he enjoys tossing the ball with his friend outside the market",
+        "Dinosaur is excited and focused because he wants to catch the red ball that Panda throws"
+      ]
+    },
+    {
+      "text": "ἰδού! ὁ ὄφις ἔρχεται.",
+      "frame_id": "ophis_appears",
+      "characters": ["Panda", "Dinosaur", "Ophis"],
+      "locations": ["agora_exterior"],
+      "objects": ["a bright red leather ball about the size of a grapefruit"],
+      "positioning": [
+        "Ophis slithers into view from the bottom right corner, his golden eyes gleaming",
+        "Panda and Dinosaur both turn toward the snake with startled expressions",
+        "The bright red leather ball about the size of a grapefruit drops to the ground forgotten"
+      ],
+      "motivations": [
+        "Panda is suddenly startled and worried because the snake appears unexpectedly while they play",
+        "Dinosaur is surprised and cautious because Ophis slithers into their game",
+        "Ophis is curious and sly because he notices the children playing and wants to investigate"
+      ],
+      "reference_frame": "playing_outside_agora"
+    },
+    {
+      "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος φοβοῦνται καὶ φεύγουσιν εἰς τὴν ἀγοράν.",
+      "frame_id": "children_flee_to_agora",
+      "characters": ["Panda", "Dinosaur", "Ophis"],
+      "locations": ["agora_exterior", "agora_interior"],
+      "objects": ["a bright red leather ball about the size of a grapefruit"],
+      "positioning": [
+        "Panda runs toward the agora entrance with a frightened expression",
+        "Dinosaur follows close behind, also looking scared",
+        "Ophis watches them from behind with his head raised curiously",
+        "The bright red leather ball about the size of a grapefruit lies abandoned on the ground"
+      ],
+      "motivations": [
+        "Panda is frightened and fleeing because the snake scares him and he wants safety in the market",
+        "Dinosaur is afraid and following Panda because he also fears the snake",
+        "Ophis is intrigued and patient because he watches the children run away"
+      ],
+      "reference_frame": "ophis_appears"
+    },
+    {
+      "text": "ὁ ὄφις εἰσέρχεται εἰς τὴν ἀγοράν.",
+      "frame_id": "ophis_enters_agora",
+      "characters": ["Ophis"],
+      "locations": ["agora_interior"],
+      "objects": [],
+      "positioning": [
+        "Ophis slithers through the agora entrance with his bronze scales gleaming in the market light"
+      ],
+      "motivations": [
+        "Ophis is curious and persistent because he wants to follow the children into the market"
+      ]
+    },
+    {
+      "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος κρύπτονται ὑπὸ τὸν Ἔμπορον.",
+      "frame_id": "hiding_behind_emporos",
+      "characters": ["Panda", "Dinosaur", "Emporos"],
+      "locations": ["agora_interior"],
+      "objects": [],
+      "positioning": [
+        "Panda crouches behind Emporos on the left, peeking out nervously",
+        "Dinosaur hides behind Emporos on the right, also looking worried",
+        "Emporos stands at his stall in the center, initially unaware of the children hiding behind him"
+      ],
+      "motivations": [
+        "Panda is scared and hiding because he wants Emporos to protect him from the snake",
+        "Dinosaur is frightened and seeking shelter because he also wants safety behind the merchant",
+        "Emporos is busy and unaware because he tends his stall before noticing the children or snake"
+      ]
+    },
+    {
+      "text": "ὁ Ἔμπορος ὁρᾷ τὸν ὄφιν καὶ βάλλει λίθον κατὰ τὸν ὄφιν.",
+      "frame_id": "emporos_throws_rock",
+      "characters": ["Panda", "Dinosaur", "Emporos", "Ophis"],
+      "locations": ["agora_interior"],
+      "objects": ["a smooth round gray stone about the size of an apple"],
+      "positioning": [
+        "Emporos hurls the stone with one arm extended toward Ophis, his face showing determination",
+        "Ophis recoils as the stone flies toward him, his eyes wide with alarm",
+        "Panda and Dinosaur peek out from behind Emporos with hopeful expressions",
+        "The smooth round gray stone about the size of an apple hurtles through the air toward Ophis"
+      ],
+      "motivations": [
+        "Emporos is protective and decisive because he sees the snake threatening the children and acts to defend them",
+        "Ophis is surprised and alarmed because the rock flies at him unexpectedly",
+        "Panda is hopeful and relieved because Emporos helps drive away the snake",
+        "Dinosaur is grateful and encouraged because the merchant protects them"
+      ],
+      "reference_frame": "hiding_behind_emporos"
+    },
+    {
+      "text": "ὁ ὄφις φοβεῖται καὶ ἐξέρχεται ἐκ τῆς ἀγορᾶς.",
+      "frame_id": "ophis_flees_agora",
+      "characters": ["Panda", "Dinosaur", "Emporos", "Ophis"],
+      "locations": ["agora_interior"],
+      "objects": ["a smooth round gray stone about the size of an apple"],
+      "positioning": [
+        "Ophis slithers away quickly with a flattened, defeated posture",
+        "Emporos stands victorious with his hands on his hips",
+        "Panda and Dinosaur emerge from hiding with relieved smiles",
+        "The smooth round gray stone about the size of an apple lies on the ground near where Ophis was"
+      ],
+      "motivations": [
+        "Ophis is frightened and defeated because the rock scared him away from the children",
+        "Emporos is satisfied and proud because he successfully protected the children",
+        "Panda is relieved and grateful because the scary snake is gone",
+        "Dinosaur is happy and safe because Emporos chased away the threat"
+      ],
+      "reference_frame": "emporos_throws_rock"
+    },
+    {
+      "text": "ἡ Ἐμπορὶς ἔρχεται καὶ δίδωσι ἄρτον τῷ Πάνδᾳ καὶ τῷ Διναυσάρῳ.",
+      "frame_id": "emporis_gives_bread",
+      "characters": ["Panda", "Dinosaur", "Emporos", "Emporis"],
+      "locations": ["agora_interior"],
+      "objects": ["two small round loaves of bread with golden crusts"],
+      "positioning": [
+        "Emporis approaches from the left carrying bread in her hands",
+        "Panda reaches out to accept one loaf with both hands",
+        "Dinosaur extends his arms to receive the other loaf",
+        "Emporos watches approvingly from behind",
+        "Two small round loaves of bread with golden crusts are being offered to the children"
+      ],
+      "motivations": [
+        "Emporis is kind and generous because she wants to comfort the children after their scare",
+        "Panda is grateful and hungry because Emporis offers him bread after the frightening encounter",
+        "Dinosaur is thankful and eager because he receives bread from the kind merchant",
+        "Emporos is pleased and approving because his fellow merchant shows kindness to the children"
+      ],
+      "reference_frame": "ophis_flees_agora"
+    },
+    {
+      "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος χαίρουσι καὶ ἐσθίουσι τὸν ἄρτον.",
+      "frame_id": "children_happy_eating",
+      "characters": ["Panda", "Dinosaur", "Emporos", "Emporis"],
+      "locations": ["agora_interior"],
+      "objects": ["two small round loaves of bread with golden crusts"],
+      "positioning": [
+        "Panda sits cross-legged taking a bite of bread with a big smile",
+        "Dinosaur sits beside him also eating bread happily",
+        "Emporos and Emporis stand nearby watching the children with satisfied expressions",
+        "Two small round loaves of bread with golden crusts are being enjoyed by the children"
+      ],
+      "motivations": [
+        "Panda is joyful and content because he has delicious bread and feels safe with the kind merchants",
+        "Dinosaur is happy and satisfied because he enjoys the bread and the scary snake is gone",
+        "Emporos is pleased and protective because the children are safe and happy",
+        "Emporis is content and maternal because she successfully comforted the frightened children"
+      ],
+      "reference_frame": "emporis_gives_bread"
+    }
+  ]
+}
