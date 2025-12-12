@@ -47,7 +47,7 @@
           },
           "objects": {
             "type": "array",
-            "description": "Any important objects/landmarks/figures/etc that are not described in the location/characters files must be inserted in this array.  Example objects include: ball, tree, fence, couch, table, statue.",
+            "description": "Any important objects/landmarks/figures/etc that are not described in the location/characters files must be inserted in this array.  Example objects include: ball, tree, fence, couch, table, statue. If the objects will be used in a future frame at the same location, they must be present in the current frame even if they are not used in the current frame.",
             "items": {
               "type": "string",
               "description": "A one sentence description of what the object looks like.  The description should include color/shape/texture/size and other information as appropriate for the object. If the object appears in multiple frames, the frames must have the exact same description of the object."

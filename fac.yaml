@@ -180,7 +180,8 @@
     )
     - You should adjust the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
   options:
-    model: fal-ai/nano-banana/edit
+    #model: fal-ai/nano-banana/edit
+    model: fal-ai/nano-banana-pro/edit
     aspect_ratio: '16:9'
   dependencies:
     - common/art.md

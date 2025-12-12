@@ -8,9 +8,18 @@
       "frame_id": "hyperbrephos_plays_alone",
       "characters": ["Hyperbrephos"],
       "locations": ["familyhouse_exterior_tree"],
-      "objects": [],
+      "objects": [
+        "a bright red leather ball about the size of a grapefruit",
+        "a white leather ball about the size of a grapefruit", 
+        "a small gray stone that fits in one hand",
+        "a large gray boulder twice the size of Hyperbrephos"
+      ],
       "positioning": [
-        "Hyperbrephos sits on the grass near the large tree, playing happily"
+        "Hyperbrephos sits near the tree surrounded by his toys",
+        "The bright red leather ball rests near Hyperbrephos's right side",
+        "The white leather ball sits near Hyperbrephos's left side", 
+        "The small gray stone lies within arm's reach of Hyperbrephos",
+        "The large gray boulder sits several feet away from the tree"
       ],
       "motivations": [
         "Hyperbrephos is content and playful because he enjoys the peaceful time under the familiar shade tree"
