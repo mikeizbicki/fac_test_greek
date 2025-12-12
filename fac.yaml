@@ -163,8 +163,8 @@
 
 "books/$LEVEL/$BOOK/content.json":
   description:
-    Convert the provided fountain script into provided JSON schema.
-    It is okay to use frames without any text to create animated sequences that do not have dialogue/narration.
+    Convert the fountain script into the JSON schema.
+    It is okay to use frames without any text to create animated sequences that do not have dialogue/narration, but these should be used sparingly.
   schema_file: schemas/content.json-schema
   dependencies:
     common/about.md
@@ -491,7 +491,7 @@
     You should describe the end position of the characters and any items.
     You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
     Your instructions must explicitly state that all listed characters must stay in the shot (at least from the knees up) and they must not occlude one another.
-    You must also explicitly state that objects should not move near each other unless absolutely necessary for the action to take place.
+    For each object, you must explicitly state that it does not move or explicitly describe what the movement is.
   dependencies:
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
