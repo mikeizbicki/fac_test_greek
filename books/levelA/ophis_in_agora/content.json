@@ -110,22 +110,16 @@
     {
       "text": "ὁ ὄφις φοβεῖται καὶ ἐξέρχεται ἐκ τῆς ἀγορᾶς.",
       "frame_id": "ophis_flees_agora",
-      "characters": ["Panda", "Dinosaur", "Emporos", "Ophis"],
+      "characters": ["Ophis"],
       "locations": ["agora_interior"],
       "objects": ["a smooth round gray stone about the size of an apple"],
       "positioning": [
-        "Ophis slithers away quickly with a flattened, defeated posture; he is half-way off the screen by the scene's end.",
-        "Emporos stands victorious with his hands on his hips",
-        "Panda and Dinosaur emerge from hiding with relieved smiles",
+        "Ophis slithers away quickly with a flattened, defeated posture.",
         "The smooth round gray stone about the size of an apple lies on the ground near where Ophis was"
       ],
       "motivations": [
-        "Ophis is frightened and defeated because the rock scared him away from the children",
-        "Emporos is satisfied and proud because he successfully protected the children",
-        "Panda is relieved and grateful because the scary snake is gone",
-        "Dinosaur is happy and safe because Emporos chased away the threat"
-      ],
-      "reference_frame": "emporos_throws_rock"
+        "Ophis is frightened and defeated because the rock scared him away from the children"
+      ]
     },
     {
       "text": "ἡ Ἐμπορὶς ἔρχεται καὶ δίδωσι ἄρτον τῷ Πάνδᾳ καὶ τῷ Διναυσάρῳ.",
@@ -145,8 +139,7 @@
         "Panda is grateful and hungry because Emporis offers him bread after the frightening encounter",
         "Dinosaur is thankful and eager because he receives bread from the kind merchant",
         "Emporos is pleased and approving because his fellow merchant shows kindness to the children"
-      ],
-      "reference_frame": "ophis_flees_agora"
+      ]
     },
     {
       "text": "ὁ Πάνδα καὶ ὁ Διναύσαρος χαίρουσι καὶ ἐσθίουσι τὸν ἄρτον.",

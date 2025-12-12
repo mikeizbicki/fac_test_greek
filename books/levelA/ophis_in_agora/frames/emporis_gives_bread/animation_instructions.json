@@ -14,10 +14,6 @@
     "Emporos watches approvingly from behind",
     "Two small round loaves of bread with golden crusts are being offered to the children"
   ],
-  "characters_that_enter": [
-    "Emporis"
-  ],
-  "characters_that_exit": [
-    "Ophis"
-  ]
+  "characters_that_enter": [],
+  "characters_that_exit": []
 }
