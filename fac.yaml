@@ -144,6 +144,7 @@
     - when one scene ends and another begins,
     - any cuts/camera movements
     Levels A and B do not support dialogue, and so only the narrator will be talking.
+    Only narration and dialogue should be in koine greek; all set directions/fountain commands should be in English.
   dependencies:
     - common/about.md
     - common/writing.md
