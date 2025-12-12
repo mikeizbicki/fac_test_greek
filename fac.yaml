@@ -483,14 +483,14 @@
   description:
     You are animating a short 4 second scene described by the file "books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json".
     The start/stop frames of the scene have already been drawn and is provided in the attached images.
-    You must provide a 3-7 sentence description of how to animate the provided input image.
+    You must provide a 3-5 sentence description of how to animate the provided input image.
     Use simple language that is easy to follow, and always describe the events in chronological order.
     The description should explicitly describe what each character is doing (e.g. running, sitting, writing) and their emotions (e.g. angry, happy, sad).
     If a character enters/exits the scene, you should explicitly state how they do that (e.g. exists stage left, enters through the door, camera pans to show the character). Whenever possible prefer "natural" exits/entrances through something in the location (e.g. enter through a doors, or from behind a house/bush, or even through a window if humor is called for); revealing the characer through camera movement is also good; it is acceptable to exit stage left/right if there are no natural entrances/exits.
     All descriptions must perfectly match the images.
-    You should describe the end position of the characters and any items. For each item, explicitly state whether it moves or doesn't move.
     You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
     Your instructions must explicitly state that all listed characters must stay in the shot (at least from the knees up) and they must not occlude one another.
+    You must also explicitly state that no objects should move unless absolutely necessary.
   dependencies:
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
@@ -563,7 +563,7 @@
 
     # print options
     echo "
-    model: fal-ai/kling-video/v2.5-turbo/pro/image-to-video
+    model: fal-ai/kling-video/v2.5-turbo/standard/image-to-video
     first_frame: $START_IMAGE
     duration: $DURATION
     "
