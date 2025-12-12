@@ -1,0 +1,25 @@
+{
+  "text": "βαίνει ὁ Δεινόσαυρος πρὸς τὸν Ἔμπορον. ὁ Ἔμπορος πωλεῖ ἄρτον καὶ μῆλα καὶ ὕδωρ.",
+  "objects": [
+    "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+    "a merchant’s stall table of chalk-white wood with neat woven baskets and a blue-painted edge.",
+    "a round rustic loaf of bread with a golden-brown crust and a cross-slashed top, about the size of Dinosaur’s head.",
+    "a basket of red apples, glossy and firm, heaped in a shallow wicker tray.",
+    "a tall clay water jar, terracotta with a simple blue band near the shoulder."
+  ],
+  "locations": [
+    "agora_interior"
+  ],
+  "artist_notes": "Soft daylight inside the stoa; keep columns and tidy displays in view.",
+  "positioning": [
+    "Dinosaur approaches from left, front three-quarter view, looking at the merchant behind the stall, stopping before the table.",
+    "Emporos stands behind the stall, front view leaning slightly forward with a welcoming smile, looking at Dinosaur.",
+    "The small woven sack hangs at Dinosaur’s right side, closed with its drawstring.",
+    "The merchant’s stall table spans mid-right at waist height, baskets neatly arranged on top.",
+    "The round rustic loaf sits in the front basket atop a cloth, clearly visible.",
+    "The basket of red apples rests to one side of the bread, mounded high.",
+    "The tall clay water jar stands near the back corner of the table."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

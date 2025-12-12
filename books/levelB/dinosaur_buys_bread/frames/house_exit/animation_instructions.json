@@ -1,0 +1,16 @@
+{
+  "text": "ἐξέρχεται ὁ Δεινόσαυρος ἐκ τῆς οἰκίας καὶ φέρει τὸν σάκκον.",
+  "objects": [
+    "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands."
+  ],
+  "locations": [
+    "familyhouse_exterior"
+  ],
+  "artist_notes": "Bright sunlight; include garden path leading away from the door.",
+  "positioning": [
+    "Dinosaur steps out through the cottage door into sunlight, side view facing right toward the path, smiling slightly.",
+    "The small woven sack hangs from his right hand at his side, lightly weighted by coins."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

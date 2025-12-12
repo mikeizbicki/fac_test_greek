@@ -1,0 +1,18 @@
+{
+  "text": "λαμβάνει ὁ Δεινόσαυρος τὰ νομίσματα καὶ εἰσφέρει εἰς τὸν σάκκον.",
+  "objects": [
+    "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+    "five bright silver coins, flat and round with simple stamped designs, about the size of large buttons."
+  ],
+  "locations": [
+    "familyhouse_interior_bedroom"
+  ],
+  "artist_notes": "Keep the sack and coins prominent; show motion of coins dropping toward the sack.",
+  "positioning": [
+    "Dinosaur stands at the bedside, front three-quarter view, holding the open sack in his left hand and reaching for the coins with his right, looking at them.",
+    "The small woven sack is held open at waist height toward the coins, mouth wide and ready to receive them.",
+    "The five bright silver coins hover just above the sack’s mouth as his fingers scoop them in."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

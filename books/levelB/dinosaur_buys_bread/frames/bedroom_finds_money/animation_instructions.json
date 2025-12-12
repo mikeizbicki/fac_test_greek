@@ -1,0 +1,18 @@
+{
+  "text": "δεῖ ἀγοράζειν τὸν ἄρτον· δεῖ ἔρχεσθαι εἰς τὴν ἀγοράν. ὁ Δεινόσαυρος εὑρίσκει ἐπὶ τῆς κλίνης τὰ νομίσματα.",
+  "objects": [
+    "a small woven flax sack, tan with a drawstring, soft and slightly wrinkled, sized to fit in Dinosaur’s hands.",
+    "five bright silver coins, flat and round with simple stamped designs, about the size of large buttons."
+  ],
+  "locations": [
+    "familyhouse_interior_bedroom"
+  ],
+  "artist_notes": "Warm lamplight; emphasize the sparkle of the coins on the green blanket.",
+  "positioning": [
+    "Dinosaur steps through the bedroom doorway from left, front three-quarter view, eyes fixed on the bed where the coins and sack lie.",
+    "The small woven sack lies open near the foot of the bed, drawstring draped over the green blanket.",
+    "The five bright silver coins are spread in a small cluster beside the open sack atop the blanket."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}
