@@ -160,6 +160,7 @@
     common/about.md
     common/writing.md
     books/$LEVEL/themes.md
+    books/$LEVEL/$BOOK/script.fountain
     characters/$CHARACTER/about.json
     locations/$LOCATION/about.json
   variables:
