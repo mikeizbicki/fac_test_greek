@@ -1,0 +1,20 @@
+{
+  "text": "ζητεῖ τὸν ἄρτον, ἀλλ᾽ οὐκ ἔστιν ὁ ἄρτος ἐν τῇ οἰκίᾳ.",
+  "objects": [
+    "a low round wooden table with a smooth oak surface and sturdy legs at child height",
+    "a small brown cloth sack with a simple drawstring and soft wrinkles",
+    "several small round silver coins with Greek letters stamped on both sides"
+  ],
+  "locations": [
+    "familyhouse_interior"
+  ],
+  "artist_notes": "Hold the composition from the previous frame for continuity; let Dinosaur’s head motion suggest searching.",
+  "positioning": [
+    "Dinosaur is still left foreground, now leaning slightly back from the table in three-quarter view, eyes scanning the room and then back to the table, puzzled.",
+    "The low round wooden table remains center midground, unchanged in angle and placement.",
+    "The small brown cloth sack remains on the right edge of the table, drawstring loose.",
+    "The several small round silver coins remain clustered at the center of the table, untouched."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

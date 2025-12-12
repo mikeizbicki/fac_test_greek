@@ -1,0 +1,20 @@
+{
+  "text": "ὁ Δεινόσαυρος ἐν τῇ οἰκίᾳ ἐστίν. πεινᾷ· βούλεται φαγεῖν τὸν ἄρτον.",
+  "objects": [
+    "a low round wooden table with a smooth oak surface and sturdy legs at child height",
+    "a small brown cloth sack with a simple drawstring and soft wrinkles",
+    "several small round silver coins with Greek letters stamped on both sides"
+  ],
+  "locations": [
+    "familyhouse_interior"
+  ],
+  "artist_notes": "Warm interior light; keep the room cozy and simple so the table, coins, and sack read clearly.",
+  "positioning": [
+    "Dinosaur stands in the left foreground in three-quarter view facing right toward the table, eyes looking down at the coins with a hopeful, hungry expression.",
+    "The low round wooden table sits center midground, top visible from a slight overhead angle.",
+    "The small brown cloth sack rests on the right edge of the table, drawstring loose, angled toward Dinosaur.",
+    "The several small round silver coins lie clustered near the center of the table, glinting in the warm light."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}
