@@ -1,0 +1,23 @@
+{
+  "text": "ὁ ὑπερβρέφος βάλλει τὴν ἐρυθρὰν σφαῖραν πρὸς τὴν Γλαῦκα. ὁ ὑπερβρέφος καὶ ἡ Γλαὺξ χαίρουσιν.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit",
+    "a white leather ball about the size of a grapefruit",
+    "a small gray stone that fits in one hand",
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Hyperbrephos sits with his arm extended and a joyful smile, having just thrown the red ball",
+    "Glaux hovers in the air with a happy expression, preparing to catch the approaching ball",
+    "The bright red leather ball flies through the air between Hyperbrephos and Glaux",
+    "The white leather ball remains on the ground near Hyperbrephos",
+    "The small gray stone sits unused beside Hyperbrephos",
+    "The large gray boulder stays in the background"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

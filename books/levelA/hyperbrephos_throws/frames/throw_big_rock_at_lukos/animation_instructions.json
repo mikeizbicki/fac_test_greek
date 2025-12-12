@@ -1,0 +1,22 @@
+{
+  "text": "ὁ ὑπερβρέφος βάλλει τὸν μέγαν λίθον εἰς τὸν Λύκον.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit",
+    "a white leather ball about the size of a grapefruit",
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "The massive boulder should hover directly above Lukos's head with a shadow cast on him below. Draw motion lines around the rock to show it's wobbling slightly. Lukos should be frozen in terror looking straight up with his jaw dropped and eyes bulging comically, like classic Road Runner cartoons.",
+  "positioning": [
+    "Hyperbrephos stands in a powerful throwing stance, having just hurled the massive boulder",
+    "Glaux watches with excitement and anticipation",
+    "Lukos looks up in absolute terror with his mouth wide open",
+    "The large gray boulder hovers directly above Lukos's head, suspended in mid-air cartoon-style",
+    "The bright red leather ball is held by the thrilled Glaux",
+    "The white leather ball remains in Glaux's other wing"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

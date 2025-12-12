@@ -1,0 +1,22 @@
+{
+  "text": "ἐστὶν ἐρυθρὰ σφαῖρα καὶ λευκὴ σφαῖρα. ἐστὶν μικρὸς λίθος καὶ μέγας λίθος.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit",
+    "a white leather ball about the size of a grapefruit",
+    "a small gray stone that fits in one hand",
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Hyperbrephos sits near the tree surrounded by his toys",
+    "The bright red leather ball rests near Hyperbrephos's right side",
+    "The white leather ball sits near Hyperbrephos's left side",
+    "The small gray stone lies within arm's reach of Hyperbrephos",
+    "The large gray boulder sits several feet away from the tree"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

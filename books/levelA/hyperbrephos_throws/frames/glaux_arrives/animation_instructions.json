@@ -1,0 +1,25 @@
+{
+  "text": "ἡ Γλαὺξ ἔρχεται πρὸς τὸν ὑπερβρέφον.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit",
+    "a white leather ball about the size of a grapefruit",
+    "a small gray stone that fits in one hand",
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Hyperbrephos looks up with a welcoming smile as Glaux approaches",
+    "Glaux flies toward the tree, wings spread wide, with a friendly expression",
+    "The bright red leather ball remains near Hyperbrephos",
+    "The white leather ball stays on the ground nearby",
+    "The small gray stone lies close to Hyperbrephos",
+    "The large gray boulder sits in the background"
+  ],
+  "characters_that_enter": [
+    "Glaux"
+  ],
+  "characters_that_exit": []
+}

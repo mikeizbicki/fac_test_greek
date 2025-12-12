@@ -1,0 +1,19 @@
+{
+  "text": "ὁ ὑπερβρέφος καθίζει ἐπὶ τῷ μεγάλῳ λίθῳ.",
+  "objects": [
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "Show Lukos's inflated parts (head, paws, tail) now deflating slightly with little 'puff' clouds coming out. His eyes should have X's or spirals, and maybe a few stars still circling his puffed head to show he's completely defeated and dizzy.",
+  "positioning": [
+    "Hyperbrephos sits comfortably on top of the boulder like a throne, looking satisfied and relaxed",
+    "Lukos remains cartoon-flattened underneath with his puffed head, feet and tail still visible, looking dazed and sick",
+    "The large gray boulder serves as both Hyperbrephos's seat and Lukos's prison"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Glaux"
+  ]
+}

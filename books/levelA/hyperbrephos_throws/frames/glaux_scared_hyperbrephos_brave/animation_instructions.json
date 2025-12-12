@@ -1,0 +1,24 @@
+{
+  "text": "ἡ Γλαὺξ φοβεῖται, ἀλλὰ ὁ ὑπερβρέφος οὐ φοβεῖται.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit",
+    "a white leather ball about the size of a grapefruit",
+    "a small gray stone that fits in one hand",
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Hyperbrephos stands confidently with a determined expression, showing no fear",
+    "Glaux cowers behind Hyperbrephos, trembling with the red ball still in her wings",
+    "Lukos continues approaching with threatening intent",
+    "The bright red leather ball is clutched by the frightened Glaux",
+    "The white leather ball remains on the ground",
+    "The small gray stone is near Hyperbrephos's feet",
+    "The large gray boulder sits ominously nearby"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

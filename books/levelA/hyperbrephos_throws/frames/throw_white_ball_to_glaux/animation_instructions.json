@@ -1,0 +1,22 @@
+{
+  "text": "ὁ ὑπερβρέφος βάλλει τὴν λευκὴν σφαῖραν πρὸς τὴν Γλαῦκα.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit",
+    "a white leather ball about the size of a grapefruit",
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Hyperbrephos throws the white ball with a gentle underhand toss",
+    "Glaux reaches out to catch the white ball while still holding the red one",
+    "Lukos remains on the ground, still dazed with fading stars around his head",
+    "The white leather ball flies through the air from Hyperbrephos to Glaux",
+    "The bright red leather ball is clutched in Glaux's other wing",
+    "The large gray boulder sits ready in the background"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

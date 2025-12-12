@@ -1,0 +1,26 @@
+{
+  "text": "ὁ Λύκος ἔρχεται. ὁ Λύκος κακός ἐστιν.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit",
+    "a white leather ball about the size of a grapefruit",
+    "a small gray stone that fits in one hand",
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": null,
+  "positioning": [
+    "Hyperbrephos remains calm and alert, watching Lukos approach",
+    "Glaux clutches the red ball nervously, looking worried at the approaching wolf",
+    "Lukos stalks toward them with a menacing expression and predatory stance",
+    "The bright red leather ball is held by the frightened Glaux",
+    "The white leather ball lies on the ground near Hyperbrephos",
+    "The small gray stone rests within Hyperbrephos's reach",
+    "The large gray boulder looms in the background"
+  ],
+  "characters_that_enter": [
+    "Lukos"
+  ],
+  "characters_that_exit": []
+}

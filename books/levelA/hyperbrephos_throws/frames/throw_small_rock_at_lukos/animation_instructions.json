@@ -1,0 +1,24 @@
+{
+  "text": "ὁ ὑπερβρέφος βάλλει τὸν μικρὸν λίθον εἰς τὸν Λύκον.",
+  "objects": [
+    "a bright red leather ball about the size of a grapefruit",
+    "a white leather ball about the size of a grapefruit",
+    "a small gray stone that fits in one hand",
+    "a large gray boulder twice the size of Hyperbrephos"
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "Show the small rock stuck to or bouncing off Lukos's face with impact lines radiating outward. Lukos should have a classic cartoon 'bonk' expression with crossed eyes and his tongue hanging out slightly.",
+  "positioning": [
+    "Hyperbrephos stands in a throwing position with his arm extended, having just hurled the stone",
+    "Glaux watches from behind Hyperbrephos, still holding the red ball",
+    "Lukos recoils with wide eyes and an open mouth of surprise",
+    "The small gray stone is embedded in Lukos's face, having just struck him",
+    "The bright red leather ball remains with the hiding Glaux",
+    "The white leather ball lies forgotten on the ground",
+    "The large gray boulder waits ominously in the background"
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}
