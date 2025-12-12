@@ -563,7 +563,7 @@
 
     # print options
     echo "
-    model: fal-ai/kling-video/v2.5-turbo/standard/image-to-video
+    model: fal-ai/kling-video/v2.5-turbo/pro/image-to-video
     first_frame: $START_IMAGE
     duration: $DURATION
     "
