@@ -1,115 +1,544 @@
 {
-  "title": "ὁ Διναύσαρος ἀγοράζει ἄρτον",
-  "learning_goal": "Practice infinitive verbs with βούλομαι, δεῖ, and πεινάω, plus trade verbs πωλέω and ἀγοράζω.",
-  "plot": "Dinosaur gets hungry at home, realizes he needs to buy bread, travels to the agora, purchases bread from Emporos with coins, and satisfies his hunger.",
+  "title": "ὁ δεινόσαυρος ἄρτον ἀγοράζει",
+  "learning_goal": "Practice infinitive complements with δεῖ and δύναμαι/θέλω in a simple market errand, reinforcing present-tense narration and core trade vocabulary like ἄρτος and νόμισμα.",
+  "plot": "Hungry Dinosaur leaves home, goes to the agora, pays coins to a kind merchant, and happily eats bread.",
   "frames": [
     {
-      "text": "ὁ Διναύσαρος ἐστὶν ἐν τῇ οἰκίᾳ.",
-      "frame_id": "dinosaur_at_home",
-      "characters": ["Dinosaur"],
-      "locations": ["house_interior"],
-      "objects": [],
-      "positioning": ["Dinosaur stands in the center of the room looking around calmly"],
-      "motivations": ["Dinosaur is content and relaxed because he is safely at home"]
+      "text": "ὁ δεινόσαυρος ἐν τῇ οἰκίᾳ ἐστίν.",
+      "frame_id": "house_establish",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "familyhouse_interior"
+      ],
+      "objects": [
+        "low wooden table: a knee-high, rectangular cedar-brown table with rounded corners and a smooth matte surface.",
+        "bread basket with lid: a small round tan woven basket with a snug flat lid and a faint herringbone pattern.",
+        "low wall shelf: a waist-high dark-wood shelf lined with simple cream ceramics and tan woven baskets.",
+        "small window: a square wooden-framed window with soft cream curtains and sunbeams catching dust motes.",
+        "door with bronze latch: a plank-wood door stained warm brown with a simple bronze thumb-latch.",
+        "travel pouch: a small olive-brown leather crossbody pouch with two bronze rings on the strap.",
+        "tiny cupboard: a narrow cream-painted wall cupboard with a single wooden knob.",
+        "tall clay jar: a smooth tan ceramic jar with a narrow neck and a thin blue painted band.",
+        "brown moth: a tiny soft-winged brown moth with subtle eye spots."
+      ],
+      "positioning": [
+        "Dinosaur stands center-left beside the low table, three-quarter view facing right, eyes glancing from the table toward the bread basket on the shelf.",
+        "The low wooden table sits foreground left, top surface visible at knee height.",
+        "The bread basket with lid rests on the low wall shelf at mid-right, lid closed.",
+        "The low wall shelf runs along the right wall at waist height.",
+        "The small window is mid-left on the back wall, sunlight streaming in.",
+        "The door with bronze latch stands back-left in the frame.",
+        "The travel pouch hangs from a peg near the door at child eye level.",
+        "The tiny cupboard is back-right above the shelf, door closed.",
+        "The tall clay jar sits on the shelf’s left end.",
+        "The brown moth is hidden inside the tiny cupboard, not yet visible."
+      ],
+      "motivations": [
+        "Dinosaur’s belly is hungry, so inside his warm cottage he looks hopefully for bread on the shelf."
+      ],
+      "artist_notes": "Warm, dust-filled sunbeams and a calm, cozy interior tone."
     },
     {
-      "text": "ὁ Διναύσαρος πεινᾷ. βούλεται φαγεῖν ἄρτον.",
-      "frame_id": "dinosaur_hungry",
-      "characters": ["Dinosaur"],
-      "locations": ["house_interior"],
-      "objects": [],
-      "positioning": ["Dinosaur holds his belly with both hands and has a longing expression on his face"],
-      "motivations": ["Dinosaur is hungry and uncomfortable because he hasn't eaten and really wants some bread"]
+      "text": "πεινᾷ· θέλει φαγεῖν τὸν ἄρτον.",
+      "frame_id": "house_hungry",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "familyhouse_interior"
+      ],
+      "objects": [
+        "low wooden table: a knee-high, rectangular cedar-brown table with rounded corners and a smooth matte surface.",
+        "bread basket with lid: a small round tan woven basket with a snug flat lid and a faint herringbone pattern.",
+        "low wall shelf: a waist-high dark-wood shelf lined with simple cream ceramics and tan woven baskets.",
+        "small window: a square wooden-framed window with soft cream curtains and sunbeams catching dust motes.",
+        "door with bronze latch: a plank-wood door stained warm brown with a simple bronze thumb-latch.",
+        "travel pouch: a small olive-brown leather crossbody pouch with two bronze rings on the strap.",
+        "tiny cupboard: a narrow cream-painted wall cupboard with a single wooden knob.",
+        "tall clay jar: a smooth tan ceramic jar with a narrow neck and a thin blue painted band.",
+        "brown moth: a tiny soft-winged brown moth with subtle eye spots."
+      ],
+      "positioning": [
+        "Dinosaur tiptoes mid-right toward the shelf, three-quarter view left, eyes fixed on the bread basket.",
+        "The low wooden table remains foreground left, slightly behind Dinosaur.",
+        "The bread basket with lid sits mid-right on the shelf, still closed.",
+        "The low wall shelf lines the right wall at waist height.",
+        "The small window mid-left continues to throw sunbeams across the room.",
+        "The door with bronze latch stands back-left, closed.",
+        "The travel pouch still hangs on the peg near the door.",
+        "The tiny cupboard is back-right above the shelf, unopened.",
+        "The tall clay jar sits near the shelf’s left end.",
+        "The brown moth remains unseen inside the tiny cupboard."
+      ],
+      "motivations": [
+        "Dinosaur is hungry and specifically wants to eat bread, so he moves carefully toward the basket hoping to find some."
+      ],
+      "artist_notes": "Subtle slow dolly-in toward Dinosaur.",
+      "reference_frame": "house_establish"
     },
     {
-      "text": "ὁ Διναύσαρος ζητεῖ ἄρτον, ἀλλὰ οὐκ εὑρίσκει ἄρτον.",
-      "frame_id": "searching_for_bread",
-      "characters": ["Dinosaur"],
-      "locations": ["house_interior"],
-      "objects": ["an empty wooden bread basket on the table"],
-      "positioning": ["Dinosaur looks into the empty wooden bread basket with a disappointed expression"],
-      "motivations": ["Dinosaur is frustrated and disappointed because he searched for bread but found none in the house"]
+      "text": "ζητεῖ τὸν ἄρτον, ἀλλ’ οὐκ ἔστιν ὁ ἄρτος ἐν τῇ οἰκίᾳ.",
+      "frame_id": "house_search_empty",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "familyhouse_interior"
+      ],
+      "objects": [
+        "low wooden table: a knee-high, rectangular cedar-brown table with rounded corners and a smooth matte surface.",
+        "bread basket with lid: a small round tan woven basket with a snug flat lid and a faint herringbone pattern.",
+        "low wall shelf: a waist-high dark-wood shelf lined with simple cream ceramics and tan woven baskets.",
+        "small window: a square wooden-framed window with soft cream curtains and sunbeams catching dust motes.",
+        "door with bronze latch: a plank-wood door stained warm brown with a simple bronze thumb-latch.",
+        "travel pouch: a small olive-brown leather crossbody pouch with two bronze rings on the strap.",
+        "tiny cupboard: a narrow cream-painted wall cupboard with a single wooden knob.",
+        "tall clay jar: a smooth tan ceramic jar with a narrow neck and a thin blue painted band.",
+        "brown moth: a tiny soft-winged brown moth with subtle eye spots."
+      ],
+      "positioning": [
+        "Dinosaur stands mid-right, on tiptoe, lifting the basket lid with one hand, shoulders sinking, three-quarter view left.",
+        "The low wooden table remains foreground left, unchanged.",
+        "The bread basket with lid is open now on the shelf, shown empty.",
+        "The low wall shelf continues along the right wall.",
+        "The small window mid-left keeps light across the scene.",
+        "The door with bronze latch waits back-left.",
+        "The travel pouch hangs on its peg near the door.",
+        "The tiny cupboard door is open back-right, just swung wide.",
+        "The tall clay jar sits near the shelf’s left end.",
+        "The brown moth flutters out from the cupboard past Dinosaur’s snout toward mid-left."
+      ],
+      "motivations": [
+        "Dinosaur checked the basket and cupboards but found no bread, so he feels disappointed and a bit deflated."
+      ],
+      "artist_notes": "Comical tiny moth flit past the snout.",
+      "reference_frame": "house_hungry"
     },
     {
-      "text": "δεῖ τὸν Διναύσαρον ἀγοράζειν ἄρτον. δεῖ ἔρχεσθαι εἰς τὴν ἀγοράν.",
-      "frame_id": "must_buy_bread",
-      "characters": ["Dinosaur"],
-      "locations": ["house_interior"],
-      "objects": ["an empty wooden bread basket on the table"],
-      "positioning": ["Dinosaur points toward the door with determination while looking at the empty basket"],
-      "motivations": ["Dinosaur is determined and purposeful because he realizes he must go to the market to buy bread"]
+      "text": "δεῖ ἀγοράζειν τὸν ἄρτον· δεῖ πορεύεσθαι εἰς τὴν ἀγοράν.",
+      "frame_id": "house_get_pouch",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "familyhouse_interior"
+      ],
+      "objects": [
+        "low wooden table: a knee-high, rectangular cedar-brown table with rounded corners and a smooth matte surface.",
+        "bread basket with lid: a small round tan woven basket with a snug flat lid and a faint herringbone pattern.",
+        "low wall shelf: a waist-high dark-wood shelf lined with simple cream ceramics and tan woven baskets.",
+        "small window: a square wooden-framed window with soft cream curtains and sunbeams catching dust motes.",
+        "door with bronze latch: a plank-wood door stained warm brown with a simple bronze thumb-latch.",
+        "travel pouch: a small olive-brown leather crossbody pouch with two bronze rings on the strap.",
+        "tiny cupboard: a narrow cream-painted wall cupboard with a single wooden knob.",
+        "tall clay jar: a smooth tan ceramic jar with a narrow neck and a thin blue painted band.",
+        "brown moth: a tiny soft-winged brown moth with subtle eye spots."
+      ],
+      "positioning": [
+        "Dinosaur turns toward the door mid-left, three-quarter view right, slinging the travel pouch across his chest.",
+        "The low wooden table remains foreground left.",
+        "The bread basket with lid sits closed again on the shelf, still empty.",
+        "The low wall shelf lines the right wall as before.",
+        "The small window mid-left keeps soft light.",
+        "The door with bronze latch is now in front of Dinosaur at mid-left.",
+        "The travel pouch is now worn crossbody at Dinosaur’s left hip.",
+        "The tiny cupboard stands back-right, door settling half-closed.",
+        "The tall clay jar stays near the shelf’s left end.",
+        "The brown moth is now near mid-left, heading toward the window."
+      ],
+      "motivations": [
+        "Dinosaur decides it is necessary to buy bread, so he takes his pouch and prepares to go to the market."
+      ],
+      "reference_frame": "house_search_empty"
     },
     {
-      "text": "ὁ Διναύσαρος ἐξέρχεται ἐκ τῆς οἰκίας.",
-      "frame_id": "leaving_house",
-      "characters": ["Dinosaur"],
-      "locations": ["house_interior"],
-      "objects": ["several silver coins in his hand"],
-      "positioning": ["Dinosaur walks through the doorway holding several silver coins in his hand"],
-      "motivations": ["Dinosaur is focused and ready because he has his coins and is heading out to buy bread"]
+      "text": "",
+      "frame_id": "transition_door_latch",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "familyhouse_interior"
+      ],
+      "objects": [
+        "low wooden table: a knee-high, rectangular cedar-brown table with rounded corners and a smooth matte surface.",
+        "bread basket with lid: a small round tan woven basket with a snug flat lid and a faint herringbone pattern.",
+        "low wall shelf: a waist-high dark-wood shelf lined with simple cream ceramics and tan woven baskets.",
+        "small window: a square wooden-framed window with soft cream curtains and sunbeams catching dust motes.",
+        "door with bronze latch: a plank-wood door stained warm brown with a simple bronze thumb-latch.",
+        "travel pouch: a small olive-brown leather crossbody pouch with two bronze rings on the strap.",
+        "tiny cupboard: a narrow cream-painted wall cupboard with a single wooden knob.",
+        "tall clay jar: a smooth tan ceramic jar with a narrow neck and a thin blue painted band.",
+        "brown moth: a tiny soft-winged brown moth with subtle eye spots."
+      ],
+      "positioning": [
+        "Dinosaur stands at the door mid-left, three-quarter back view, left hand on the bronze latch, looking outward.",
+        "The low wooden table remains foreground left, partly cropped.",
+        "The bread basket with lid stays on the shelf mid-right.",
+        "The low wall shelf runs along the right wall.",
+        "The small window mid-left glows softly.",
+        "The door with bronze latch is half-open now at the left edge.",
+        "The travel pouch hangs at Dinosaur’s left hip across his chest.",
+        "The tiny cupboard back-right is closed.",
+        "The tall clay jar remains at the shelf’s left end.",
+        "The brown moth rests near the window frame."
+      ],
+      "motivations": [
+        "Dinosaur glances back at the empty basket and then opens the door, resolved to go buy bread."
+      ],
+      "reference_frame": "house_get_pouch"
     },
     {
-      "text": "ὁ Διναύσαρος βαδίζει πρὸς τὴν ἀγοράν.",
-      "frame_id": "walking_to_agora",
-      "characters": ["Dinosaur"],
-      "locations": ["house_exterior", "agora_exterior"],
-      "objects": ["several silver coins in his hand"],
-      "positioning": ["Dinosaur walks along the path between his house and the agora, still holding his coins"],
-      "motivations": ["Dinosaur is hopeful and eager because he is on his way to buy the bread he needs"]
+      "text": "ὁ δεινόσαυρος ἐξέρχεται ἐκ τῆς οἰκίας.",
+      "frame_id": "exterior_step_out",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "familyhouse_exterior"
+      ],
+      "objects": [
+        "coin bundle: a small tied cloth wrap holding bronze and silver coins."
+      ],
+      "positioning": [
+        "Dinosaur steps out of the doorway center-left into bright sun, three-quarter view right, smiling and inhaling the day.",
+        "The coin bundle rests inside the pouch at his left hip, lightly outlined as he pats it."
+      ],
+      "motivations": [
+        "With his pouch ready, Dinosaur steps outside to begin his trip to buy bread."
+      ]
     },
     {
-      "text": "ὁ Διναύσαρος εἰσέρχεται εἰς τὴν ἀγοράν.",
-      "frame_id": "entering_agora",
-      "characters": ["Dinosaur"],
-      "locations": ["agora_interior"],
-      "objects": ["several silver coins in his hand"],
-      "positioning": ["Dinosaur steps through the agora entrance looking around at the market stalls"],
-      "motivations": ["Dinosaur is excited and alert because he has arrived at the market where he can buy bread"]
+      "text": "πορεύεται ἐν τῇ ὁδῷ εἰς τὴν ἀγοράν.",
+      "frame_id": "exterior_start_path",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "familyhouse_exterior"
+      ],
+      "objects": [
+        "coin bundle: a small tied cloth wrap holding bronze and silver coins."
+      ],
+      "positioning": [
+        "Dinosaur moves from center toward the winding cobblestone path to the right, three-quarter view right, looking ahead confidently.",
+        "The coin bundle settles in the pouch, giving a soft implied jingle at his hip."
+      ],
+      "motivations": [
+        "He is determined to reach the market and buy bread, encouraged by the coins he brought."
+      ],
+      "reference_frame": "exterior_step_out"
     },
     {
-      "text": "ὁ Διναύσαρος ἔρχεται πρὸς τὸν Ἔμπορον.",
-      "frame_id": "approaching_emporos",
-      "characters": ["Dinosaur", "Emporos"],
-      "locations": ["agora_interior"],
-      "objects": ["several silver coins in his hand"],
-      "positioning": ["Dinosaur walks toward Emporos who stands behind his stall", "Emporos looks up at the approaching customer with a welcoming expression"],
-      "motivations": ["Dinosaur is focused and purposeful because he has found the merchant who can sell him bread", "Emporos is welcoming and attentive because a customer approaches his stall"]
+      "text": "",
+      "frame_id": "tree_path_walk",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "squirrel: a small russet squirrel with a fluffy tail and bright eyes.",
+        "robin pair: two plump robins with orange breasts and brown backs."
+      ],
+      "positioning": [
+        "Dinosaur walks lower center to right under the shade tree, three-quarter view right, eyes on the path.",
+        "The squirrel scampers across the path in the foreground from left to right.",
+        "The robin pair perches on a low branch upper left, heads tilted toward the path."
+      ],
+      "motivations": [
+        "On the way to town to buy bread, Dinosaur keeps a steady rhythm, politely pausing to let a squirrel cross."
+      ]
     },
     {
-      "text": "ὁ Ἔμπορος ἔχει ἄρτον καὶ μῆλα καὶ ὕδωρ.",
-      "frame_id": "emporos_has_goods",
-      "characters": ["Dinosaur", "Emporos"],
-      "locations": ["agora_interior"],
-      "objects": ["several silver coins in his hand", "three round loaves of bread on the stall", "red apples arranged in a basket", "clay water jars on the counter"],
-      "positioning": ["Emporos gestures proudly at his goods displayed on the stall", "Dinosaur looks eagerly at the bread with hungry eyes", "Three round loaves of bread sit prominently on the stall", "Red apples are arranged in a basket", "Clay water jars stand on the counter"],
-      "motivations": ["Emporos is proud and hopeful because he has good wares to sell to the hungry customer", "Dinosaur is excited and relieved because he sees the bread he desperately wants"]
+      "text": "ἥκει εἰς τὴν ἀγοράν ὁ δεινόσαυρος.",
+      "frame_id": "agora_arrive",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "agora_exterior"
+      ],
+      "objects": [
+        "terracotta amphora: a waist-high amphora with two loop handles and a simple wave motif in darker clay.",
+        "napping cat: a sleek gray cat curled tightly in the shade with its tail over its nose.",
+        "blue fabric ties: narrow Aegean-blue ribbons fluttering from a simple wooden signpost."
+      ],
+      "positioning": [
+        "Dinosaur climbs the stylobate steps from frame left toward center, three-quarter view right, looking up at the stoa with awe.",
+        "The terracotta amphora stands near a column base mid-right.",
+        "The napping cat rests in a cool shadow near the column mid-left.",
+        "The blue fabric ties flutter on a signpost upper right."
+      ],
+      "motivations": [
+        "After his walk from the cottage, Dinosaur arrives at the agora, eager to find bread."
+      ]
     },
     {
-      "text": "ὁ Διναύσαρος δίδωσι νομίσματα τῷ Ἐμπόρῳ.",
-      "frame_id": "dinosaur_pays_coins",
-      "characters": ["Dinosaur", "Emporos"],
-      "locations": ["agora_interior"],
-      "objects": ["several silver coins being exchanged", "three round loaves of bread on the stall", "red apples arranged in a basket", "clay water jars on the counter"],
-      "positioning": ["Dinosaur extends his hand giving coins to Emporos", "Emporos reaches out to receive the silver coins with a satisfied smile", "Several silver coins are being passed between them"],
-      "motivations": ["Dinosaur is eager and determined because he is paying for the bread he needs", "Emporos is pleased and businesslike because he is making a good sale"]
+      "text": "εἰσέρχεται εἰς τὴν στοάν.",
+      "frame_id": "agora_enter_stoa",
+      "characters": [
+        "Dinosaur"
+      ],
+      "locations": [
+        "agora_exterior"
+      ],
+      "objects": [
+        "terracotta amphora: a waist-high amphora with two loop handles and a simple wave motif in darker clay.",
+        "napping cat: a sleek gray cat curled tightly in the shade with its tail over its nose.",
+        "blue fabric ties: narrow Aegean-blue ribbons fluttering from a simple wooden signpost."
+      ],
+      "positioning": [
+        "Dinosaur steps from the sunlit steps into the shaded colonnade opening at center-right, three-quarter back view, looking inward.",
+        "The terracotta amphora remains near the column mid-right, partly behind him.",
+        "The napping cat still curls mid-left in shadow.",
+        "The blue fabric ties flutter upper right in the breeze."
+      ],
+      "motivations": [
+        "Seeing the calm stoa, Dinosaur enters to look for a seller of bread."
+      ],
+      "reference_frame": "agora_arrive"
     },
     {
-      "text": "ὁ Ἔμπορος δίδωσι ἄρτον τῷ Διναυσάρῳ.",
-      "frame_id": "emporos_gives_bread",
-      "characters": ["Dinosaur", "Emporos"],
-      "locations": ["agora_interior"],
-      "objects": ["one round loaf of bread being given", "red apples arranged in a basket", "clay water jars on the counter"],
-      "positioning": ["Emporos hands a loaf of bread to Dinosaur with a generous expression", "Dinosaur receives the bread eagerly with both hands"],
-      "motivations": ["Emporos is satisfied and generous because he has completed a fair trade", "Dinosaur is grateful and excited because he finally has the bread he wanted"]
+      "text": "περιπατεῖ πρὸς τὸν ἔμπορον.",
+      "frame_id": "stoa_walk_to_merchant",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "merchant table: a neat chalk-white table with straight legs and a blue-painted edge.",
+        "round loaf of bread: a fresh round loaf with golden-brown crust and a scored cross on top.",
+        "basket of apples: a shallow tan woven basket piled with shiny red-green apples.",
+        "blue-rimmed jug with cup: a white ceramic jug with a thin blue rim and a matching small cup.",
+        "cedar bench: a low, dark cedar-brown bench with a smooth seat.",
+        "coins: small bronze and silver coins that Dinosaur carries and later stacks neatly on the table."
+      ],
+      "positioning": [
+        "Dinosaur walks along the central walkway toward the table at mid-center, three-quarter view right, eyes on the goods.",
+        "Emporos stands behind the merchant table at center-right, facing left toward Dinosaur with a warm expression.",
+        "The merchant table sits center-right, angled slightly toward the viewer.",
+        "The round loaf of bread rests near the table’s center.",
+        "The basket of apples sits to the left side of the table display.",
+        "The blue-rimmed jug with cup stands on the right side of the table.",
+        "The cedar bench is against the wall mid-right behind Dinosaur’s path.",
+        "The coins are inside Dinosaur’s pouch at his left hip for now."
+      ],
+      "motivations": [
+        "Dinosaur walks purposefully toward the seller because he needs bread.",
+        "Emporos has arranged goods neatly and is ready to help the small customer kindly."
+      ],
+      "artist_notes": "Soft daylight; calm order; gentle footstep rhythm down the colonnade."
     },
     {
-      "text": "ὁ Διναύσαρος ἐσθίει τὸν ἄρτον. οὐκέτι πεινᾷ.",
-      "frame_id": "dinosaur_eats_satisfied",
-      "characters": ["Dinosaur", "Emporos"],
-      "locations": ["agora_interior"],
-      "objects": ["one round loaf of bread being eaten", "red apples arranged in a basket", "clay water jars on the counter"],
-      "positioning": ["Dinosaur takes a big bite of the bread with a contented smile", "Emporos watches approvingly from behind his stall"],
-      "motivations": ["Dinosaur is happy and satisfied because he is no longer hungry after eating the bread", "Emporos is pleased and proud because his customer is satisfied with the purchase"]
+      "text": "ὁ ἔμπορος πωλεῖ τὸν ἄρτον καὶ τὰ μῆλα καὶ τὸ ὕδωρ· ἔχει τὰ ἀγαθὰ καλῶς.",
+      "frame_id": "stoa_goods_display",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "merchant table: a neat chalk-white table with straight legs and a blue-painted edge.",
+        "round loaf of bread: a fresh round loaf with golden-brown crust and a scored cross on top.",
+        "basket of apples: a shallow tan woven basket piled with shiny red-green apples.",
+        "blue-rimmed jug with cup: a white ceramic jug with a thin blue rim and a matching small cup.",
+        "cedar bench: a low, dark cedar-brown bench with a smooth seat.",
+        "coins: small bronze and silver coins that Dinosaur carries and later stacks neatly on the table."
+      ],
+      "positioning": [
+        "Dinosaur stops at the table mid-right, three-quarter view left, head slightly tilted toward the bread.",
+        "Emporos straightens the loaf and apples with both hands behind the table, facing Dinosaur.",
+        "The merchant table remains center-right, goods aligned symmetrically.",
+        "The round loaf of bread sits centered and appealing.",
+        "The basket of apples is neatly arranged to the left.",
+        "The blue-rimmed jug with cup stands to the right.",
+        "The cedar bench is visible farther right along the wall.",
+        "The coins remain in Dinosaur’s pouch at his hip."
+      ],
+      "motivations": [
+        "Dinosaur assesses the goods, focusing on bread because he is hungry.",
+        "Emporos takes pride in orderly displays, ready to sell bread, apples, and water."
+      ],
+      "reference_frame": "stoa_walk_to_merchant"
+    },
+    {
+      "text": "βούλεται ἀγοράζειν τὸν ἄρτον ὁ δεινόσαυρος· δεῖ δοῦναι τὰ νομίσματα.",
+      "frame_id": "stoa_wants_bread",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "merchant table: a neat chalk-white table with straight legs and a blue-painted edge.",
+        "round loaf of bread: a fresh round loaf with golden-brown crust and a scored cross on top.",
+        "basket of apples: a shallow tan woven basket piled with shiny red-green apples.",
+        "blue-rimmed jug with cup: a white ceramic jug with a thin blue rim and a matching small cup.",
+        "cedar bench: a low, dark cedar-brown bench with a smooth seat.",
+        "coins: small bronze and silver coins that Dinosaur carries and later stacks neatly on the table."
+      ],
+      "positioning": [
+        "Dinosaur stands at the table edge, three-quarter view right, politely pointing at the bread with a small nod toward Emporos.",
+        "Emporos looks kindly toward Dinosaur, hands relaxed near the loaf.",
+        "The merchant table holds the goods in the same neat order.",
+        "The round loaf of bread is centered before Emporos.",
+        "The basket of apples remains to the left.",
+        "The blue-rimmed jug with cup is to the right.",
+        "The cedar bench waits nearby along the wall.",
+        "The coins are being reached for at Dinosaur’s pouch opening."
+      ],
+      "motivations": [
+        "Dinosaur wants to buy bread and knows he must give coins to do so.",
+        "Emporos sees the gesture and prepares to accept payment."
+      ],
+      "reference_frame": "stoa_goods_display"
+    },
+    {
+      "text": "δίδωσι τῷ ἐμπορῷ τὰ νομίσματα ὁ δεινόσαυρος.",
+      "frame_id": "stoa_pays_coins",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "merchant table: a neat chalk-white table with straight legs and a blue-painted edge.",
+        "round loaf of bread: a fresh round loaf with golden-brown crust and a scored cross on top.",
+        "basket of apples: a shallow tan woven basket piled with shiny red-green apples.",
+        "blue-rimmed jug with cup: a white ceramic jug with a thin blue rim and a matching small cup.",
+        "cedar bench: a low, dark cedar-brown bench with a smooth seat.",
+        "coins: small bronze and silver coins that Dinosaur carries and later stacks neatly on the table."
+      ],
+      "positioning": [
+        "Dinosaur stands close to the table, three-quarter view left, carefully setting the coins into a small neat stack on the tabletop.",
+        "Emporos leans slightly forward, watching the payment with practiced ease.",
+        "The merchant table remains steady mid-right.",
+        "The round loaf of bread sits just beyond the coin stack.",
+        "The basket of apples keeps its place to the left.",
+        "The blue-rimmed jug with cup stands at the right edge.",
+        "The cedar bench remains along the wall to the right.",
+        "The coins are now on the table in a neat little stack near Dinosaur’s hands."
+      ],
+      "motivations": [
+        "Dinosaur calmly counts and gives the coins so he can receive the bread.",
+        "Emporos checks the payment, ready to hand over the loaf."
+      ],
+      "reference_frame": "stoa_wants_bread"
+    },
+    {
+      "text": "δίδωσιν ὁ ἔμπορος τῷ δεινοσαύρῳ τὸν ἄρτον.",
+      "frame_id": "stoa_gets_bread",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "merchant table: a neat chalk-white table with straight legs and a blue-painted edge.",
+        "round loaf of bread: a fresh round loaf with golden-brown crust and a scored cross on top.",
+        "basket of apples: a shallow tan woven basket piled with shiny red-green apples.",
+        "blue-rimmed jug with cup: a white ceramic jug with a thin blue rim and a matching small cup.",
+        "cedar bench: a low, dark cedar-brown bench with a smooth seat.",
+        "coins: small bronze and silver coins that Dinosaur carries and later stacks neatly on the table."
+      ],
+      "positioning": [
+        "Dinosaur is foreground right, over-shoulder view receiving the loaf with both small green hands.",
+        "Emporos stands behind the table, arms extended forward offering the bread with a warm smile.",
+        "The merchant table remains mid-right between them.",
+        "The round loaf of bread is in mid-transfer between hands.",
+        "The basket of apples stays left on the table.",
+        "The blue-rimmed jug with cup remains at the right.",
+        "The cedar bench is visible to the right along the wall.",
+        "The coins remain stacked on the table near Emporos."
+      ],
+      "motivations": [
+        "Dinosaur is delighted to receive the bread after paying the coins.",
+        "Emporos cheerfully completes the fair trade by handing over the loaf."
+      ],
+      "reference_frame": "stoa_pays_coins"
+    },
+    {
+      "text": "δεῖ φαγεῖν τὸν ἄρτον· ὁ δεινόσαυρος νῦν δύναται φαγεῖν.",
+      "frame_id": "stoa_can_eat",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "merchant table: a neat chalk-white table with straight legs and a blue-painted edge.",
+        "round loaf of bread: a fresh round loaf with golden-brown crust and a scored cross on top.",
+        "basket of apples: a shallow tan woven basket piled with shiny red-green apples.",
+        "blue-rimmed jug with cup: a white ceramic jug with a thin blue rim and a matching small cup.",
+        "cedar bench: a low, dark cedar-brown bench with a smooth seat.",
+        "coins: small bronze and silver coins that Dinosaur carries and later stacks neatly on the table."
+      ],
+      "positioning": [
+        "Dinosaur sits on the cedar bench mid-right, three-quarter view left, holding the loaf close with a grateful smile.",
+        "Emporos stands behind the merchant table, now folding a cloth calmly.",
+        "The merchant table remains center-right with goods still in place.",
+        "The round loaf of bread is in Dinosaur’s hands at the bench.",
+        "The basket of apples stays neat on the left side of the table.",
+        "The blue-rimmed jug with cup remains on the right side of the table.",
+        "The cedar bench supports Dinosaur, feet not touching the floor.",
+        "The coins rest stacked near the front edge of the table."
+      ],
+      "motivations": [
+        "Dinosaur now has permission and ability to eat, so he prepares to take a bite.",
+        "Emporos, satisfied with the trade, tidies his table and watches the peaceful scene."
+      ],
+      "reference_frame": "stoa_gets_bread"
+    },
+    {
+      "text": "ἐσθίει τὸν ἄρτον ὁ δεινόσαυρος· οὐκέτι πεινᾷ.",
+      "frame_id": "stoa_eats_content",
+      "characters": [
+        "Dinosaur",
+        "Emporos"
+      ],
+      "locations": [
+        "agora_interior"
+      ],
+      "objects": [
+        "merchant table: a neat chalk-white table with straight legs and a blue-painted edge.",
+        "round loaf of bread: a fresh round loaf with golden-brown crust and a scored cross on top.",
+        "basket of apples: a shallow tan woven basket piled with shiny red-green apples.",
+        "blue-rimmed jug with cup: a white ceramic jug with a thin blue rim and a matching small cup.",
+        "cedar bench: a low, dark cedar-brown bench with a smooth seat.",
+        "coins: small bronze and silver coins that Dinosaur carries and later stacks neatly on the table."
+      ],
+      "positioning": [
+        "Dinosaur sits on the cedar bench mid-right, close view, three-quarter view left, breaking the loaf; crumbs fall as he takes a happy bite, eyes closed.",
+        "Emporos stands relaxed behind the table in the background, folding a cloth and glancing over with a gentle smile.",
+        "The merchant table remains mid-right with apples and jug neatly in place.",
+        "The round loaf of bread is partially broken in Dinosaur’s hands.",
+        "The basket of apples remains to the left on the table.",
+        "The blue-rimmed jug with cup rests to the right on the table.",
+        "The cedar bench holds Dinosaur with his feet gently swinging.",
+        "The coins sit in a small stack at the front edge of the table."
+      ],
+      "motivations": [
+        "Dinosaur enjoys the bread he bought, feeling satisfied and no longer hungry.",
+        "Emporos appreciates the peaceful moment after a fair sale."
+      ],
+      "reference_frame": "stoa_can_eat"
     }
   ]
 }
