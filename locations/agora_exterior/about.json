@@ -1,24 +1,24 @@
 {
   "name": "agora_exterior",
-  "description": "The sunlit stoa frontage of the ancient agora with bright Doric colonnades, red-tiled roofs, and cheerful market awnings opening to the square.",
+  "description": "The sunlit exterior of the stoa shows classic Doric columns encircling the building, with soft grass edging the walkway and a friendly, welcoming square.",
   "visual_style": {
     "color_palette": [
-      "Chalk White #F5F2E8 for limewashed walls, column highlights, and clean trim that matches the interior.",
-      "Limestone Beige #D8C7A2 for stone blocks, steps, and paving to link the exterior to the interior palette.",
-      "Terracotta #C65D3A for roof tiles, amphorae, and border tiles that feel warm and historic.",
-      "Cedar Brown #6E4B3A for wooden stall frames, cart wheels, doors, and benches.",
-      "Aegean Blue #2E86AB for fabric awnings, pottery accents, and simple wayfinding symbols.",
-      "Olive Green #6B8E23 for wreaths, garlands, and foliage details around the colonnade."
+      "Chalk White (#F5F2E8) for limewashed columns and entablature to keep the façade bright and clean.",
+      "Limestone Beige (#D8C7A2) for wall surfaces and steps to match the interior tones.",
+      "Terracotta (#C65D3A) for roof tiles and amphora accents along the portico.",
+      "Cedar Brown (#6E4B3A) for wooden doors and beam ends under the eaves.",
+      "Aegean Blue (#2E86AB) for pottery, simple symbol signage, and fabric ties.",
+      "Olive Green (#6B8E23) for olive leaves and laurel shrubs around the steps.",
+      "Meadow Green (#6FAE3E) for the grassy verge that frames the walkway."
     ],
-    "architectural_style": "Classical Greek stoa exterior with sturdy Doric columns, whitewashed limestone walls, and red terracotta rooflines facing an open market square. Light wooden stall frames tuck between columns with colorful linen awnings; simple painted symbols serve as signs for young readers.",
-    "flora_fauna": "Potted olive and fig trees cluster near the steps, with low laurel shrubs by statues and bases of columns. Sparrows flit between awnings, gentle doves perch on roof tiles, and friendly market cats lounge near the fish sellers.",
+    "architectural_style": "Classical Greek stoa exterior with a Doric peristyle wrapping the building, whitewashed limestone walls, and a low stepped stylobate leading to the colonnade. A shallow terracotta-tiled roof with simple rafter ends echoes the calm interior style.",
+    "flora_fauna": "Short meadow grass borders the stone path, with potted olive and small laurel shrubs near the steps. Sparrows hop along the stylobate and a friendly cat naps in the shade.",
     "weather": "sunny with sea breeze",
     "lighting": "bright sunlight",
     "materials": [
-      "Whitewashed limestone and marble for columns, stylobate steps, and stoa walls.",
-      "Terracotta tiles and pottery for roofs, jars, lamps, and decorative borders.",
-      "Sun-bleached wood and rope for market stalls, carts, and awning frames.",
-      "Bronze fittings for scales, hinges, lamp stands, and door hardware."
+      "Whitewashed limestone blocks for walls, steps, and Doric columns.",
+      "Terracotta roof tiles and amphorae for warm, historic accents.",
+      "Cedar wood for doors, rafters, and discreet trim; bronze for hinges and lamp fittings."
     ]
   }
 }
