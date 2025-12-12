@@ -147,13 +147,18 @@
   dependencies:
     - common/about.md
     - common/writing.md
-    - books/$PREVIOUS_LEVEL/themes.md
+    - books/$INCLUDE_LEVEL/themes.md
     - books/$LEVEL/$BOOK/description.md
     - characters/$CHARACTER/about.json
     - locations/$LOCATION/about.json
   variables:
-    PREVIOUS_LEVEL: |
-      ls books/level*
+    # INCLUDE_LEVEL will list all the levels that are less than or equal to $LEVEL
+    # For example, if there are three levels:
+    # levelA, levelB, and levelC
+    # and LEVEL=levelB,
+    # then INCLUDE_LEVEL will contain levelA and levelB but not levelC
+    INCLUDE_LEVEL: |
+      ls books | sort | awk -v target="$LEVEL" '$0 <= target'
 
 "books/$LEVEL/$BOOK/content.json":
   description:
