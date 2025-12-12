@@ -16,20 +16,14 @@ The purpose is to teach children how to express wants, abilities, and intentions
 ### Verbs
 
 Verbs to use with infinitives:
-- μανθάνω (I learn)
-- διδάσκω (I teach) 
-- φοβέομαι (I fear, I am afraid)
-- μέλλω (I am about to, I intend)
-- ἄρχομαι (I begin)
-- παύομαι (I stop, I cease)
 - δεῖ (it is necessary - impersonal)
 - δύναμαι (I am able, I can)
 - βούλομαι (I want, I wish)
 - θέλω (I want, I desire)
 
 Basic needs:
-- πεινάω (I am hungry) - should always be used with βούλομαι φαγεῖν or θέλω φαγεῖν to help illustrate the definitions
-- διψάω (I am thirsty)
+- πεινάω (I am hungry) - should always be used with βούλομαι φαγεῖν / θέλω φαγεῖν / δεῖ φαγεῖν to help illustrate the definitions
+- διψάω (I am thirsty) - should always be used with βούλομαι πιεῖν / θέλω πιεῖν / δεῖ πιεῖν
 
 Adventure:
 - μάχομαι (I fight)
