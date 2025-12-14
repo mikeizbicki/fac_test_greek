@@ -1,8 +1,9 @@
 {
   "name": "Panda",
-  "description": "Cheerful pink-peplos panda",
+  "description": "Cuddly childlike pink-peplos panda",
   "sex": "female",
   "height_in_meters": 1.1,
-  "appearance": "A plump black-and-white panda with a round, friendly face and bright, expressive eyes. She wears a rosy-pink, knee-length peplos fastened at the shoulders with simple bronze pins, with a narrow white himation draped lightly around her. The fabric swishes when she walks, and soft leather sandals peek from beneath the hem. Short, velvety ears, a button nose, and a gentle smile make her look welcoming in every scene. She often carries a small woven crossbody satchel sized for picture cards.",
-  "dnd_alignment_axes": "neutral-good"
+  "appearance": "A plump black-and-white panda with an extra-round, babyish face and big, sparkly eyes. She wears a rosy-pink, knee-length peplos fastened at the shoulders with simple bronze pins, with a narrow white himation draped lightly around her. The fabric swishes when she takes small, waddling steps, and soft leather sandals peek from beneath the hem. Short, velvety ears, a button nose, rosy cheeks, and a gentle, giggly smile make her irresistibly cuddly. She often carries a small woven crossbody satchel sized for picture cards, finished with a little tassel.",
+  "dnd_alignment_axes": "neutral-good",
+  "alignment": "neutral-good"
 }
