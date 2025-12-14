@@ -2,5 +2,6 @@
   "name": "Lukos",
   "description": "Sly hungry trickster wolf",
   "sex": "male",
-  "appearance": "He has a tall, narrow triangle silhouette with a long snout, sloped shoulders, and a tapering tail. His fur is charcoal gray with ash highlights, with pale chest and muzzle and yellow-amber eyes. His ears are upright with a small notch in the right ear, and a single small fang sometimes peeks when he smiles slyly. He wears a ragged dark hooded himation or cloak tied with a cord, worn sandals, a frayed rust-red scarf, and a small belt pouch, and he sometimes carries a crooked walking stick."
+  "appearance": "He has a tall, narrow triangle silhouette with a long snout, sloped shoulders, and a tapering tail. His fur is charcoal gray with ash highlights, with pale chest and muzzle and yellow-amber eyes. His ears are upright with a small notch in the right ear, and a single small fang sometimes peeks when he smiles slyly. He wears a ragged dark hooded himation or cloak tied with a cord, worn sandals, a frayed rust-red scarf, and a small belt pouch, and he sometimes carries a crooked walking stick.",
+  "dnd_alignment_axes": "lawful-evil"
 }
