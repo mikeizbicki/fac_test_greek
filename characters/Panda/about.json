@@ -1,6 +1,25 @@
 {
   "name": "Panda",
-  "description": "Cheerful pink-skirted panda",
+  "description": "Cheerful pink-peplos panda",
   "sex": "female",
-  "appearance": "A plump black-and-white panda with a round, friendly face and bright, expressive eyes. She is always wearing a soft pink, knee-length skirt with a simple pleated hem that swishes when she walks. Short, velvety ears, a button nose, and a gentle smile make her look welcoming in every scene. She often carries a small crossbody satchel sized for picture cards."
+  "height_in_meters": 1.1,
+  "personality": "Sunny and encouraging, she makes learning feel like play. Patient and curious, she listens closely and uses simple words and gestures. She enjoys sharing little facts about ancient Greek life.",
+  "backstory": "Panda grew up in a friendly village where stories and songs were part of every day. Fascinated by words, she began collecting picture cards to help friends remember new Koine Greek vocabulary. She now wanders marketplaces, gardens, and seashores, turning everyday moments into short lessons. Her calm presence helps nervous learners try new sounds.",
+  "appearance": "A plump black-and-white panda with a round, friendly face and bright, expressive eyes. She wears a rosy-pink, knee-length peplos fastened at the shoulders with simple bronze pins, with a narrow white himation draped lightly around her. The fabric swishes when she walks, and soft leather sandals peek from beneath the hem. Short, velvety ears, a button nose, and a gentle smile make her look welcoming in every scene. She often carries a small woven crossbody satchel sized for picture cards.",
+  "strengths": [
+    "Warm encourager who helps shy learners participate.",
+    "Skilled at teaching with pictures, repetition, and gestures.",
+    "Observant and patient, noticing misunderstandings quickly."
+  ],
+  "weaknesses": [
+    "Can be easily distracted by interesting artifacts and pretty fabrics.",
+    "Overfills her satchel, which slows her down.",
+    "Sometimes avoids correcting mistakes too directly to keep the mood gentle."
+  ],
+  "key_objects": [
+    "Small woven crossbody satchel for picture cards.",
+    "Set of sturdy illustrated Koine Greek word cards.",
+    "Bronze shoulder pins (fibulae) shaped like simple leaves."
+  ],
+  "relationships": []
 }

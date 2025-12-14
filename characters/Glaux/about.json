@@ -3,30 +3,5 @@
   "description": "wise great grey owl",
   "sex": "female",
   "height_in_meters": 0.75,
-  "personality": "Gentle, patient, and curious, she encourages others with calm hoots and kind eyes. She loves patterns and helps children discover meaning through repetition and simple comparisons. Playful at times, she lightens lessons with small surprises.",
-  "backstory": "She wandered south on cool winds and found a home among olive groves by a quiet seaside town. The children welcomed her to their evening gatherings and named her Glaux after the wise owls of their stories. She began perching near the courtyard where lessons and tales were shared, repeating simple words until everyone smiled with understanding. Since then, she has stayed to guide young learners and to listen to the elders’ wisdom.",
-  "appearance": "A large round head with no ear tufts, framed by a near-perfect circular facial disc of charcoal and silver rings around bright yellow eyes. Soft ash-gray plumage is heavily mottled and barred, with a small white \"bow-tie\" at the throat split by a dark center line. Her tail is long and banded, and her thick, feathered legs end in strong pale talons. The beak is short and horn-colored, and she often perches upright on an olive branch, almost knee-high to an adult.",
-  "strengths": [
-    "Remarkably keen hearing that lets her find a dropped bead beneath leaves from several paces away.",
-    "Patient teacher who repeats patterns and uses simple gestures so meanings become clear.",
-    "Silent, graceful flight that brings her right where a gentle nudge is needed.",
-    "Excellent memory for stories, places, and names, which she recalls at just the right moment."
-  ],
-  "weaknesses": [
-    "She dislikes the bright midday sun and prefers shade, which makes daytime journeys slow.",
-    "Her wide wings and long tail make narrow rooms and crowded markets awkward for her.",
-    "She sometimes overthinks simple problems and hesitates before acting.",
-    "Loud clanging noises startle her and can scatter her focus."
-  ],
-  "key_objects": [
-    "A small scroll tube tied to her anklet, used to carry messages and new words.",
-    "A carved olive-wood set of letter tokens that she nudges into patterns while teaching.",
-    "A braided leather anklet with a simple bronze ring, a gift from the village children."
-  ],
-  "relationships": [
-    "Mentor to the village children, guiding them through evening lessons under the olive trees.",
-    "Friendly with fisherfolk and farmers, trading observations for small favors and stories.",
-    "Respected by the town storyteller, who invites her to punctuate tales with timely hoots and nods.",
-    "A watchful companion to a shy shepherd boy who is learning to read."
-  ]
+  "appearance": "A large round head with no ear tufts, framed by a near-perfect circular facial disc of charcoal and silver rings around bright yellow eyes. Soft ash-gray plumage is heavily mottled and barred, with a small white \"bow-tie\" at the throat split by a dark center line. Her tail is long and banded, and her thick, feathered legs end in strong pale talons. The beak is short and horn-colored, and she often perches upright on an olive branch, almost knee-high to an adult."
 }

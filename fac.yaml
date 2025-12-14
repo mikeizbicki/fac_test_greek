@@ -38,17 +38,6 @@
     CHARACTER:
       ls characters
 
-"characters/$CHARACTER/artist_instructions.md":
-  description:
-    A short 3-5 sentence description of how the character should always be drawn.
-    Include information about the physical appearance only of elements that are ALWAYS with the character.
-    (For example, body parts like hair/eye color are always appropriate; clothing and accessories like glasses may or may not be appropriate depending on the character; commonly used items like a sword or book are never appropriate. You should not list the character's key objects here.)
-    Be specific about which colors should be used for which parts of the character.
-    Do not include stylistic information (e.g. cartoonish, realistic, anime) as that will be provided in a different document.
-  dependencies:
-    - common/about.md
-    - characters/$CHARACTER/about.json
-
 "characters/$CHARACTER/character_sheet.png":
   description:
     This is a character sheet for the character $CHARACTER.
@@ -63,7 +52,6 @@
     - common/about.md
     - common/art.md
     - characters/$CHARACTER/about.json
-    - characters/$CHARACTER/artist_instructions.md
 
 ################################################################################
 # locations/
