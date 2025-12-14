@@ -1,1 +1,1 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-12-04T19:49:48.335767+00:00", "path": "characters/Dinosaur/character_sheet.png", "build_id": 64646242971626403406986397199520099916, "cost": 0.04, "usage": {"model_details": {"fal-ai/nano-banana": {"cost": 0.04}}, "tools_used": {}}}
+{"__fac_version__": "0.0.0-dev", "time": "2025-12-14T05:12:14.954658+00:00", "path": "characters/Dinosaur/character_sheet.png", "build_id": 148941562381705093973978907660928988579, "cost": 0.04, "usage": {"model_details": {"fal-ai/nano-banana": {"cost": 0.04}}, "tools_used": {}}}

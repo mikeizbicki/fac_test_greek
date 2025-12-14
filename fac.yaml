@@ -49,7 +49,7 @@
   options:
     model: fal-ai/nano-banana
   dependencies:
-    - common/about.md
+    #- common/about.md
     - common/art.md
     - characters/$CHARACTER/about.json
 

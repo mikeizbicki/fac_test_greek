@@ -1,1 +1,1 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-12-06T00:29:40.263797+00:00", "path": "characters/Koala/character_sheet.png", "build_id": 87927934175050201466004865569048667833, "cost": 0.04, "usage": {"model_details": {"fal-ai/nano-banana": {"cost": 0.04}}, "tools_used": {}}}
+{"__fac_version__": "0.0.0-dev", "time": "2025-12-14T05:12:20.283407+00:00", "path": "characters/Koala/character_sheet.png", "build_id": 148941562381705093973978907660928988579, "cost": 0.04, "usage": {"model_details": {"fal-ai/nano-banana": {"cost": 0.04}}, "tools_used": {}}}

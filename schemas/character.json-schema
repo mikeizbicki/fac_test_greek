@@ -28,5 +28,5 @@
       "description": "should be a dungeons and dragons alignment like lawful-good, neutral-evil, chaotic-neutral, etc."
     }
   },
-  "required": ["name", "description", "sex", "appearance", "height_in_meters"]
+  "required": ["name", "description", "sex", "appearance", "height_in_meters", "alignment"]
 }
