@@ -2,5 +2,6 @@
   "name": "Dinosaur",
   "description": "Small friendly green dinosaur",
   "sex": "male",
-  "appearance": "Child-sized with a round snout, big expressive eyes, and a short tail, he has smooth pea-green scales with a pale mint belly. Three stubby fingers and toes make his gestures clear and easy to read. Small triangular dorsal nubs run from the back of his head to mid-tail. His posture is upright and friendly, and he smiles wide when he finds a clue."
+  "height_in_meters": 1.0,
+  "appearance": "Child-sized with a round snout, big expressive eyes, and a short tail, he has smooth pea-green scales with a pale mint belly. Three stubby fingers and toes make his gestures clear and easy to read. Small triangular dorsal nubs run from the back of his head to mid-tail. He wears a simple white chiton fastened with a small bronze fibula at one shoulder and a braided belt, plus soft leather sandals sized for his three-toed feet; his posture is upright and friendly, and he smiles wide when he finds a clue."
 }
