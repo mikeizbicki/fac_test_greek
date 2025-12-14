@@ -1,1 +1,1 @@
-{"__fac_version__": "0.0.0-dev", "time": "2025-12-08T19:41:58.686116+00:00", "path": "locations/familyhouse_exterior/reference.png", "build_id": 4801738779052072443246866480578572496, "cost": 0.15, "usage": {"model_details": {"fal-ai/nano-banana-pro": {"cost": 0.15}}, "tools_used": {}}}
+{"__fac_version__": "0.0.0-dev", "time": "2025-12-14T04:21:23.875557+00:00", "path": "locations/familyhouse_exterior/reference.png", "build_id": 175190367250486559674381921033611876817, "cost": 0.04, "usage": {"model_details": {"fal-ai/nano-banana": {"cost": 0.04}}, "tools_used": {}}}
