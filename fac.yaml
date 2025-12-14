@@ -127,6 +127,7 @@
     Generate a script file (in fountain format) for an animated short based on the file "books/$LEVEL/$BOOK/description.md".
     Use only characters that have a corresponding "characters/*/about.json" file. Do not describe the characters in detail, only reference the appropriate character.
     All scenes in the script must take place at one of the locations specified in the "locations/*/about.json" file. Do not describe the location in detail, only reference the appropriate scene.
+    You can have "transitions" between scenes that involve both scenes (for example a follow shot from the outside of a house to the inside through the door; or a follow shot of a character walking from a house to the market), but you must explicitly state that the action is happening in a transition.
     You may mention objects that are needed for the story line, but do not be excessive in your details and only mention those objects that are strictly needed.
     You should explicitly annotate
     - when one scene ends and another begins,
@@ -479,6 +480,7 @@
     You should explicitly describe the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
     Your instructions must explicitly state that all listed characters must stay in the shot (at least from the knees up) and they must not occlude one another.
     You must also explicitly state that no objects should move unless absolutely necessary.
+    If there are two locations in the "locations" field, you must describe a way of moving the camera/action so that the scene smoothly transitions between the locations; you cannot cut or fade between the locations. (It is okay to add 1-2 additional sentences to explain how to do this since it is more complicated.)
   dependencies:
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
