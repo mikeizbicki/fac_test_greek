@@ -1,0 +1,20 @@
+{
+  "name": "school_interior_studentdesk",
+  "description": "A snug cluster of student desks in the Greek classroom, arranged for collaborative learning near sunlit windows.",
+  "visual_style": {
+    "color_palette": [
+      "Soft blue (#ADD8E6) for nearby walls and window frames to keep the space calm and breezy.",
+      "Warm yellow (#FFD700) for chair cushions and small organizers to add cheerful energy and focus.",
+      "Rich green (#228B22) for pencil caddies and rug borders to suggest growth and learning."
+    ],
+    "architectural_style": "Simple Mediterranean schoolhouse details with whitewashed walls, exposed wooden beams, and low ceilings. The desk area sits beside large, shuttered windows that open toward the courtyard.",
+    "lighting": "bright natural daylight",
+    "furniture": "Small honey-colored oak desks with blue-painted trim are paired in neat rows to form islands for two to four students. Matching low chairs with warm yellow seat pads tuck under each desk, and a woven green-and-cream caddy sits at the center of each island.",
+    "materials": [
+      "Whitewashed stucco walls",
+      "Exposed wooden beams",
+      "Honey oak desks with blue-painted trim",
+      "Stone floor with a woven geometric rug"
+    ]
+  }
+}
