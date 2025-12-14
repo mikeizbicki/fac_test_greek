@@ -1,6 +1,29 @@
 {
   "name": "Panda",
-  "description": "Curious Koine-speaking panda cub",
-  "sex": "male",
-  "appearance": "A round-faced panda cub with large black ear tufts and classic dark eye patches, soft white muzzle, and a small button nose. Short, plush limbs and a toddler-like belly give him a grounded, low-to-the-floor silhouette. His eyes are bright and expressive, often wide with curiosity. Fur is deep charcoal on limbs, ears, and patches, with creamy white on face and belly."
+  "description": "Cheerful pink-skirted panda",
+  "sex": "female",
+  "personality": "Warm-hearted and curious, she delights in discovering and sharing new Greek words. Patient and encouraging, she turns mistakes into giggles and try-agains.",
+  "backstory": "She wandered far from her bamboo forest after hearing tales about words that shaped stories across the sea. In a sunlit coastal town, she found friends who love learning and a market bustling with the sounds of ancient Greek. Now she stays to help children notice patterns and meanings as they play and explore.",
+  "appearance": "A plump black-and-white panda with a round, friendly face and bright, expressive eyes. She is always wearing a soft pink, knee-length skirt with a simple pleated hem that swishes when she walks. Short, velvety ears, a button nose, and a gentle smile make her look welcoming in every scene. She often carries a small crossbody satchel sized for picture cards.",
+  "strengths": [
+    "She explains new ideas with simple, concrete examples children can see and act out.",
+    "She notices patterns in words and points them out clearly.",
+    "She stays calm and encouraging when others feel stuck.",
+    "She connects Greek words to familiar English or Spanish to build confidence."
+  ],
+  "weaknesses": [
+    "She gets distracted by tasty snacks and side-quests during lessons.",
+    "She sometimes overexplains when a short answer would do.",
+    "She can be shy in noisy crowds and needs a quiet moment to speak up."
+  ],
+  "key_objects": [
+    "A worn little notebook filled with sketches and Greek word lists.",
+    "A deck of colorful picture cards for quick vocabulary games.",
+    "A tiny clay amphora charm she rubs for courage before teaching."
+  ],
+  "relationships": [
+    "She is a gentle mentor and friend to the children who star in the stories.",
+    "She collaborates respectfully with village adults, like shopkeepers and teachers, to model good manners.",
+    "She chats with the unseen narrator, asking curious questions children might want to ask."
+  ]
 }
