@@ -19,41 +19,13 @@
       "type": "number",
       "description": "height in meters"
     },
-    "personality": {
-      "type": "string",
-      "description": "1-3 sentences"
-    },
-    "backstory": {
-      "type": "string",
-      "description": "2-5 sentences"
-    },
     "appearance": {
       "type": "string",
       "description": "2-5 sentences; provide concrete details that would allow an artist to reproduce a portrait of the character"
     },
-    "strengths": {
-      "type": "array",
-      "items": {"type": "string", "description": "1 sentence"},
-      "minItems": 1,
-      "maxItems": 5
-    },
-    "weaknesses": {
-      "type": "array",
-      "items": {"type": "string", "description": "1 sentence"},
-      "minItems": 1,
-      "maxItems": 5
-    },
-    "key_objects": {
-      "type": "array",
-      "items": {"type": "string", "description": "1 sentence"},
-      "minItems": 0,
-      "maxItems": 3
-    },
-    "relationships": {
-      "type": "array",
-      "items": {"type": "string", "description": "1 sentence"},
-      "minItems": 0,
-      "maxItems": 5
+    "dnd_alignment_axes": {
+      "type": "string",
+      "description": "should be a dungeons and dragons alignment like lawful-good, neutral-evil, chaotic-neutral, etc."
     }
   },
   "required": ["name", "description", "sex", "appearance", "height_in_meters"]
