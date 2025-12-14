@@ -142,6 +142,7 @@
     - any cuts/camera movements
     Levels A and B do not support dialogue, and so only the narrator will be talking.
     Only narration and dialogue should be in koine greek; all set directions/fountain commands should be in English.
+    Include detailed camera directions (when to do close ups, when multiple characters should be in a shot, etc).
   dependencies:
     - common/about.md
     - common/writing.md

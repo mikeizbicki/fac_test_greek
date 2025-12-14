@@ -6,7 +6,7 @@ Stories should be 50% dialogue 50% narration. The narration should explain movem
 ## Grammar
 
 - Continue using only present tense verbs and infinitives.
-- **NEW**: Characters may speak in 1st/2nd person singular/plural and may use singular/plural commands.
+- **NEW**: Characters may speak in 1st/2nd person singular/plural and may use singular/plural commands. Commands can use aorist or present stems as appropriate.
 - **NEW**: Nouns can now be in the vocative case. Always use ὦ before the vocative to help children identify the vocative.
 - Subjects and objects should always be explicit during the dialogue.
 - **IMPORTANT**: We do not yet introduce questions; all dialogue must be statements or imperatives.
@@ -21,6 +21,7 @@ Basic expressions:
 - εὐχαριστῶ (thank you)
 - συγγνώμη (forgiveness, excuse me/sorry)
 - μὴ (for negative commands)
+- οὐδαμῶς (for saying no to a command)
 - ὦ (should always be used in the vocative when addressing someone)
 
 Personal pronouns:

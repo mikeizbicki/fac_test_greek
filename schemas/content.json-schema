@@ -80,6 +80,8 @@
           "reference_frame": {
             "type": "string",
             "description": "When provided, this value must exactly match the frame_id of a previous frame. This value should only be provided if this frame will be in a continuous 'shot' with the previous frame during the final animation. If the location of the two frames is the same, then this fields should probably be provided, and if the location is different, then this field should probably not be provided."
+          },
+          "camera": {
           }
         },
         "required": [
