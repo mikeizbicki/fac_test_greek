@@ -2,5 +2,7 @@
   "name": "Iatros",
   "description": "Gentle healing physician",
   "sex": "male",
-  "appearance": "Clean and carefully groomed, with gentle hands and an attentive expression. He wears a pristine white chiton with a narrow purple border, cinched with a cord belt from which hangs a small leather medical bag. His dark hair is neatly trimmed, and he carries a wooden staff topped with a carved snake - the symbol of healing. Small clay vials of herbs peek from his belt pouch, and his movements are precise yet comforting."
+  "appearance": "Clean and carefully groomed, with gentle hands and an attentive expression. He wears a pristine white chiton with a narrow purple border, cinched with a cord belt from which hangs a small leather medical bag. His dark hair is neatly trimmed, and he carries a wooden staff topped with a carved snake - the symbol of healing. Small clay vials of herbs peek from his belt pouch, and his movements are precise yet comforting.",
+  "height_in_meters": 1.8,
+  "alignment": "lawful-good"
 }

@@ -24,6 +24,10 @@
             "type": "string",
             "description": "The text for this frame of the story in Koine greek. Each frame should contain at most 25 words. If more text is needed, it should be broken up into multiple frames. Very little text is okay if appropriate for the story."
           },
+          "speaker": {
+            "type": "string",
+            "description": "The character that is speaking the text. If null, then the text is narration."
+          },
           "frame_id": {
             "type": "string",
             "pattern": "^[a-zA-Z0-9_]+$",

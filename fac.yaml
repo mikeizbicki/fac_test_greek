@@ -38,6 +38,14 @@
     CHARACTER:
       ls characters
 
+"characters/$CHARACTER/voice.json":
+  description:
+    A description of the character's voice for a voice actor.
+  schema_file: schemas/character.json-schema
+  dependencies:
+    - common/about.md
+    - characters/$CHARACTER/about.json
+
 "characters/$CHARACTER/character_sheet.png":
   description:
     This is a character sheet for the character $CHARACTER.

@@ -2,7 +2,7 @@
   "name": "Alopex",
   "description": "Wily, soft-spoken trickster fox",
   "sex": "male",
-  "height_in_meters": 0.8,
   "appearance": "An anthropomorphic fox with rust-orange fur, a cream muzzle and tail tip, dark ear tips, and charcoal paws; slim limbs and a long brush tail give him a narrow silhouette. He wears a patched chiton or short himation cinched with a rope belt, often topped with a worn traveler's cloak and a wide-brim petasos hat tilted low over his eyes. Half-lidded eyes, a sly grin, and a raised brow dominate his expressions; he tends to tiptoe, freeze, and bow dramatically. Simple sandals complete a muted olive and umber palette.",
+  "height_in_meters": 0.8,
   "alignment": "chaotic-evil"
 }

@@ -2,5 +2,7 @@
   "name": "Iatrike",
   "description": "Gentle healing physician",
   "sex": "female",
-  "appearance": "Clean and carefully groomed, with gentle hands that smell faintly of healing herbs. She wears a pristine white chiton with embroidered borders, and a soft blue himation that won't frighten patients. Her hair is neatly braided and covered with a simple veil. She carries a leather satchel filled with small clay vials of medicines, clean linen bandages, and bronze medical instruments. Her movements are calm and reassuring."
+  "appearance": "Clean and carefully groomed, with gentle hands that smell faintly of healing herbs. She wears a pristine white chiton with embroidered borders, and a soft blue himation that won't frighten patients. Her hair is neatly braided and covered with a simple veil. She carries a leather satchel filled with small clay vials of medicines, clean linen bandages, and bronze medical instruments. Her movements are calm and reassuring.",
+  "height_in_meters": 1.5,
+  "alignment": "lawful-good"
 }

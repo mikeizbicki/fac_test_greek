@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "voice_actor": {
+      "type": "string",
+      "enum": ["alloy", "ash", "ballad", "coral", "echo", "fable", "nova", "onyx", "sage", "shimmer", "verse"],
+      "description": "The name of the voice actor to use. The voice actor must match the gender of the character."
+    },
+    "acting_instructions": {
+      "type": "string",
+      "description": "A 3-5 sentence description of how the character talks that will ensure the voice actor is always consistent. The voice should reflect the character's alignment and other qualities. The same actor may voice multiple characters, so your description here must help make these voices easy to distinguish. Use highly exaggerated language. The instructions should be generic for any language."
+    }
+  },
+  "required": ["voice_actor", "acting_instructions"]
+}
+

@@ -4,5 +4,6 @@
   "sex": "male",
   "backstory": "An ageless serpent who has long lived among stones, roots, and thresholds, Ophis feels ancient to the children. He collects shiny and old objects and guards holes and shadows like a careful custodian. He tempts others with shortcuts and trades to prove his cleverness, yet his mischief stays small and fixable. When treated with kindness, he sometimes warns or helps—quietly and on his terms.",
   "appearance": "Long and slender, he has dark-olive scales with a bronze sheen and a subtle Greek meander pattern along his back. His half-lidded golden eyes have narrow pupils that widen in warm light, and a forked red tongue flicks as a small fang gleams when he smiles. He sometimes wears a narrow scarf-like band near his neck and may coil around a looped cord or ring he ‘guards.’ He moves in low, sinuous S-curves at child eye-level, often arriving from the bottom corner of the frame.",
-  "dnd_alignment_axes": "neutral-evil"
+  "alignment": "neutral-evil",
+  "height_in_meters": 0.3
 }

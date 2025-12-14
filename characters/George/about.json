@@ -2,5 +2,7 @@
   "name": "George",
   "description": "Gentle countryside farmer",
   "sex": "female",
-  "appearance": "Her hands are calloused from harvest work, with soil permanently under her nails. She wears a practical brown chiton hitched up for field work, with a wide straw hat that casts gentle shadows over her sun-bronzed face. A woven belt holds seed pouches and a small pruning knife, while a basket for gathering sits on her hip. Her hair is braided back with wheat stalks, and she often carries fresh vegetables or herbs from her garden."
+  "appearance": "Her hands are calloused from harvest work, with soil permanently under her nails. She wears a practical brown chiton hitched up for field work, with a wide straw hat that casts gentle shadows over her sun-bronzed face. A woven belt holds seed pouches and a small pruning knife, while a basket for gathering sits on her hip. Her hair is braided back with wheat stalks, and she often carries fresh vegetables or herbs from her garden.",
+  "height_in_meters": 1.5,
+  "alignment": "neutral-good"
 }

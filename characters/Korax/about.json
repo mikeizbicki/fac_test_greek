@@ -3,5 +3,6 @@
   "description": "Mischievous community crow trickster",
   "sex": "male",
   "appearance": "He is a sleek crow with a strong straight beak, wedge-shaped tail, and glossy black plumage that shines blue-violet in light. His eyes are dark with a lively catch-light, and he often tilts his head, raises small hackles when excited, and half-opens his wings to show intent. His beak and feet are black just like his feathers. Korax always looks angry and unkempt.",
-  "dnd_alignment_axes": "chaotic-evil"
+  "alignment": "chaotic-evil",
+  "height_in_meters": 0.5
 }
