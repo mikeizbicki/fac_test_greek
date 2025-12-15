@@ -82,6 +82,8 @@
             "description": "When provided, this value must exactly match the frame_id of a previous frame. This value should only be provided if this frame will be in a continuous 'shot' with the previous frame during the final animation. If the location of the two frames is the same, then this fields should probably be provided, and if the location is different, then this field should probably not be provided."
           },
           "camera": {
+            "type": "string",
+            "description": "1-3 sentence description of what the camera should be focusing on/how the camera is moving/what type of shot we see (wide/head shot/etc)."
           }
         },
         "required": [
