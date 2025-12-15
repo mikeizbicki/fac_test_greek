@@ -4,7 +4,7 @@
   "plot": "Glaux and Panda play ball by the tree until Lukos approaches, and Ὑπερβρέφος drives him away with a thrown stone.",
   "frames": [
     {
-      "text": "«ἡ Γλαῦξ καὶ ἡ Πάνδα παίζουσιν μετὰ τῆς σφαίρας παρὰ τῷ δένδρῳ.»",
+      "text": "ἡ Γλαῦξ καὶ ἡ Πάνδα παίζουσιν μετὰ τῆς σφαίρας παρὰ τῷ δένδρῳ.",
       "speaker": "Didaskalos",
       "frame_id": "establish_play",
       "characters": [
@@ -32,7 +32,7 @@
       "camera": "Wide establishing shot of the tree foregrounded with the cottage far behind; calm, playful scene."
     },
     {
-      "text": "«ἐγώ νῦν βάλλω τὴν σφαῖραν, ὦ Γλαῦξ.»",
+      "text": "ἐγώ νῦν βάλλω τὴν σφαῖραν, ὦ Γλαῦξ.",
       "speaker": "Panda",
       "frame_id": "panda_throw_line",
       "characters": [
@@ -61,7 +61,7 @@
       "camera": "Medium two-shot of Panda and Glaux facing each other with the ball between them."
     },
     {
-      "text": "«ὁ Λύκος νῦν προσέρχεται πρὸς τὸ δένδρον.»",
+      "text": "ὁ Λύκος νῦν προσέρχεται πρὸς τὸ δένδρον.",
       "speaker": "Didaskalos",
       "frame_id": "lukos_approaches",
       "characters": [
@@ -93,7 +93,7 @@
       "camera": "Pan right to reveal Lukos entering; settle into a three-shot with Glaux, Panda, and Lukos."
     },
     {
-      "text": "«ἐγώ νῦν βούλομαι ὑμᾶς ἐσθίειν.»",
+      "text": "ἐγώ νῦν βούλομαι ὑμᾶς ἐσθίειν.",
       "speaker": "Lukos",
       "frame_id": "lukos_threat",
       "characters": [
@@ -125,7 +125,7 @@
       "camera": "Hold on the group; Lukos dominates the frame as he speaks, with the others reacting."
     },
     {
-      "text": "«ὦ Ὑπερβρέφος, βοήθει ἡμῖν νῦν.»",
+      "text": "ὦ Ὑπερβρέφος, βοήθει ἡμῖν νῦν.",
       "speaker": "Glaux",
       "frame_id": "glaux_calls",
       "characters": [
@@ -154,11 +154,11 @@
       "camera": "Tight two-shot on Glaux and Panda showing their worried reaction as Glaux calls for help."
     },
     {
-      "text": "«ὁ Ὑπερβρέφος ἀκούει τὴν φωνὴν καὶ τρέχει ἐκ τῆς οἰκίας.»",
+      "text": "ὁ Ὑπερβρέφος ἀκούει τὴν φωνὴν καὶ τρέχει ἐκ τῆς οἰκίας.",
       "speaker": "Didaskalos",
       "frame_id": "hyper_hears_runs",
       "characters": [
-        "Ὑπερβρέφος"
+        "Hyperbrephos"
       ],
       "locations": [
         "familyhouse_interior_bedroom"
@@ -177,11 +177,11 @@
       "camera": "Medium on the cozy doorway area with a guiding beam of light; feel the start of a swift dash."
     },
     {
-      "text": "«ὁ Ὑπερβρέφος λαμβάνει τὸν λίθον καὶ βάλλει τὸν λίθον πρὸς τὸν Λύκον.»",
+      "text": "ὁ Ὑπερβρέφος λαμβάνει τὸν λίθον καὶ βάλλει τὸν λίθον πρὸς τὸν Λύκον.",
       "speaker": "Didaskalos",
       "frame_id": "hyper_throws_stone",
       "characters": [
-        "Ὑπερβρέφος",
+        "Hyperbrephos",
         "Lukos",
         "Panda",
         "Glaux"
@@ -211,11 +211,11 @@
       "camera": "Tracking shot arrives with Ὑπερβρέφος; reframe to a wide that includes all four as the stone flies."
     },
     {
-      "text": "«ὦ Λύκε, μὴ προσέρχου πρὸς τοὺς φίλους ἐμοὺς.»",
-      "speaker": "Ὑπερβρέφος",
+      "text": "ὦ Λύκε, μὴ προσέρχου πρὸς τοὺς φίλους ἐμοὺς.",
+      "speaker": "Hyperbrephos",
       "frame_id": "hyper_warns",
       "characters": [
-        "Ὑπερβρέφος",
+        "Hyperbrephos",
         "Lukos",
         "Panda",
         "Glaux"
@@ -246,12 +246,12 @@
       "camera": "Medium emphasizing Ὑπερβρέφος in the foreground with Lukos in the opposing plane."
     },
     {
-      "text": "«οἴμοι· μὴ βάλλε τὸν λίθον εἰς ἐμέ· ἐγώ ἀπέρχομαι νῦν.»",
+      "text": "οἴμοι· μὴ βάλλε τὸν λίθον εἰς ἐμέ· ἐγώ ἀπέρχομαι νῦν.",
       "speaker": "Lukos",
       "frame_id": "lukos_begs",
       "characters": [
         "Lukos",
-        "Ὑπερβρέφος",
+        "Hyperbrephos",
         "Panda",
         "Glaux"
       ],
@@ -281,12 +281,12 @@
       "camera": "Medium close-up on Lukos as he pleads; others remain readable in the background."
     },
     {
-      "text": "«ὁ Λύκος φεύγει ἀπὸ τοῦ δένδρου.»",
+      "text": "ὁ Λύκος φεύγει ἀπὸ τοῦ δένδρου.",
       "speaker": "Didaskalos",
       "frame_id": "lukos_flees",
       "characters": [
         "Lukos",
-        "Ὑπερβρέφος",
+        "Hyperbrephos",
         "Panda",
         "Glaux"
       ],
@@ -316,12 +316,12 @@
       "camera": "Wide shot as Lukos backs away and exits the frame to the right."
     },
     {
-      "text": "«εὐχαριστῶ σοι, ὦ Ὑπερβρέφος.»",
+      "text": "εὐχαριστῶ σοι, ὦ Ὑπερβρέφος.",
       "speaker": "Panda",
       "frame_id": "panda_thanks",
       "characters": [
         "Panda",
-        "Ὑπερβρέφος",
+        "Hyperbrephos",
         "Glaux"
       ],
       "locations": [
@@ -348,7 +348,7 @@
       "camera": "Medium two-shot on Panda and Ὑπερβρέφος; Glaux enters at the edge with the ball."
     },
     {
-      "text": "«ἡ Γλαῦξ καὶ ἡ Πάνδα πάλιν παίζουσιν μετὰ τῆς σφαίρας.»",
+      "text": "ἡ Γλαῦξ καὶ ἡ Πάνδα πάλιν παίζουσιν μετὰ τῆς σφαίρας.",
       "speaker": "Didaskalos",
       "frame_id": "play_again",
       "characters": [

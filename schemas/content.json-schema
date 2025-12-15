@@ -22,7 +22,7 @@
         "properties": {
           "text": {
             "type": "string",
-            "description": "The text for this frame of the story. Each frame should contain at most 20 words. If more text is needed, it should be broken up into multiple frames. This text should exactly match the dialogue from the fountain script."
+            "description": "The text for this frame of the story. Each frame should contain at most 20 words. If more text is needed, it should be broken up into multiple frames. This text should exactly match the dialogue from the fountain script. Do not include quotation marks or guillemets unless the original script contains them. "
           },
           "speaker": {
             "type": "string",
