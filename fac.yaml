@@ -265,7 +265,7 @@
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page_debug.pdf":
   cmd: |
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID
-    convert page.pdf \( -background white -fill black -pointsize 20 -size x30 label:"$FRAME_ID" \) -gravity northeast -geometry +10+10 -composite page_debug.pdf
+    convert -density 300 page.pdf \( -background white -fill black -pointsize 20 -size x30 label:"FRAME_ID: $FRAME_ID\nREFERENCE_FRAME: $REFERENCE_FRAME" \) -gravity northeast -geometry +10+10 -composite -quality 100 page_debug.pdf
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
 
