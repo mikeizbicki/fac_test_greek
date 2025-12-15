@@ -242,7 +242,9 @@
   cmd: |
     cp templates/page_template.tex books/$LEVEL/$BOOK/frames/$FRAME_ID/page.tex
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID
-    jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" ../../content.json > content.txt
+    jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .speaker" ../../content.json > content.txt
+    echo ": " >> content.txt
+    jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" ../../content.json >> content.txt
     lualatex page.tex && lualatex page.tex
   dependencies:
     - templates/page_template.tex
