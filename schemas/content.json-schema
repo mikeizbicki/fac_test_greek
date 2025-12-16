@@ -16,13 +16,13 @@
     },
     "frames": {
       "type": "array",
-      "description": "Each frame represents a single page in a children's book, a single frame in a comic book, or a single beat from a movie.",
+      "description": "Each frame represents a single page in a children's book, a single frame in a comic book, or a single (5 second) beat from a movie.",
       "items": {
         "type": "object",
         "properties": {
           "text": {
             "type": "string",
-            "description": "The text for this frame of the story. Each frame should contain at most 20 words. If more text is needed, it should be broken up into multiple frames. This text should exactly match the dialogue from the fountain script. Do not include quotation marks or guillemets unless the original script contains them. "
+            "description": "The text for this frame of the story. Each frame should contain at most 20 words. If more text is needed, it should be broken up into multiple frames. This text should exactly match the dialogue from the fountain script. This fields should be empty whenever an empty frame is needed for pacing of the story. Examples include (FADE IN/FADE OUT transitions, when large sequences of actions are specified in the script, or when the script explicitly calls for an extra frame)."
           },
           "speaker": {
             "type": "string",
@@ -73,27 +73,39 @@
               "description": "1 sentence describing what has previously happened to the character (or what will happen) that explains why they are feeling the way they are. These motivations are used to ensure consistent art between frames, and so any information that could help build consistency should be included here. You must be specific about WHY and WITH WHOM the characters are feeling emotions. The artist will not have access to the previous frames and will have to rely in this motivations section to draw this frame consistently with the previous/next frames."
             }
           },
+          "action": {
+            "type": "string",
+            "description": "A 1-2 sentence description of the action that is happening in this frame. The description should not mention 'direction details' like fades or narration, but only the content of the story. (If someone is actually talking, though, that should be mentioned.) The artist will use this field to render images and animation for the frame. The artist will not have access to the text field, and so any important information there should be duplicated here."
+          },
           "artist_notes": {
             "type": "string",
             "description": "A 1-3 sentence description of custom drawing instructions that are not captured by the other fields. It is okay to leave this blank."
           },
           "reference_frame": {
             "type": "string",
-            "description": "When provided, this value must exactly match the frame_id of a previous frame. This value should only be provided if this frame will be in a continuous 'shot' with the previous frame during the final animation. If the location of the two frames is the same, then this fields should probably be provided, and if the location is different, then this field should probably not be provided."
+            "description": "When provided, this value must exactly match the frame_id of some previous frame. This value should only be provided if this frame will be in a continuous 'shot' with the previous frame during the final animation. If the location of the two frames is the same, then this field should probably be provided, and if the location is different, then this field should probably not be provided. If there is a cut, this field shot not be provided. The reference_frame does not have to be the immediately previous frame, and will often be several frames before when continuing a shot that was interrupted by a brief cut."
           },
-          "camera": {
+          "camera_static": {
             "type": "string",
-            "description": "1-3 sentence description of what the camera should be focusing on/how the camera is moving/what type of shot we see (wide/head shot/etc)."
+            "description": "1-3 sentence description of what the camera should be focusing on at the start of the frame. Use both technical and layman terminology to ensure that the artist fully understands what should and should not be captured in the scene."
+          },
+          "camera_movement": {
+            "type": "string",
+            "description": "1-3 sentence description of how the camera should move (dolly/pan/tilt/etc), including what is in the final shot and how it is framed."
           }
         },
         "required": [
           "text",
+          "speaker",
+          "action",
           "frame_id",
           "characters",
           "locations",
           "objects",
           "positioning",
-          "motivations"
+          "motivations",
+          "camera_static",
+          "camera_movement"
         ]
       }
     }

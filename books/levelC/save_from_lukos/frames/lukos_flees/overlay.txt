@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage[paperwidth=8.5in,paperheight=11in,margin=0in]{geometry}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay]
+\node[
+    anchor=north east,
+    fill=white,
+    draw=black,
+    line width=1mm,
+    rounded corners=5mm,
+    inner sep=3mm
+] at (current page.north east) {
+    \parbox{3in}{
+        \footnotesize
+        \begin{tabular}{@{}ll@{}}
+        FRAME\_ID: & $FRAME_ID \\
+        REFERENCE\_FRAME: & $REFERENCE_FRAME \\
+        \end{tabular}
+    }
+};
+\end{tikzpicture}
+\end{document}

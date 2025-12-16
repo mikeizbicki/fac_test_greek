@@ -150,6 +150,8 @@
     - books/$LEVEL/$BOOK/description.md
     - characters/$CHARACTER/about.json
     - locations/$LOCATION/about.json
+  build_options:
+    freeze: True
   variables:
     # INCLUDE_LEVEL will list all the levels that are less than or equal to $LEVEL
     # For example, if there are three levels:
@@ -158,6 +160,36 @@
     # then INCLUDE_LEVEL will contain levelA and levelB but not levelC
     INCLUDE_LEVEL: |
       ls books | sort | awk -v target="$LEVEL" '$0 <= target'
+
+"books/$LEVEL/$BOOK/script.fountain.framed":
+  description:
+    You are processing the input fountain script to divide it into rendering units called "frames".
+    Each frame is between 2-10 seconds long and captures a single piece of action or dialogue.
+    You're output should be the input script verbatim except with these frame annotations.
+
+    A frame is annotated using a simplified version of XML.
+    Each frame in the input script should be wrapped in a <frame></frame> tag,
+    and each frame should have an "id" attribute whose value is the id of the frame.
+    These ids should be a 1-5 word description of what happens in the frame in snake_case and without spaces (e.g. establish, harry_enters_hogwarts, or end_scene).
+
+    Every piece of dialogue from a single character must have its own unique frame. The frame should also include any action descriptions, camera movement descriptions, or start of scene annotations that are happening at the same time as the dialogue (indicated in fountain notation by being immediately before the dialogue). A frame may never contain two characters speaking at the same time.
+
+    Long sequences of action should be broken up into multiple frames.
+
+    FADE IN and FADE OUT should be in frames by themselves.
+
+    IT IS VERY IMPORTANT THAT YOU INCLUDE ALL OF THE ORIGINAL CONTENT OF THE FOUNTAIN SCRIPT IN THE OUTPUT. You are only adding <frame></frame> tags and not editing the content or removing the content.
+
+  dependencies:
+    - books/$LEVEL/$BOOK/script.fountain
+
+"books/$LEVEL/$BOOK/script.html":
+  cmd: |
+    cd books/$LEVEL/$BOOK/
+    sed 's/_/UNDERSCOREUNDERSCOREUNDERSCORE/g' script.fountain > script_escaped.fountain
+    screenplain --format html script_escaped.fountain > script.html
+    sed -i 's/UNDERSCOREUNDERSCOREUNDERSCORE/_/g' script.html
+    rm script_escaped.fountain
 
 "books/$LEVEL/$BOOK/content.json":
   description:
@@ -184,18 +216,22 @@
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/art.png":
   description: |
-    You are drawing the keyframe for an animation that will help young children learning Koine Greek how to understand the text in the content below.
+    You are drawing the keyframe for an animation of the content below.
     <content>
-    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {text, objects, locations, artist_notes, positioning}" books/$LEVEL/$BOOK/content.json)
+    $(jq -c ".frames[] | select(.frame_id == \"$FRAME_ID\") | {action, objects, artist_notes, positioning, motivations, camera_static}" books/$LEVEL/$BOOK/content.json)
     </content>
-    The art should never include written text in any language.
-    The art should be full-bleed with no margin/padding/border/whitespace.
-    The art should use the attached files to guide the drawing.
+    Important instructions:
+    - The art should never include written text in any language.
+    - The art should be full-bleed with no margin/padding/border/whitespace.
+    - The art should use the attached files to guide the drawing.
     - There is one location reference frame that shows the background without characters. There is a corresponding about.json file for the location that describes the location.
     - For each character:
       - There is an about.json document that describes the character's appearance.
       - There is an attached sprite sheet.
       - The character should be drawn exactly once. Place the character "inside" the scene at an appropriate location and not just in the foreground.
+      - Use the "height_in_meters" field to ensure that all characters are drawn with correct relative proportions.
+    - For each object:
+      - Place the object "inside" the scene at the specified location.
     $(
     if [ ! -z "$REFERENCE_FRAME" ]; then
     echo "- There is an attached reference_frame image.
@@ -205,7 +241,7 @@
       - If there is a character in the reference_frame but there is no corresponding sprite sheet or about.json file, then this character has moved out of the scene and should not be drawn."
     fi
     )
-    - You should adjust the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene; you do not need to capture unnecessary background. You cannot use cuts, only smooth camera movements.
+    - You should adjust the camera angle and perspective (zoom in/out, roll, pan, dolly, etc) so that the view is focused on the action in the scene. You do not need to capture unnecessary background, and you do not need to use the same view as the location or reference frame (these are provided only as guides to ensure stylistic consistency, but not to ensure perspective consistency).
   options:
     #model: fal-ai/nano-banana/edit
     model: fal-ai/nano-banana-pro/edit
@@ -265,9 +301,52 @@
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/page_debug.pdf":
   cmd: |
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID
-    convert -density 300 page.pdf \( -background white -fill black -pointsize 20 -size x30 label:"FRAME_ID: $FRAME_ID\nREFERENCE_FRAME: $REFERENCE_FRAME" \) -gravity northeast -geometry +10+10 -composite -quality 100 page_debug.pdf
+
+    # First we need to escape the variables we will use
+    # so that they can be included safely in a latex document.
+    escape_latex() {
+        echo "$1" | sed 's/\\/\\textbackslash{}/g; s/{/\\{/g; s/}/\\}/g; s/\$/\\$/g; s/#/\\#/g; s/%/\\%/g; s/&/\\&/g; s/_/\\_/g; s/\^/\\textasciicircum{}/g; s/~/\\textasciitilde{}/g'
+    }
+    ESCAPED_FRAME_ID=$(escape_latex "$FRAME_ID")
+    ESCAPED_REFERENCE_FRAME=$(escape_latex "$REFERENCE_FRAME")
+
+    # Next we use latex to create an "overlay.pdf" file that contains the debug info.
+    # Note that we must be VERY careful with escape characters to avoid syntax errors
+    # (because this is latex inside of shell inside of yaml).
+    cat > overlay.tex <<EOF
+    \documentclass{article}
+    \usepackage[paperheight=8.5in,paperwidth=11in,margin=0in]{geometry}
+    \usepackage{tikz}
+    \renewcommand{\familydefault}{\ttdefault}
+    \begin{document}
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[
+        anchor=north east,
+        fill=white,
+        draw=black,
+        line width=1mm,
+        rounded corners=5mm,
+        inner sep=3mm
+    ] at (current page.north east) {
+            \large
+            \begin{tabular}{@{}rl@{}}
+            FRAME\_ID: & $ESCAPED_FRAME_ID \\\\
+            REFERENCE\_FRAME: & $ESCAPED_REFERENCE_FRAME \\\\
+            \end{tabular}
+    };
+    \end{tikzpicture}
+    \end{document}
+    EOF
+    pdflatex -interaction=nonstopmode overlay.tex
+    pdflatex -interaction=nonstopmode overlay.tex
+
+    # Generate the final result.
+    pdftk page.pdf stamp overlay.pdf output page_debug.pdf
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.pdf
+  variables:
+    REFERENCE_FRAME:
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/pages_debug.pdf":
   cmd: |
@@ -300,7 +379,6 @@
     books/$LEVEL/$BOOK/content.json > books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.json
   dependencies:
   - books/$LEVEL/$BOOK/content.json
-
   variables:
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json

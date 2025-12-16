@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage[paperheight=8.5in,paperwidth=11in,margin=0in]{geometry}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\ttdefault}
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay]
+\node[
+    anchor=north east,
+    fill=white,
+    draw=black,
+    line width=1mm,
+    rounded corners=5mm,
+    inner sep=3mm
+] at (current page.north east) {
+        \large
+        \begin{tabular}{@{}rl@{}}
+        FRAME\_ID: & glaux\_calls\_hyper \\
+        REFERENCE\_FRAME: & friends\_scared \\
+        \end{tabular}
+};
+\end{tikzpicture}
+\end{document}

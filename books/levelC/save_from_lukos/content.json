@@ -1,12 +1,12 @@
 {
   "title": "σωτηρία ἀπὸ Λύκου",
-  "learning_goal": "Practice present-tense narration with first/second-person statements and imperatives, using vocatives with ὦ and explicit subjects/objects.",
-  "plot": "Glaux and Panda play ball by the tree until Lukos approaches, and Ὑπερβρέφος drives him away with a thrown stone.",
+  "learning_goal": "Practice first/second person statements, vocatives with ὦ, simple imperatives (including μὴ), and explicit subjects/objects in present-tense narration.",
+  "plot": "Glaux and Panda play ball by the tree until Lukos threatens them; Hyperbrephos hears, races out, saves them with a thrown stone, and they happily play again.",
   "frames": [
     {
-      "text": "ἡ Γλαῦξ καὶ ἡ Πάνδα παίζουσιν μετὰ τῆς σφαίρας παρὰ τῷ δένδρῳ.",
+      "text": "ἰδού ἡ Γλαῦξ καὶ ἡ Πάνδα παίζουσιν μετὰ τῆς σφαίρας παρὰ τῷ δένδρῳ.",
       "speaker": "Didaskalos",
-      "frame_id": "establish_play",
+      "frame_id": "fade_in_establish_tree",
       "characters": [
         "Glaux",
         "Panda"
@@ -15,26 +15,28 @@
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Panda stands on the left foreground facing right in three-quarter view, looking at Glaux with a relaxed smile.",
-        "Glaux stands on the right foreground facing left in three-quarter view, looking at Panda attentively.",
-        "The small tan leather ball sits between Panda and Glaux at knee height on the grass, slightly left of center.",
-        "The pale-gray river stone lies on the cobblestone path near the tree roots at the lower right of frame."
+        "Glaux stands left under the shade tree in three-quarter view facing right, eyes on Panda.",
+        "Panda stands right by the path in three-quarter view facing left, eyes on Glaux.",
+        "A bright red leather ball sized for children, slightly scuffed. lies on the grass centered between Glaux and Panda.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. rests near the cobblestone path at the base of the tree."
       ],
       "motivations": [
-        "Panda is happy and focused because she is playing catch with her friend Glaux under the tree.",
-        "Glaux is calm and engaged because she is playing the ball game with Panda in the sunshine."
+        "Glaux is relaxed and happy because she is playing catch with Panda by the tree.",
+        "Panda is cheerful and focused because she is playing with Glaux using the ball."
       ],
-      "artist_notes": "Bright sunny day; cottage far behind the friendly shade tree.",
-      "camera": "Wide establishing shot of the tree foregrounded with the cottage far behind; calm, playful scene."
+      "action": "Glaux and Panda play with a ball near the tree while the cottage sits far behind.",
+      "artist_notes": "Bright daytime; keep cottage small in background. Make the tree welcoming and central.",
+      "camera_static": "Wide establishing shot foregrounding the large shade tree and cobblestone path with the cottage tiny in the far background.",
+      "camera_movement": "Hold static for orientation as the breeze rustles leaves and the ball rests between them."
     },
     {
       "text": "ἐγώ νῦν βάλλω τὴν σφαῖραν, ὦ Γλαῦξ.",
       "speaker": "Panda",
-      "frame_id": "panda_throw_line",
+      "frame_id": "panda_prepares_throw",
       "characters": [
         "Panda",
         "Glaux"
@@ -43,91 +45,146 @@
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Panda remains on the left foreground facing right, arm extended mid-throw, eyes on Glaux; front three-quarter view.",
-        "Glaux remains on the right foreground facing left, wings slightly raised to catch, eyes on the incoming ball; three-quarter view.",
-        "The small tan leather ball arcs gently between them, slightly above center frame.",
-        "The pale-gray river stone remains on the cobblestone near the tree roots at the lower right."
+        "Panda stands right in medium two-shot, front three-quarter toward left, arm cocked to toss, eyes on Glaux.",
+        "Glaux stands left, front three-quarter toward right, wings ready to catch, eyes on ball.",
+        "A bright red leather ball sized for children, slightly scuffed. is in Panda’s paw mid-gesture.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. remains by the path near the tree roots on frame right foreground."
       ],
       "motivations": [
-        "Panda is excited because she wants to throw the ball to Glaux during their game.",
-        "Glaux is alert and ready because she intends to catch the ball Panda throws."
+        "Panda is confident and playful because she is initiating the throw to Glaux.",
+        "Glaux is attentive and eager because she expects to catch the ball from Panda."
       ],
+      "action": "Panda announces she will throw the ball to Glaux and winds up to toss.",
       "artist_notes": "",
-      "reference_frame": "establish_play",
-      "camera": "Medium two-shot of Panda and Glaux facing each other with the ball between them."
+      "reference_frame": "fade_in_establish_tree",
+      "camera_static": "Medium two-shot centered on Panda and Glaux with the tree trunk as a soft backdrop.",
+      "camera_movement": "Slight push-in toward Panda’s throwing motion to emphasize the line."
+    },
+    {
+      "action": "Glaux catches the gently arcing ball.",
+      "artist_notes": "Show a simple ball arc trail to clarify motion for children.",
+      "camera_movement": "Pan from the ball in flight to Glaux’s catch, settling on Glaux’s happy face.",
+      "camera_static": "Close on the ball finishing its arc into Glaux’s wing with Panda soft in background.",
+      "characters": [
+        "Glaux",
+        "Panda"
+      ],
+      "frame_id": "glaux_catches_ball",
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "motivations": [
+        "Glaux is pleased and focused because she just successfully caught Panda’s throw.",
+        "Panda is satisfied and excited because Glaux caught the ball she threw."
+      ],
+      "objects": [
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
+      ],
+      "positioning": [
+        "Glaux stands left, three-quarter view right, wings outstretched, eyes tracking the ball now in her wing.",
+        "Panda stands right, three-quarter view left, follow-through pose, eyes on Glaux’s catch.",
+        "A bright red leather ball sized for children, slightly scuffed. rests nestled in Glaux’s wing tips.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. sits undisturbed at the path edge near the tree roots."
+      ],
+      "reference_frame": "panda_prepares_throw",
+      "speaker": "Glaux",
+      "text": "ἐγώ λαμβάνω τὴν σφαῖραν."
     },
     {
       "text": "ὁ Λύκος νῦν προσέρχεται πρὸς τὸ δένδρον.",
       "speaker": "Didaskalos",
-      "frame_id": "lukos_approaches",
+      "frame_id": "lukos_enters",
       "characters": [
-        "Panda",
-        "Glaux",
         "Lukos"
       ],
       "locations": [
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Panda stands left-midground turning her head right toward Lukos, body still angled toward Glaux; three-quarter view.",
-        "Glaux stands right-midground turning her head right to notice Lukos, ball now secured lightly near her feet; three-quarter view.",
-        "The small tan leather ball rests near Glaux’s talons on the grass, slightly right of center.",
-        "The pale-gray river stone still lies by the tree roots at the lower right.",
-        "Lukos steps into frame from the far right midground, angled left toward the others, looking at Panda and Glaux with a sly expression; three-quarter view."
+        "Lukos steps in from frame right in a one-shot, front three-quarter toward left, eyes slyly toward the players off-screen.",
+        "A bright red leather ball sized for children, slightly scuffed. lies just off-center left on the grass, partly out of focus.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. rests near the cobblestone path at Lukos’s feet."
       ],
       "motivations": [
-        "Panda is surprised and uneasy because she sees Lukos approaching their tree while they play.",
-        "Glaux is wary because she notices Lukos coming near their play area.",
-        "Lukos is hungry and sly because he intends to get close to the smaller animals."
+        "Lukos is hungry and scheming because he sees small animals near the tree."
       ],
-      "artist_notes": "",
-      "reference_frame": "panda_throw_line",
-      "camera": "Pan right to reveal Lukos entering; settle into a three-shot with Glaux, Panda, and Lukos."
+      "action": "Lukos approaches the tree area where the friends have been playing.",
+      "artist_notes": "Keep Lukos’s silhouette tall and triangular; show slight shadow to suggest threat but keep tone child-friendly.",
+      "reference_frame": "glaux_catches_ball",
+      "camera_static": "Pan right into a medium one-shot revealing Lukos entering the clearing by the tree.",
+      "camera_movement": "Continue the pan to center Lukos, then hold as he steps fully into frame."
     },
     {
       "text": "ἐγώ νῦν βούλομαι ὑμᾶς ἐσθίειν.",
       "speaker": "Lukos",
-      "frame_id": "lukos_threat",
+      "frame_id": "lukos_threatens",
       "characters": [
-        "Panda",
-        "Glaux",
         "Lukos"
       ],
       "locations": [
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Panda retreats a half-step on the left, facing right but leaning back, eyes wide on Lukos; three-quarter front view.",
-        "Glaux stands to the right, body angled left but slightly back, eyes fixed on Lukos; three-quarter front view.",
-        "The small tan leather ball lies between Glaux and Panda on the grass.",
-        "The pale-gray river stone remains by the tree roots at the lower right.",
-        "Lukos stands nearer center-right, leaning forward with a sly half-grin, eyes on Panda and Glaux; three-quarter view."
+        "Lukos fills a tight one-shot from mid-chest up, front view, eyes intense forward toward the unseen friends.",
+        "A bright red leather ball sized for children, slightly scuffed. sits blurred on the grass lower left of frame.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. lies near Lukos’s front paw on the path edge."
       ],
       "motivations": [
-        "Panda is frightened because Lukos openly threatens to eat her and Glaux.",
-        "Glaux is alarmed because Lukos declares his intention to eat them.",
-        "Lukos is menacing because he wants to scare them and take advantage of them."
+        "Lukos is openly menacing because he desires to eat the nearby friends."
       ],
-      "artist_notes": "",
-      "reference_frame": "lukos_approaches",
-      "camera": "Hold on the group; Lukos dominates the frame as he speaks, with the others reacting."
+      "action": "Lukos declares his intention to eat them.",
+      "artist_notes": "Keep expression readable but not too scary; soften with cartoonish exaggeration.",
+      "reference_frame": "lukos_enters",
+      "camera_static": "Tight one-shot centered on Lukos’s face and shoulders.",
+      "camera_movement": "Hold static to let his line land."
     },
     {
-      "text": "ὦ Ὑπερβρέφος, βοήθει ἡμῖν νῦν.",
+      "text": "οἰμοι! ἐγώ φοβοῦμαι!",
+      "speaker": "Panda",
+      "frame_id": "friends_scared",
+      "characters": [
+        "Panda",
+        "Glaux"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
+      ],
+      "positioning": [
+        "Panda on right in tight two-shot, front three-quarter left, clutching paws to chest, eyes wide toward Lukos off-screen.",
+        "Glaux on left, front three-quarter right, wings slightly raised in alarm, eyes toward Lukos off-screen.",
+        "A bright red leather ball sized for children, slightly scuffed. lies between their feet on the grass.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. remains near the path behind them."
+      ],
+      "motivations": [
+        "Panda is frightened because Lukos just threatened to eat her and Glaux.",
+        "Glaux is alarmed because Lukos is approaching them with hostile intent."
+      ],
+      "action": "Panda cries out in fear while she and Glaux react to Lukos.",
+      "artist_notes": "",
+      "camera_static": "Tight two-shot focused on Panda and Glaux’s scared faces.",
+      "camera_movement": "Slight handheld-like wobble to convey sudden fear; otherwise hold."
+    },
+    {
+      "text": "ὦ Ὑπερβρέφος, βοήθει ἡμῖν.",
       "speaker": "Glaux",
-      "frame_id": "glaux_calls",
+      "frame_id": "glaux_calls_hyper",
       "characters": [
         "Glaux",
         "Panda"
@@ -136,27 +193,29 @@
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Glaux fills the right side in a tight two-shot, head turned left-back toward the distant house as she calls; three-quarter close view.",
-        "Panda fills the left side, glancing toward the house with worry, paws near the ball; three-quarter close view.",
-        "The small tan leather ball sits near Panda’s feet at the bottom center.",
-        "The pale-gray river stone lies off to the lower right by the roots, mostly out of frame but still present."
+        "Glaux leans slightly upward, beak open to call, front three-quarter right, eyes lifted toward the distant house.",
+        "Panda huddles beside Glaux, front three-quarter left, glancing anxiously toward the house.",
+        "A bright red leather ball sized for children, slightly scuffed. rests at Glaux’s talons.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. is on the path near the tree roots behind them."
       ],
       "motivations": [
-        "Glaux calls urgently because Lukos threatened them and she needs Ὑπερβρέφος to help immediately.",
-        "Panda is anxious and looks toward the house because she hopes Ὑπερβρέφος will come quickly."
+        "Glaux urgently calls Hyperbrephos because she and Panda are in danger from Lukos.",
+        "Panda hopes for rescue because she is scared of Lukos’s threat."
       ],
-      "artist_notes": "Keep Lukos out of this tight reaction shot.",
-      "reference_frame": "lukos_threat",
-      "camera": "Tight two-shot on Glaux and Panda showing their worried reaction as Glaux calls for help."
+      "action": "Glaux calls out for Hyperbrephos to help them.",
+      "artist_notes": "",
+      "reference_frame": "friends_scared",
+      "camera_static": "Tight two-shot angled slightly upward to suggest calling toward the house.",
+      "camera_movement": "Slight tilt up as Glaux calls, then settle."
     },
     {
-      "text": "ὁ Ὑπερβρέφος ἀκούει τὴν φωνὴν καὶ τρέχει ἐκ τῆς οἰκίας.",
-      "speaker": "Didaskalos",
-      "frame_id": "hyper_hears_runs",
+      "text": "",
+      "speaker": "",
+      "frame_id": "hyper_blocks_play",
       "characters": [
         "Hyperbrephos"
       ],
@@ -164,156 +223,264 @@
         "familyhouse_interior_bedroom"
       ],
       "objects": [
-        "a low arched wooden doorway with warm light spilling toward the exit."
+        "A set of eight small wooden blocks in primary colors (red, blue, yellow), cube and rectangular shapes.",
+        "A small wooden bedroom door with a bronze latch leading to the hallway and outside."
       ],
       "positioning": [
-        "Ὑπερβρέφος is at the center-left in a runner’s stance facing right toward the doorway, eyes focused outside; three-quarter view.",
-        "The low arched wooden doorway is at the right, light streaming outward toward Ὑπερβρέφος."
+        "Hyperbrephos sits center on the floor, front three-quarter to camera, smiling at his block tower.",
+        "A set of eight small wooden blocks in primary colors (red, blue, yellow), cube and rectangular shapes. are stacked into a small tower before him.",
+        "A small wooden bedroom door with a bronze latch leading to the hallway and outside. stands closed on the back wall left."
       ],
       "motivations": [
-        "Ὑπερβρέφος is determined and quick because he hears Glaux’s urgent voice and wants to help his friends immediately."
+        "Hyperbrephos is carefree and happy because he is playing alone with blocks, unaware of his friends’ danger."
       ],
-      "artist_notes": "Show a clear shaft of light leading toward the exit.",
-      "camera": "Medium on the cozy doorway area with a guiding beam of light; feel the start of a swift dash."
+      "action": "Hyperbrephos knocks down his block tower; the blocks fly apart with super strength.",
+      "artist_notes": "Show blocks flying far with comedic exaggeration to indicate strength.",
+      "camera_static": "Close-up centered on Hyperbrephos and the little block tower.",
+      "camera_movement": "Slight zoom as the blocks explode outward to emphasize impact."
     },
     {
-      "text": "ὁ Ὑπερβρέφος λαμβάνει τὸν λίθον καὶ βάλλει τὸν λίθον πρὸς τὸν Λύκον.",
+      "text": "",
+      "speaker": "",
+      "frame_id": "hyper_hears_and_runs",
+      "characters": [
+        "Hyperbrephos"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "A set of eight small wooden blocks in primary colors (red, blue, yellow), cube and rectangular shapes.",
+        "A small wooden bedroom door with a bronze latch leading to the hallway and outside."
+      ],
+      "positioning": [
+        "Hyperbrephos pivots toward the door in a ready-to-sprint pose, three-quarter back view, eyes wide to the doorway.",
+        "A set of eight small wooden blocks in primary colors (red, blue, yellow), cube and rectangular shapes. lie scattered across the floor around him.",
+        "A small wooden bedroom door with a bronze latch leading to the hallway and outside. is now slightly ajar ahead of him."
+      ],
+      "motivations": [
+        "Hyperbrephos is suddenly alert because he thinks he hears Glaux calling for help outside."
+      ],
+      "action": "He perks up at the repeated distant call and dashes toward the door with super speed.",
+      "artist_notes": "Add light motion blur on Hyperbrephos to convey incredible speed.",
+      "reference_frame": "hyper_blocks_play",
+      "camera_static": "Medium shot widened to include the doorway and scattered blocks.",
+      "camera_movement": "Fast zoom out as he dashes to the door to reveal more of the room."
+    },
+    {
+      "text": "ὁ Ὑπερβρέφος ἀκούει τὴν φωνὴν καὶ τρέχει ἐκ τῆς οἰκίας.",
       "speaker": "Didaskalos",
-      "frame_id": "hyper_throws_stone",
+      "frame_id": "narrator_hears_runs",
+      "characters": [
+        "Hyperbrephos"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom"
+      ],
+      "objects": [
+        "A set of eight small wooden blocks in primary colors (red, blue, yellow), cube and rectangular shapes.",
+        "A small wooden bedroom door with a bronze latch leading to the hallway and outside."
+      ],
+      "positioning": [
+        "Hyperbrephos is mid-stride at the threshold, three-quarter back, looking through the opening toward outside.",
+        "A set of eight small wooden blocks in primary colors (red, blue, yellow), cube and rectangular shapes. are strewn across the foreground floor.",
+        "A small wooden bedroom door with a bronze latch leading to the hallway and outside. swings wide open before him."
+      ],
+      "motivations": [
+        "Hyperbrephos is determined and urgent because he intends to help his friends who called to him."
+      ],
+      "action": "Narration explains Hyperbrephos hears the voice and runs out of the house.",
+      "artist_notes": "",
+      "reference_frame": "hyper_hears_and_runs",
+      "camera_static": "Three-quarter rear angle framed on the open door and Hyperbrephos lunging through.",
+      "camera_movement": "Begin a follow move toward the door to set up the transition."
+    },
+    {
+      "text": "",
+      "speaker": "",
+      "frame_id": "follow_shot_transition",
+      "characters": [
+        "Hyperbrephos"
+      ],
+      "locations": [
+        "familyhouse_interior_bedroom",
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "A small wooden bedroom door with a bronze latch leading to the hallway and outside.",
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
+      ],
+      "positioning": [
+        "Hyperbrephos blurs past the open bedroom door into daylight, three-quarter side view, eyes forward toward the tree.",
+        "A small wooden bedroom door with a bronze latch leading to the hallway and outside. frames the left edge as he exits.",
+        "A bright red leather ball sized for children, slightly scuffed. sits near Glaux and Panda by the tree ahead.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. lies on the ground near the path by the tree."
+      ],
+      "motivations": [
+        "Hyperbrephos is rushing outside because he wants to protect his friends from Lukos."
+      ],
+      "action": "Follow shot carries Hyperbrephos from the bedroom through the doorway out toward the tree where his friends are.",
+      "artist_notes": "Blend interior warm light into bright exterior sunlight smoothly.",
+      "camera_static": "Start behind Hyperbrephos at the bedroom door, the exterior bright and inviting beyond.",
+      "camera_movement": "Continuous follow as the camera passes through the doorway into the yard, landing near the tree."
+    },
+    {
+      "text": "ὁ Ὑπερβρέφος λαμβάνει τὸν λίθον καὶ βάλλει τὸν λίθον πρὸς τὸν Λύκον. ὁ λίθος τύπτει κατὰ τοῦ λύκου.",
+      "speaker": "Didaskalos",
+      "frame_id": "hyper_throws_rock",
       "characters": [
         "Hyperbrephos",
         "Lukos",
-        "Panda",
-        "Glaux"
+        "Glaux",
+        "Panda"
       ],
       "locations": [
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Ὑπερβρέφος bursts in from the left foreground, crouched and then rising into a throw toward the right; eyes locked on Lukos.",
-        "Lukos stands mid-right, shoulders flinching back, eyes widening at Ὑπερβρέφος.",
-        "Panda stands behind and left of Ὑπερβρέφος, watching with hopeful surprise; three-quarter view.",
-        "Glaux stands behind and right of Ὑπερβρέφος, watching the stone leave his hand; three-quarter view.",
-        "The small tan leather ball rests near Panda’s feet, slightly left of center.",
-        "The pale-gray river stone is in motion, flying from Ὑπερβρέφος’ hand toward Lukos."
+        "Hyperbrephos stands foreground left in heroic stance, three-quarter right, arm extended from throw, eyes on Lukos.",
+        "Lukos stands midground right, front three-quarter left, eyes wide at the incoming stone.",
+        "Glaux huddles behind Hyperbrephos mid-left, three-quarter right, watching Lukos.",
+        "Panda stands near Glaux, three-quarter right, hands to mouth, watching Lukos.",
+        "A bright red leather ball sized for children, slightly scuffed. lies behind Glaux and Panda on the grass.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. is midair blur between Hyperbrephos and Lukos."
       ],
       "motivations": [
-        "Ὑπερβρέφος acts bravely because he wants to protect his friends from Lukos.",
-        "Lukos is startled and defensive because a stone is coming toward him.",
-        "Panda is relieved and hopeful because Ὑπερβρέφος has arrived to help.",
-        "Glaux is focused and confident because her call for help was answered."
+        "Hyperbrephos is protective and decisive because he wants to stop Lukos from harming his friends.",
+        "Lukos is startled and fearful because a stone is suddenly flying toward him.",
+        "Glaux is hopeful and anxious because Hyperbrephos has come to help against Lukos.",
+        "Panda is nervous but relieved because Hyperbrephos is defending them."
       ],
-      "artist_notes": "Include an insert feeling on the stone leaving the tiny but powerful hand.",
-      "camera": "Tracking shot arrives with Ὑπερβρέφος; reframe to a wide that includes all four as the stone flies."
+      "action": "Hyperbrephos grabs a stone and hurls it at Lukos; the stone strikes the wolf.",
+      "artist_notes": "Use a simple motion streak on the stone; keep impact cartoony.",
+      "camera_static": "Wide shot including all four characters under the tree for clear geography.",
+      "camera_movement": "Slight whip from Hyperbrephos’s throw to Lukos’s reaction, then settle wide."
     },
     {
-      "text": "ὦ Λύκε, μὴ προσέρχου πρὸς τοὺς φίλους ἐμοὺς.",
+      "text": "",
+      "speaker": "",
+      "frame_id": "rock_hits_lukos",
+      "characters": [
+        "Lukos",
+        "Hyperbrephos",
+        "Glaux",
+        "Panda"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
+      ],
+      "positioning": [
+        "Lukos midground right recoils backward, front view, eyes spinning with cartoon stars circling his head as he stiffens and topples.",
+        "Hyperbrephos foreground left points toward Lukos, three-quarter right, eyes stern.",
+        "Glaux mid-left peeks from behind Hyperbrephos, eyes on Lukos falling.",
+        "Panda mid-left beside Glaux, eyes wide on Lukos.",
+        "A bright red leather ball sized for children, slightly scuffed. remains behind the friends on the grass.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. sits near Lukos after impact."
+      ],
+      "motivations": [
+        "Lukos is stunned and afraid because the stone just struck his head.",
+        "Hyperbrephos is firm because he is stopping Lukos from eating his friends.",
+        "Glaux is cautiously relieved because the danger seems to be ending.",
+        "Panda is surprised and relieved because Lukos has been stopped."
+      ],
+      "action": "The stone bonks Lukos; stars circle his head and he falls backward with a thud.",
+      "artist_notes": "Add a big cartoon bump emerging where the stone hit.",
+      "reference_frame": "hyper_throws_rock",
+      "camera_static": "Medium-wide emphasizing Lukos’s comical fall while keeping the friends in the frame.",
+      "camera_movement": "Slight tilt down following Lukos as he drops to the ground."
+    },
+    {
+      "text": "ὦ Λύκε, μὴ φάγῃς τοὺς φίλους ἐμοὺς.",
       "speaker": "Hyperbrephos",
       "frame_id": "hyper_warns",
       "characters": [
-        "Hyperbrephos",
-        "Lukos",
-        "Panda",
-        "Glaux"
+        "Hyperbrephos"
       ],
       "locations": [
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Ὑπερβρέφος stands center-left in a heroic stance facing right, arm extended from the throw, eyes fixed on Lukos.",
-        "Lukos stands center-right recoiling, ears back, eyes on Ὑπερβρέφος.",
-        "Panda stands left background behind Ὑπερβρέφος, eyes on Lukos; three-quarter view.",
-        "Glaux stands right background behind Ὑπερβρέφος, eyes on Lukos; three-quarter view.",
-        "The small tan leather ball stays near Panda’s feet.",
-        "The pale-gray river stone now lies on the ground near Lukos’s feet to the right of center."
+        "Hyperbrephos in close-up front view wags his finger, eyes firm toward Lukos off-screen.",
+        "A bright red leather ball sized for children, slightly scuffed. is blurred on grass in background.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. lies on the ground near the fallen Lukos out of frame."
       ],
       "motivations": [
-        "Ὑπερβρέφος speaks firmly because he wants to stop Lukos from approaching his friends.",
-        "Lukos is intimidated because Ὑπερβρέφος shows strength and resolve.",
-        "Panda is encouraged because Ὑπερβρέφος defends her and Glaux.",
-        "Glaux is relieved because Lukos is being confronted."
+        "Hyperbrephos is admonishing because he is protecting his friends from harm."
       ],
+      "action": "Hyperbrephos warns Lukos not to eat his friends.",
       "artist_notes": "",
-      "reference_frame": "hyper_throws_stone",
-      "camera": "Medium emphasizing Ὑπερβρέφος in the foreground with Lukos in the opposing plane."
+      "reference_frame": "hyper_throws_rock",
+      "camera_static": "Tight close-up on Hyperbrephos from chest up for a heroic admonition.",
+      "camera_movement": "Hold static to emphasize the imperative."
     },
     {
-      "text": "οἴμοι· μὴ βάλλε τὸν λίθον εἰς ἐμέ· ἐγώ ἀπέρχομαι νῦν.",
+      "text": "συγγνώμη. ἐγώ ἀπέρχομαι νῦν.",
       "speaker": "Lukos",
-      "frame_id": "lukos_begs",
+      "frame_id": "lukos_apologizes",
       "characters": [
-        "Lukos",
-        "Hyperbrephos",
-        "Panda",
-        "Glaux"
+        "Lukos"
       ],
       "locations": [
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Lukos fills the right-center in a medium close-up, leaning back with raised hands, eyes on Ὑπερβρέφος.",
-        "Ὑπερβρέφος remains left-midground, steady and watchful, eyes on Lukos.",
-        "Panda stands left background, peeking past Ὑπερβρέφος at Lukos; three-quarter view.",
-        "Glaux stands right background behind Ὑπερβρέφος, looking at Lukos; three-quarter view.",
-        "The small tan leather ball rests by Panda’s feet at the left.",
-        "The pale-gray river stone lies on the ground near Lukos’s feet at right-center."
+        "Lukos in medium close-up from a low angle, three-quarter left, rubbing a throbbing cartoon bump, eyes downcast.",
+        "A bright red leather ball sized for children, slightly scuffed. is soft-focused in the grass behind him.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. sits by his rear paw."
       ],
       "motivations": [
-        "Lukos pleads because he fears being hit by the stone again and wants to escape.",
-        "Ὑπερβρέφος holds firm because he is protecting his friends from danger.",
-        "Panda watches tensely because the confrontation may be ending.",
-        "Glaux watches calmly because Lukos appears ready to leave."
+        "Lukos is contrite and shaken because he has been struck and confronted by Hyperbrephos."
       ],
-      "artist_notes": "",
-      "reference_frame": "hyper_warns",
-      "camera": "Medium close-up on Lukos as he pleads; others remain readable in the background."
+      "action": "Lukos apologizes and says he will leave now.",
+      "artist_notes": "Make the bump large and pulsing gently for clarity.",
+      "reference_frame": "hyper_throws_rock",
+      "camera_static": "Medium close-up on Lukos’s face and upper body, tree trunk background.",
+      "camera_movement": "Tiny dolly in to read his apology clearly."
     },
     {
       "text": "ὁ Λύκος φεύγει ἀπὸ τοῦ δένδρου.",
       "speaker": "Didaskalos",
       "frame_id": "lukos_flees",
       "characters": [
-        "Lukos",
-        "Hyperbrephos",
-        "Panda",
-        "Glaux"
+        "Lukos"
       ],
       "locations": [
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Lukos backs away toward the far right edge, turned three-quarters away, glancing back nervously.",
-        "Ὑπερβρέφος stands center-left, squared shoulders facing right, eyes tracking Lukos as he leaves.",
-        "Panda stands further left behind Ὑπερβρέφος, relaxing slightly, eyes on Lukos.",
-        "Glaux stands right of Panda, wings lowering, eyes on Lukos.",
-        "The small tan leather ball remains near Panda’s feet at the left.",
-        "The pale-gray river stone stays on the ground near where Lukos stood, mid-right."
+        "Lukos backs away then turns to sprint off along the path, three-quarter back, glancing over shoulder with fear.",
+        "A bright red leather ball sized for children, slightly scuffed. remains near the friends under the tree in background.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. lies where it fell near the path."
       ],
       "motivations": [
-        "Lukos is retreating because he is afraid of another stone and no longer wants to fight.",
-        "Ὑπερβρέφος watches to ensure Lukos truly leaves to keep his friends safe.",
-        "Panda begins to relax because the danger is passing.",
-        "Glaux feels relieved because Lukos is leaving the tree."
+        "Lukos is fleeing because he fears being hurt again by Hyperbrephos."
       ],
-      "artist_notes": "",
-      "reference_frame": "lukos_begs",
-      "camera": "Wide shot as Lukos backs away and exits the frame to the right."
+      "action": "Narration describes Lukos retreating quickly away from the tree.",
+      "artist_notes": "Use comical speed lines on Lukos as he accelerates away.",
+      "reference_frame": "hyper_throws_rock",
+      "camera_static": "Close on Lukos beginning to back away, the path leading out of frame.",
+      "camera_movement": "Slow zoom out as he grows distant, holding the tree area in view."
     },
     {
       "text": "εὐχαριστῶ σοι, ὦ Ὑπερβρέφος.",
@@ -328,53 +495,125 @@
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Panda stands left-center turned toward Ὑπερβρέφος, smiling up at him; three-quarter view.",
-        "Ὑπερβρέφος stands center-right facing Panda with a gentle heroic posture, eyes soft on Panda.",
-        "Glaux enters at the far right edge holding the ball lightly in her talons, looking toward Panda and Ὑπερβρέφος.",
-        "The small tan leather ball is now in Glaux’s talons at the right edge.",
-        "The pale-gray river stone remains on the ground mid-right where it landed."
+        "Panda stands front three-quarter toward left in medium two-shot with Hyperbrephos, looking up at him gratefully.",
+        "Hyperbrephos stands left of Panda in three-quarter right, smiling gently down at Panda.",
+        "Glaux enters at frame edge left, three-quarter right, carrying the ball at the wing-tip.",
+        "A bright red leather ball sized for children, slightly scuffed. is held by Glaux at frame edge.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. rests near the base of the tree behind them."
       ],
       "motivations": [
-        "Panda expresses gratitude because Ὑπερβρέφος protected her and Glaux from Lukos.",
-        "Ὑπερβρέφος is modest and pleased because he successfully helped his friends.",
-        "Glaux is content and rejoining the game, carrying the ball back toward Panda."
+        "Panda is grateful because Hyperbrephos saved her from Lukos.",
+        "Hyperbrephos is content because his friends are now safe.",
+        "Glaux is relieved and ready to resume play because the danger is gone."
       ],
+      "action": "Panda thanks Hyperbrephos as Glaux approaches with the ball.",
       "artist_notes": "",
-      "reference_frame": "lukos_flees",
-      "camera": "Medium two-shot on Panda and Ὑπερβρέφος; Glaux enters at the edge with the ball."
+      "camera_static": "Medium two-shot of Panda and Hyperbrephos with Glaux entering from the side.",
+      "camera_movement": "Small pan to include Glaux as she edges into frame."
     },
     {
-      "text": "ἡ Γλαῦξ καὶ ἡ Πάνδα πάλιν παίζουσιν μετὰ τῆς σφαίρας.",
-      "speaker": "Didaskalos",
-      "frame_id": "play_again",
+      "text": "παῖζε μεθ' ἡμῶν, ὦ Ὑπερβρέφος.",
+      "speaker": "Glaux",
+      "frame_id": "glaux_invites_play",
       "characters": [
         "Glaux",
-        "Panda"
+        "Panda",
+        "Hyperbrephos"
       ],
       "locations": [
         "familyhouse_exterior_tree"
       ],
       "objects": [
-        "a small tan leather ball with blue stitching, smooth and round, sized for a child's hands.",
-        "a palm-sized pale-gray river stone, oval and smooth, easy for a child to grip."
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
       ],
       "positioning": [
-        "Panda returns to the left foreground facing right with a relaxed stance, eyes on Glaux; three-quarter view.",
-        "Glaux returns to the right foreground facing left, wing lifted to toss the ball back; three-quarter view.",
-        "The small tan leather ball hovers between them mid-arc as they resume play.",
-        "The pale-gray river stone lies undisturbed mid-right near the path."
+        "Glaux stands center in a comfortable wide, three-quarter toward camera, offering the ball to Hyperbrephos.",
+        "Hyperbrephos stands right, three-quarter left, smiling at Glaux and the ball.",
+        "Panda stands left, three-quarter right, looking at Hyperbrephos with a happy grin.",
+        "A bright red leather ball sized for children, slightly scuffed. is held out by Glaux between them.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. remains near the path, now incidental."
       ],
       "motivations": [
-        "Panda is cheerful because the danger is gone and the game can continue.",
-        "Glaux is happy and calm because Lukos has left and she can play again."
+        "Glaux is inviting because she wants to include Hyperbrephos in their game after he helped.",
+        "Hyperbrephos is cheerful because he is welcomed to play with his friends.",
+        "Panda is joyful because they can safely resume their game together."
       ],
-      "artist_notes": "Peaceful reset; Lukos is gone from the area.",
+      "action": "Glaux invites Hyperbrephos to play with them, holding the ball out.",
+      "artist_notes": "",
       "reference_frame": "panda_thanks",
-      "camera": "Comfortable wide showing both friends resuming their spacing and play under the tree."
+      "camera_static": "Reset to a friendly wide framing all three by the tree.",
+      "camera_movement": "Hold steady to emphasize calm and safety returned."
+    },
+    {
+      "text": "τὰ καλὰ ζῷα παίζει μετὰ τοῦ Ὑπερβρέφους τῇ σφαίρᾳ. χαίρουσι πάλιν.",
+      "speaker": "Didaskalos",
+      "frame_id": "narrator_all_play",
+      "characters": [
+        "Glaux",
+        "Panda",
+        "Hyperbrephos"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
+      ],
+      "positioning": [
+        "Glaux stands left tossing the ball lightly toward center, three-quarter right, eyes on the toss.",
+        "Hyperbrephos center catches the ball, three-quarter left, eyes bright.",
+        "Panda right claps happily, three-quarter left, eyes on Hyperbrephos.",
+        "A bright red leather ball sized for children, slightly scuffed. is midair between Glaux and Hyperbrephos.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. sits near the path, now unnoticed."
+      ],
+      "motivations": [
+        "Glaux is happy because the danger is gone and play continues.",
+        "Hyperbrephos is joyful because he can play with friends after helping them.",
+        "Panda is delighted because everyone is safe and playing again."
+      ],
+      "action": "Narration explains the good animals play ball with Hyperbrephos and rejoice again.",
+      "artist_notes": "",
+      "reference_frame": "glaux_invites_play",
+      "camera_static": "Wide shot framing a simple triangle of play beneath the tree.",
+      "camera_movement": "Gentle lateral slide to add liveliness while they play."
+    },
+    {
+      "text": "",
+      "speaker": "",
+      "frame_id": "fade_out",
+      "characters": [
+        "Glaux",
+        "Panda",
+        "Hyperbrephos"
+      ],
+      "locations": [
+        "familyhouse_exterior_tree"
+      ],
+      "objects": [
+        "A bright red leather ball sized for children, slightly scuffed.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm."
+      ],
+      "positioning": [
+        "Glaux, Panda, and Hyperbrephos form a small circle under the tree, all facing inward, eyes on the ball.",
+        "A bright red leather ball sized for children, slightly scuffed. is passed between hands and wings at center.",
+        "A smooth round gray river stone about the size of Hyperbrephos's palm. remains off to the side by the path."
+      ],
+      "motivations": [
+        "Glaux is content because the playtime continues happily.",
+        "Panda is peaceful because the threat has gone and friends are together.",
+        "Hyperbrephos is satisfied because he protected his friends and now plays with them."
+      ],
+      "action": "They continue a calm round of catch beneath the shade tree as the scene ends.",
+      "artist_notes": "Begin a slow vignette or brightness fade if supported.",
+      "reference_frame": "narrator_all_play",
+      "camera_static": "Wide, centered on the trio under the leafy canopy.",
+      "camera_movement": "Very slow pull back to a comfortable distance, preparing for fade."
     }
   ]
 }
