@@ -71,9 +71,30 @@ class ConsoleLogHandler(logging.Handler):
             formatted_msg = self.format(record)
             formatted_msg = self.convert_ansi_to_web(formatted_msg)
             
-            # Send directly to console logging system
-            log_console_output(formatted_msg, record.levelname.lower())
+            # Send to console logging system with correct type
+            if formatted_msg.startswith('$ '):
+                message_type = 'console_command'
+            else:
+                message_type = 'console_output'
+                
+            # Send to console clients with proper message structure
+            with console_lock:
+                if not console_clients:
+                    return
                     
+                log_entry = {
+                    'type': message_type,
+                    'level': record.levelname.lower(),
+                    'message': formatted_msg,
+                    'timestamp': time.time()
+                }
+                
+                for client_queue in console_clients.values():
+                    try:
+                        client_queue.put_nowait(log_entry)
+                    except queue.Full:
+                        pass
+                        
         except Exception as e:
             print(f"[Console Log] Error: {e}")
     
@@ -231,6 +252,12 @@ def trigger_build():
                 auto_commit=True,
                 print_dependencies=True,
             )
+            log_handler.log_queue.put({
+                'type': 'build_started',
+                'target': target,
+                'timestamp': time.time(),
+                'display_type': 'permanent',
+            })
 
             fac_logger.addHandler(log_handler)
 

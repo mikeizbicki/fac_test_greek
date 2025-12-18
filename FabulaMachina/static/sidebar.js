@@ -199,6 +199,8 @@ class Sidebar {
 
             switch (data.type) {
                 case 'console_log':
+                case 'console_command':
+                case 'console_output':
                     // Use the formatted message to preserve tree structure and colors
                     // Don't add timestamp prefix for formatted console output
                     this.addConsoleLineRaw(data.message, data.level.toLowerCase());

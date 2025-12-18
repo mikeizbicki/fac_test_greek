@@ -222,7 +222,7 @@ class FacBuildSystem {
             if (response.ok) {
                 this.buildInProgress = true;
                 this.currentTarget = target;
-                this.showBuildStatus(target, 'Build queued...', 'permanent');
+                this.showBuildStatus(target, 'Building...', 'permanent');
                 this.startLogStream(result.build_id);
             } else {
                 throw new Error(result.error || 'Build request failed');
