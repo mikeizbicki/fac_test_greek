@@ -12,6 +12,16 @@ ARCHITECTURE OVERVIEW:
 - Integrates with fac.BuildSystem for actual build execution
 - Captures and forwards FAC logging output to both Flask console and web clients
 
+
+CONSOLE INTEGRATION:
+The console system provides output to a "readonly" shell session. Standard use is to log
+commands with bash-style prompts ('$ command') followed by the exact output as it would
+appear in a terminal. This should be done for all API endpoints that run something
+equivalent to a shell command. Error output (stderr) should be shown verbatim in red, success
+output should preserve original formatting without timestamps or additional annotations.
+
+FIXME: console stuff should be factored out into its own file
+
 INTEGRATION WITH FAC BUILD SYSTEM:
 - Imports fac.BuildSystem class and related components from the installed fac package
 - Runs builds in background threads to avoid blocking the Flask request thread
