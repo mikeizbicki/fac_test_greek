@@ -78,32 +78,32 @@ bp = Blueprint('fac', __name__)
 active_builds = {}
 build_lock = threading.Lock()
 
-# Global state for debug log streaming
-debug_clients = {}
-debug_lock = threading.Lock()
-debug_next_client_id = 1
+# Global state for console log streaming
+console_clients = {}
+console_lock = threading.Lock()
+console_next_client_id = 1
 
-class DebugLogHandler(logging.Handler):
-    """Log handler that captures all FAC output for the debug panel"""
+class ConsoleLogHandler(logging.Handler):
+    """Log handler that captures all FAC output for the console panel"""
 
     def emit(self, record):
         try:
             msg = self.format(record)
 
-            # Send to all debug clients
-            with debug_lock:
-                if not debug_clients:
+            # Send to all console clients
+            with console_lock:
+                if not console_clients:
                     return
 
                 log_entry = {
-                    'type': 'debug_log',
+                    'type': 'console_log',
                     'level': record.levelname,
                     'message': msg,
                     'timestamp': time.time()
                 }
 
                 dead_clients = []
-                for client_id, client_queue in debug_clients.items():
+                for client_id, client_queue in console_clients.items():
                     try:
                         client_queue.put_nowait(log_entry)
                     except queue.Full:
@@ -111,10 +111,10 @@ class DebugLogHandler(logging.Handler):
 
                 # Clean up dead clients
                 for client_id in dead_clients:
-                    del debug_clients[client_id]
+                    del console_clients[client_id]
 
         except Exception as e:
-            print(f"[Debug Log] Error: {e}")
+            print(f"[Console Log] Error: {e}")
 
 class BuildLogHandler(logging.Handler):
     """
@@ -151,21 +151,22 @@ class BuildLogHandler(logging.Handler):
             # Don't let logging errors break the build
             print(f"[FAC Build] Logging error: {e}")
 
-# Add global debug handler to capture all FAC logs
-debug_handler = DebugLogHandler()
-fac_logger.addHandler(debug_handler)
+# Add global console handler to capture all FAC logs
+console_handler = ConsoleLogHandler()
+fac_logger.addHandler(console_handler)
 
-@bp.route('/api/fac/debug/events')
-def debug_events():
-    """Server-Sent Events for debug log streaming"""
+@bp.route('/api/fac/console/events')
+@bp.route('/api/fac/console/events')
+def console_events():
+    """Server-Sent Events for console log streaming"""
     def generate():
-        global debug_next_client_id
+        global console_next_client_id
 
-        with debug_lock:
-            client_id = f"debug_client_{debug_next_client_id}_{int(time.time())}"
-            debug_next_client_id += 1
-            client_queue = queue.Queue(maxsize=1000)  # Larger queue for debug logs
-            debug_clients[client_id] = client_queue
+        with console_lock:
+            client_id = f"console_client_{console_next_client_id}_{int(time.time())}"
+            console_next_client_id += 1
+            client_queue = queue.Queue(maxsize=1000)  # Larger queue for console logs
+            console_clients[client_id] = client_queue
 
         try:
             yield f"data: {json.dumps({'type': 'connected', 'client_id': client_id})}\n\n"
@@ -173,28 +174,31 @@ def debug_events():
             while True:
                 try:
                     message = client_queue.get(timeout=30)
+                    # Change console_log type to console_log
+                    if message.get('type') == 'console_log':
+                        message['type'] = 'console_log'
                     yield f"data: {json.dumps(message)}\n\n"
                 except queue.Empty:
                     yield f"data: {json.dumps({'type': 'heartbeat'})}\n\n"
         except GeneratorExit:
             pass
         finally:
-            with debug_lock:
-                if client_id in debug_clients:
-                    del debug_clients[client_id]
+            with console_lock:
+                if client_id in console_clients:
+                    del console_clients[client_id]
 
     return Response(generate(), mimetype='text/event-stream')
 
-@bp.route('/api/fac/debug/clear', methods=['POST'])
-def clear_debug():
-    """Clear debug log for all clients"""
-    with debug_lock:
+@bp.route('/api/fac/console/clear', methods=['POST'])
+def clear_console():
+    """Clear console log for all clients"""
+    with console_lock:
         clear_message = {
-            'type': 'clear_debug',
+            'type': 'clear_console',
             'timestamp': time.time()
         }
 
-        for client_queue in debug_clients.values():
+        for client_queue in console_clients.values():
             try:
                 client_queue.put_nowait(clear_message)
             except queue.Full:
@@ -492,7 +496,7 @@ def list_builds():
     List all current build records.
 
     Returns information about all builds currently tracked by the system.
-    Useful for debugging and monitoring build activity.
+    Useful for consoleging and monitoring build activity.
     """
     with build_lock:
         builds = []

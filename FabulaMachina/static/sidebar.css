@@ -17,17 +17,33 @@
     border-right: 1px solid #dee2e6;
     display: flex;
     flex-direction: column;
-    resize: horizontal;
     overflow: hidden;
     transition: margin-left 0.3s ease;
     position: fixed;
     left: 0;
     top: 0;
+    height: 100vh;
     z-index: 1000;
 }
 
 .sidebar.collapsed {
     margin-left: -320px;
+}
+
+/* Resize handle */
+.sidebar-resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    cursor: ew-resize;
+    z-index: 1001;
+}
+
+.sidebar-resize-handle:hover {
+    background: #007bff;
 }
 
 .sidebar-header {
@@ -36,6 +52,7 @@
     padding: 8px;
     border-bottom: 1px solid #dee2e6;
     background: #e9ecef;
+    flex-shrink: 0;
 }
 
 .sidebar-tabs {
@@ -86,10 +103,12 @@
 .history-container {
     flex: 1;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .history-list {
-    height: 100%;
+    flex: 1;
     overflow-y: auto;
     font-size: 11px;
     line-height: 1.2;
@@ -114,9 +133,11 @@
     border-left-color: #ffc107;
 }
 
-.commit-hash {
+.commit-time {
     color: #f57c00;
     font-weight: bold;
+    min-width: 40px;
+    display: inline-block;
 }
 
 .commit-message {
@@ -135,11 +156,31 @@
     float: right;
 }
 
-/* Debug tab - terminal feel */
-.debug-header {
+/* Console tab - terminal feel */
+.console-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+}
+
+.console-output {
+    flex: 1;
+    background: #000;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    line-height: 1.2;
+    padding: 8px;
+    overflow-y: auto;
+    white-space: pre;
+}
+
+.console-footer {
     padding: 4px 8px;
-    border-bottom: 1px solid #333;
+    border-top: 1px solid #333;
     background: #1a1a1a;
+    flex-shrink: 0;
 }
 
 .clear-btn {
@@ -156,31 +197,19 @@
     background: #444;
 }
 
-.debug-output {
-    flex: 1;
-    background: #000;
-    color: #0f0;
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    line-height: 1.2;
-    padding: 8px;
-    overflow-y: auto;
-    white-space: pre;
-}
-
-.debug-line {
+.console-line {
     white-space: nowrap;
 }
 
-.debug-line.error {
+.console-line.error {
     color: #ff6b6b;
 }
 
-.debug-line.warning {
+.console-line.warning {
     color: #ffd93d;
 }
 
-.debug-line.info {
+.console-line.info {
     color: #74c0fc;
 }
 
@@ -218,11 +247,11 @@
         height: 100vh;
         z-index: 1000;
     }
-    
+
     .main-content {
         margin-left: 0;
     }
-    
+
     .sidebar:not(.collapsed) ~ .main-content {
         margin-left: 320px;
     }

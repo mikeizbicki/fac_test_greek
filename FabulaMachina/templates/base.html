@@ -16,10 +16,11 @@
 <body>
     <div id="app-container">
         <div id="sidebar" class="sidebar">
+            <div class="sidebar-resize-handle"></div>
             <div class="sidebar-header">
                 <div class="sidebar-tabs">
                     <button class="tab-btn active" data-tab="history">History</button>
-                    <button class="tab-btn" data-tab="debug">Debug</button>
+                    <button class="tab-btn" data-tab="console">Console</button>
                 </div>
                 <button id="sidebar-toggle" class="sidebar-toggle" title="Toggle Sidebar">◀</button>
             </div>
@@ -30,11 +31,13 @@
                 </div>
             </div>
 
-            <div id="debug-tab" class="tab-content">
-                <div class="debug-header">
-                    <button id="clear-debug" class="clear-btn">Clear</button>
+            <div id="console-tab" class="tab-content">
+                <div class="console-container">
+                    <div id="console-output" class="console-output"></div>
+                    <div class="console-footer">
+                        <button id="clear-console" class="clear-btn">Clear</button>
+                    </div>
                 </div>
-                <div id="debug-output" class="debug-output"></div>
             </div>
         </div>
 

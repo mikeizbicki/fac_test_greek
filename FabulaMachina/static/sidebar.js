@@ -1,14 +1,16 @@
 class Sidebar {
     constructor() {
         this.historyEventSource = null;
-        this.debugEventSource = null;
+        this.consoleEventSource = null;
         this.currentTab = 'history';
         this.isCollapsed = window.innerWidth <= 768;
+        this.isResizing = false;
+        this.sidebarWidth = 320;
 
         this.initializeElements();
         this.setupEventListeners();
         this.connectHistoryStream();
-        this.connectDebugStream();
+        this.connectConsoleStream();
         this.loadHistory();
 
         // Auto-collapse on mobile
@@ -22,8 +24,9 @@ class Sidebar {
         this.sidebarToggle = document.getElementById('sidebar-toggle');
         this.mainContent = document.getElementById('main-content');
         this.historyList = document.getElementById('history-list');
-        this.debugOutput = document.getElementById('debug-output');
-        this.clearDebugBtn = document.getElementById('clear-debug');
+        this.consoleOutput = document.getElementById('console-output');
+        this.clearConsoleBtn = document.getElementById('clear-console');
+        this.resizeHandle = document.querySelector('.sidebar-resize-handle');
     }
 
     setupEventListeners() {
@@ -39,10 +42,13 @@ class Sidebar {
             this.toggleSidebar();
         });
 
-        // Clear debug
-        this.clearDebugBtn.addEventListener('click', () => {
-            this.clearDebug();
+        // Clear console
+        this.clearConsoleBtn.addEventListener('click', () => {
+            this.clearConsole();
         });
+
+        // Resize handling
+        this.setupResizeHandling();
 
         // Responsive handling
         window.addEventListener('resize', () => {
@@ -50,6 +56,46 @@ class Sidebar {
                 this.toggleSidebar(false);
             }
         });
+    }
+
+    setupResizeHandling() {
+        let startX, startWidth;
+
+        this.resizeHandle.addEventListener('mousedown', (e) => {
+            this.isResizing = true;
+            startX = e.clientX;
+            startWidth = this.sidebarWidth;
+
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+            document.body.style.cursor = 'ew-resize';
+            document.body.style.userSelect = 'none';
+
+            e.preventDefault();
+        });
+
+        const handleMouseMove = (e) => {
+            if (!this.isResizing) return;
+
+            const newWidth = Math.max(200, Math.min(window.innerWidth * 0.5, startWidth + (e.clientX - startX)));
+            this.setSidebarWidth(newWidth);
+        };
+
+        const handleMouseUp = () => {
+            this.isResizing = false;
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+            document.body.style.cursor = '';
+            document.body.style.userSelect = '';
+        };
+    }
+
+    setSidebarWidth(width) {
+        this.sidebarWidth = width;
+        this.sidebar.style.width = width + 'px';
+        if (!this.isCollapsed) {
+            this.mainContent.style.marginLeft = width + 'px';
+        }
     }
 
     switchTab(tabName) {
@@ -73,6 +119,13 @@ class Sidebar {
         this.sidebarToggle.classList.toggle('collapsed', !shouldShow);
         this.mainContent.classList.toggle('sidebar-collapsed', !shouldShow);
 
+        // Update main content margin
+        if (shouldShow) {
+            this.mainContent.style.marginLeft = this.sidebarWidth + 'px';
+        } else {
+            this.mainContent.style.marginLeft = '0px';
+        }
+
         this.sidebarToggle.innerHTML = shouldShow ? '◀' : '▶';
         this.sidebarToggle.title = shouldShow ? 'Hide Sidebar' : 'Show Sidebar';
 
@@ -95,7 +148,7 @@ class Sidebar {
                     break;
                 case 'checkout':
                     this.loadHistory(); // Refresh to show current commit
-                    this.addDebugLine(`Checked out: ${data.data.message}`, 'info');
+                    this.addConsoleLine(`Checked out: ${data.data.message}`, 'info');
                     break;
             }
         };
@@ -105,28 +158,28 @@ class Sidebar {
         };
     }
 
-    connectDebugStream() {
-        if (this.debugEventSource) {
-            this.debugEventSource.close();
+    connectConsoleStream() {
+        if (this.consoleEventSource) {
+            this.consoleEventSource.close();
         }
 
-        this.debugEventSource = new EventSource('/api/fac/debug/events');
+        this.consoleEventSource = new EventSource('/api/fac/console/events');
 
-        this.debugEventSource.onmessage = (event) => {
+        this.consoleEventSource.onmessage = (event) => {
             const data = JSON.parse(event.data);
 
             switch (data.type) {
-                case 'debug_log':
-                    this.addDebugLine(data.message, data.level.toLowerCase());
+                case 'console_log':
+                    this.addConsoleLine(data.message, data.level.toLowerCase());
                     break;
-                case 'clear_debug':
-                    this.debugOutput.innerHTML = '';
+                case 'clear_console':
+                    this.consoleOutput.innerHTML = '';
                     break;
             }
         };
 
-        this.debugEventSource.onerror = () => {
-            setTimeout(() => this.connectDebugStream(), 5000);
+        this.consoleEventSource.onerror = () => {
+            setTimeout(() => this.connectConsoleStream(), 5000);
         };
     }
 
@@ -158,8 +211,7 @@ class Sidebar {
             });
 
             item.innerHTML = `
-                <span class="commit-date">${timeStr}</span>
-                <span class="commit-hash">* ${commit.hash}</span>
+                <span class="commit-time">* ${timeStr}</span>
                 <span class="commit-message">${commit.message}</span>
             `;
 
@@ -182,31 +234,31 @@ class Sidebar {
             const data = await response.json();
 
             if (data.success) {
-                this.addDebugLine(`✓ ${data.message}`, 'info');
+                this.addConsoleLine(`✓ ${data.message}`, 'info');
                 // History will be refreshed automatically via SSE
             } else {
-                this.addDebugLine(`✗ Checkout failed: ${data.error}`, 'error');
+                this.addConsoleLine(`✗ Checkout failed: ${data.error}`, 'error');
             }
         } catch (error) {
-            this.addDebugLine(`✗ Checkout error: ${error.message}`, 'error');
+            this.addConsoleLine(`✗ Checkout error: ${error.message}`, 'error');
         }
     }
 
-    addDebugLine(message, level = 'info') {
+    addConsoleLine(message, level = 'info') {
         const line = document.createElement('div');
-        line.className = `debug-line ${level}`;
+        line.className = `console-line ${level}`;
         line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
 
-        this.debugOutput.appendChild(line);
-        this.debugOutput.scrollTop = this.debugOutput.scrollHeight;
+        this.consoleOutput.appendChild(line);
+        this.consoleOutput.scrollTop = this.consoleOutput.scrollHeight;
     }
 
-    async clearDebug() {
+    async clearConsole() {
         try {
-            await fetch('/api/fac/debug/clear', { method: 'POST' });
-            this.debugOutput.innerHTML = '';
+            await fetch('/api/fac/console/clear', { method: 'POST' });
+            this.consoleOutput.innerHTML = '';
         } catch (error) {
-            console.error('Failed to clear debug:', error);
+            console.error('Failed to clear console:', error);
         }
     }
 }
