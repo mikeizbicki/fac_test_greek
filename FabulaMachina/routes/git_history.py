@@ -34,15 +34,21 @@ def get_repo():
     except git.exc.InvalidGitRepositoryError:
         return None
 
-def get_commit_history(limit=200):
+def get_commit_history(limit=200, branch=None):
     """Get git commit history as list of dicts"""
     repo = get_repo()
     if not repo:
         return []
-    
+
     commits = []
     try:
-        for commit in repo.iter_commits(max_count=limit):
+        # If branch specified, get history for that branch, otherwise use current
+        if branch and branch in [b.name for b in repo.branches]:
+            commit_iter = repo.iter_commits(branch, max_count=limit)
+        else:
+            commit_iter = repo.iter_commits(max_count=limit)
+
+        for commit in commit_iter:
             commits.append({
                 'hash': commit.hexsha[:7],
                 'full_hash': commit.hexsha,
@@ -53,7 +59,7 @@ def get_commit_history(limit=200):
             })
     except Exception as e:
         print(f"Error getting git history: {e}")
-    
+
     return commits
 
 def notify_history_clients(event_type, data=None):
@@ -61,20 +67,20 @@ def notify_history_clients(event_type, data=None):
     with history_lock:
         if not history_clients:
             return
-            
+
         message = {
             'type': event_type,
             'timestamp': time.time(),
             'data': data
         }
-        
+
         dead_clients = []
         for client_id, client_queue in history_clients.items():
             try:
                 client_queue.put_nowait(message)
             except queue.Full:
                 dead_clients.append(client_id)
-        
+
         # Clean up dead clients
         for client_id in dead_clients:
             del history_clients[client_id]
@@ -82,11 +88,99 @@ def notify_history_clients(event_type, data=None):
 @bp.route('/api/git/history')
 def git_history():
     """Get git commit history"""
-    commits = get_commit_history()
+    branch = request.args.get('branch', None)
+    commits = get_commit_history(limit=200, branch=branch)
     return jsonify({
         'success': True,
         'commits': commits
     })
+
+@bp.route('/api/git/branches')
+def git_branches():
+    """Get list of git branches"""
+    repo = get_repo()
+    if not repo:
+        return jsonify({'success': False, 'error': 'Not a git repository'}), 400
+
+    try:
+        branches = []
+        current_branch = repo.active_branch.name
+
+        for branch in repo.branches:
+            branches.append(branch.name)
+
+        return jsonify({
+            'success': True,
+            'branches': sorted(branches),
+            'current_branch': current_branch
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 400
+
+@bp.route('/api/git/switch-branch', methods=['POST'])
+def git_switch_branch():
+    """Switch to a different branch"""
+    repo = get_repo()
+    if not repo:
+        return jsonify({'success': False, 'error': 'Not a git repository'}), 400
+
+    data = request.get_json()
+    branch_name = data.get('branch_name')
+
+    if not branch_name:
+        return jsonify({'success': False, 'error': 'branch_name required'}), 400
+
+    try:
+        repo.git.checkout(branch_name)
+
+        # Notify clients of branch switch
+        notify_history_clients('branch_switched', {
+            'branch': branch_name,
+            'message': f'Switched to branch {branch_name}'
+        })
+
+        return jsonify({
+            'success': True,
+            'message': f'Switched to branch {branch_name}'
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Branch switch failed: {str(e)}'
+        }), 400
+
+@bp.route('/api/git/create-branch', methods=['POST'])
+def git_create_branch():
+    """Create and switch to a new branch"""
+    repo = get_repo()
+    if not repo:
+        return jsonify({'success': False, 'error': 'Not a git repository'}), 400
+
+    data = request.get_json()
+    branch_name = data.get('branch_name')
+
+    if not branch_name:
+        return jsonify({'success': False, 'error': 'branch_name required'}), 400
+
+    try:
+        # Create and checkout new branch
+        repo.git.checkout('-b', branch_name)
+
+        # Notify clients of branch creation
+        notify_history_clients('branch_switched', {
+            'branch': branch_name,
+            'message': f'Created and switched to branch {branch_name}'
+        })
+
+        return jsonify({
+            'success': True,
+            'message': f'Created and switched to branch {branch_name}'
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Branch creation failed: {str(e)}'
+        }), 400
 
 @bp.route('/api/git/checkout', methods=['POST'])
 def git_checkout():
@@ -94,22 +188,22 @@ def git_checkout():
     repo = get_repo()
     if not repo:
         return jsonify({'success': False, 'error': 'Not a git repository'}), 400
-    
+
     data = request.get_json()
     commit_hash = data.get('commit_hash')
-    
+
     if not commit_hash:
         return jsonify({'success': False, 'error': 'commit_hash required'}), 400
-    
+
     try:
         repo.git.checkout(commit_hash)
-        
+
         # Notify clients of checkout
         notify_history_clients('checkout', {
             'commit_hash': commit_hash,
             'message': f'Checked out commit {commit_hash[:7]}'
         })
-        
+
         return jsonify({
             'success': True,
             'message': f'Checked out commit {commit_hash[:7]}'
@@ -125,17 +219,17 @@ def git_history_events():
     """Server-Sent Events for git history updates"""
     def generate():
         global history_next_client_id
-        
+
         with history_lock:
             client_id = f"history_client_{history_next_client_id}_{int(time.time())}"
             history_next_client_id += 1
             client_queue = queue.Queue(maxsize=100)
             history_clients[client_id] = client_queue
-        
+
         try:
             # Send initial connection message
             yield f"data: {json.dumps({'type': 'connected', 'client_id': client_id})}\n\n"
-            
+
             while True:
                 try:
                     message = client_queue.get(timeout=30)
@@ -149,7 +243,7 @@ def git_history_events():
             with history_lock:
                 if client_id in history_clients:
                     del history_clients[client_id]
-    
+
     return Response(generate(), mimetype='text/event-stream')
 
 # Hook into the FAC build system to notify when commits are made

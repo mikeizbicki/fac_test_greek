@@ -26,6 +26,18 @@
             </div>
 
             <div id="history-tab" class="tab-content active">
+                <div class="history-controls">
+                    <div class="branch-controls">
+                        <select id="branch-select" class="branch-select"></select>
+                        <button id="new-branch-btn" class="new-branch-btn" title="Create New Branch">+</button>
+                    </div>
+                    <div class="time-controls">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="relative-time-checkbox" checked>
+                            <span class="checkbox-text">Relative time</span>
+                        </label>
+                    </div>
+                </div>
                 <div class="history-container">
                     <div id="history-list" class="history-list"></div>
                 </div>
@@ -51,3 +63,4 @@
     </div>
 </body>
 </html>
+

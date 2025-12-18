@@ -267,3 +267,71 @@
 .ansi-orange { color: #ffa500; }
 .ansi-cyan { color: #74c0fc; }
 .ansi-magenta { color: #ff79c6; }
+
+/* History controls */
+.history-controls {
+    padding: 8px;
+    border-bottom: 1px solid #dee2e6;
+    background: #f8f9fa;
+    flex-shrink: 0;
+}
+
+.branch-controls {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.branch-select {
+    flex: 1;
+    padding: 2px 4px;
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+.new-branch-btn {
+    width: 24px;
+    height: 20px;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+}
+
+.new-branch-btn:hover {
+    background: #f0f0f0;
+}
+
+.time-controls {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 4px;
+}
+
+.checkbox-text {
+    user-select: none;
+}
+
+/* Update history container to account for controls */
+.history-container {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+

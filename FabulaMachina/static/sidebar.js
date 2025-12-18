@@ -6,12 +6,15 @@ class Sidebar {
         this.isCollapsed = window.innerWidth <= 768;
         this.isResizing = false;
         this.sidebarWidth = 320;
+        this.showRelativeTime = localStorage.getItem('showRelativeTime') !== 'false'; // Default true
+        this.currentBranch = 'main'; // Will be updated from server
 
         this.initializeElements();
         this.setupEventListeners();
         this.connectHistoryStream();
         this.connectConsoleStream();
         this.loadHistory();
+        this.loadBranches();
 
         // Auto-collapse on mobile
         if (this.isCollapsed) {
@@ -27,6 +30,9 @@ class Sidebar {
         this.consoleOutput = document.getElementById('console-output');
         this.clearConsoleBtn = document.getElementById('clear-console');
         this.resizeHandle = document.querySelector('.sidebar-resize-handle');
+        this.branchSelect = document.getElementById('branch-select');
+        this.newBranchBtn = document.getElementById('new-branch-btn');
+        this.relativeTimeCheckbox = document.getElementById('relative-time-checkbox');
     }
 
     setupEventListeners() {
@@ -45,6 +51,24 @@ class Sidebar {
         // Clear console
         this.clearConsoleBtn.addEventListener('click', () => {
             this.clearConsole();
+        });
+
+        // Branch selection
+        this.branchSelect.addEventListener('change', (e) => {
+            this.switchBranch(e.target.value);
+        });
+
+        // New branch button
+        this.newBranchBtn.addEventListener('click', () => {
+            this.createNewBranch();
+        });
+
+        // Relative time checkbox
+        this.relativeTimeCheckbox.checked = this.showRelativeTime;
+        this.relativeTimeCheckbox.addEventListener('change', (e) => {
+            this.showRelativeTime = e.target.checked;
+            localStorage.setItem('showRelativeTime', this.showRelativeTime.toString());
+            this.loadHistory(); // Refresh history display
         });
 
         // Resize handling
@@ -150,6 +174,11 @@ class Sidebar {
                     this.loadHistory(); // Refresh to show current commit
                     this.addConsoleLine(`Checked out: ${data.data.message}`, 'info');
                     break;
+                case 'branch_switched':
+                    this.currentBranch = data.data.branch;
+                    this.loadHistory();
+                    this.loadBranches(); // Refresh branch list
+                    break;
             }
         };
 
@@ -170,7 +199,9 @@ class Sidebar {
 
             switch (data.type) {
                 case 'console_log':
-                    this.addConsoleLine(data.message, data.level.toLowerCase());
+                    // Use the formatted message to preserve tree structure and colors
+                    // Don't add timestamp prefix for formatted console output
+                    this.addConsoleLineRaw(data.message, data.level.toLowerCase());
                     break;
                 case 'clear_console':
                     this.consoleOutput.innerHTML = '';
@@ -183,9 +214,87 @@ class Sidebar {
         };
     }
 
+    async loadBranches() {
+        try {
+            const response = await fetch('/api/git/branches');
+            const data = await response.json();
+
+            if (data.success) {
+                this.renderBranches(data.branches, data.current_branch);
+            }
+        } catch (error) {
+            console.error('Failed to load git branches:', error);
+        }
+    }
+
+    renderBranches(branches, currentBranch) {
+        this.currentBranch = currentBranch;
+        this.branchSelect.innerHTML = '';
+
+        branches.forEach(branch => {
+            const option = document.createElement('option');
+            option.value = branch;
+            option.textContent = branch;
+            option.selected = branch === currentBranch;
+            this.branchSelect.appendChild(option);
+        });
+    }
+
+    async switchBranch(branchName) {
+        if (branchName === this.currentBranch) return;
+
+        try {
+            const response = await fetch('/api/git/switch-branch', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ branch_name: branchName })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                this.addConsoleLine(`✓ Switched to branch: ${branchName}`, 'info');
+                this.currentBranch = branchName;
+                this.loadHistory();
+            } else {
+                this.addConsoleLine(`✗ Failed to switch branch: ${data.error}`, 'error');
+                // Reset dropdown to current branch
+                this.branchSelect.value = this.currentBranch;
+            }
+        } catch (error) {
+            this.addConsoleLine(`✗ Branch switch error: ${error.message}`, 'error');
+            this.branchSelect.value = this.currentBranch;
+        }
+    }
+
+    async createNewBranch() {
+        const branchName = prompt('Enter new branch name:');
+        if (!branchName || !branchName.trim()) return;
+
+        try {
+            const response = await fetch('/api/git/create-branch', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ branch_name: branchName.trim() })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                this.addConsoleLine(`✓ Created and switched to branch: ${branchName}`, 'info');
+                this.loadBranches(); // Refresh branch list
+                this.loadHistory(); // Refresh history
+            } else {
+                this.addConsoleLine(`✗ Failed to create branch: ${data.error}`, 'error');
+            }
+        } catch (error) {
+            this.addConsoleLine(`✗ Branch creation error: ${error.message}`, 'error');
+        }
+    }
+
     async loadHistory() {
         try {
-            const response = await fetch('/api/git/history');
+            const response = await fetch(`/api/git/history?branch=${encodeURIComponent(this.currentBranch)}`);
             const data = await response.json();
 
             if (data.success) {
@@ -196,6 +305,52 @@ class Sidebar {
         }
     }
 
+    formatTimeDisplay(timestamp) {
+        const now = new Date();
+        const commitDate = new Date(timestamp * 1000);
+
+        if (this.showRelativeTime) {
+            return this.getRelativeTimeString(now, commitDate);
+        } else {
+            // Check if commit is from today
+            const isToday = now.toDateString() === commitDate.toDateString();
+
+            if (isToday) {
+                return commitDate.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } else {
+                return commitDate.toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                });
+            }
+        }
+    }
+
+    getRelativeTimeString(now, past) {
+        const diffMs = now.getTime() - past.getTime();
+        const diffSec = Math.floor(diffMs / 1000);
+        const diffMin = Math.floor(diffSec / 60);
+        const diffHour = Math.floor(diffMin / 60);
+        const diffDay = Math.floor(diffHour / 24);
+        const diffWeek = Math.floor(diffDay / 7);
+
+        if (diffSec < 60) return 'just now';
+        if (diffMin < 60) return `${diffMin} minute${diffMin === 1 ? '' : 's'} ago`;
+        if (diffHour < 24) return `${diffHour} hour${diffHour === 1 ? '' : 's'} ago`;
+        if (diffDay < 7) return `${diffDay} day${diffDay === 1 ? '' : 's'} ago`;
+        if (diffWeek < 4) return `${diffWeek} week${diffWeek === 1 ? '' : 's'} ago`;
+
+        // For longer periods, show the actual date
+        return past.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: past.getFullYear() !== now.getFullYear() ? 'numeric' : undefined
+        });
+    }
+
     renderHistory(commits) {
         this.historyList.innerHTML = '';
 
@@ -204,11 +359,7 @@ class Sidebar {
             item.className = 'history-item';
             item.dataset.hash = commit.full_hash;
 
-            const date = new Date(commit.date * 1000);
-            const timeStr = date.toLocaleTimeString('en-US', {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
+            const timeStr = this.formatTimeDisplay(commit.date);
 
             item.innerHTML = `
                 <span class="commit-time">* ${timeStr}</span>
@@ -253,6 +404,19 @@ class Sidebar {
         this.consoleOutput.scrollTop = this.consoleOutput.scrollHeight;
     }
 
+    addConsoleLineRaw(formattedMessage, level = 'info') {
+        const line = document.createElement('div');
+        line.className = `console-line ${level}`;
+
+        // Use innerHTML to render the HTML formatting from ANSI conversion
+        // Don't add timestamp prefix - the message is already formatted
+        line.innerHTML = formattedMessage;
+
+        this.consoleOutput.appendChild(line);
+        // Auto-scroll to bottom
+        this.consoleOutput.scrollTop = this.consoleOutput.scrollHeight;
+    }
+
     async clearConsole() {
         try {
             await fetch('/api/fac/console/clear', { method: 'POST' });
@@ -267,3 +431,4 @@ class Sidebar {
 document.addEventListener('DOMContentLoaded', () => {
     window.sidebar = new Sidebar();
 });
+
