@@ -203,6 +203,10 @@ class FacBuildSystem {
             return;
         }
 
+        // Switch to console tab to show build output
+        if (window.sidebar) {
+            window.sidebar.switchTab('console');
+        }
         // Show immediate feedback
         this.showBuildStatus(target, 'Sending request...', 'permanent');
 
