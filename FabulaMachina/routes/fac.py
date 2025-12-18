@@ -5,51 +5,12 @@ This Flask blueprint provides the backend API for triggering FAC builds from the
 It integrates the fac.BuildSystem library with the FabulaMachina Flask application to enable
 on-demand rebuilding of individual assets (images, audio, PDFs, etc.).
 
-ARCHITECTURE OVERVIEW:
-- Exposes REST API endpoints for build management (/api/fac/build, /api/fac/build/status, etc.)
-- Uses Server-Sent Events (SSE) to stream real-time build logs to clients
-- Manages concurrent build prevention (only one build allowed at a time globally)
-- Integrates with fac.BuildSystem for actual build execution
-- Captures and forwards FAC logging output to both Flask console and web clients
-
-
 CONSOLE INTEGRATION:
-The console system provides output to a "readonly" shell session. Standard use is to log
-commands with bash-style prompts ('$ command') followed by the exact output as it would
-appear in a terminal. This should be done for all API endpoints that run something
-equivalent to a shell command. Error output (stderr) should be shown verbatim in red, success
+The console system provides output to a "readonly" shell session. Standard use is to log 
+commands with bash-style prompts ('$ command') followed by the exact output as it would 
+appear in a terminal. This should be done for all API endpoints that run something 
+equivalent to a shell command. Error output should be shown verbatim in red, success 
 output should preserve original formatting without timestamps or additional annotations.
-
-FIXME: console stuff should be factored out into its own file
-
-INTEGRATION WITH FAC BUILD SYSTEM:
-- Imports fac.BuildSystem class and related components from the installed fac package
-- Runs builds in background threads to avoid blocking the Flask request thread
-- Configures BuildSystem with appropriate settings (allow_dirty=True, auto_commit=False)
-- Uses custom LogHandler to capture fac logs and stream them to web clients
-- Handles BuildSystem exceptions and translates them to appropriate HTTP responses
-
-THREAD SAFETY AND CONCURRENCY:
-- Uses threading.Lock to protect shared state (active_builds dictionary)
-- Prevents concurrent builds globally (not per-target) for system resource management
-- Runs actual builds in daemon threads to avoid blocking Flask
-- Manages build lifecycle: queued → running → completed/error
-- Automatic cleanup of old build records after 1 hour
-
-DATA FLOW:
-1. Client sends POST /api/fac/build with target and options
-2. Server creates build record and starts background thread
-3. Background thread initializes BuildSystem and custom LogHandler
-4. fac.BuildSystem executes build, sending logs to LogHandler
-5. LogHandler queues log messages for SSE streaming
-6. Client receives real-time logs via GET /api/fac/build/logs/{build_id}
-7. Build completes, server sends completion/error message, client closes SSE
-
-ERROR HANDLING:
-- FACError, DirtyRepo: Treated as build failures, logged and reported to client
-- Network/HTTP errors: Returned as appropriate HTTP status codes
-- Unexpected exceptions: Caught and logged, build marked as error
-- SSE stream errors: Handled gracefully with timeouts and heartbeats
 """
 
 import asyncio
@@ -74,7 +35,15 @@ except ImportError as e:
     print("Make sure fac is installed and accessible")
     raise
 
-# Import git history notification function
+# Import console logging and git history functions
+from routes.console_logging import (
+    log_console_command, 
+    log_console_output, 
+    add_console_client, 
+    remove_console_client,
+    clear_console as clear_console_clients
+)
+
 try:
     from routes.git_history import notify_history_clients
 except ImportError:
@@ -87,94 +56,27 @@ bp = Blueprint('fac', __name__)
 active_builds = {}
 build_lock = threading.Lock()
 
-# Global state for console log streaming
-console_clients = {}
-console_lock = threading.Lock()
+# Console client management
 console_next_client_id = 1
-
-def log_console_command(command, level='info'):
-    """Log a bash-style command to the console"""
-    with console_lock:
-        if not console_clients:
-            return
-
-        log_entry = {
-            'type': 'console_command',
-            'level': level,
-            'message': f'$ {command}',
-            'timestamp': time.time()
-        }
-
-        dead_clients = []
-        for client_id, client_queue in console_clients.items():
-            try:
-                client_queue.put_nowait(log_entry)
-            except queue.Full:
-                dead_clients.append(client_id)
-
-        for client_id in dead_clients:
-            del console_clients[client_id]
-
-def log_console_output(output, level='info'):
-    """Log command output to the console without timestamps"""
-    with console_lock:
-        if not console_clients:
-            return
-
-        log_entry = {
-            'type': 'console_output',
-            'level': level,
-            'message': output,
-            'timestamp': time.time()
-        }
-
-        dead_clients = []
-        for client_id, client_queue in console_clients.items():
-            try:
-                client_queue.put_nowait(log_entry)
-            except queue.Full:
-                dead_clients.append(client_id)
-
-        for client_id in dead_clients:
-            del console_clients[client_id]
 
 class ConsoleLogHandler(logging.Handler):
     """Log handler that captures all FAC output for the console panel"""
-
+    
     def __init__(self):
         super().__init__()
         self.setFormatter(CustomFormatter())
-
+    
     def emit(self, record):
         try:
             formatted_msg = self.format(record)
             formatted_msg = self.convert_ansi_to_web(formatted_msg)
-
-            with console_lock:
-                if not console_clients:
-                    return
-
-                log_entry = {
-                    'type': 'console_output',
-                    'level': record.levelname,
-                    'message': formatted_msg,
-                    'raw_message': record.getMessage(),
-                    'timestamp': time.time()
-                }
-
-                dead_clients = []
-                for client_id, client_queue in console_clients.items():
-                    try:
-                        client_queue.put_nowait(log_entry)
-                    except queue.Full:
-                        dead_clients.append(client_id)
-
-                for client_id in dead_clients:
-                    del console_clients[client_id]
-
+            
+            # Send directly to console logging system
+            log_console_output(formatted_msg, record.levelname.lower())
+                    
         except Exception as e:
             print(f"[Console Log] Error: {e}")
-
+    
     def convert_ansi_to_web(self, text):
         """Convert ANSI color codes to HTML-friendly format"""
         ansi_to_css = {
@@ -187,10 +89,10 @@ class ConsoleLogHandler(logging.Handler):
             '\033[35m': '<span class="ansi-magenta">',
             '\033[0m': '</span>',
         }
-
+        
         for ansi_code, css_span in ansi_to_css.items():
             text = text.replace(ansi_code, css_span)
-
+        
         return text
 
 class BuildLogHandler(logging.Handler):
@@ -226,16 +128,17 @@ def console_events():
     """Server-Sent Events for console log streaming"""
     def generate():
         global console_next_client_id
-
-        with console_lock:
-            client_id = f"console_client_{console_next_client_id}_{int(time.time())}"
-            console_next_client_id += 1
-            client_queue = queue.Queue(maxsize=1000)
-            console_clients[client_id] = client_queue
-
+        
+        client_id = f"console_client_{console_next_client_id}_{int(time.time())}"
+        console_next_client_id += 1
+        client_queue = queue.Queue(maxsize=1000)
+        
+        # Add client to shared console system
+        add_console_client(client_id, client_queue)
+        
         try:
             yield f"data: {json.dumps({'type': 'connected', 'client_id': client_id})}\n\n"
-
+            
             while True:
                 try:
                     message = client_queue.get(timeout=30)
@@ -245,27 +148,14 @@ def console_events():
         except GeneratorExit:
             pass
         finally:
-            with console_lock:
-                if client_id in console_clients:
-                    del console_clients[client_id]
-
+            remove_console_client(client_id)
+    
     return Response(generate(), mimetype='text/event-stream')
 
 @bp.route('/api/fac/console/clear', methods=['POST'])
 def clear_console():
     """Clear console log for all clients"""
-    with console_lock:
-        clear_message = {
-            'type': 'clear_console',
-            'timestamp': time.time()
-        }
-
-        for client_queue in console_clients.values():
-            try:
-                client_queue.put_nowait(clear_message)
-            except queue.Full:
-                pass
-
+    clear_console_clients()
     return jsonify({'success': True})
 
 @bp.route('/api/fac/build', methods=['POST'])
@@ -286,8 +176,10 @@ def trigger_build():
     if overwrite:
         fac_command += " --overwrite"
     if notes:
-        fac_command += f" --include_chat=\"{notes}\""
-
+        # Escape quotes in notes for display
+        escaped_notes = notes.replace('"', '\\"')
+        fac_command += f' --include_chat="{escaped_notes}"'
+    
     # Log the command to console
     log_console_command(fac_command)
 
@@ -297,8 +189,10 @@ def trigger_build():
                           if info['status'] in ['queued', 'running']]
 
         if active_build_ids:
+            error_msg = "A build is already in progress"
+            log_console_output(f"fac: error: {error_msg}", 'error')
             return jsonify({
-                'error': 'A build is already in progress',
+                'error': error_msg,
                 'active_build_id': active_build_ids[0]
             }), 409
 
@@ -347,6 +241,12 @@ def trigger_build():
                 with build_lock:
                     if build_id in active_builds:
                         active_builds[build_id]['status'] = 'completed'
+                        log_handler.log_queue.put({
+                            'type': 'build_completed',
+                            'target': target,
+                            'timestamp': time.time(),
+                            'display_type': 'flash',
+                        })
 
                 # Notify git history of new commits
                 try:
@@ -368,15 +268,29 @@ def trigger_build():
                     if build_id in active_builds:
                         active_builds[build_id]['status'] = 'error'
                         active_builds[build_id]['error'] = error_msg
+                        log_handler.log_queue.put({
+                            'type': 'build_error',
+                            'target': target,
+                            'error': error_msg,
+                            'timestamp': time.time(),
+                            'display_type': 'permanent',
+                        })
 
             except Exception as e:
-                error_msg = f"Unexpected error: {str(e)}"
-                log_console_output(error_msg, 'error')
+                error_msg = str(e)
+                log_console_output(f"Unexpected error: {error_msg}", 'error')
 
                 with build_lock:
                     if build_id in active_builds:
                         active_builds[build_id]['status'] = 'error'
                         active_builds[build_id]['error'] = error_msg
+                        log_handler.log_queue.put({
+                            'type': 'build_error',
+                            'target': target,
+                            'error': error_msg,
+                            'timestamp': time.time(),
+                            'display_type': 'permanent',
+                        })
 
             finally:
                 if log_handler:

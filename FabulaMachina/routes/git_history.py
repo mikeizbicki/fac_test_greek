@@ -3,8 +3,12 @@ Git History Management
 
 Provides endpoints for fetching git commit history and managing repository state.
 Integrates with the sidebar history tab to show real-time commit updates.
-"""
 
+CONSOLE INTEGRATION:
+This module logs all git operations to the console system as bash-style commands
+followed by their exact output (or error output in red). This provides users with
+a readonly shell session view of all git operations performed through the web interface.
+"""
 
 import json
 import os
@@ -19,28 +23,15 @@ except ImportError:
     print("GitPython not found. Install with: pip install GitPython")
     git = None
 
+# Import shared console logging
+from routes.console_logging import log_console_command, log_console_output
+
 bp = Blueprint('git_history', __name__)
 
 # Global state for git history SSE
 history_clients = {}
 history_lock = threading.Lock()
 history_next_client_id = 1
-
-def log_console_command(command, level='info'):
-    """Log a bash-style command to the console"""
-    try:
-        from routes.fac import log_console_command as _log_console_command
-        _log_console_command(command, level)
-    except ImportError:
-        pass
-
-def log_console_output(output, level='info'):
-    """Log command output to the console"""
-    try:
-        from routes.fac import log_console_output as _log_console_output
-        _log_console_output(output, level)
-    except ImportError:
-        pass
 
 def get_repo():
     """Get GitPython repo object for current directory"""
