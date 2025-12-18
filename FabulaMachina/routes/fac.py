@@ -137,6 +137,7 @@ class BuildLogHandler(logging.Handler):
                 'timestamp': time.time()
             }
             self.log_queue.put_nowait(log_entry)
+            log_console_output(formatted_msg, record.levelname.lower())
         except Exception as e:
             print(f"[FAC Build] Logging error: {e}")
 
