@@ -47,6 +47,7 @@ import json
 import logging
 import os
 import queue
+import re
 import threading
 import time
 import uuid
@@ -57,7 +58,7 @@ from flask import Blueprint, request, jsonify, Response
 # Import the fac build system components
 try:
     from fac.BuildSystem import BuildSystem, DirtyRepo, FACError
-    from fac.Logging import logger as fac_logger
+    from fac.Logging import logger as fac_logger, CustomFormatter
 except ImportError as e:
     print(f"Error importing fac: {e}")
     print("Make sure fac is installed and accessible")
@@ -86,9 +87,18 @@ console_next_client_id = 1
 class ConsoleLogHandler(logging.Handler):
     """Log handler that captures all FAC output for the console panel"""
 
+    def __init__(self):
+        super().__init__()
+        # Use the same formatter as the FAC logging system
+        self.setFormatter(CustomFormatter())
+
     def emit(self, record):
         try:
-            msg = self.format(record)
+            # Format the message using the custom formatter to preserve tree structure and colors
+            formatted_msg = self.format(record)
+
+            # Convert ANSI color codes to web-friendly format
+            formatted_msg = self.convert_ansi_to_web(formatted_msg)
 
             # Send to all console clients
             with console_lock:
@@ -98,7 +108,8 @@ class ConsoleLogHandler(logging.Handler):
                 log_entry = {
                     'type': 'console_log',
                     'level': record.levelname,
-                    'message': msg,
+                    'message': formatted_msg,
+                    'raw_message': record.getMessage(),
                     'timestamp': time.time()
                 }
 
@@ -116,6 +127,26 @@ class ConsoleLogHandler(logging.Handler):
         except Exception as e:
             print(f"[Console Log] Error: {e}")
 
+    def convert_ansi_to_web(self, text):
+        """Convert ANSI color codes to HTML-friendly format"""
+        # ANSI color code mappings to CSS classes
+        ansi_to_css = {
+            '\033[31m': '<span class="ansi-red">',      # Red
+            '\033[91m': '<span class="ansi-bright-red">',  # Bright Red
+            '\033[32m': '<span class="ansi-green">',    # Green
+            '\033[33m': '<span class="ansi-yellow">',   # Yellow
+            '\033[38;5;208m': '<span class="ansi-orange">', # Orange
+            '\033[36m': '<span class="ansi-cyan">',     # Cyan
+            '\033[35m': '<span class="ansi-magenta">',  # Magenta
+            '\033[0m': '</span>',                       # Reset
+        }
+
+        # Replace ANSI codes with HTML spans
+        for ansi_code, css_span in ansi_to_css.items():
+            text = text.replace(ansi_code, css_span)
+
+        return text
+
 class BuildLogHandler(logging.Handler):
     """
     Custom logging handler that captures FAC build logs and queues them for SSE streaming.
@@ -131,6 +162,8 @@ class BuildLogHandler(logging.Handler):
         super().__init__()
         self.build_id = build_id
         self.log_queue = queue.Queue()
+        # Use the same formatter as the FAC logging system
+        self.setFormatter(CustomFormatter())
 
     def emit(self, record):
         """
@@ -138,12 +171,14 @@ class BuildLogHandler(logging.Handler):
         Formats the log record and adds it to the queue for SSE streaming.
         """
         try:
-            msg = self.format(record)
+            # Format using the custom formatter to preserve tree structure
+            formatted_msg = self.format(record)
 
             log_entry = {
                 'type': 'log',
                 'level': record.levelname,
-                'message': msg,
+                'message': formatted_msg,
+                'raw_message': record.getMessage(),
                 'timestamp': time.time()
             }
             self.log_queue.put_nowait(log_entry)
@@ -155,7 +190,6 @@ class BuildLogHandler(logging.Handler):
 console_handler = ConsoleLogHandler()
 fac_logger.addHandler(console_handler)
 
-@bp.route('/api/fac/console/events')
 @bp.route('/api/fac/console/events')
 def console_events():
     """Server-Sent Events for console log streaming"""
@@ -174,9 +208,6 @@ def console_events():
             while True:
                 try:
                     message = client_queue.get(timeout=30)
-                    # Change console_log type to console_log
-                    if message.get('type') == 'console_log':
-                        message['type'] = 'console_log'
                     yield f"data: {json.dumps(message)}\n\n"
                 except queue.Empty:
                     yield f"data: {json.dumps({'type': 'heartbeat'})}\n\n"
@@ -496,7 +527,7 @@ def list_builds():
     List all current build records.
 
     Returns information about all builds currently tracked by the system.
-    Useful for consoleging and monitoring build activity.
+    Useful for debugging and monitoring build activity.
     """
     with build_lock:
         builds = []

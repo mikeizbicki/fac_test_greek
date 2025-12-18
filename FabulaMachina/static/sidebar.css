@@ -162,6 +162,7 @@
     display: flex;
     flex-direction: column;
     background: #000;
+    min-height: 0;
 }
 
 .console-output {
@@ -174,6 +175,7 @@
     padding: 8px;
     overflow-y: auto;
     white-space: pre;
+    min-height: 0;
 }
 
 .console-footer {
@@ -256,3 +258,12 @@
         margin-left: 320px;
     }
 }
+
+/* ANSI color classes for console output */
+.ansi-red { color: #ff6b6b; }
+.ansi-bright-red { color: #ff5555; }
+.ansi-green { color: #0f0; }
+.ansi-yellow { color: #ffd93d; }
+.ansi-orange { color: #ffa500; }
+.ansi-cyan { color: #74c0fc; }
+.ansi-magenta { color: #ff79c6; }
