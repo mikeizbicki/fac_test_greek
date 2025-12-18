@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Flask app for viewing framed fountain scripts.
 
@@ -48,20 +47,51 @@ The output maintains all of screenplain's formatting quality while adding
 frame-level organization that enables advanced workflow tools and analysis.
 """
 
-from io import StringIO
+from flask import Blueprint, render_template, abort, request, jsonify, send_file
 import json
+import logging
 import os
 import re
 import shutil
-import tempfile
-
-from flask import Flask, render_template, abort, request, jsonify, send_file
+import traceback
+from io import StringIO
 from screenplain.parsers import fountain
 from screenplain.export.html import convert
 
-app = Flask(__name__)
+bp = Blueprint('books', __name__, template_folder='.')
 
-@app.route('/books/<level>/<book>/delete_frame', methods=['POST'])
+@bp.route('/books/<level>/<book>/update_reference_frame', methods=['POST'])
+def update_reference_frame(level, book):
+    """Update the reference_frame for a specific frame."""
+    content_path = os.path.join('books', level, book, 'content.json')
+
+    data = request.get_json()
+    frame_id = data.get('frame_id')
+    new_reference_frame = data.get('reference_frame')
+
+    try:
+        if os.path.exists(content_path):
+            with open(content_path, 'r', encoding='utf-8') as f:
+                json_data = json.load(f)
+
+            # Update the specific frame
+            for frame in json_data['frames']:
+                if frame['frame_id'] == frame_id:
+                    frame['reference_frame'] = new_reference_frame
+                    break
+
+            # Atomic write
+            temp_path = content_path + '.tmp'
+            with open(temp_path, 'w', encoding='utf-8') as f:
+                json.dump(json_data, f, indent=2, ensure_ascii=False)
+            shutil.move(temp_path, content_path)
+
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@bp.route('/books/<level>/<book>/delete_frame', methods=['POST'])
 def delete_frame(level, book):
     """Delete a frame from both fountain and JSON files."""
     script_path = os.path.join('books', level, book, 'script.fountain.framed')
@@ -78,7 +108,7 @@ def delete_frame(level, book):
             content = f.read()
 
         # Remove the frame block completely
-        pattern = f'<frame\\s+id="{re.escape(frame_id)}".*?</frame>'
+        pattern = f'<frame\\s+frame_id="{re.escape(frame_id)}".*?</frame>'
         updated_content = re.sub(pattern, '', content, flags=re.DOTALL)
 
         # Clean up extra whitespace
@@ -116,7 +146,7 @@ def delete_frame(level, book):
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
-@app.route('/books/<level>/<book>/add_frame', methods=['POST'])
+@bp.route('/books/<level>/<book>/add_frame', methods=['POST'])
 def add_frame(level, book):
     """Add a new empty frame after the specified frame."""
     script_path = os.path.join('books', level, book, 'script.fountain.framed')
@@ -136,12 +166,12 @@ def add_frame(level, book):
         # Find the position after the specified frame
         if after_frame_id:
             new_frame_content = '*insert new frame content here*'
-            pattern = f'(<frame\\s+id="{re.escape(after_frame_id)}".*?</frame>)'
-            replacement = f'\\1\n\n<frame id="{new_frame_id}">\n{new_frame_content}\n</frame>'
+            pattern = f'(<frame\\s+frame_id="{re.escape(after_frame_id)}".*?</frame>)'
+            replacement = f'\\1\n\n<frame frame_id="{new_frame_id}">\n{new_frame_content}\n</frame>'
             updated_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
         else:
             # If no after_frame specified, add at the end
-            updated_content = content + f'\n\n<frame id="{new_frame_id}">\n{new_frame_content}\n</frame>'
+            updated_content = content + f'\n\n<frame frame_id="{new_frame_id}">\n{new_frame_content}\n</frame>'
 
         # Atomic write
         temp_path = script_path + '.tmp'
@@ -189,96 +219,16 @@ def add_frame(level, book):
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
-@app.route('/books/<level>/<book>/merge_frames', methods=['POST'])
-def merge_frames(level, book):
-    """Merge two consecutive frames."""
-    script_path = os.path.join('books', level, book, 'script.fountain.framed')
-
-    if not os.path.exists(script_path):
-        abort(404)
-
-    data = request.get_json()
-    frame_id = data.get('frame_id')
-    next_frame_id = data.get('next_frame_id')
-
-    try:
-        # Read fountain file
-        with open(script_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        # Extract content from both frames
-        frame_pattern = r'<frame\s+id="([^"]+)">(.*?)</frame>'
-        frames = dict(re.findall(frame_pattern, content, re.DOTALL))
-
-        if frame_id not in frames or next_frame_id not in frames:
-            return jsonify({'success': False, 'error': 'One or both frames not found'}), 400
-
-        # Merge the content
-        merged_content = frames[frame_id].strip() + '\n\n' + frames[next_frame_id].strip()
-
-        # Replace first frame with merged content
-        pattern = f'(<frame\\s+id="{re.escape(frame_id)}")(.*?)(</frame>)'
-        replacement = f'\\1>{merged_content}\n\\3'
-        updated_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
-
-        # Remove the second frame
-        pattern = f'<frame\\s+id="{re.escape(next_frame_id)}".*?</frame>'
-        updated_content = re.sub(pattern, '', updated_content, flags=re.DOTALL)
-
-        # Clean up extra whitespace
-        updated_content = re.sub(r'\n{3,}', '\n\n', updated_content)
-
-        # Atomic write
-        temp_path = script_path + '.tmp'
-        with open(temp_path, 'w', encoding='utf-8') as f:
-            f.write(updated_content)
-        shutil.move(temp_path, script_path)
-
-        # Merge JSON entries if they exist
-        content_path = os.path.join('books', level, book, 'content.json')
-        if os.path.exists(content_path):
-            with open(content_path, 'r', encoding='utf-8') as f:
-                json_data = json.load(f)
-
-            # Find and merge JSON entries
-            first_frame = next((f for f in json_data['frames'] if f['frame_id'] == frame_id), None)
-            second_frame = next((f for f in json_data['frames'] if f['frame_id'] == next_frame_id), None)
-
-            if first_frame and second_frame:
-                # Merge descriptions
-                first_frame['description'] = f"{first_frame.get('description', '')} {second_frame.get('description', '')}".strip()
-                # Merge characters lists
-                first_frame['characters'] = list(set(first_frame.get('characters', []) + second_frame.get('characters', [])))
-
-            # Remove the second frame
-            json_data['frames'] = [f for f in json_data['frames'] if f['frame_id'] != next_frame_id]
-
-            # Atomic write
-            temp_path = content_path + '.tmp'
-            with open(temp_path, 'w', encoding='utf-8') as f:
-                json.dump(json_data, f, indent=2, ensure_ascii=False)
-            shutil.move(temp_path, content_path)
-
-        # Remove the second frame's assets directory
-        frame_dir = os.path.join('books', level, book, 'frames', next_frame_id)
-        if os.path.exists(frame_dir):
-            shutil.rmtree(frame_dir)
-
-        return jsonify({'success': True})
-
-    except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
-
-@app.route('/books/<level>/<book>/frames/<frame_id>/<filename>')
+@bp.route('/books/<level>/<book>/frames/<frame_id>/<filename>')
 def serve_frame_file(level, book, frame_id, filename):
     """Serve frame assets (images and audio)."""
     file_path = os.path.join('books', level, book, 'frames', frame_id, filename)
     if os.path.exists(file_path):
-        return send_file(file_path)
+        return send_file('../' + file_path)
     else:
         abort(404)
 
-@app.route('/books/<level>/<book>/get_frame_json/<frame_id>')
+@bp.route('/books/<level>/<book>/get_frame_json/<frame_id>')
 def get_frame_json(level, book, frame_id):
     """Get JSON data for a specific frame."""
     content_path = os.path.join('books', level, book, 'content.json')
@@ -295,7 +245,7 @@ def get_frame_json(level, book, frame_id):
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
 
-@app.route('/books/<level>/<book>/save_frame', methods=['POST'])
+@bp.route('/books/<level>/<book>/save_frame', methods=['POST'])
 def save_frame(level, book):
     """Save both fountain and JSON content atomically."""
     script_path = os.path.join('books', level, book, 'script.fountain.framed')
@@ -314,7 +264,7 @@ def save_frame(level, book):
             content = f.read()
 
         # Replace the specific frame content
-        pattern = f'(<frame\\s+id="{re.escape(frame_id)}")(.*?)(</frame>)'
+        pattern = f'(<frame\\s+frame_id="{re.escape(frame_id)}")(.*?)(</frame>)'
         replacement = f'\\1>{fountain_content.strip()}\n\\3'
         updated_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
@@ -356,13 +306,18 @@ def parse_framed_fountain(content):
     frames = []
     
     # Find all frame blocks
-    frame_pattern = r'<frame\s+id="([^"]+)">(.*?)</frame>'
+    frame_pattern = r'<frame\s+frame_id="([^"]+)"(\s+reference_frame="([^"]+)")?>(.*?)</frame>'
     matches = re.findall(frame_pattern, content, re.DOTALL)
+
     
-    for frame_id, frame_content in matches:
+    for match in matches:
+        frame_id = match[0]
+        reference_frame = match[2]
+        content = match[3].strip()
         frames.append({
-            'id': frame_id,
-            'content': frame_content.strip()
+            'frame_id': frame_id,
+            'reference_frame': reference_frame,
+            'content': content
         })
     
     return frames
@@ -383,70 +338,54 @@ def render_frame_html(frame_content):
     convert(screenplay, html_buffer, bare=True)
     return html_buffer.getvalue().replace(underscore_escape, '_')[41:]
 
-@app.route('/')
-def index():
-    """List all available books."""
-    books = []
-    books_dir = 'books'
-    
-    if os.path.exists(books_dir):
-        for level in os.listdir(books_dir):
-            level_path = os.path.join(books_dir, level)
-            if os.path.isdir(level_path):
-                for book in os.listdir(level_path):
-                    book_path = os.path.join(level_path, book)
-                    script_path = os.path.join(book_path, 'script.fountain.framed')
-                    if os.path.isdir(book_path) and os.path.exists(script_path):
-                        books.append({
-                            'level': level,
-                            'book': book,
-                            'title': f"{level} - {book}"
-                        })
-    
-    return render_template('index.html', books=books)
 
-@app.route('/books/<level>/<book>')
+@bp.route('/books/<level>/<book>')
 def view_script(level, book):
     """View a framed fountain script."""
     script_path = os.path.join('books', level, book, 'script.fountain.framed')
-    
+    content_path = os.path.join('books', level, book, 'content.json')
+
     if not os.path.exists(script_path):
         abort(404)
-    
-    try:
-        with open(script_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        frames = parse_framed_fountain(content)
-        
-        if not frames:
-            return render_template('script.html', 
-                                 level=level, 
-                                 book=book, 
-                                 frames=[], 
-                                 error="No frames found in script")
-        
-        # Render each frame
-        rendered_frames = []
-        for frame in frames:
-            rendered_frames.append({
-                'id': frame['id'],
-                'html': render_frame_html(frame['content']),
-                'content': frame['content']
-            })
-        
-        return render_template('script.html', 
-                             level=level, 
-                             book=book, 
-                             frames=rendered_frames)
-    
-    except Exception as e:
-        raise e
-        return render_template('script.html', 
-                             level=level, 
-                             book=book, 
-                             frames=[], 
-                             error=str(e))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    with open(script_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    frames = parse_framed_fountain(content)
+
+    if not frames:
+        return render_template('template.html',
+                             level=level,
+                             book=book,
+                             frames=[],
+                             error="No frames found in script")
+
+    # Load JSON data if it exists
+    json_data = {}
+    if os.path.exists(content_path):
+        with open(content_path, 'r', encoding='utf-8') as f:
+            json_data = json.load(f)
+
+    # Create a lookup for frame metadata
+    frame_metadata = {}
+    for frame_info in json_data.get('frames', []):
+        frame_id = frame_info.get('frame_id')
+        frame_metadata[frame_id] = frame_info
+        # DEBUG: Print frame info
+        print(f"Frame {frame_id}: reference_frame = {frame_info.get('reference_frame', 'NOT FOUND')}")
+
+    # Render each frame with metadata
+    rendered_frames = []
+    for frame in frames:
+        metadata = frame_metadata.get(frame['frame_id'], {})
+        rendered_frames.append({
+            'id': frame['frame_id'],
+            'html': render_frame_html(frame['content']),
+            'content': frame['content'],
+            'reference_frame': frame.get('reference_frame')
+        })
+
+    return render_template('template.html',
+                         level=level,
+                         book=book,
+                         frames=rendered_frames)

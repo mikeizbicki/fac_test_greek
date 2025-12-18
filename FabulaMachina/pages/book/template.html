@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}{{ level }} - {{ book }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/pages/book/static/style.css">
+<script src="/pages/book/static/script.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="book-container" data-level="{{ level }}" data-book="{{ book }}">
+<h1>{{ level }} - {{ book }}</h1>
+
+{% if error %}
+    <p class="error">Error: {{ error }}</p>
+{% elif frames %}
+    {% for frame in frames %}
+        <div class="frame" id="{{ frame.id }}" data-frame-id="{{ frame.id }}" data-raw-content="{{ frame.content | e }}" data-reference-frame="{{ frame.reference_frame or '' }}">
+            <div class="frame-content">{{ frame.html | safe }}</div>
+            <div class="frame-margin">
+                <div class="frame_id">frame_id: {{ frame.id }}</div>
+                <div class="reference-frame-container">
+                    <span class="reference-frame-text">reference_frame: </span>
+                    <span class="reference-frame-value" data-frame-id="{{ frame.id }}" data-reference-frame="{{ frame.reference_frame or '' }}">
+                        {{ frame.reference_frame or 'none' }}
+                    </span>
+                    <select class="reference-frame-dropdown" style="display: none;" size="1">
+                        <option value="">none</option>
+                    </select>
+                </div>
+                <div class="img-container">
+                <img src="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/art.png"
+                     class="frame-image auto-updater fac-build"
+                     data-fac-target="books/{{ level }}/{{ book }}/frames/{{ frame.id }}/art.png"
+                     onerror="this.style.display='none'">
+                </div>
+                <!--alt=""-->
+                <div class="audio-controls" data-audio-path="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/page.wav">
+                </div>
+            </div>
+            <div class="frame-edit" style="display: none;">
+                <div class="edit-tabs">
+                    <button class="tab-button active" data-tab="fountain">Fountain</button>
+                    <button class="tab-button" data-tab="json">JSON</button>
+                </div>
+                <div class="tab-content" id="fountain-tab">
+                    <textarea class="frame-textarea"></textarea>
+                </div>
+                <div class="tab-content" id="json-tab" style="display: none;">
+                    <textarea class="frame-json-textarea"></textarea>
+                </div>
+                <button class="run-button">▶ Save</button>
+                <button class="cancel-button">Cancel</button>
+            </div>
+            <div class="frame-controls">
+                <button class="control-btn edit-btn" title="Edit">✏️</button>
+                <button class="control-btn delete-btn" title="Delete">🗑️</button>
+                <button class="control-btn add-btn" title="Add Frame">➕</button>
+                <!--
+                <button class="control-btn merge-btn" title="Merge with Next">🔗</button>
+                -->
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No content to display.</p>
+{% endif %}
+
+<svg id="arrow-container">
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7"
+                refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+        </marker>
+    </defs>
+</svg>
+
+</div>
+{% endblock %}
