@@ -63,12 +63,58 @@ except ImportError as e:
     print("Make sure fac is installed and accessible")
     raise
 
+# Import git history notification function
+try:
+    from routes.git_history import notify_history_clients
+except ImportError:
+    # Fallback if git_history isn't available yet
+    def notify_history_clients(event_type, data=None):
+        pass
+
 bp = Blueprint('fac', __name__)
 
 # Global state for build management
-# Structure: buil^[d_id -> {target,^[ overwrite, notes, status, created_at, log_handler, error}
+# Structure: build_id -> {target, overwrite, notes, status, created_at, log_handler, error}
 active_builds = {}
 build_lock = threading.Lock()
+
+# Global state for debug log streaming
+debug_clients = {}
+debug_lock = threading.Lock()
+debug_next_client_id = 1
+
+class DebugLogHandler(logging.Handler):
+    """Log handler that captures all FAC output for the debug panel"""
+
+    def emit(self, record):
+        try:
+            msg = self.format(record)
+
+            # Send to all debug clients
+            with debug_lock:
+                if not debug_clients:
+                    return
+
+                log_entry = {
+                    'type': 'debug_log',
+                    'level': record.levelname,
+                    'message': msg,
+                    'timestamp': time.time()
+                }
+
+                dead_clients = []
+                for client_id, client_queue in debug_clients.items():
+                    try:
+                        client_queue.put_nowait(log_entry)
+                    except queue.Full:
+                        dead_clients.append(client_id)
+
+                # Clean up dead clients
+                for client_id in dead_clients:
+                    del debug_clients[client_id]
+
+        except Exception as e:
+            print(f"[Debug Log] Error: {e}")
 
 class BuildLogHandler(logging.Handler):
     """
@@ -104,6 +150,57 @@ class BuildLogHandler(logging.Handler):
         except Exception as e:
             # Don't let logging errors break the build
             print(f"[FAC Build] Logging error: {e}")
+
+# Add global debug handler to capture all FAC logs
+debug_handler = DebugLogHandler()
+fac_logger.addHandler(debug_handler)
+
+@bp.route('/api/fac/debug/events')
+def debug_events():
+    """Server-Sent Events for debug log streaming"""
+    def generate():
+        global debug_next_client_id
+
+        with debug_lock:
+            client_id = f"debug_client_{debug_next_client_id}_{int(time.time())}"
+            debug_next_client_id += 1
+            client_queue = queue.Queue(maxsize=1000)  # Larger queue for debug logs
+            debug_clients[client_id] = client_queue
+
+        try:
+            yield f"data: {json.dumps({'type': 'connected', 'client_id': client_id})}\n\n"
+
+            while True:
+                try:
+                    message = client_queue.get(timeout=30)
+                    yield f"data: {json.dumps(message)}\n\n"
+                except queue.Empty:
+                    yield f"data: {json.dumps({'type': 'heartbeat'})}\n\n"
+        except GeneratorExit:
+            pass
+        finally:
+            with debug_lock:
+                if client_id in debug_clients:
+                    del debug_clients[client_id]
+
+    return Response(generate(), mimetype='text/event-stream')
+
+@bp.route('/api/fac/debug/clear', methods=['POST'])
+def clear_debug():
+    """Clear debug log for all clients"""
+    with debug_lock:
+        clear_message = {
+            'type': 'clear_debug',
+            'timestamp': time.time()
+        }
+
+        for client_queue in debug_clients.values():
+            try:
+                client_queue.put_nowait(clear_message)
+            except queue.Full:
+                pass
+
+    return jsonify({'success': True})
 
 @bp.route('/api/fac/build', methods=['POST'])
 def trigger_build():
@@ -164,6 +261,7 @@ def trigger_build():
         2. Configures and initializes the fac.BuildSystem
         3. Executes the build with appropriate error handling
         4. Updates build status and sends completion/error notifications
+        5. Notifies git history system when commits are made
         """
         build_info = None
         log_handler = None
@@ -196,7 +294,7 @@ def trigger_build():
                 overwrite=overwrite,
                 include_chat=notes if notes else None,
                 allow_dirty=True,      # Allow builds even if git working directory is dirty
-                auto_commit=False,     # Don't auto-commit changes (web builds are experimental)
+                auto_commit=True,      # Auto-commit changes (enable for git history tracking)
                 print_dependencies=True,  # Show dependency information in logs
             )
 
@@ -220,6 +318,18 @@ def trigger_build():
                             'timestamp': time.time(),
                             'display_type': 'flash',
                         })
+
+                # Notify git history of new commits (if any were made)
+                try:
+                    import git
+                    repo = git.Repo(os.getcwd())
+                    if repo.head.commit:
+                        notify_history_clients('new_commit', {
+                            'commit_hash': repo.head.commit.hexsha[:7],
+                            'message': repo.head.commit.message.strip()
+                        })
+                except Exception as git_error:
+                    print(f"Git notification error: {git_error}")
 
             except (FACError, DirtyRepo) as e:
                 # Expected FAC build errors
@@ -396,3 +506,4 @@ def list_builds():
             })
 
     return jsonify({'builds': builds})
+

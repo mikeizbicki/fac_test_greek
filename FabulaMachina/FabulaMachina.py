@@ -26,5 +26,8 @@ app.register_blueprint(pages.book.routes.bp)
 import routes.fac
 app.register_blueprint(routes.fac.bp)
 
+import routes.git_history
+app.register_blueprint(routes.git_history.bp)
+
 if __name__ == '__main__':
     app.run(debug=True)

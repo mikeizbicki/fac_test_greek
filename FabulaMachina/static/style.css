@@ -13,11 +13,19 @@ display: block;
 
 body {
     font-family: 'Courier New', monospace;
-    max-width: 800px;
-    margin: 0 auto;
+    /* Remove the max-width and centering constraints */
+    margin: 0;
     padding: 20px;
     line-height: 1.6;
+    width: 100%;
 }
+
+/* Add back the original book container styling */
+#book-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .book-list {
     list-style-type: none;
     padding: 0;
@@ -49,4 +57,3 @@ body {
 .nav a:hover {
     text-decoration: underline;
 }
-

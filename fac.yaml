@@ -41,7 +41,7 @@
 "characters/$CHARACTER/voice.json":
   description:
     A description of the character's voice for a voice actor.
-  schema_file: schemas/character.json-schema
+  schema_file: schemas/voice.json-schema
   dependencies:
     - common/about.md
     - characters/$CHARACTER/about.json
@@ -168,9 +168,13 @@
     You're output should be the input script verbatim except with these frame annotations.
 
     A frame is annotated using a simplified version of XML.
-    Each frame in the input script should be wrapped in a <frame></frame> tag,
-    and each frame should have an "id" attribute whose value is the id of the frame.
-    These ids should be a 1-5 word description of what happens in the frame in snake_case and without spaces (e.g. establish, harry_enters_hogwarts, or end_scene).
+    Each frame in the input script should be wrapped in a <frame></frame> tag.
+    - Each frame tag must have a "frame_id" attribute whose value is the id of the frame.
+      These ids should be a 1-5 word description of what happens in the frame in snake_case and without spaces (e.g. establish, harry_enters_hogwarts, or end_scene).
+    - Each frame can optionally have a "reference_frame" attribute whose value is the "frame_id" of one of the previous frames.
+      - The reference_frame should be provided whenever the current frame should be in a continuous shot (no camera cuts) with the previous frame.
+      - It is common for a scene to be animated without any cuts, in which case all frames should have reference_frame set to the previous frame.
+      - Another common pattern is to have short cuts that interrupt an otherwise continuous shot. (This often happens when there is action happening, then we cut to a closeup of a character to speak, or a closeup of some part of the action for just 1-2 frames.) In this case, the reference_frame after the cut should be the frame_id before the cut.
 
     Every piece of dialogue from a single character must have its own unique frame. The frame should also include any action descriptions, camera movement descriptions, or start of scene annotations that are happening at the same time as the dialogue (indicated in fountain notation by being immediately before the dialogue). A frame may never contain two characters speaking at the same time.
 
@@ -178,7 +182,7 @@
 
     FADE IN and FADE OUT should be in frames by themselves.
 
-    IT IS VERY IMPORTANT THAT YOU INCLUDE ALL OF THE ORIGINAL CONTENT OF THE FOUNTAIN SCRIPT IN THE OUTPUT. You are only adding <frame></frame> tags and not editing the content or removing the content.
+    IT IS VERY IMPORTANT THAT YOU INCLUDE ALL OF THE ORIGINAL CONTENT OF THE FOUNTAIN SCRIPT IN THE OUTPUT. You are only adding <frame></frame> tags and not editing the content or removing the content. The frame tags should be added on lines by themselves for a clean diff that only shows the addition of frame tags and no removal of any lines.
 
   dependencies:
     - books/$LEVEL/$BOOK/script.fountain
@@ -193,14 +197,14 @@
 
 "books/$LEVEL/$BOOK/content.json":
   description:
-    Convert the fountain script into the JSON schema.
-    It is okay to use frames without any text to create animated sequences that do not have dialogue/narration, but these should be used sparingly.
+    The input fountain script has been modified to mark the beginning and end of frames along with their ids.
+    Convert this modified fountain script into the JSON schema.
   schema_file: schemas/content.json-schema
   dependencies:
     common/about.md
     common/writing.md
     books/$LEVEL/themes.md
-    books/$LEVEL/$BOOK/script.fountain
+    books/$LEVEL/$BOOK/script.fountain.framed
     characters/$CHARACTER/about.json
     locations/$LOCATION/about.json
   variables:
@@ -407,15 +411,46 @@
 # audio
 ####################
 
-"books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav":
+"books/$LEVEL/$BOOK/frames/$MAYBE_FRAME_ID/voice_instructions.txt":
+  description:
+    The following content describes a short 5 second animation.
+    <content>
+    $(jq -c ".frames[] | select(.frame_id == \"$MAYBE_FRAME_ID\")" books/$LEVEL/$BOOK/content.json)
+    </content>
+    Your job is to provide instructions for the voice actor who will be reading the "text" section for "$SPEAKER".
+    The instructions should be 3-5 sentence and the provided generic description of the speaker's voice with emotions appropriate for what is going on in the included content.
+    You should really emphasize and exagerate the emotional content. Although it is important to match the instructions to the style of the provided speaker, it is FAR MORE IMPORTANT to convey the appropriate emotions (love/fear/anger/etc).
   dependencies:
-  - books/$LEVEL/$BOOK/content.json
+  - target: books/$LEVEL/$BOOK/content.json
+    include: false
+  - characters/$SPEAKER/voice.json
+  variables:
+    # NOTE:
+    # This MAYBE_FRAME_ID is defined to exclude frames that have no text
+    MAYBE_FRAME_ID: |
+      jq -r ".frames[]  | select(.text | length > 1) | .frame_id" books/$LEVEL/$BOOK/content.json
+    SPEAKER:
+      jq -r ".frames[] | select(.frame_id == \"$MAYBE_FRAME_ID\") | .speaker" books/$LEVEL/$BOOK/content.json
+
+"books/$LEVEL/$BOOK/frames/$MAYBE_FRAME_ID/page.wav":
+  dependencies:
+    #- books/$LEVEL/$BOOK/content.json
+  - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME_ID/voice_instructions.txt
+  - characters/$SPEAKER/voice.json
   options:
-    voice: fable
+    voice:
+      $(jq -r ".voice_actor" characters/$SPEAKER/voice.json)
     input:
-      $(jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
+      $(jq -r ".frames[] | select(.frame_id == \"$MAYBE_FRAME_ID\") | .text" books/$LEVEL/$BOOK/content.json)
     instructions:
-      You are narrating a Koine Greek children's book.  FRAME_ID=$FRAME_ID.  Speak in a cheerful and positive tone.
+      $(cat books/$LEVEL/$BOOK/frames/$MAYBE_FRAME_ID/voice_instructions.txt)
+  variables:
+    # NOTE:
+    # This MAYBE_FRAME_ID is defined to exclude frames that have no text
+    MAYBE_FRAME_ID: |
+      jq -r ".frames[]  | select(.text | length > 1) | .frame_id" books/$LEVEL/$BOOK/content.json
+    SPEAKER:
+      jq -r ".frames[] | select(.frame_id == \"$MAYBE_FRAME_ID\") | .speaker" books/$LEVEL/$BOOK/content.json
 
 "books/$LEVEL/$BOOK/frames/$FRAME_ID/translation_$LANG.txt":
   description:

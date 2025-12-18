@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Fac Viewer{% endblock %}</title>
+    
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='common/css/base.css') }}">
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Fac Viewer</a>
+            <div class="nav-links">
+                {% block nav_links %}{% endblock %}
+            </div>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Common JS -->
+    <script src="{{ url_for('static', filename='common/js/api.js') }}"></script>
+    <script src="{{ url_for('static', filename='common/js/media.js') }}"></script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>
+

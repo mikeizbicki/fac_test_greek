@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ scope|title }}{% if target %} - {{ target }}{% endif %}{% endblock %}
+
+{% block head %}
+    <!-- Scope-specific CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='scopes/' + scope + '/' + scope + '.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div id="scope-container" class="scope-{{ scope }}">
+        <div id="scope-header">
+            <h1>{{ scope|title }}</h1>
+            {% if target %}
+                <h2>{{ target }}</h2>
+                <div class="target-controls">
+                    <button id="rebuild-btn" onclick="rebuildTarget('{{ target }}')">Rebuild</button>
+                    <span id="build-status"></span>
+                </div>
+            {% endif %}
+        </div>
+        
+        <div id="scope-content">
+            <!-- Content will be loaded by scope-specific JS -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Scope-specific JS -->
+    <script>
+        // Make scope and target available to JS
+        window.currentScope = '{{ scope }}';
+        window.currentTarget = '{{ target }}' || null;
+    </script>
+    <script src="{{ url_for('static', filename='scopes/' + scope + '/' + scope + '.js') }}"></script>
+{% endblock %}
+

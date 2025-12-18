@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="home-container">
+        <h1>Available Scopes</h1>
+        
+        {% if scopes %}
+            <div class="scopes-grid">
+                {% for scope in scopes %}
+                    <div class="scope-card">
+                        <h3><a href="/{{ scope }}/">{{ scope|title }}</a></h3>
+                        <p>View {{ scope }} content and targets</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No scopes found. Create a scope directory in static/scopes/</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
