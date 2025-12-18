@@ -68,14 +68,12 @@ except ImportError as e:
 try:
     from routes.git_history import notify_history_clients
 except ImportError:
-    # Fallback if git_history isn't available yet
     def notify_history_clients(event_type, data=None):
         pass
 
 bp = Blueprint('fac', __name__)
 
 # Global state for build management
-# Structure: build_id -> {target, overwrite, notes, status, created_at, log_handler, error}
 active_builds = {}
 build_lock = threading.Lock()
 
@@ -84,29 +82,70 @@ console_clients = {}
 console_lock = threading.Lock()
 console_next_client_id = 1
 
+def log_console_command(command, level='info'):
+    """Log a bash-style command to the console"""
+    with console_lock:
+        if not console_clients:
+            return
+
+        log_entry = {
+            'type': 'console_command',
+            'level': level,
+            'message': f'$ {command}',
+            'timestamp': time.time()
+        }
+
+        dead_clients = []
+        for client_id, client_queue in console_clients.items():
+            try:
+                client_queue.put_nowait(log_entry)
+            except queue.Full:
+                dead_clients.append(client_id)
+
+        for client_id in dead_clients:
+            del console_clients[client_id]
+
+def log_console_output(output, level='info'):
+    """Log command output to the console without timestamps"""
+    with console_lock:
+        if not console_clients:
+            return
+
+        log_entry = {
+            'type': 'console_output',
+            'level': level,
+            'message': output,
+            'timestamp': time.time()
+        }
+
+        dead_clients = []
+        for client_id, client_queue in console_clients.items():
+            try:
+                client_queue.put_nowait(log_entry)
+            except queue.Full:
+                dead_clients.append(client_id)
+
+        for client_id in dead_clients:
+            del console_clients[client_id]
+
 class ConsoleLogHandler(logging.Handler):
     """Log handler that captures all FAC output for the console panel"""
 
     def __init__(self):
         super().__init__()
-        # Use the same formatter as the FAC logging system
         self.setFormatter(CustomFormatter())
 
     def emit(self, record):
         try:
-            # Format the message using the custom formatter to preserve tree structure and colors
             formatted_msg = self.format(record)
-
-            # Convert ANSI color codes to web-friendly format
             formatted_msg = self.convert_ansi_to_web(formatted_msg)
 
-            # Send to all console clients
             with console_lock:
                 if not console_clients:
                     return
 
                 log_entry = {
-                    'type': 'console_log',
+                    'type': 'console_output',
                     'level': record.levelname,
                     'message': formatted_msg,
                     'raw_message': record.getMessage(),
@@ -120,7 +159,6 @@ class ConsoleLogHandler(logging.Handler):
                     except queue.Full:
                         dead_clients.append(client_id)
 
-                # Clean up dead clients
                 for client_id in dead_clients:
                     del console_clients[client_id]
 
@@ -129,49 +167,33 @@ class ConsoleLogHandler(logging.Handler):
 
     def convert_ansi_to_web(self, text):
         """Convert ANSI color codes to HTML-friendly format"""
-        # ANSI color code mappings to CSS classes
         ansi_to_css = {
-            '\033[31m': '<span class="ansi-red">',      # Red
-            '\033[91m': '<span class="ansi-bright-red">',  # Bright Red
-            '\033[32m': '<span class="ansi-green">',    # Green
-            '\033[33m': '<span class="ansi-yellow">',   # Yellow
-            '\033[38;5;208m': '<span class="ansi-orange">', # Orange
-            '\033[36m': '<span class="ansi-cyan">',     # Cyan
-            '\033[35m': '<span class="ansi-magenta">',  # Magenta
-            '\033[0m': '</span>',                       # Reset
+            '\033[31m': '<span class="ansi-red">',
+            '\033[91m': '<span class="ansi-bright-red">',
+            '\033[32m': '<span class="ansi-green">',
+            '\033[33m': '<span class="ansi-yellow">',
+            '\033[38;5;208m': '<span class="ansi-orange">',
+            '\033[36m': '<span class="ansi-cyan">',
+            '\033[35m': '<span class="ansi-magenta">',
+            '\033[0m': '</span>',
         }
 
-        # Replace ANSI codes with HTML spans
         for ansi_code, css_span in ansi_to_css.items():
             text = text.replace(ansi_code, css_span)
 
         return text
 
 class BuildLogHandler(logging.Handler):
-    """
-    Custom logging handler that captures FAC build logs and queues them for SSE streaming.
-
-    This handler intercepts log messages from the fac.BuildSystem and makes them available
-    to web clients via Server-Sent Events. It maintains a thread-safe queue of log entries
-    that can be consumed by the SSE endpoint.
-
-    Log entries are structured as dictionaries with 'type', 'level', 'message', and 'timestamp' keys.
-    """
+    """Custom logging handler that captures FAC build logs and queues them for SSE streaming"""
 
     def __init__(self, build_id):
         super().__init__()
         self.build_id = build_id
         self.log_queue = queue.Queue()
-        # Use the same formatter as the FAC logging system
         self.setFormatter(CustomFormatter())
 
     def emit(self, record):
-        """
-        Called by the logging system for each log message.
-        Formats the log record and adds it to the queue for SSE streaming.
-        """
         try:
-            # Format using the custom formatter to preserve tree structure
             formatted_msg = self.format(record)
 
             log_entry = {
@@ -183,7 +205,6 @@ class BuildLogHandler(logging.Handler):
             }
             self.log_queue.put_nowait(log_entry)
         except Exception as e:
-            # Don't let logging errors break the build
             print(f"[FAC Build] Logging error: {e}")
 
 # Add global console handler to capture all FAC logs
@@ -199,7 +220,7 @@ def console_events():
         with console_lock:
             client_id = f"console_client_{console_next_client_id}_{int(time.time())}"
             console_next_client_id += 1
-            client_queue = queue.Queue(maxsize=1000)  # Larger queue for console logs
+            client_queue = queue.Queue(maxsize=1000)
             console_clients[client_id] = client_queue
 
         try:
@@ -239,19 +260,7 @@ def clear_console():
 
 @bp.route('/api/fac/build', methods=['POST'])
 def trigger_build():
-    """
-    Main endpoint for triggering FAC builds.
-
-    Accepts JSON payload with:
-    - target (required): FAC target path (e.g., "books/level1/book1/frames/frame1/art.png")
-    - overwrite (optional): Boolean, whether to force rebuild even if up-to-date
-    - notes (optional): String, additional context for the build (used as include_chat)
-
-    Returns:
-    - 200: Build started successfully, returns build_id for log streaming
-    - 409: Another build is already in progress
-    - 400: Missing or invalid request data
-    """
+    """Main endpoint for triggering FAC builds"""
     global active_builds
 
     data = request.get_json()
@@ -262,6 +271,15 @@ def trigger_build():
     overwrite = data.get('overwrite', False)
     notes = data.get('notes')
 
+    # Build the equivalent fac command for console output
+    fac_command = f"fac '{target}'"
+    if overwrite:
+        fac_command += " --overwrite"
+    if notes:
+        fac_command += f" --include_chat=\"{notes}\""
+
+    # Log the command to console
+    log_console_command(fac_command)
 
     with build_lock:
         # Check if a build is already in progress
@@ -285,19 +303,8 @@ def trigger_build():
             'log_handler': None
         }
 
-
     # Start build in background thread
     def run_build():
-        """
-        Background thread function that executes the actual FAC build.
-
-        This function:
-        1. Sets up the BuildLogHandler for log capture
-        2. Configures and initializes the fac.BuildSystem
-        3. Executes the build with appropriate error handling
-        4. Updates build status and sends completion/error notifications
-        5. Notifies git history system when commits are made
-        """
         build_info = None
         log_handler = None
 
@@ -307,54 +314,31 @@ def trigger_build():
                     return
 
                 active_builds[build_id]['status'] = 'running'
-
-                # Create and register log handler
                 log_handler = BuildLogHandler(build_id)
                 active_builds[build_id]['log_handler'] = log_handler
-
-                # Send build started notification
-                log_handler.log_queue.put({
-                    'type': 'build_started',
-                    'target': target,
-                    'timestamp': time.time(),
-                    'display_type': 'permanent',
-                })
-
                 build_info = active_builds[build_id]
 
-
-            # Configure build system with web-friendly settings
+            # Configure build system
             build_system = BuildSystem(
                 project_dir=os.getcwd(),
                 overwrite=overwrite,
                 include_chat=notes if notes else None,
-                allow_dirty=True,      # Allow builds even if git working directory is dirty
-                auto_commit=True,      # Auto-commit changes (enable for git history tracking)
-                print_dependencies=True,  # Show dependency information in logs
+                allow_dirty=True,
+                auto_commit=True,
+                print_dependencies=True,
             )
 
-            # Add our custom log handler to capture FAC logs
             fac_logger.addHandler(log_handler)
 
             try:
-
-                # Execute the actual build using FAC's BuildSystem
                 with build_system:
                     build_system.build_targets([target])
 
-
-                # Build completed successfully
                 with build_lock:
                     if build_id in active_builds:
                         active_builds[build_id]['status'] = 'completed'
-                        log_handler.log_queue.put({
-                            'type': 'build_completed',
-                            'target': target,
-                            'timestamp': time.time(),
-                            'display_type': 'flash',
-                        })
 
-                # Notify git history of new commits (if any were made)
+                # Notify git history of new commits
                 try:
                     import git
                     repo = git.Repo(os.getcwd())
@@ -367,52 +351,36 @@ def trigger_build():
                     print(f"Git notification error: {git_error}")
 
             except (FACError, DirtyRepo) as e:
-                # Expected FAC build errors
                 error_msg = str(e)
+                log_console_output(error_msg, 'error')
 
                 with build_lock:
                     if build_id in active_builds:
                         active_builds[build_id]['status'] = 'error'
                         active_builds[build_id]['error'] = error_msg
-                        log_handler.log_queue.put({
-                            'type': 'build_error',
-                            'target': target,
-                            'error': error_msg,
-                            'timestamp': time.time(),
-                            'display_type': 'permanent',
-                        })
 
             except Exception as e:
-                # Unexpected errors
                 error_msg = f"Unexpected error: {str(e)}"
+                log_console_output(error_msg, 'error')
 
                 with build_lock:
                     if build_id in active_builds:
                         active_builds[build_id]['status'] = 'error'
                         active_builds[build_id]['error'] = error_msg
-                        log_handler.log_queue.put({
-                            'type': 'build_error',
-                            'target': target,
-                            'error': error_msg,
-                            'timestamp': time.time(),
-                            'display_type': 'permanent',
-                        })
 
             finally:
-                # Always clean up the log handler
                 if log_handler:
                     fac_logger.removeHandler(log_handler)
 
         except Exception as e:
-            # Handle errors in build setup/teardown
             error_msg = f"Build setup error: {str(e)}"
+            log_console_output(error_msg, 'error')
 
             with build_lock:
                 if build_id in active_builds:
                     active_builds[build_id]['status'] = 'error'
                     active_builds[build_id]['error'] = error_msg
 
-    # Start build thread as daemon (won't prevent Flask shutdown)
     build_thread = threading.Thread(target=run_build, daemon=True)
     build_thread.start()
 
@@ -424,77 +392,51 @@ def trigger_build():
 
 @bp.route('/api/fac/build/logs/<build_id>')
 def build_logs(build_id):
-    """
-    Server-Sent Events endpoint for streaming real-time build logs.
-
-    Streams log messages from the BuildLogHandler associated with the given build_id.
-    Clients connect to this endpoint after triggering a build to receive:
-    - Real-time log messages from the FAC build process
-    - Build status updates (started, completed, error)
-    - Heartbeat messages to keep the connection alive
-
-    The stream automatically closes when the build completes or errors.
-    Old build records are automatically cleaned up after 1 hour.
-    """
-
+    """Server-Sent Events endpoint for streaming real-time build logs"""
     def generate_logs():
-        """
-        Generator function that yields Server-Sent Events formatted log messages.
-
-        Continuously reads from the BuildLogHandler's queue and formats messages
-        as SSE events. Handles timeouts, heartbeats, and cleanup.
-        """
         build_info = active_builds.get(build_id)
         if not build_info:
             yield f"data: {json.dumps({'type': 'error', 'message': 'Build not found'})}\n\n"
             return
-
 
         log_handler = build_info.get('log_handler')
         if not log_handler:
             yield f"data: {json.dumps({'type': 'error', 'message': 'Log handler not available'})}\n\n"
             return
 
-        # Send initial connection confirmation
         yield f"data: {json.dumps({'type': 'connected', 'build_id': build_id})}\n\n"
 
-        # Stream logs until build completes
         last_heartbeat = time.time()
         while True:
             try:
-                # Try to get log entry with timeout
                 try:
                     log_entry = log_handler.log_queue.get(timeout=5)
                     yield f"data: {json.dumps(log_entry)}\n\n"
 
-                    # Check if build is complete
                     if log_entry.get('type') in ['build_completed', 'build_error']:
                         break
 
                 except queue.Empty:
-                    # Send periodic heartbeat to keep connection alive
                     current_time = time.time()
                     if current_time - last_heartbeat > 30:
                         yield f"data: {json.dumps({'type': 'heartbeat', 'timestamp': current_time})}\n\n"
                         last_heartbeat = current_time
 
-                    # Check if build record still exists
                     if build_id not in active_builds:
                         break
 
             except GeneratorExit:
-                # Client disconnected
                 break
             except Exception as e:
                 yield f"data: {json.dumps({'type': 'error', 'message': str(e)})}\n\n"
                 break
 
-        # Cleanup old builds (keep records for 1 hour)
+        # Cleanup old builds
         with build_lock:
             current_time = time.time()
             builds_to_remove = [
                 bid for bid, info in active_builds.items()
-                if current_time - info['created_at'] > 3600  # 1 hour
+                if current_time - info['created_at'] > 3600
             ]
             for bid in builds_to_remove:
                 del active_builds[bid]
@@ -503,12 +445,7 @@ def build_logs(build_id):
 
 @bp.route('/api/fac/build/status/<build_id>')
 def build_status(build_id):
-    """
-    Get the current status of a specific build.
-
-    Returns build information including target, status, creation time, and any error messages.
-    Useful for clients that need to check build status without opening an SSE stream.
-    """
+    """Get the current status of a specific build"""
     build_info = active_builds.get(build_id)
     if not build_info:
         return jsonify({'error': 'Build not found'}), 404
@@ -523,12 +460,7 @@ def build_status(build_id):
 
 @bp.route('/api/fac/builds')
 def list_builds():
-    """
-    List all current build records.
-
-    Returns information about all builds currently tracked by the system.
-    Useful for debugging and monitoring build activity.
-    """
+    """List all current build records"""
     with build_lock:
         builds = []
         for build_id, info in active_builds.items():

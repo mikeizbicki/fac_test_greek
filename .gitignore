@@ -1,6 +1,10 @@
 # ignore vim swap files
 *.sw?
 
+# python bytecode files
+*.pyc
+__pycache__
+
 ################################################################################
 # Below is github's latex gitignore
 # <https://raw.githubusercontent.com/github/gitignore/main/TeX.gitignore>

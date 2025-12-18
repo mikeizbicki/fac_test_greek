@@ -5,6 +5,7 @@ Provides endpoints for fetching git commit history and managing repository state
 Integrates with the sidebar history tab to show real-time commit updates.
 """
 
+
 import json
 import os
 import queue
@@ -25,6 +26,22 @@ history_clients = {}
 history_lock = threading.Lock()
 history_next_client_id = 1
 
+def log_console_command(command, level='info'):
+    """Log a bash-style command to the console"""
+    try:
+        from routes.fac import log_console_command as _log_console_command
+        _log_console_command(command, level)
+    except ImportError:
+        pass
+
+def log_console_output(output, level='info'):
+    """Log command output to the console"""
+    try:
+        from routes.fac import log_console_output as _log_console_output
+        _log_console_output(output, level)
+    except ImportError:
+        pass
+
 def get_repo():
     """Get GitPython repo object for current directory"""
     if not git:
@@ -34,6 +51,16 @@ def get_repo():
     except git.exc.InvalidGitRepositoryError:
         return None
 
+def get_current_commit_hash():
+    """Get current commit hash, handling detached HEAD"""
+    repo = get_repo()
+    if not repo:
+        return None
+    try:
+        return repo.head.commit.hexsha
+    except:
+        return None
+
 def get_commit_history(limit=200, branch=None):
     """Get git commit history as list of dicts"""
     repo = get_repo()
@@ -41,26 +68,44 @@ def get_commit_history(limit=200, branch=None):
         return []
 
     commits = []
+    current_commit_hash = get_current_commit_hash()
+
     try:
-        # If branch specified, get history for that branch, otherwise use current
         if branch and branch in [b.name for b in repo.branches]:
             commit_iter = repo.iter_commits(branch, max_count=limit)
         else:
             commit_iter = repo.iter_commits(max_count=limit)
 
         for commit in commit_iter:
-            commits.append({
+            commit_data = {
                 'hash': commit.hexsha[:7],
                 'full_hash': commit.hexsha,
                 'message': commit.message.strip(),
                 'author': commit.author.name,
                 'date': commit.committed_date,
-                'date_str': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.committed_date))
-            })
+                'date_str': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(commit.committed_date)),
+                'is_current': commit.hexsha == current_commit_hash
+            }
+            commits.append(commit_data)
     except Exception as e:
         print(f"Error getting git history: {e}")
 
     return commits
+
+def get_current_branch_info():
+    """Get current branch name or detached HEAD info"""
+    repo = get_repo()
+    if not repo:
+        return None, None
+
+    try:
+        if repo.head.is_detached:
+            commit_hash = repo.head.commit.hexsha[:7]
+            return None, f"detached HEAD at {commit_hash}"
+        else:
+            return repo.active_branch.name, None
+    except:
+        return None, None
 
 def notify_history_clients(event_type, data=None):
     """Send notification to all history SSE clients"""
@@ -81,7 +126,6 @@ def notify_history_clients(event_type, data=None):
             except queue.Full:
                 dead_clients.append(client_id)
 
-        # Clean up dead clients
         for client_id in dead_clients:
             del history_clients[client_id]
 
@@ -90,9 +134,13 @@ def git_history():
     """Get git commit history"""
     branch = request.args.get('branch', None)
     commits = get_commit_history(limit=200, branch=branch)
+    current_branch, detached_info = get_current_branch_info()
+
     return jsonify({
         'success': True,
-        'commits': commits
+        'commits': commits,
+        'current_branch': current_branch,
+        'detached_info': detached_info
     })
 
 @bp.route('/api/git/branches')
@@ -104,7 +152,7 @@ def git_branches():
 
     try:
         branches = []
-        current_branch = repo.active_branch.name
+        current_branch, detached_info = get_current_branch_info()
 
         for branch in repo.branches:
             branches.append(branch.name)
@@ -112,7 +160,8 @@ def git_branches():
         return jsonify({
             'success': True,
             'branches': sorted(branches),
-            'current_branch': current_branch
+            'current_branch': current_branch,
+            'detached_info': detached_info
         })
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 400
@@ -130,10 +179,16 @@ def git_switch_branch():
     if not branch_name:
         return jsonify({'success': False, 'error': 'branch_name required'}), 400
 
-    try:
-        repo.git.checkout(branch_name)
+    log_console_command(f'git checkout {branch_name}')
 
-        # Notify clients of branch switch
+    try:
+        result = repo.git.checkout(branch_name)
+
+        if result:
+            log_console_output(result)
+        else:
+            log_console_output(f"Switched to branch '{branch_name}'")
+
         notify_history_clients('branch_switched', {
             'branch': branch_name,
             'message': f'Switched to branch {branch_name}'
@@ -144,9 +199,12 @@ def git_switch_branch():
             'message': f'Switched to branch {branch_name}'
         })
     except Exception as e:
+        error_msg = str(e)
+        log_console_output(error_msg, 'error')
+
         return jsonify({
             'success': False,
-            'error': f'Branch switch failed: {str(e)}'
+            'error': f'Branch switch failed: {error_msg}'
         }), 400
 
 @bp.route('/api/git/create-branch', methods=['POST'])
@@ -162,11 +220,16 @@ def git_create_branch():
     if not branch_name:
         return jsonify({'success': False, 'error': 'branch_name required'}), 400
 
-    try:
-        # Create and checkout new branch
-        repo.git.checkout('-b', branch_name)
+    log_console_command(f'git checkout -b {branch_name}')
 
-        # Notify clients of branch creation
+    try:
+        result = repo.git.checkout('-b', branch_name)
+
+        if result:
+            log_console_output(result)
+        else:
+            log_console_output(f"Switched to a new branch '{branch_name}'")
+
         notify_history_clients('branch_switched', {
             'branch': branch_name,
             'message': f'Created and switched to branch {branch_name}'
@@ -177,9 +240,12 @@ def git_create_branch():
             'message': f'Created and switched to branch {branch_name}'
         })
     except Exception as e:
+        error_msg = str(e)
+        log_console_output(error_msg, 'error')
+
         return jsonify({
             'success': False,
-            'error': f'Branch creation failed: {str(e)}'
+            'error': f'Branch creation failed: {error_msg}'
         }), 400
 
 @bp.route('/api/git/checkout', methods=['POST'])
@@ -195,10 +261,16 @@ def git_checkout():
     if not commit_hash:
         return jsonify({'success': False, 'error': 'commit_hash required'}), 400
 
-    try:
-        repo.git.checkout(commit_hash)
+    log_console_command(f'git checkout {commit_hash}')
 
-        # Notify clients of checkout
+    try:
+        result = repo.git.checkout(commit_hash)
+
+        if result:
+            log_console_output(result)
+        else:
+            log_console_output(f"HEAD is now at {commit_hash[:7]}")
+
         notify_history_clients('checkout', {
             'commit_hash': commit_hash,
             'message': f'Checked out commit {commit_hash[:7]}'
@@ -209,9 +281,12 @@ def git_checkout():
             'message': f'Checked out commit {commit_hash[:7]}'
         })
     except Exception as e:
+        error_msg = str(e)
+        log_console_output(error_msg, 'error')
+
         return jsonify({
             'success': False,
-            'error': f'Checkout failed: {str(e)}'
+            'error': f'Checkout failed: {error_msg}'
         }), 400
 
 @bp.route('/api/git/history/events')
@@ -227,7 +302,6 @@ def git_history_events():
             history_clients[client_id] = client_queue
 
         try:
-            # Send initial connection message
             yield f"data: {json.dumps({'type': 'connected', 'client_id': client_id})}\n\n"
 
             while True:
@@ -235,7 +309,6 @@ def git_history_events():
                     message = client_queue.get(timeout=30)
                     yield f"data: {json.dumps(message)}\n\n"
                 except queue.Empty:
-                    # Send heartbeat
                     yield f"data: {json.dumps({'type': 'heartbeat'})}\n\n"
         except GeneratorExit:
             pass
@@ -246,10 +319,10 @@ def git_history_events():
 
     return Response(generate(), mimetype='text/event-stream')
 
-# Hook into the FAC build system to notify when commits are made
 def on_commit_created(commit_hash, message):
-    """Called when a new commit is created (hook this into fac build system)"""
+    """Called when a new commit is created"""
     notify_history_clients('new_commit', {
         'commit_hash': commit_hash,
         'message': message
     })
+

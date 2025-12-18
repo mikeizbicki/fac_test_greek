@@ -57,3 +57,17 @@ body {
 .nav a:hover {
     text-decoration: underline;
 }
+
+.history-item.current-commit {
+    font-weight: bold;
+    background-color: #e8f4fd;
+}
+
+.history-item.current-commit .commit-time {
+    font-weight: bold;
+}
+
+.history-item.current-commit .commit-message {
+    font-weight: bold;
+}
+

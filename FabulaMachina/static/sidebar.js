@@ -214,6 +214,7 @@ class Sidebar {
         };
     }
 
+
     async loadBranches() {
         try {
             const response = await fetch('/api/git/branches');
@@ -227,15 +228,25 @@ class Sidebar {
         }
     }
 
-    renderBranches(branches, currentBranch) {
+    renderBranches(branches, currentBranch, detachedInfo) {
         this.currentBranch = currentBranch;
         this.branchSelect.innerHTML = '';
-
+        
+        if (detachedInfo) {
+            // Show detached HEAD state
+            const option = document.createElement('option');
+            option.value = '';
+            option.textContent = detachedInfo;
+            option.selected = true;
+            option.disabled = true;
+            this.branchSelect.appendChild(option);
+        }
+        
         branches.forEach(branch => {
             const option = document.createElement('option');
             option.value = branch;
             option.textContent = branch;
-            option.selected = branch === currentBranch;
+            option.selected = branch === currentBranch && !detachedInfo;
             this.branchSelect.appendChild(option);
         });
     }
@@ -357,6 +368,9 @@ class Sidebar {
         commits.forEach(commit => {
             const item = document.createElement('div');
             item.className = 'history-item';
+            if (commit.is_current) {
+                item.classList.add('current-commit');
+            }
             item.dataset.hash = commit.full_hash;
 
             const timeStr = this.formatTimeDisplay(commit.date);
