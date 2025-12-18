@@ -96,7 +96,32 @@ document.addEventListener('DOMContentLoaded', function() {
         const frameControls = frame.querySelector('.frame-controls');
         const textarea = frame.querySelector('.frame-textarea');
 
-        textarea.value = frame.dataset.rawContent;
+        // Get content from data attribute
+        let content = frame.dataset.rawContent;
+        if (!content) {
+            content = frame.getAttribute('data-raw-content') || '';
+        }
+
+        textarea.value = content;
+
+        // Ensure fountain tab is active and visible when entering edit mode
+        const tabButtons = frame.querySelectorAll('.tab-button');
+        const tabContents = frame.querySelectorAll('.tab-content');
+
+        // Set fountain tab as active
+        tabButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === 'fountain');
+        });
+
+        // Show fountain tab content, hide others
+        tabContents.forEach(content => {
+            if (content.id === 'fountain-tab') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        });
+
         frameContent.style.display = 'none';
         frameEdit.style.display = 'block';
         frameControls.style.display = 'none';

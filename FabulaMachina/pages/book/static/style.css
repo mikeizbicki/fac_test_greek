@@ -235,6 +235,12 @@ padding: 0px;
 resize: vertical;
 }
 
+.frame-textarea:focus,
+.frame-json-textarea:focus {
+    outline: none;
+    border: 1px solid #ccc; /* Keep the original border */
+}
+
 .run-button, .cancel-button {
 margin: 10px 5px 0 0;
 padding: 5px 10px;
@@ -295,41 +301,40 @@ resize: vertical;
 
 /* frame editing controls */
 .frame-controls {
-position: absolute;
-bottom: 10px;
-right: 10px;
-display: none;
-background: rgba(255, 255, 255, 0.9);
-padding: 5px;
-border-radius: 3px;
-border: 1px solid #ddd;
-width: auto;
-white-space: nowrap;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    width: auto;
+    white-space: nowrap;
 }
 
-.frame:hover ~ .frame-controls {
-display: block;
+.frame:hover .frame-controls {
+    display: block;
 }
 
-/* Hide controls when frame is in edit mode */
-.frame-edit:not([style*="display: none"]) ~ .frame-controls,
 .frame .frame-edit[style*="display: block"] ~ .frame-controls {
-display: none !important;
+    display: none !important;
 }
 
 .control-btn {
-background: none;
-border: none;
-font-size: 16px;
-cursor: pointer;
-margin: 0 2px;
-padding: 2px 4px;
-border-radius: 2px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 2px;
+    padding: 2px 4px;
+    border-radius: 2px;
 }
 
 .control-btn:hover {
-background: #f0f0f0;
+    background: #f0f0f0;
 }
+
 
 /* arrow */
 .reference-arrow {
