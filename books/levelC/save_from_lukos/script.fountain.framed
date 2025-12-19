@@ -134,6 +134,6 @@ DIDASKALOS (V.O.)
 χαίρουσι πάλιν.
 </frame>
 
-<frame frame_id="fade_out">
+<frame frame_id="fade_out" reference_frame="didaskalos_animals_play_again_vo">
 FADE OUT.
 </frame>
