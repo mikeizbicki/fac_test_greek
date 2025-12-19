@@ -317,3 +317,41 @@ def on_commit_created(commit_hash, message):
         'message': message
     })
 
+
+def commit_changes_to_git(files_to_commit, commit_message):
+    """Helper function to commit changes to git with console logging"""
+    try:
+        import git
+        repo = git.Repo(os.getcwd())
+
+        # Stage the modified files
+        existing_files = [f for f in files_to_commit if os.path.exists(f)]
+        if existing_files:
+            # Log the git add commands to console
+            from routes.console_logging import log_console_command, log_console_output
+            for file_path in existing_files:
+                log_console_command(f'git add {file_path}')
+
+            repo.index.add(existing_files)
+
+            # Commit the changes
+            commit = repo.index.commit(commit_message)
+
+            # Log the git commit command to console
+            log_console_command(f'git commit -m "{commit_message}"')
+            log_console_output(f"[{commit.hexsha[:7]}] {commit_message}")
+
+            # Notify git history clients of the new commit
+            try:
+                from routes.git_history import notify_history_clients
+                notify_history_clients('new_commit', {
+                    'commit_hash': commit.hexsha[:7],
+                    'message': commit_message
+                })
+            except ImportError:
+                pass
+
+            return True
+    except Exception as git_error:
+        print(f"Git commit failed: {git_error}")
+        return False

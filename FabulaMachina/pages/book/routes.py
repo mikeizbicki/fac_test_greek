@@ -22,7 +22,7 @@ FRAMED FOUNTAIN FORMAT:
 This script introduces a simple XML-like syntax that extends standard fountain
 format by wrapping content in <frame> tags:
 
-    <frame id="opening_scene">
+    <frame frame_id="opening_scene">
     FADE IN:
 
     EXT. PARK - DAY
@@ -30,12 +30,17 @@ format by wrapping content in <frame> tags:
     JOHN walks his dog.
     </frame>
 
-    <frame id="first_dialogue">
+    <frame frame_id="first_dialogue">
     JOHN
     Good morning, Rex.
 
     The dog barks.
     </frame>
+
+Each frame tag may optionally also have a reference_frame attribute.
+If this attribute is present, it must be equal to the frame_id of a previous frame.
+Semantically, this tells us that the animation of the current frame should continue where the animation for reference_frame stopped.
+This can be used to signal that two adjacent frames form part of the same shot (without a cut), or that two non-adjacent frames are interrupted by a short cut and then the shot returns to frame_id exactly as it was at the end of reference_frame.
 
 RENDERING APPROACH:
 Rather than reimplementing fountain-to-HTML conversion, this script leverages
@@ -57,12 +62,15 @@ import traceback
 from io import StringIO
 from screenplain.parsers import fountain
 from screenplain.export.html import convert
+from routes.git_history import commit_changes_to_git
 
 bp = Blueprint('books', __name__, template_folder='.')
+
 
 @bp.route('/books/<level>/<book>/update_reference_frame', methods=['POST'])
 def update_reference_frame(level, book):
     """Update the reference_frame for a specific frame."""
+    script_path = os.path.join('books', level, book, 'script.fountain.framed')
     content_path = os.path.join('books', level, book, 'content.json')
 
     data = request.get_json()
@@ -70,6 +78,42 @@ def update_reference_frame(level, book):
     new_reference_frame = data.get('reference_frame')
 
     try:
+        files_modified = []
+
+        # Update the fountain file first
+        if os.path.exists(script_path):
+            with open(script_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            # Find and update the specific frame's reference_frame attribute
+            def update_frame_reference(match):
+                full_match = match.group(0)
+                current_frame_id = match.group(1)
+                current_reference_frame = match.group(3) if match.group(3) else ""
+                frame_content = match.group(4)
+
+                if current_frame_id == frame_id:
+                    # Update this frame's reference_frame
+                    if new_reference_frame and new_reference_frame.strip():
+                        return f'<frame frame_id="{frame_id}" reference_frame="{new_reference_frame}">{frame_content}</frame>'
+                    else:
+                        return f'<frame frame_id="{frame_id}">{frame_content}</frame>'
+                else:
+                    # Return unchanged
+                    return full_match
+
+            # Apply the update using regex substitution
+            frame_pattern = r'<frame\s+frame_id="([^"]+)"(\s+reference_frame="([^"]+)")?>(.*?)</frame>'
+            updated_content = re.sub(frame_pattern, update_frame_reference, content, flags=re.DOTALL)
+
+            # Atomic write to fountain file
+            temp_path = script_path + '.tmp'
+            with open(temp_path, 'w', encoding='utf-8') as f:
+                f.write(updated_content)
+            shutil.move(temp_path, script_path)
+            files_modified.append(script_path)
+
+        # Update the JSON file if it exists
         if os.path.exists(content_path):
             with open(content_path, 'r', encoding='utf-8') as f:
                 json_data = json.load(f)
@@ -80,11 +124,17 @@ def update_reference_frame(level, book):
                     frame['reference_frame'] = new_reference_frame
                     break
 
-            # Atomic write
+            # Atomic write to JSON file
             temp_path = content_path + '.tmp'
             with open(temp_path, 'w', encoding='utf-8') as f:
                 json.dump(json_data, f, indent=2, ensure_ascii=False)
             shutil.move(temp_path, content_path)
+            files_modified.append(content_path)
+
+        # Commit changes to git using helper function
+        ref_display = new_reference_frame if new_reference_frame else "none"
+        commit_message = f"[human] set reference_frame={ref_display} for frame_id={frame_id}"
+        commit_changes_to_git(files_modified, commit_message)
 
         return jsonify({'success': True})
     except Exception as e:
@@ -103,6 +153,8 @@ def delete_frame(level, book):
     frame_id = data.get('frame_id')
 
     try:
+        files_modified = []
+
         # Delete from fountain file
         with open(script_path, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -119,6 +171,7 @@ def delete_frame(level, book):
         with open(temp_path, 'w', encoding='utf-8') as f:
             f.write(updated_content)
         shutil.move(temp_path, script_path)
+        files_modified.append(script_path)
 
         # Delete from JSON file if it exists
         content_path = os.path.join('books', level, book, 'content.json')
@@ -134,11 +187,16 @@ def delete_frame(level, book):
             with open(temp_path, 'w', encoding='utf-8') as f:
                 json.dump(json_data, f, indent=2, ensure_ascii=False)
             shutil.move(temp_path, content_path)
+            files_modified.append(content_path)
 
         # Delete frame assets directory if it exists
         frame_dir = os.path.join('books', level, book, 'frames', frame_id)
         if os.path.exists(frame_dir):
             shutil.rmtree(frame_dir)
+
+        # Commit changes to git
+        commit_message = f"[human] delete frame_id={frame_id}"
+        commit_changes_to_git(files_modified, commit_message)
 
         return jsonify({'success': True})
 
@@ -159,13 +217,15 @@ def add_frame(level, book):
     after_frame_id = data.get('after_frame')
 
     try:
+        files_modified = []
+        new_frame_content = '*insert new frame content here*'
+        
         # Add to fountain file
         with open(script_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
         # Find the position after the specified frame
         if after_frame_id:
-            new_frame_content = '*insert new frame content here*'
             pattern = f'(<frame\\s+frame_id="{re.escape(after_frame_id)}".*?</frame>)'
             replacement = f'\\1\n\n<frame frame_id="{new_frame_id}">\n{new_frame_content}\n</frame>'
             updated_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
@@ -178,6 +238,7 @@ def add_frame(level, book):
         with open(temp_path, 'w', encoding='utf-8') as f:
             f.write(updated_content)
         shutil.move(temp_path, script_path)
+        files_modified.append(script_path)
 
         # Add to JSON file if it exists
         content_path = os.path.join('books', level, book, 'content.json')
@@ -209,15 +270,23 @@ def add_frame(level, book):
             with open(temp_path, 'w', encoding='utf-8') as f:
                 json.dump(json_data, f, indent=2, ensure_ascii=False)
             shutil.move(temp_path, content_path)
+            files_modified.append(content_path)
 
         # Create frame assets directory
         frame_dir = os.path.join('books', level, book, 'frames', new_frame_id)
         os.makedirs(frame_dir, exist_ok=True)
 
+        # Commit changes to git
+        commit_message = f"[human] add frame_id={new_frame_id}"
+        if after_frame_id:
+            commit_message += f" after frame_id={after_frame_id}"
+        commit_changes_to_git(files_modified, commit_message)
+
         return jsonify({'success': True})
 
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+
 
 @bp.route('/books/<level>/<book>/frames/<frame_id>/<filename>')
 def serve_frame_file(level, book, frame_id, filename):
@@ -255,10 +324,12 @@ def save_frame(level, book):
 
     data = request.get_json()
     frame_id = data.get('frame_id')
-    fountain_content = data.get('fountain_content', data.get('content'))  # backward compatibility
+    fountain_content = data.get('fountain_content', data.get('content'))
     json_content = data.get('json_content')
 
     try:
+        files_modified = []
+
         # Save fountain file
         with open(script_path, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -273,6 +344,7 @@ def save_frame(level, book):
         with open(temp_path, 'w', encoding='utf-8') as f:
             f.write(updated_content)
         shutil.move(temp_path, script_path)
+        files_modified.append(script_path)
 
         # Save JSON file if provided
         if json_content:
@@ -292,6 +364,11 @@ def save_frame(level, book):
                 with open(temp_path, 'w', encoding='utf-8') as f:
                     json.dump(json_data, f, indent=2, ensure_ascii=False)
                 shutil.move(temp_path, content_path)
+                files_modified.append(content_path)
+
+        # Commit changes to git
+        commit_message = f"[human] edit frame_id={frame_id}"
+        commit_changes_to_git(files_modified, commit_message)
 
         # Return rendered HTML for this frame
         rendered_html = render_frame_html(fountain_content)
@@ -299,6 +376,7 @@ def save_frame(level, book):
 
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+
 
 
 def parse_framed_fountain(content):

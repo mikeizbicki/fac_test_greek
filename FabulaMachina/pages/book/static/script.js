@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const level = container.dataset.level;
     const book = container.dataset.book;
 
+    assignFrameColors();
+    setTimeout(drawReferenceArrows, 100); // Small delay to ensure layout is complete
+
     function adjustFrameHeights() {
         frames.forEach(frame => {
             const frameMargin = frame.querySelector('.frame-margin');
@@ -184,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     refValue.dataset.referenceFrame = newRefFrame;
                     refValue.textContent = newRefFrame || 'none';
                     frame.dataset.referenceFrame = newRefFrame;
-                    drawReferenceArrows();
+                    assignFrameColors();
                 } else {
                     alert('Error updating: ' + data.error);
                     refValue.textContent = refValue.dataset.referenceFrame || 'none';
@@ -310,9 +313,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             console.error('Error parsing JSON:', e);
                         }
                     }
-
-                    // Redraw arrows after saving
-                    drawReferenceArrows();
                 } else {
                     alert('Error saving: ' + data.error);
                 }
@@ -334,43 +334,180 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Arrow drawing javascript
-function drawReferenceArrows() {
-    const svg = document.getElementById('arrow-container');
-    svg.innerHTML = svg.innerHTML.replace(/<path[^>]*class="reference-arrow"[^>]*><\/path>/g, ''); // Clear existing arrows
-    
-    const frames = Array.from(document.querySelectorAll('[data-reference-frame]'));
-    
-    frames.forEach((frame, currentIndex) => {
-        const refId = frame.dataset.referenceFrame;
-        if (!refId) return;
-        
-        const targetFrame = document.getElementById(refId);
-        if (!targetFrame) return;
 
-        const sourceHeader = frame.querySelector('.frame_id');
-        const targetHeader = targetFrame.querySelector('.frame_id');
-        
-        if (!sourceHeader || !targetHeader) return;
-        
-        const fromRect = sourceHeader.getBoundingClientRect();
-        const toRect = targetHeader.getBoundingClientRect();
-        
-        const startX = fromRect.right + 20;
-        const startY = fromRect.top + fromRect.height / 2;
-        const endX = toRect.right + 20;
-        const endY = toRect.top + toRect.height / 2;
-        
-        const offset = 20;
-        
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('class', 'reference-arrow');
-        path.setAttribute('d', `M ${startX} ${startY} Q ${startX + offset} ${(startY + endY) / 2} ${endX} ${endY}`);
-        
-        svg.appendChild(path);
+function assignFrameColors() {
+    const frames = document.querySelectorAll('.frame');
+    const frameColors = new Map();
+
+    // Predefined color palette for root frames (no reference)
+    const colorPalette = [
+        '#fff740', // Yellow
+        '#ff7eb9', // Pink
+        '#7afcff', // Light blue
+        '#98fb98', // Light green
+        '#ffd1dc', // Light pink
+        '#ffa07a', // Light salmon
+        '#dda0dd', // Plum
+        '#f0e68c', // Khaki
+        '#87ceeb', // Sky blue
+        '#ffefd5'  // Papaya whip
+    ];
+
+    let colorIndex = 0;
+
+    frames.forEach(frame => {
+        const frameId = frame.dataset.frameId;
+        const referenceFrame = frame.dataset.referenceFrame;
+        const frameMargin = frame.querySelector('.frame-margin');
+
+        if (!frameMargin) return;
+
+        let color;
+
+        if (!referenceFrame || referenceFrame === 'none' || referenceFrame === '') {
+            // Root frame - assign a new color from palette
+            color = colorPalette[colorIndex % colorPalette.length];
+            colorIndex++;
+        } else {
+            // Referenced frame - inherit color from reference
+            color = frameColors.get(referenceFrame);
+
+            // Fallback if reference frame color not found
+            if (!color) {
+                console.warn(`Reference frame "${referenceFrame}" not found for frame "${frameId}", using default color`);
+                color = '#ffffff'; // Default yellow
+            }
+        }
+
+        // Store color for this frame
+        frameColors.set(frameId, color);
+
+        // Apply color directly with !important to override CSS
+        frameMargin.style.setProperty('background-color', color);
+
+        console.log(`Applied color ${color} to frame ${frameId} (ref: ${referenceFrame || 'none'})`);
     });
 }
 
-document.addEventListener('DOMContentLoaded', drawReferenceArrows);
-window.addEventListener('resize', drawReferenceArrows);
-window.addEventListener('scroll', drawReferenceArrows);
+function drawReferenceArrows() {
+    // Remove existing SVG
+    const existingSvg = document.getElementById('arrow-svg');
+    if (existingSvg) existingSvg.remove();
+
+    const bookContainer = document.getElementById('book-container');
+    if (!bookContainer) return;
+
+    // Create new SVG positioned relative to book container
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.id = 'arrow-svg';
+    bookContainer.appendChild(svg);
+
+    // Add crayon filter for rough texture
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    defs.innerHTML = `
+        <filter id="crayon-filter" x="-50%" y="-50%" width="200%" height="200%">
+            <feTurbulence baseFrequency="0.9" numOctaves="3" seed="2" />
+            <feDisplacementMap in="SourceGraphic" scale="2" />
+        </filter>
+    `;
+    svg.appendChild(defs);
+
+    const frames = document.querySelectorAll('.frame');
+    const framePositions = new Map();
+    const frameColors = new Map();
+    const containerRect = bookContainer.getBoundingClientRect();
+
+    // Get frame positions and colors relative to book container
+    frames.forEach(frame => {
+        const frameId = frame.dataset.frameId;
+        const frameRect = frame.getBoundingClientRect();
+        const frameMargin = frame.querySelector('.frame-margin');
+
+        // Get the background color from the sticky note
+        const backgroundColor = frameMargin ?
+            window.getComputedStyle(frameMargin).backgroundColor : '#fff740';
+
+        // Calculate position relative to book container
+        const relativeX = frameRect.left - containerRect.left;
+        const relativeY = frameRect.top - containerRect.top;
+
+        framePositions.set(frameId, {
+            x: relativeX,
+            y: relativeY,
+            width: frameRect.width,
+            height: frameRect.height
+        });
+
+        frameColors.set(frameId, backgroundColor);
+    });
+
+    // Draw arrows for non-adjacent references
+    frames.forEach((frame, index) => {
+        const frameId = frame.dataset.frameId;
+        const referenceFrame = frame.dataset.referenceFrame;
+
+        if (!referenceFrame || referenceFrame === 'none' || referenceFrame === '') return;
+
+        // Check if reference is not the immediately previous frame
+        const previousFrame = frames[index - 1];
+        const isPreviousFrame = previousFrame && previousFrame.dataset.frameId === referenceFrame;
+
+        if (!isPreviousFrame) {
+            const fromPos = framePositions.get(frameId);
+            const toPos = framePositions.get(referenceFrame);
+            const arrowColor = frameColors.get(frameId);
+
+            if (fromPos && toPos && arrowColor) {
+                // Create unique marker ID for this arrow color
+                const markerId = `arrow-head-${frameId}`;
+
+                // Add colored marker to defs
+                const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+                marker.setAttribute('id', markerId);
+                marker.setAttribute('markerWidth', '15');
+                marker.setAttribute('markerHeight', '12');
+                marker.setAttribute('refX', '12');
+                marker.setAttribute('refY', '4');
+                marker.setAttribute('orient', 'auto');
+                marker.setAttribute('markerUnits', 'strokeWidth');
+
+                const arrowHead = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                arrowHead.setAttribute('d', 'M0,0 L0,8 L12,4 z');
+                arrowHead.setAttribute('fill', arrowColor);
+                arrowHead.setAttribute('stroke', arrowColor);
+                arrowHead.setAttribute('stroke-width', '1');
+
+                /*marker.appendChild(arrowHead);*/
+                defs.appendChild(marker);
+
+                // Calculate arrow positions
+                const stickyRightEdge = fromPos.x + fromPos.width + 220;
+                const startX = stickyRightEdge;
+                const startY = fromPos.y + 50;
+
+                const refStickyRightEdge = toPos.x + toPos.width + 220;
+                const endX = refStickyRightEdge;
+                const endY = toPos.y + 50;
+
+                const midX = Math.max(startX, endX) + 200;
+                const midY = (startY + endY) / 2;
+
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', `M ${startX} ${startY} Q ${midX} ${midY} ${endX} ${endY}`);
+                /*path.setAttribute('class', 'reference-arrow');*/
+
+                // Explicitly set stroke properties to override CSS
+                path.setAttribute('stroke', arrowColor);
+                path.setAttribute('stroke-width', '5');
+                path.setAttribute('fill', 'none');
+                path.setAttribute('stroke-linecap', 'round');
+                path.setAttribute('stroke-linejoin', 'round');
+                path.setAttribute('opacity', '0.9');
+                path.setAttribute('filter', 'url(#crayon-filter)');
+                path.setAttribute('marker-end', `url(#${markerId})`);
+
+                svg.appendChild(path);
+            }
+        }
+    });
+}

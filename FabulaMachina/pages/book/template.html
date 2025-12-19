@@ -10,6 +10,7 @@
 {% block content %}
 
 <div id="book-container" data-level="{{ level }}" data-book="{{ book }}">
+<div class="script-holes"></div>
 <h1>{{ level }} - {{ book }}</h1>
 
 {% if error %}
@@ -66,15 +67,6 @@
 {% else %}
     <p>No content to display.</p>
 {% endif %}
-
-<svg id="arrow-container">
-    <defs>
-        <marker id="arrowhead" markerWidth="10" markerHeight="7"
-                refX="9" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
-        </marker>
-    </defs>
-</svg>
 
 </div>
 {% endblock %}

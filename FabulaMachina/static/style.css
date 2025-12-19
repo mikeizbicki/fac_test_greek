@@ -15,7 +15,7 @@ body {
     font-family: 'Courier New', monospace;
     /* Remove the max-width and centering constraints */
     margin: 0;
-    padding: 20px;
+    padding: 0px;
     line-height: 1.6;
     width: 100%;
 }

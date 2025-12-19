@@ -98,7 +98,7 @@ clear: both;
 /* Slug */
 
 div.frame_id {
-width: 300pt;
+/*width: 300pt;*/
 }
 div {
 /*width: 460pt;*/
@@ -336,17 +336,6 @@ resize: vertical;
 }
 
 
-/* arrow */
-.reference-arrow {
-position: absolute;
-pointer-events: none;
-z-index: 10;
-stroke: #666;
-stroke-width: 2;
-fill: none;
-marker-end: url(#arrowhead);
-}
-
 .reference-info {
 position: absolute;
 top: 5px;
@@ -357,17 +346,6 @@ background: rgba(255, 255, 255, 0.9);
 padding: 2px 5px;
 border-radius: 3px;
 }
-
-#arrow-container {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-pointer-events: none;
-z-index: 5;
-}
-
 
 .reference-frame-container {
     position: relative;
@@ -399,5 +377,401 @@ z-index: 5;
     border: 1px solid #ccc;
     background: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Main content background - darker than paper */
+.main-content {
+    background-color: #e8e6e3; /* Slightly darker, warm background */
+    min-height: 100vh;
+}
+
+/* Book container - paper effect */
+#book-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fefefe; /* Pure white paper */
+    padding: 60px 80px; /* Generous margins like a real script */
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+
+    /* Subtle paper texture */
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(0,0,0,.05) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+/* Optional: Add a subtle fold/crease effect */
+#book-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.05) 10%,
+        rgba(0, 0, 0, 0.05) 90%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+/* Enhance the script typography to match real scripts */
+#book-container h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+/* Add some depth with a second shadow layer */
+#book-container::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: -8px;
+    bottom: -8px;
+    background-color: rgba(0, 0, 0, 0.03);
+    z-index: -1;
+    border-radius: 2px;
+}
+
+/* Optional: Add hole punch marks like a real script */
+.script-holes {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: 100%;
+    width: 8px;
+}
+
+.script-holes::before,
+.script-holes::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #e8e6e3;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.script-holes::before {
+    top: 100px;
+}
+
+.script-holes::after {
+    bottom: 100px;
+}
+/* Make the main content look like a page */
+.main-content {
+    background-color: #e8e6e3; /* Slightly darker, warm background */
+    min-height: 100vh;
+}
+
+#book-container {
+    max-width: 800px;
+    margin: 40px 0 40px 40px; /* Left margin creates space from sidebar */
+    background-color: #fefefe; /* Pure white paper */
+    padding: 60px 80px; /* Generous margins like a real script */
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+
+    /* Subtle paper texture */
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(0,0,0,.05) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+.frame-margin {
+    font-weight: bold;
+    color: #666;
+    font-size: 0.9em;
+    position: absolute;
+    right: -420px; /* Adjusted to appear just off the page edge */
+    top: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#book-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.05) 10%,
+        rgba(0, 0, 0, 0.05) 90%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+#book-container h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+#book-container::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: -8px;
+    bottom: -8px;
+    background-color: rgba(0, 0, 0, 0.03);
+    z-index: -1;
+    border-radius: 2px;
+}
+
+/* Optional: Add hole punch marks like a real script */
+.script-holes {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: 100%;
+    width: 8px;
+}
+
+.script-holes::before,
+.script-holes::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #e8e6e3;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.script-holes::before {
+    top: 100px;
+}
+
+.script-holes::after {
+    bottom: 100px;
+}
+
+/* Ensure main content has enough width for the frame margins */
+.main-content {
+    background-color: #e8e6e3;
+    min-height: 100vh;
+    min-width: calc(800px + 80px + 420px); /* page width + margins + frame-margin space */
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+}
+
+/* Frame margin styling - sticky note effect */
+.frame-margin {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.8em;
+    position: absolute;
+    right: -220px; /* Closer to attach to the page edge */
+    top: 0;
+    width: 200px;
+    padding: 12px 15px;
+
+    /* Sticky note appearance */
+    /* background-color: #fff740; Classic yellow sticky note */
+
+    /* Shadow for 3D effect */
+    box-shadow:
+        2px 4px 8px rgba(0, 0, 0, 0.15),
+        inset -1px -1px 0px rgba(0, 0, 0, 0.1);
+
+    /* Slightly rotated for realistic placement */
+    transform: rotate(-1deg);
+    transform-origin: top left;
+
+    /* Border and texture */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+
+    /* Prevent text selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    /* Transition for hover effects */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.frame:nth-child(1) .frame-margin { transform: rotate(-2.5deg); }
+.frame:nth-child(2) .frame-margin { transform: rotate(1.8deg); }
+.frame:nth-child(3) .frame-margin { transform: rotate(-0.7deg); }
+.frame:nth-child(4) .frame-margin { transform: rotate(2.3deg); }
+.frame:nth-child(5) .frame-margin { transform: rotate(-1.4deg); }
+.frame:nth-child(6) .frame-margin { transform: rotate(0.9deg); }
+.frame:nth-child(7) .frame-margin { transform: rotate(-2.1deg); }
+.frame:nth-child(8) .frame-margin { transform: rotate(1.6deg); }
+.frame:nth-child(9) .frame-margin { transform: rotate(-0.3deg); }
+.frame:nth-child(10) .frame-margin { transform: rotate(2.7deg); }
+.frame:nth-child(11) .frame-margin { transform: rotate(-1.9deg); }
+.frame:nth-child(12) .frame-margin { transform: rotate(0.5deg); }
+
+/* Hover effect - slight lift with preserved rotation */
+.frame-margin:hover {
+    transform: rotate(var(--base-rotation, -1deg)) translateY(-2px);
+    box-shadow:
+        3px 6px 12px rgba(0, 0, 0, 0.2),
+        inset -1px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Vary the rotation and colors for different sticky notes */
+
+/* Individual elements within sticky notes */
+.frame-margin .frame_id {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c2c2c;
+}
+
+.frame-margin .reference-frame-container {
+    margin-bottom: 8px;
+    font-size: 0.8em;
+}
+
+.frame-margin .reference-frame-text {
+    color: #555;
+}
+
+.frame-margin .reference-frame-value {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Style the image container within sticky note */
+.frame-margin .img-container {
+    margin: 8px 0;
+    text-align: center;
+}
+
+.frame-margin .frame-image {
+    width: 160px;
+    height: 90px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Audio controls within sticky note */
+.frame-margin .audio-controls {
+    margin-top: 8px;
+}
+
+.frame-margin .audio-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #333;
+    font-size: 0.7em;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+/* Arrow drawing - with crayonish effects */
+#arrow-container {
+    position: absolute; /* Relative to main-content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1500;
+    overflow: visible;
+}
+
+#arrow-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: visible;
+}
+
+.reference-arrow {
+    stroke: #d4427a;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: url(#crayon-filter);
+    opacity: 0.8;
+}
+
+.arrow-marker {
+    fill: #d4427a;
+    stroke: #d4427a;
+    stroke-width: 1;
+}
+
+/* Update main content width to accommodate the repositioned sticky notes */
+.main-content {
+    background-color: #e8e6e3;
+    min-height: 100vh;
+    min-width: calc(800px + 80px + 250px); /* Adjusted for closer sticky notes */
+    overflow-x: auto;
+    position: relative;
+}
+
+/* SVG container for arrows */
+#arrow-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: visible;
+}
+
+/* Crayon-style arrow styling */
+.reference-arrow {
+    stroke: #d4427a;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: url(#crayon-filter);
+    opacity: 0.8;
+}
+
+.arrow-marker {
+    fill: #d4427a;
+    stroke: #d4427a;
+    stroke-width: 1;
 }
 
