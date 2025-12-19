@@ -13,7 +13,7 @@ PANDA
 ἐγώ νῦν βάλλω τὴν σφαῖραν, ὦ Γλαῦξ.
 </frame>
 
-<frame frame_id="glaux_catches_ball" reference_frame="panda_throws_ball">
+<frame frame_id="glaux_catches_ball" reference_frame="wide_establishing_tree">
 CAMERA: Close on the ball as it arcs gently; then pan to GLAUX catching.
 
 GLAUX
