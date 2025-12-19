@@ -124,6 +124,6 @@
 }
 
 /* Show controls when hovering over the parent container */
-.fac-build:hover + .fac-build-controls {
+.fac-build-wrapper:hover .fac-build-controls {
     display: flex;
 }

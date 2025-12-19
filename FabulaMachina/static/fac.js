@@ -161,14 +161,24 @@ class FacBuildSystem {
         controls.appendChild(rebuildBtn);
         controls.appendChild(notesBtn);
 
+        // Create a wrapper that contains both the element and controls
+        const wrapper = document.createElement('div');
+        wrapper.className = 'fac-build-wrapper';
+        wrapper.style.cssText = 'position: relative; display: inline-block;';
+
+        // Move the fac-build element into the wrapper
+        element.parentNode.insertBefore(wrapper, element);
+        wrapper.appendChild(element);
+        wrapper.appendChild(controls);
+        /*
         // Add to parent container
         const container = element.parentElement || element;
         const containerStyle = window.getComputedStyle(container);
         if (containerStyle.position === 'static') {
             container.style.position = 'relative';
         }
-
         container.appendChild(controls);
+        */
         console.log(`FAC Build: Controls added for target: ${target}`);
     }
 

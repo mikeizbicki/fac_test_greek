@@ -1,0 +1,22 @@
+{
+  "text": "ὁ Λύκος νῦν προσέρχεται πρὸς τὸ δένδρον.",
+  "objects": [
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark."
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "",
+  "positioning": [
+    "Lukos steps in from frame right, three-quarter left view, cautious and sly, eyes toward the tree area offscreen.",
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam rests low in the foreground edge, partially cropped.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark stands midground left."
+  ],
+  "characters_that_enter": [
+    "Lukos"
+  ],
+  "characters_that_exit": [
+    "Glaux"
+  ]
+}
