@@ -35,6 +35,14 @@
       "camera_movement": "Hold static in a calm, storybook wide."
     },
     {
+      "frame_id": "frame_1766122573422",
+      "title": "New Scene",
+      "description": "New scene description",
+      "characters": [],
+      "location": "New Location",
+      "time_of_day": "day"
+    },
+    {
       "action": "Panda announces she will throw the ball and tosses it toward Glaux.",
       "artist_notes": "",
       "camera_movement": "Very slight handheld energy as Panda starts the throw.",
