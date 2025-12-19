@@ -249,36 +249,58 @@ class AutoUpdater {
         const timeoutId = setTimeout(() => {
             this.pendingUpdates.delete(path);
 
-            elements.forEach(img => {
-                this.removeOverlay(img);
-                // Add timestamp to force reload, but preserve the normalized path tracking
-                const currentSrc = img.getAttribute('src');
-                const normalizedPath = this.normalizePath(currentSrc);
+            elements.forEach(element => {
+                this.removeOverlay(element);
+                
+                // Handle both images and videos
+                if (element.tagName === 'VIDEO') {
+                    // For videos, we need to reload the source and call load()
+                    const currentSrc = element.querySelector('source')?.getAttribute('src') || element.src;
+                    const normalizedPath = this.normalizePath(currentSrc);
 
-                if (normalizedPath === path) {
-                    const url = new URL(currentSrc, window.location.href);
-                    url.searchParams.set('t', Date.now());
+                    if (normalizedPath === path) {
+                        const url = new URL(currentSrc, window.location.href);
+                        url.searchParams.set('t', Date.now());
+                        
+                        this.ignoreNextSrcChange = true;
+                        
+                        // Update both the source element and video src
+                        const source = element.querySelector('source');
+                        if (source) {
+                            source.src = url.toString();
+                        }
+                        element.src = url.toString();
+                        element.load(); // This is crucial for videos
+                        
+                        debugLog(`AutoUpdater: Updated video src to ${element.src}`);
+                        
+                        setTimeout(() => {
+                            this.ignoreNextSrcChange = false;
+                        }, 100);
+                    }
+                } else {
+                    // Original image handling
+                    const currentSrc = element.getAttribute('src');
+                    const normalizedPath = this.normalizePath(currentSrc);
 
-                    // Temporarily disable the mutation observer for this change
-                    this.ignoreNextSrcChange = true;
-                    img.src = url.toString();
+                    if (normalizedPath === path) {
+                        const url = new URL(currentSrc, window.location.href);
+                        url.searchParams.set('t', Date.now());
 
-                    debugLog(`AutoUpdater: Updated image src to ${img.src}`);
+                        this.ignoreNextSrcChange = true;
+                        element.src = url.toString();
 
-                    // Re-enable observer after a short delay
-                    setTimeout(() => {
-                        this.ignoreNextSrcChange = false;
-                    }, 100);
+                        debugLog(`AutoUpdater: Updated image src to ${element.src}`);
+
+                        setTimeout(() => {
+                            this.ignoreNextSrcChange = false;
+                        }, 100);
+                    }
                 }
             });
         }, 100); // 100ms debounce
 
         this.pendingUpdates.set(path, timeoutId);
-
-        // Special reload code for the video tag
-        if (img.tagName === 'VIDEO') {
-            img.load();
-        }
     }
 
     handleFileDeleted(elements) {
@@ -393,29 +415,29 @@ class AutoUpdater {
 
     startObserving() {
         debugLog('AutoUpdater: Starting to observe DOM...');
-        // Initial scan for existing images
-        const existingImages = document.querySelectorAll('img.auto-updater');
-        debugLog(`AutoUpdater: Found ${existingImages.length} existing auto-updater images`);
-        existingImages.forEach(img => {
-            this.addImage(img);
+        // Initial scan for existing images AND videos
+        const existingElements = document.querySelectorAll('.auto-updater');
+        debugLog(`AutoUpdater: Found ${existingElements.length} existing auto-updater elements`);
+        existingElements.forEach(element => {
+            this.addImage(element); // This method works for videos too
         });
 
-        // Watch for new/removed images
+        // Watch for new/removed elements
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 // Handle added nodes
                 mutation.addedNodes.forEach((node) => {
                     if (node.nodeType === Node.ELEMENT_NODE) {
-                        if (node.matches && node.matches('img.auto-updater')) {
-                            debugLog('AutoUpdater: New auto-updater image added');
+                        if (node.matches && node.matches('img.auto-updater, video.auto-updater')) {
+                            debugLog('AutoUpdater: New auto-updater element added');
                             this.addImage(node);
                         }
                         // Check children
                         if (node.querySelectorAll) {
-                            const newImages = node.querySelectorAll('img.auto-updater');
-                            debugLog(`AutoUpdater: Found ${newImages.length} new auto-updater images in added subtree`);
-                            newImages.forEach(img => {
-                                this.addImage(img);
+                            const newElements = node.querySelectorAll('img.auto-updater, video.auto-updater');
+                            debugLog(`AutoUpdater: Found ${newElements.length} new auto-updater elements in added subtree`);
+                            newElements.forEach(element => {
+                                this.addImage(element);
                             });
                         }
                     }
@@ -424,16 +446,16 @@ class AutoUpdater {
                 // Handle removed nodes
                 mutation.removedNodes.forEach((node) => {
                     if (node.nodeType === Node.ELEMENT_NODE) {
-                        if (node.matches && node.matches('img.auto-updater')) {
-                            debugLog('AutoUpdater: Auto-updater image removed');
+                        if (node.matches && node.matches('img.auto-updater, video.auto-updater')) {
+                            debugLog('AutoUpdater: Auto-updater element removed');
                             this.removeImage(node);
                         }
                         // Check children
                         if (node.querySelectorAll) {
-                            const removedImages = node.querySelectorAll('img.auto-updater');
-                            debugLog(`AutoUpdater: Found ${removedImages.length} auto-updater images in removed subtree`);
-                            removedImages.forEach(img => {
-                                this.removeImage(img);
+                            const removedElements = node.querySelectorAll('img.auto-updater, video.auto-updater');
+                            debugLog(`AutoUpdater: Found ${removedElements.length} auto-updater elements in removed subtree`);
+                            removedElements.forEach(element => {
+                                this.removeImage(element);
                             });
                         }
                     }
@@ -442,10 +464,10 @@ class AutoUpdater {
                 // Handle attribute changes (src changes) - but ignore our own changes
                 if (mutation.type === 'attributes' &&
                     mutation.attributeName === 'src' &&
-                    mutation.target.classList.contains('auto-updater') &&
+                    (mutation.target.classList.contains('auto-updater')) &&
                     !this.ignoreNextSrcChange) {
 
-                    debugLog('AutoUpdater: Auto-updater image src changed');
+                    debugLog('AutoUpdater: Auto-updater element src changed');
 
                     const oldSrc = mutation.oldValue;
                     const newSrc = mutation.target.getAttribute('src');

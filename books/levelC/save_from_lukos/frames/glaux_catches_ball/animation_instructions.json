@@ -1,0 +1,20 @@
+{
+  "text": "ἐγώ λαμβάνω τὴν σφαῖραν.",
+  "objects": [
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark."
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "Begin close on the ball in flight, then include Glaux catching in the final framing.",
+  "positioning": [
+    "Glaux fills frame in a close view, front three-quarter, wings/arms forward, eyes tracking the incoming ball.",
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam arcs into Glaux’s hands at chest level.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark is soft-focused in the background."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Panda"
+  ]
+}

@@ -437,7 +437,6 @@
     #- books/$LEVEL/$BOOK/content.json
   - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME_ID/voice_instructions.txt
   - characters/$SPEAKER/voice.json
-  build_options:
   options:
     voice:
       $(jq -r ".voice_actor" characters/$SPEAKER/voice.json)
