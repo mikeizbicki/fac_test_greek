@@ -35,15 +35,21 @@
       "camera_movement": "Hold static in a calm, storybook wide."
     },
     {
-      "text": "ἐγώ νῦν βάλλω τὴν σφαῖραν, ὦ Γλαῦξ.",
-      "speaker": "Panda",
-      "frame_id": "panda_throws_ball",
+      "action": "Panda announces she will throw the ball and tosses it toward Glaux.",
+      "artist_notes": "",
+      "camera_movement": "Very slight handheld energy as Panda starts the throw.",
+      "camera_static": "Medium two-shot on Panda and Glaux facing each other with the ball between them.",
       "characters": [
         "Panda",
         "Glaux"
       ],
+      "frame_id": "panda_throws_ball",
       "locations": [
         "familyhouse_exterior_tree"
+      ],
+      "motivations": [
+        "Panda is excited to throw the ball to her friend Glaux during their game.",
+        "Glaux is attentive and ready to catch because Panda announced the throw."
       ],
       "objects": [
         "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
@@ -55,15 +61,9 @@
         "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam is between their hands at chest height.",
         "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark fills background center-left."
       ],
-      "motivations": [
-        "Panda is excited to throw the ball to her friend Glaux during their game.",
-        "Glaux is attentive and ready to catch because Panda announced the throw."
-      ],
-      "action": "Panda announces she will throw the ball and tosses it toward Glaux.",
-      "artist_notes": "",
       "reference_frame": "wide_establishing_tree",
-      "camera_static": "Medium two-shot on Panda and Glaux facing each other with the ball between them.",
-      "camera_movement": "Very slight handheld energy as Panda starts the throw."
+      "speaker": "Panda",
+      "text": "ἐγώ νῦν βάλλω τὴν σφαῖραν, ὦ Γλαῦξ."
     },
     {
       "text": "ἐγώ λαμβάνω τὴν σφαῖραν.",
