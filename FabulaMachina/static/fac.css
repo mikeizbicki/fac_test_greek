@@ -105,11 +105,22 @@
 
 .fac-build-controls {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    top: 5px;
+    left: 5px;
     display: none; /* Hidden by default */
     gap: 3px;
-    z-index: 1000;
+    z-index: 2000;
+    pointer-events: autio;
+}
+
+.fac-build-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px 6px;
+    cursor: pointer;
+    font-size: 14px;
+    pointer-events: auto;
 }
 
 /* Show controls when hovering over the parent container */

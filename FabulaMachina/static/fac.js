@@ -106,29 +106,12 @@ class FacBuildSystem {
         // Create container for build buttons
         const controls = document.createElement('div');
         controls.className = 'fac-build-controls';
-        controls.style.cssText = `
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            gap: 3px;
-            z-index: 1000;
-        `;
 
         // Build button (🔨) - builds only if file doesn't exist or is out of date
         const buildBtn = document.createElement('button');
         buildBtn.innerHTML = '🔨';
         buildBtn.title = 'Build';
         buildBtn.className = 'fac-build-btn';
-        buildBtn.style.cssText = `
-            background: rgba(255, 255, 255, 0.9);
-            /*
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            */
-            padding: 4px 6px;
-            cursor: pointer;
-            font-size: 14px;
-        `;
         buildBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             console.log(`FAC Build: Build clicked for ${target}`);
