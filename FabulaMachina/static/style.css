@@ -71,3 +71,49 @@ body {
     font-weight: bold;
 }
 
+/* Breadcrumb navigation styling */
+.breadcrumb-nav {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+}
+
+.breadcrumb-nav a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb-nav a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    color: #6c757d;
+    margin: 0 8px;
+}
+
+.breadcrumb-current {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Update the existing .nav class to be consistent */
+.nav {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+}
+
+.nav a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+

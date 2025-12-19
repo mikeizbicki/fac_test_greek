@@ -1,0 +1,104 @@
+/* Index page styling with collapsible sections */
+
+.collapsible-section {
+    margin: 30px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    padding: 15px 20px;
+    margin: 0;
+    cursor: pointer;
+    background: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.section-header:hover {
+    background: #e9ecef;
+}
+
+.triangle {
+    display: inline-block;
+    transition: transform 0.2s;
+    margin-right: 8px;
+}
+
+.triangle.expanded {
+    transform: rotate(90deg);
+}
+
+.section-content {
+    display: none;
+    padding: 20px;
+}
+
+.section-content.expanded {
+    display: block;
+}
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-list li {
+    margin: 10px 0;
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+    transition: background-color 0.2s;
+}
+
+.item-list li:hover {
+    background-color: #e9ecef;
+}
+
+.item-list a {
+    text-decoration: none;
+    color: #333;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    display: block;
+}
+
+.item-list a:hover {
+    color: #007bff;
+}
+
+.empty-message {
+    color: #6c757d;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Main title */
+h1 {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Ensure proper layout with sidebar */
+.main-content {
+    background-color: #e8e6e3;
+    min-height: 100vh;
+    padding: 40px;
+}
+

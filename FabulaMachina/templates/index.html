@@ -1,22 +1,75 @@
 {% extends "base.html" %}
 
-{% block title %}Framed Fountain Viewer - Books{% endblock %}
+{% block title %}FabulaMachina{% endblock %}
 
-{% block content %}
-<h1>Available Books</h1>
-
-{% if books %}
-    <ul class="book-list">
-    {% for book in books %}
-        <li>
-            <a href="/books/{{ book.level }}/{{ book.book }}">
-                {{ book.title }}
-            </a>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No books found. Make sure you have books in the format: books/$LEVEL/$BOOK/script.fountain.framed</p>
-{% endif %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/index.css">
+<script src="/static/index.js"></script>
 {% endblock %}
 
+{% block content %}
+<h1>FabulaMachina</h1>
+
+<div class="collapsible-section">
+    <h2 class="section-header" data-target="books-section">
+        <span class="triangle">▶</span> Books ({{ books|length }})
+    </h2>
+    <div id="books-section" class="section-content">
+        {% if books %}
+            <ul class="item-list">
+            {% for book in books %}
+                <li>
+                    <a href="/books/{{ book.level }}/{{ book.book }}">
+                        {{ book.title }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-message">No books found.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="collapsible-section">
+    <h2 class="section-header" data-target="characters-section">
+        <span class="triangle">▶</span> Characters ({{ characters|length }})
+    </h2>
+    <div id="characters-section" class="section-content">
+        {% if characters %}
+            <ul class="item-list">
+            {% for character in characters %}
+                <li>
+                    <a href="/characters/{{ character.name }}">
+                        {{ character.title }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-message">No characters found.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="collapsible-section">
+    <h2 class="section-header" data-target="locations-section">
+        <span class="triangle">▶</span> Locations ({{ locations|length }})
+    </h2>
+    <div id="locations-section" class="section-content">
+        {% if locations %}
+            <ul class="item-list">
+            {% for location in locations %}
+                <li>
+                    <a href="/locations/{{ location.name }}">
+                        {{ location.title }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-message">No locations found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
