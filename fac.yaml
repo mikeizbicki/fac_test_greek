@@ -770,6 +770,11 @@
   cmd: |
     cd books/$LEVEL/$BOOK/frames/$FRAME_ID
 
+    # if page.wav doesn't exist, create an empty file 1 second long
+    if [ ! -f page.wav ]; then
+      ffmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -t 1 empty.wav
+    fi
+
     # Get durations
     VIDEO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 video.mp4)
     AUDIO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 page.wav)
@@ -861,7 +866,7 @@
     rm audio_*_processed.wav || true # we shouldn't fail the script if the files don't exist
   dependencies:
     - books/$LEVEL/$BOOK/frames/$FRAME_ID/video.mp4
-    - books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
+      #- books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
       #- books/$LEVEL/$BOOK/frames/$FRAME_ID/audio_$LANG.wav
 
 "books/$LEVEL/$BOOK/video.mp4":
