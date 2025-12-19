@@ -371,14 +371,28 @@ class AutoUpdater {
         overlays.forEach(overlay => overlay.remove());
     }
 
-    addImage(img) {
-        const src = img.getAttribute('src');
-        debugLog(`AutoUpdater: Adding image with src: ${src}`);
-        if (!src) return;
+    addImage(element) {
+        let src;
+        if (element.tagName === 'VIDEO') {
+            // For videos, get src from source element or video element itself
+            const source = element.querySelector('source');
+            src = source ? source.getAttribute('src') : element.getAttribute('src');
+        } else {
+            src = element.getAttribute('src');
+        }
+        
+        debugLog(`AutoUpdater: Adding ${element.tagName} element with src: ${src}`);
+        if (!src) {
+            debugLog(`AutoUpdater: No src found for ${element.tagName} element`);
+            return;
+        }
 
         // Use normalized path for tracking
         const path = this.normalizePath(src);
-        if (!path) return;
+        if (!path) {
+            debugLog(`AutoUpdater: Could not normalize path: ${src}`);
+            return;
+        }
 
         debugLog(`AutoUpdater: Resolved normalized path: ${path}`);
 
@@ -387,14 +401,21 @@ class AutoUpdater {
             debugLog(`AutoUpdater: Created new element set for path: ${path}`);
         }
 
-        this.imageElements.get(path).add(img);
-        debugLog(`AutoUpdater: Added element, total for path ${path}: ${this.imageElements.get(path).size}`);
+        this.imageElements.get(path).add(element);
+        debugLog(`AutoUpdater: Added ${element.tagName} element, total for path ${path}: ${this.imageElements.get(path).size}`);
         this.subscribePath(path);
     }
 
-    removeImage(img) {
-        const src = img.getAttribute('src');
-        debugLog(`AutoUpdater: Removing image with src: ${src}`);
+    removeImage(element) {
+        let src;
+        if (element.tagName === 'VIDEO') {
+            const source = element.querySelector('source');
+            src = source ? source.getAttribute('src') : element.getAttribute('src');
+        } else {
+            src = element.getAttribute('src');
+        }
+
+        debugLog(`AutoUpdater: Removing ${element.tagName} element with src: ${src}`);
         if (!src) return;
 
         const path = this.normalizePath(src);
@@ -403,8 +424,8 @@ class AutoUpdater {
         const elements = this.imageElements.get(path);
 
         if (elements) {
-            elements.delete(img);
-            debugLog(`AutoUpdater: Removed element, remaining for path ${path}: ${elements.size}`);
+            elements.delete(element);
+            debugLog(`AutoUpdater: Removed ${element.tagName} element, remaining for path ${path}: ${elements.size}`);
             if (elements.size === 0) {
                 this.imageElements.delete(path);
                 this.unsubscribePath(path);
@@ -538,6 +559,7 @@ document.head.appendChild(style);
 let autoUpdater;
 document.addEventListener('DOMContentLoaded', () => {
     autoUpdater = new AutoUpdater();
+    window.autoUpdater = autoUpdater; // Make it globally accessible
 });
 
 // Export for manual access if needed
