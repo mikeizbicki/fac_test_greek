@@ -54,7 +54,7 @@ Closup shot of HYPERBREPHOS sitting in the room playing with a set of 5-10 small
 <frame frame_id="hyperbrephos_hears_and_runs">HYPERBREPHOS smashes the tower. We see the blocks fly away with cartoonish speed and effects because HYPERBREPHOS is so strong!
 </frame>
 
-<frame frame_id="frame_1766008146738">HYPERBREPHOS hears GLAUX calling in the distance and gets a concerned look on his face.
+<frame frame_id="frame_1766008146738" reference_frame="hyperbrephos_hears_and_runs">HYPERBREPHOS hears GLAUX calling in the distance and gets a concerned look on his face.
 
 GLAUX
 ὦ Ὑπερβρέφος, βοήθει ἡμῖν.
