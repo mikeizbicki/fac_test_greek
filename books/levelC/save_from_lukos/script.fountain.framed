@@ -77,7 +77,7 @@ GLAUX:
 ἰδοὺ! ὁ ὑπερβρέφος ἔρχεται!
 </frame>
 
-<frame frame_id="frame_1766008380694">DIDASKALOS (V.O.)
+<frame frame_id="frame_1766008380694" reference_frame="hyperbrephos_throws_rock_vo">DIDASKALOS (V.O.)
 ὁ Ὑπερβρέφος λαμβάνει τὸν λίθον καὶ βάλλει τὸν λίθον πρὸς τὸν Λύκον.
 </frame>
 
