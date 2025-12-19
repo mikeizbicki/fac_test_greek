@@ -772,7 +772,7 @@
 
     # if page.wav doesn't exist, create an empty file 1 second long
     if [ ! -f page.wav ]; then
-      ffmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -t 1 empty.wav
+      ffmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -t 1 page.wav
     fi
 
     # Get durations
