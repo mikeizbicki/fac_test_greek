@@ -127,3 +127,11 @@
 .fac-build-wrapper:hover .fac-build-controls {
     display: flex;
 }
+.auto-updater-overlay.video-deleted {
+    pointer-events: none; /* Allow clicks to pass through to controls */
+}
+
+.fac-build-controls {
+    z-index: 10001 !important; /* Ensure controls stay above overlay */
+    /* FIXME: not sure why this is needed?! */
+}

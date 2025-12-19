@@ -305,10 +305,35 @@ class AutoUpdater {
 
     handleFileDeleted(elements) {
         debugLog(`AutoUpdater: Marking ${elements.size} elements as deleted`);
-        elements.forEach(img => {
-            this.removeOverlay(img);
-            this.showDeletedState(img);
+        elements.forEach(element => {
+            this.removeOverlay(element);
+            
+            const mediaType = element.tagName === 'VIDEO' ? 'Video' : 'Image';
+            this.showDeletedState(element, mediaType);
         });
+    }
+
+    showDeletedState(element, mediaType) {
+        const overlay = document.createElement('div');
+        overlay.className = 'auto-updater-overlay deleted video-deleted';
+        overlay.innerHTML = `
+            <div class="status">${mediaType} Unavailable</div>
+            <div class="substatus">File deleted</div>
+        `;
+        
+        // Position overlay directly over the element, not the container
+        overlay.style.position = 'absolute';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = element.offsetWidth + 'px';
+        overlay.style.height = element.offsetHeight + 'px';
+        overlay.style.zIndex = '999'; // Lower than controls
+        
+        const container = element.parentElement;
+        if (!container.style.position || container.style.position === 'static') {
+            container.style.position = 'relative';
+        }
+        container.appendChild(overlay);
     }
 
     handleFileUpdating(elements) {
@@ -331,30 +356,6 @@ class AutoUpdater {
         this.addOverlay(img, overlay);
     }
 
-    showDeletedState(img) {
-        img.style.display = 'flex';
-        img.style.alignItems = 'center';
-        img.style.justifyContent = 'center';
-        img.style.backgroundColor = '#e0e0e0';
-        img.style.color = '#666';
-        img.style.fontSize = '12px';
-        img.style.fontFamily = 'Arial, sans-serif';
-
-        // Temporarily disable the mutation observer for this change
-        this.ignoreNextSrcChange = true;
-        img.src = 'data:image/svg+xml;base64,' + btoa(`
-            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="113">
-                <rect width="200" height="113" fill="#e0e0e0"/>
-                <text x="100" y="60" text-anchor="middle" fill="#666" font-size="12" font-family="Arial">file deleted</text>
-            </svg>
-        `);
-
-        // Re-enable observer after a short delay
-        setTimeout(() => {
-            this.ignoreNextSrcChange = false;
-        }, 100);
-    }
-
     addOverlay(img, overlay) {
         const container = img.parentElement;
         if (!container.style.position || container.style.position === 'static') {
@@ -371,28 +372,14 @@ class AutoUpdater {
         overlays.forEach(overlay => overlay.remove());
     }
 
-    addImage(element) {
-        let src;
-        if (element.tagName === 'VIDEO') {
-            // For videos, get src from source element or video element itself
-            const source = element.querySelector('source');
-            src = source ? source.getAttribute('src') : element.getAttribute('src');
-        } else {
-            src = element.getAttribute('src');
-        }
-        
-        debugLog(`AutoUpdater: Adding ${element.tagName} element with src: ${src}`);
-        if (!src) {
-            debugLog(`AutoUpdater: No src found for ${element.tagName} element`);
-            return;
-        }
+    addImage(img) {
+        const src = img.getAttribute('src') || (img.tagName === 'VIDEO' ? (img.querySelector('source')?.src || img.src) : null);
+        debugLog(`AutoUpdater: Adding ${img.tagName.toLowerCase()} with src: ${src}`);
+        if (!src) return;
 
         // Use normalized path for tracking
         const path = this.normalizePath(src);
-        if (!path) {
-            debugLog(`AutoUpdater: Could not normalize path: ${src}`);
-            return;
-        }
+        if (!path) return;
 
         debugLog(`AutoUpdater: Resolved normalized path: ${path}`);
 
@@ -401,9 +388,43 @@ class AutoUpdater {
             debugLog(`AutoUpdater: Created new element set for path: ${path}`);
         }
 
-        this.imageElements.get(path).add(element);
-        debugLog(`AutoUpdater: Added ${element.tagName} element, total for path ${path}: ${this.imageElements.get(path).size}`);
+        this.imageElements.get(path).add(img);
+        debugLog(`AutoUpdater: Added element, total for path ${path}: ${this.imageElements.get(path).size}`);
+
+        // Check if the file exists
+        if (img.tagName === 'VIDEO') {
+            this.checkVideoExists(img, src);
+        } else {
+            this.checkImageExists(img, src);
+        }
+
         this.subscribePath(path);
+    }
+
+    async checkImageExists(img, src) {
+        try {
+            const response = await fetch(src, { method: 'HEAD' });
+            if (!response.ok) {
+                debugLog(`AutoUpdater: Image file not found: ${src}`);
+                this.showDeletedState(img, 'Image');
+            }
+        } catch (error) {
+            debugLog(`AutoUpdater: Error checking image file: ${src}`, error);
+            this.showDeletedState(img, 'Image');
+        }
+    }
+
+    async checkVideoExists(video, src) {
+        try {
+            const response = await fetch(src, { method: 'HEAD' });
+            if (!response.ok) {
+                debugLog(`AutoUpdater: Video file not found: ${src}`);
+                this.showDeletedState(video, 'Video');
+            }
+        } catch (error) {
+            debugLog(`AutoUpdater: Error checking video file: ${src}`, error);
+            this.showDeletedState(video, 'Video');
+        }
     }
 
     removeImage(element) {

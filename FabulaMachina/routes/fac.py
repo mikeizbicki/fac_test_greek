@@ -43,6 +43,7 @@ from routes.console_logging import (
     remove_console_client,
     clear_console as clear_console_clients
 )
+from routes.console_logging import console_lock, console_clients
 
 try:
     from routes.git_history import notify_history_clients
@@ -137,7 +138,6 @@ class BuildLogHandler(logging.Handler):
                 'timestamp': time.time()
             }
             self.log_queue.put_nowait(log_entry)
-            log_console_output(formatted_msg, record.levelname.lower())
         except Exception as e:
             print(f"[FAC Build] Logging error: {e}")
 
