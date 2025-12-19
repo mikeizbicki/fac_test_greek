@@ -113,6 +113,6 @@
 }
 
 /* Show controls when hovering over the parent container */
-.img-container:hover .fac-build-controls {
+.fac-build:hover + .fac-build-controls {
     display: flex;
 }

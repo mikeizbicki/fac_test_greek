@@ -36,7 +36,17 @@
                      data-fac-target="books/{{ level }}/{{ book }}/frames/{{ frame.id }}/art.png"
                      onerror="this.style.display='none'">
                 </div>
-                <!--alt=""-->
+                <div class="video-container">
+                    <video class="frame-video auto-updater fac-build"
+                           data-fac-target="books/{{ level }}/{{ book }}/frames/{{ frame.id }}/processed.mp4"
+                           controls
+                           preload="metadata"
+                           style="width: 200px; height: 112.5px; background-color: #f0f0f0;"
+                           onerror="this.style.display='none'">
+                        <source src="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/processed.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
                 <div class="audio-controls" data-audio-path="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/page.wav">
                 </div>
             </div>

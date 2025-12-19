@@ -274,6 +274,11 @@ class AutoUpdater {
         }, 100); // 100ms debounce
 
         this.pendingUpdates.set(path, timeoutId);
+
+        // Special reload code for the video tag
+        if (img.tagName === 'VIDEO') {
+            img.load();
+        }
     }
 
     handleFileDeleted(elements) {

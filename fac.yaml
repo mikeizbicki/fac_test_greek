@@ -437,6 +437,7 @@
     #- books/$LEVEL/$BOOK/content.json
   - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME_ID/voice_instructions.txt
   - characters/$SPEAKER/voice.json
+  build_options:
   options:
     voice:
       $(jq -r ".voice_actor" characters/$SPEAKER/voice.json)
@@ -625,7 +626,7 @@
     - books/$LEVEL/$BOOK/frames/$MAYBE_FRAME/art.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_TRANSITION/character_transition.png
     - books/$LEVEL/$BOOK/frames/$REFERENCE_FRAME/last_frame.png
-    - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav
+    - target: books/$LEVEL/$BOOK/frames/$MAYBE_FRAME_ID/page.wav
       include: false
     - target: books/$LEVEL/$BOOK/frames/$FRAME_ID/animation_instructions.txt
       is_prompt: true
@@ -661,7 +662,13 @@
     # compute duration;
     # if the frame text is long, we want the video to be generated long,
     # but if the frame text is short, we want the video to be short
+    # the page.wav file may not exist if there is no text for the frame,
+    # in which case the duration is set to the smallest possible
+    if [ -f "books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav" ]; then
     AUDIO_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 books/$LEVEL/$BOOK/frames/$FRAME_ID/page.wav)
+    else
+    AUDIO_DURATION=0
+    fi
     if [ "${AUDIO_DURATION%.*}" -gt 5 ]; then
       DURATION=10
     else
@@ -688,6 +695,11 @@
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .reference_frame // empty" books/$LEVEL/$BOOK/content.json
     CHARACTER:
       jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | .characters[]" books/$LEVEL/$BOOK/content.json
+
+    # NOTE:
+    # This MAYBE_FRAME_ID will return the FRAME_ID only if there is text (and so audio should be generated)
+    MAYBE_FRAME_ID: |
+      jq -r ".frames[] | select(.frame_id == \"$FRAME_ID\") | select(.text | length > 1) | .frame_id" books/$LEVEL/$BOOK/content.json
 
     # NOTE:
     # The REFERENCE_TRANSITION variable will only be defined when the characters have changed between the REFERENCE_FRAME and FRAME_ID.

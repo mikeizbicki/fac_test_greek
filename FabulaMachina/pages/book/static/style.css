@@ -54,6 +54,33 @@
     background-color: #e0e0e0;
 }
 
+.frame-video {
+    width: 200px;
+    height: 112.5px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    background-color: #f0f0f0;
+    display: block;
+}
+
+.frame-video::after {
+    content: "no video";
+    display: none;
+    color: #999;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+.frame-video.error::after {
+    display: block;
+}
+
+.video-container {
+    display: inline-block;
+    position: relative;
+}
+
+
 .audio-button {
     background-color: #2196F3;
     color: white;
