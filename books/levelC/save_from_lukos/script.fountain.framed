@@ -81,7 +81,7 @@ GLAUX:
 ὁ Ὑπερβρέφος λαμβάνει τὸν λίθον καὶ βάλλει τὸν λίθον πρὸς τὸν Λύκον.
 </frame>
 
-<frame frame_id="lukos_hit_cartoon_stars">We see cartoon stars circle LUKOS's head where the rock hit him. 
+<frame frame_id="lukos_hit_cartoon_stars" reference_frame="frame_1766008380694">We see cartoon stars circle LUKOS's head where the rock hit him. 
 
 DIDASKALOS (V.O.)
 ὁ λίθος τύπτει κατὰ τοῦ λύκου.
