@@ -128,10 +128,11 @@ GLAUX
 παῖζε μεθ' ἡμῶν, ὦ Ὑπερβρέφος.
 </frame>
 
-<frame frame_id="didaskalos_animals_play_again_vo" reference_frame="glaux_invites_play">
-DIDASKALOS (V.O.)
+<frame frame_id="didaskalos_animals_play_again_vo">DIDASKALOS (V.O.)
 τὰ καλὰ ζῷα παίζει μετὰ τοῦ Ὑπερβρέφους τῇ σφαίρᾳ.
 χαίρουσι πάλιν.
+
+@Glaux is happy
 </frame>
 
 <frame frame_id="fade_out" reference_frame="didaskalos_animals_play_again_vo">
