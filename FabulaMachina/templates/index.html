@@ -31,45 +31,46 @@
     </div>
 </div>
 
+{% for collection_name, collection_data in collections.items() %}
 <div class="collapsible-section">
-    <h2 class="section-header" data-target="characters-section">
-        <span class="triangle">▶</span> Characters ({{ characters|length }})
+    <h2 class="section-header" data-target="{{ collection_name }}-section">
+        <span class="triangle">▶</span> {{ collection_name.title() }} ({{ collection_data.collection_items|length }})
     </h2>
-    <div id="characters-section" class="section-content">
-        {% if characters %}
-            <ul class="item-list">
-            {% for character in characters %}
-                <li>
-                    <a href="/characters/{{ character.name }}">
-                        {{ character.title }}
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
+    <div id="{{ collection_name }}-section" class="section-content">
+        {% if collection_data.collection_items %}
+            {% if collection_data.display_mode == 'thumbnail' %}
+                <div class="thumbnail-grid">
+                {% for item in collection_data.collection_items %}
+                    <div class="thumbnail-item">
+                        <a href="/{{ collection_name }}/{{ item.name }}" class="thumbnail-link">
+                            {% if item.thumbnail_url %}
+                                <img src="{{ item.thumbnail_url }}" class="thumbnail-image" alt="{{ item.title }}">
+                            {% else %}
+                                <div class="thumbnail-placeholder">
+                                    <span>No Image</span>
+                                </div>
+                            {% endif %}
+                            <div class="thumbnail-title">{{ item.title }}</div>
+                        </a>
+                    </div>
+                {% endfor %}
+                </div>
+            {% else %}
+                <ul class="item-list">
+                {% for item in collection_data.collection_items %}
+                    <li>
+                        <a href="/{{ collection_name }}/{{ item.name }}">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
         {% else %}
-            <p class="empty-message">No characters found.</p>
+            <p class="empty-message">No {{ collection_name }} found.</p>
         {% endif %}
     </div>
 </div>
-
-<div class="collapsible-section">
-    <h2 class="section-header" data-target="locations-section">
-        <span class="triangle">▶</span> Locations ({{ locations|length }})
-    </h2>
-    <div id="locations-section" class="section-content">
-        {% if locations %}
-            <ul class="item-list">
-            {% for location in locations %}
-                <li>
-                    <a href="/locations/{{ location.name }}">
-                        {{ location.title }}
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p class="empty-message">No locations found.</p>
-        {% endif %}
-    </div>
-</div>
+{% endfor %}
 {% endblock %}
+

@@ -802,3 +802,111 @@ border-radius: 3px;
     stroke-width: 1;
 }
 
+/* Autocomplete dropdown */
+.fountain-autocomplete-dropdown {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    min-width: 200px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+}
+
+.autocomplete-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.autocomplete-option:hover {
+    background: #e3f2fd;
+}
+
+.autocomplete-option:last-child {
+    border-bottom: none;
+}
+
+/* Character/Location links */
+.character-location-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.character-location-link:hover {
+    text-decoration: underline;
+}
+
+/* Hover preview - borderless design */
+.character-location-preview {
+    position: absolute;
+    background: transparent; /* Remove white background */
+    border: none; /* Remove border */
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Keep shadow for depth */
+    padding: 0; /* Remove padding */
+    z-index: 2000;
+    display: none;
+    pointer-events: auto; /* Allow mouse interaction */
+    /* Add a small buffer area around the image for easier mouse targeting */
+    margin: -5px; /* Negative margin creates invisible hover area */
+}
+
+/* Add invisible padding for easier mouse targeting */
+.character-location-preview::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: transparent;
+    pointer-events: auto;
+}
+
+.character-location-preview .preview-image {
+    width: 320px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+    position: relative; /* For FAC build controls positioning */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Add shadow directly to image */
+}
+
+.preview-error {
+    color: #666;
+    font-style: italic;
+    font-size: 11px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Ensure FAC build controls work properly on preview images */
+.character-location-preview .fac-build-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.character-location-preview .fac-build-controls {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: none;
+    gap: 3px;
+    z-index: 2001; /* Above the preview */
+    pointer-events: auto;
+}
+
+.character-location-preview .fac-build-wrapper:hover .fac-build-controls {
+    display: flex;
+}
+

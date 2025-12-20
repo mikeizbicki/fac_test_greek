@@ -37,6 +37,7 @@ class FacBuildSystem {
         this.buildInProgress = false;
         this.eventSource = null;
         this.currentTarget = null;
+        this.observer = null;
         console.log('FAC Build: Initializing build system...');
         
         // Wait for DOM to be fully loaded before scanning for elements
@@ -65,7 +66,12 @@ class FacBuildSystem {
      * Sets up MutationObserver to handle dynamically added fac-build elements
      */
     setupDOMObserver() {
-        const observer = new MutationObserver((mutations) => {
+        // Disconnect existing observer if any
+        if (this.observer) {
+            this.observer.disconnect();
+        }
+
+        this.observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 mutation.addedNodes.forEach((node) => {
                     if (node.nodeType === Node.ELEMENT_NODE) {
@@ -84,7 +90,7 @@ class FacBuildSystem {
             });
         });
 
-        observer.observe(document.body, {
+        this.observer.observe(document.body, {
             childList: true,
             subtree: true
         });

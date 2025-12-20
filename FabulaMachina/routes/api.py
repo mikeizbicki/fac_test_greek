@@ -70,14 +70,59 @@ def index():
                             'title': f"{level} - {book}"
                         })
 
-    # Discover characters
-    characters = discover_items('characters', ['about.json'])
+    # Discover collections with their display modes
+    from flask import current_app
 
-    # Discover locations
-    locations = discover_items('locations', ['about.json'])
+    collections = {}
+
+    # Get registered blueprints and check for collection metadata
+    for blueprint_name, blueprint in current_app.blueprints.items():
+        if hasattr(blueprint, 'collection_metadata'):
+            metadata = blueprint.collection_metadata
+            collection_name = metadata['collection_name']
+            display_mode = metadata['display_mode']
+
+            if display_mode == 'list':
+                collection_items = discover_items(collection_name, ['about.json'])
+                collections[collection_name] = {
+                    'collection_items': collection_items,  # Changed key name
+                    'display_mode': 'list'
+                }
+            elif display_mode == 'thumbnail':
+                thumbnail_items = []
+                fac_dir = metadata['fac_dir']
+                thumbnail_file = metadata['thumbnail_file']
+
+                for item_name in metadata['items']:
+                    thumbnail_path = os.path.join(fac_dir, collection_name, item_name, thumbnail_file)
+                    item_data = {
+                        'name': item_name,
+                        'title': item_name.replace('_', ' ').title(),
+                        'thumbnail_url': f'/{collection_name}/{item_name}/{thumbnail_file}' if os.path.exists(thumbnail_path) else None
+                    }
+                    thumbnail_items.append(item_data)
+
+                collections[collection_name] = {
+                    'collection_items': thumbnail_items,  # Changed key name
+                    'display_mode': 'thumbnail'
+                }
 
     return render_template('index.html',
                          books=books,
-                         characters=characters,
-                         locations=locations)
+                         collections=collections)
+
+@bp.route('/api/collections')
+def get_collections():
+    """Get character and location collections for autocomplete."""
+    try:
+        characters = discover_items('characters', ['about.json'])
+        locations = discover_items('locations', ['about.json'])
+        
+        return jsonify({
+            'success': True,
+            'characters': characters,
+            'locations': locations
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
 

@@ -133,8 +133,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     adjustFrameHeights();
 
+    const fountainAutocomplete = new FountainAutocomplete();
+    const characterLocationPreview = new CharacterLocationPreview();
+
     // reference_frame drop down
     frames.forEach(frame => {
+        const textarea = frame.querySelector('.frame-textarea');
+        if (textarea) {
+            fountainAutocomplete.attachTo(textarea);
+        }
+
         const refContainer = frame.querySelector('.reference-frame-container');
         const refValue = frame.querySelector('.reference-frame-value');
         const refDropdown = frame.querySelector('.reference-frame-dropdown');
@@ -511,3 +519,457 @@ function drawReferenceArrows() {
         }
     });
 }
+
+/* Fountain AutoComplete */
+class FountainAutocomplete {
+    constructor() {
+        this.characters = [];
+        this.locations = [];
+        this.isVisible = false;
+        this.currentTextarea = null;
+        this.currentSymbol = null;
+        this.selectedIndex = 0;
+        this.filteredItems = [];
+        this.dropdown = null;
+
+        this.loadCollections();
+        this.createDropdown();
+    }
+
+    async loadCollections() {
+        try {
+            // Fetch collections from our new API endpoint
+            const collectionsResponse = await fetch('/api/collections');
+            const collections = await collectionsResponse.json();
+
+            this.characters = collections.characters || [];
+            this.locations = collections.locations || [];
+        } catch (error) {
+            console.error('Failed to load collections:', error);
+        }
+    }
+
+    createDropdown() {
+        this.dropdown = document.createElement('div');
+        this.dropdown.className = 'fountain-autocomplete-dropdown';
+        this.dropdown.style.cssText = `
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            min-width: 200px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        `;
+        document.body.appendChild(this.dropdown);
+    }
+
+    attachTo(textarea) {
+        textarea.addEventListener('input', (e) => this.handleInput(e));
+        textarea.addEventListener('keydown', (e) => this.handleKeydown(e));
+        textarea.addEventListener('blur', () => {
+            // Add a small delay to allow click events on dropdown items
+            setTimeout(() => this.hide(), 150);
+        });
+    }
+
+    handleInput(e) {
+        const textarea = e.target;
+        const cursorPos = textarea.selectionStart;
+        const text = textarea.value;
+
+        // Look for @ or # before cursor
+        let triggerPos = -1;
+        let symbol = null;
+
+        for (let i = cursorPos - 1; i >= 0; i--) {
+            const char = text[i];
+            if (char === '@' || char === '#') {
+                triggerPos = i;
+                symbol = char;
+                break;
+            } else if (char === ' ' || char === '\n' || char === '\t') {
+                break;
+            }
+        }
+
+        if (triggerPos !== -1) {
+            const query = text.substring(triggerPos + 1, cursorPos);
+            this.show(textarea, triggerPos, symbol, query);
+        } else {
+            this.hide();
+        }
+    }
+
+    handleKeydown(e) {
+        if (!this.isVisible) return;
+
+        switch (e.key) {
+            case 'ArrowDown':
+                e.preventDefault();
+                this.selectedIndex = Math.min(this.selectedIndex + 1, this.filteredItems.length - 1);
+                this.updateSelection();
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                this.selectedIndex = Math.max(this.selectedIndex - 1, 0);
+                this.updateSelection();
+                break;
+            case 'Enter':
+            case 'Tab':
+                e.preventDefault();
+                this.insertSelection();
+                break;
+            case 'Escape':
+                e.preventDefault();
+                this.hide();
+                break;
+        }
+    }
+
+    show(textarea, triggerPos, symbol, query) {
+        this.currentTextarea = textarea;
+        this.currentSymbol = symbol;
+        this.triggerPos = triggerPos;
+
+        const items = symbol === '@' ? this.characters : this.locations;
+        this.filteredItems = items.filter(item =>
+            item.name.toLowerCase().includes(query.toLowerCase())
+        );
+
+        if (this.filteredItems.length === 0) {
+            this.hide();
+            return;
+        }
+
+        this.selectedIndex = 0;
+        this.renderDropdown();
+        this.positionDropdown(textarea, triggerPos);
+        this.isVisible = true;
+        this.dropdown.style.display = 'block';
+    }
+
+    hide() {
+        this.isVisible = false;
+        if (this.dropdown) {
+            this.dropdown.style.display = 'none';
+        }
+        this.currentTextarea = null;
+    }
+
+    renderDropdown() {
+        this.dropdown.innerHTML = '';
+
+        this.filteredItems.forEach((item, index) => {
+            const option = document.createElement('div');
+            option.className = 'autocomplete-option';
+            option.style.cssText = `
+                padding: 8px 12px;
+                cursor: pointer;
+                border-bottom: 1px solid #eee;
+                ${index === this.selectedIndex ? 'background: #e3f2fd;' : ''}
+            `;
+            option.textContent = `${this.currentSymbol}${item.name}`;
+
+            option.addEventListener('mousedown', (e) => {
+                e.preventDefault(); // Prevent blur event
+                this.selectedIndex = index;
+                this.insertSelection();
+            });
+
+            this.dropdown.appendChild(option);
+        });
+    }
+
+    updateSelection() {
+        const options = this.dropdown.querySelectorAll('.autocomplete-option');
+        options.forEach((option, index) => {
+            option.style.background = index === this.selectedIndex ? '#e3f2fd' : '';
+        });
+    }
+
+    positionDropdown(textarea, triggerPos) {
+        // Calculate position based on cursor position
+        const rect = textarea.getBoundingClientRect();
+
+        // Create a temporary span to measure text width
+        const tempSpan = document.createElement('span');
+        tempSpan.style.cssText = `
+            visibility: hidden;
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre;
+        `;
+
+        // Get text up to trigger position
+        const lines = textarea.value.substring(0, triggerPos).split('\n');
+        const currentLine = lines[lines.length - 1];
+
+        tempSpan.textContent = currentLine;
+        document.body.appendChild(tempSpan);
+
+        const textWidth = tempSpan.offsetWidth;
+        const lineHeight = 16; // Approximate line height for 12px font
+
+        document.body.removeChild(tempSpan);
+
+        this.dropdown.style.left = (rect.left + textWidth) + 'px';
+        this.dropdown.style.top = (rect.top + (lines.length - 1) * lineHeight + lineHeight) + 'px';
+    }
+
+    insertSelection() {
+        if (!this.currentTextarea || this.selectedIndex >= this.filteredItems.length) return;
+
+        const item = this.filteredItems[this.selectedIndex];
+        const textarea = this.currentTextarea;
+        const cursorPos = textarea.selectionStart;
+        const text = textarea.value;
+
+        // Replace from trigger position to cursor with the selected item
+        const before = text.substring(0, this.triggerPos);
+        const after = text.substring(cursorPos);
+        const insertion = `${this.currentSymbol}${item.name}`;
+
+        textarea.value = before + insertion + after;
+        textarea.selectionStart = textarea.selectionEnd = this.triggerPos + insertion.length;
+
+        this.hide();
+        textarea.focus();
+    }
+}
+
+// Character/Location hover preview system
+// Character/Location hover preview system
+class CharacterLocationPreview {
+    constructor() {
+        this.previewElements = new Map(); // Map of type/name -> preview element
+        this.hoverTimeout = null;
+        this.hideTimeout = null; // Timer for delayed hiding
+        this.characterNames = [];
+        this.locationNames = [];
+        this.currentPreview = null;
+        this.setupEventListeners();
+        this.loadCollectionNames();
+    }
+
+    async loadCollectionNames() {
+        try {
+            const collectionsResponse = await fetch('/api/collections');
+            const collections = await collectionsResponse.json();
+
+            this.characterNames = (collections.characters || []).map(c => c.name);
+            this.locationNames = (collections.locations || []).map(l => l.name);
+
+            // Create all preview elements at once
+            this.createAllPreviewElements();
+        } catch (error) {
+            console.error('Failed to load collection names:', error);
+        }
+    }
+
+    createAllPreviewElements() {
+        // Create preview elements for all characters
+        this.characterNames.forEach(name => {
+            this.createPreviewElement(name, 'characters');
+        });
+
+        // Create preview elements for all locations
+        this.locationNames.forEach(name => {
+            this.createPreviewElement(name, 'locations');
+        });
+
+        console.log(`Created ${this.previewElements.size} preview elements`);
+    }
+
+    createPreviewElement(name, type) {
+        const cacheKey = `${type}/${name}`;
+
+        // Create the preview element
+        const preview = document.createElement('div');
+        preview.className = 'character-location-preview';
+
+        const facTarget = `${type}/${name}/${type === 'characters' ? 'character_sheet.png' : 'reference.png'}`;
+        const imagePath = `/${facTarget}`;
+
+        // Create image 
+        // FIXME:
+        // this should have the auto-updater and fac-build classes,
+        // but that results in an infinite loop right now
+        const img = document.createElement('img');
+        img.src = imagePath;
+        img.className = 'preview-image';
+        img.setAttribute('data-fac-target', facTarget);
+
+        preview.appendChild(img);
+
+        // Add to DOM but keep hidden initially
+        preview.style.display = 'none';
+        preview.style.position = 'absolute';
+        preview.style.zIndex = '2000';
+        document.body.appendChild(preview);
+
+        // Store in our map
+        this.previewElements.set(cacheKey, preview);
+
+        return preview;
+    }
+
+    setupEventListeners() {
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.classList.contains('character-location-link')) {
+                this.showPreview(e.target, e);
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.classList.contains('character-location-link')) {
+                this.scheduleHidePreview(e);
+            }
+        });
+
+        // Also schedule hide when mouse leaves the preview
+        document.addEventListener('mouseout', (e) => {
+            if (this.currentPreview && this.currentPreview.contains(e.target)) {
+                this.scheduleHidePreview(e);
+            }
+        });
+
+        // Cancel hide when mouse enters preview
+        document.addEventListener('mouseover', (e) => {
+            if (this.currentPreview && this.currentPreview.contains(e.target)) {
+                this.cancelHidePreview();
+            }
+        });
+    }
+
+    isInGraceArea(element, mouseEvent) {
+        if (!this.currentPreview || !element) return false;
+
+        const linkRect = element.getBoundingClientRect();
+        const previewRect = this.currentPreview.getBoundingClientRect();
+
+        // Create a grace area that includes both the link and preview with some padding
+        const graceArea = {
+            left: Math.min(linkRect.left, previewRect.left) - 10,
+            right: Math.max(linkRect.right, previewRect.right) + 10,
+            top: Math.min(linkRect.top, previewRect.top) - 10,
+            bottom: Math.max(linkRect.bottom, previewRect.bottom) + 10
+        };
+
+        const mouseX = mouseEvent.clientX;
+        const mouseY = mouseEvent.clientY;
+
+        return mouseX >= graceArea.left && mouseX <= graceArea.right &&
+               mouseY >= graceArea.top && mouseY <= graceArea.bottom;
+    }
+
+    scheduleHidePreview(mouseEvent) {
+        // Clear any existing hide timeout
+        if (this.hideTimeout) {
+            clearTimeout(this.hideTimeout);
+        }
+
+        // Check if mouse is still in grace area
+        const link = document.querySelector('.character-location-link:hover');
+
+        if (link && this.isInGraceArea(link, mouseEvent)) {
+            return; // Don't hide if still in grace area
+        }
+
+        // Schedule hide after delay
+        this.hideTimeout = setTimeout(() => {
+            this.hidePreview();
+        }, 500); // 500ms grace period
+    }
+
+    cancelHidePreview() {
+        if (this.hideTimeout) {
+            clearTimeout(this.hideTimeout);
+            this.hideTimeout = null;
+        }
+    }
+
+    showPreview(element, event) {
+        const name = element.dataset.name;
+        const type = element.dataset.type;
+        const cacheKey = `${type}/${name}`;
+
+        // Clear any existing timeouts
+        if (this.hoverTimeout) {
+            clearTimeout(this.hoverTimeout);
+        }
+        this.cancelHidePreview();
+
+        // Hide any currently visible preview immediately
+        if (this.currentPreview) {
+            this.currentPreview.style.display = 'none';
+        }
+
+        // Get the pre-created preview element
+        const preview = this.previewElements.get(cacheKey);
+        if (!preview) {
+            console.warn(`No preview element found for ${cacheKey}`);
+            return;
+        }
+
+        // Show preview immediately
+        this.hoverTimeout = setTimeout(() => {
+            this.currentPreview = preview;
+            this.positionPreview(element);
+            preview.style.display = 'block';
+        }, 100); // Minimal delay to prevent flickering
+    }
+
+    hidePreview() {
+        if (this.hoverTimeout) {
+            clearTimeout(this.hoverTimeout);
+            this.hoverTimeout = null;
+        }
+        if (this.hideTimeout) {
+            clearTimeout(this.hideTimeout);
+            this.hideTimeout = null;
+        }
+        if (this.currentPreview) {
+            this.currentPreview.style.display = 'none';
+            this.currentPreview = null;
+        }
+    }
+
+    positionPreview(linkElement) {
+        if (!this.currentPreview) return;
+
+        const linkRect = linkElement.getBoundingClientRect();
+        const previewRect = this.currentPreview.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        // Position directly below the link with minimal gap
+        let top = linkRect.bottom + scrollTop + 2; // Reduced gap to 2px
+        let left = linkRect.left + scrollLeft;
+
+        // If there's not enough space below, position above
+        if (linkRect.bottom + previewRect.height + 20 > viewportHeight) {
+            top = linkRect.top + scrollTop - previewRect.height - 2; // Reduced gap to 2px
+        }
+
+        // Make sure it doesn't go off the left or right edge
+        const viewportWidth = window.innerWidth;
+        if (left + previewRect.width > viewportWidth) {
+            left = viewportWidth - previewRect.width - 10;
+        }
+        if (left < 0) {
+            left = 10;
+        }
+
+        this.currentPreview.style.left = left + 'px';
+        this.currentPreview.style.top = top + 'px';
+    }
+}
+

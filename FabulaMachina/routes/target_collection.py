@@ -121,7 +121,7 @@ def get_file_type(filename):
     else:
         return 'text'
 
-def create_collection_routes(fac_yaml_path, collection_name, file_order=None, blueprint_name=None):
+def create_collection_routes(fac_yaml_path, collection_name, file_order=None, blueprint_name=None, display_mode='list', thumbnail_file=None):
     """
     Create Flask routes for a target collection.
 
@@ -138,6 +138,9 @@ def create_collection_routes(fac_yaml_path, collection_name, file_order=None, bl
     if blueprint_name is None:
         blueprint_name = collection_name
 
+    if display_mode == 'thumbnail' and not thumbnail_file:
+        raise ValueError(f"thumbnail_file is required when display_mode='thumbnail' for collection {collection_name}")
+
     bp = Blueprint(blueprint_name, __name__, template_folder='.')
 
     # Get the directory containing the fac.yaml file
@@ -150,11 +153,14 @@ def create_collection_routes(fac_yaml_path, collection_name, file_order=None, bl
     items = collection_info['items']
     schemas = collection_info['schemas']
 
-    print(f"DEBUG: Collection '{collection_name}' - Found {len(target_templates)} target templates, variable: {variable}, {len(items)} items")
-    print(f"DEBUG: Target templates: {target_templates}")
-    print(f"DEBUG: Schemas available: {list(schemas.keys())}")
-    print(f"DEBUG: FAC directory: {fac_dir}")
-
+    # Store collection metadata for use by routes.api
+    bp.collection_metadata = {
+        'display_mode': display_mode,
+        'thumbnail_file': thumbnail_file,
+        'collection_name': collection_name,
+        'fac_dir': fac_dir,
+        'items': items
+    }
     @bp.route(f'/{collection_name}/<item_name>')
     @bp.route(f'/{collection_name}/<item_name>/')
     def view_collection_item(item_name):

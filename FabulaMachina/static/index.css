@@ -102,3 +102,74 @@ h1 {
     padding: 40px;
 }
 
+/* Add thumbnail grid styles */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.thumbnail-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+.thumbnail-placeholder {
+    width: 100%;
+    height: 150px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-style: italic;
+    font-family: 'Courier New', monospace;
+}
+
+.thumbnail-title {
+    padding: 12px 15px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #333;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.thumbnail-link:hover .thumbnail-title {
+    color: #007bff;
+}
+
+/* Ensure existing styles remain the same */
+.collapsible-section {
+    margin: 30px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ... rest of existing CSS ... */
+

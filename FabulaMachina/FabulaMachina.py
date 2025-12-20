@@ -40,7 +40,9 @@ characters_bp = create_collection_routes(
     fac_yaml_path=fac_yaml_path,
     collection_name='characters',
     file_order=['character_sheet.png', 'about.json', 'voice.json'],
-    blueprint_name='characters'
+    blueprint_name='characters',
+    display_mode='thumbnail',
+    thumbnail_file='character_sheet.png',
 )
 app.register_blueprint(characters_bp)
 
@@ -49,7 +51,9 @@ locations_bp = create_collection_routes(
     fac_yaml_path=fac_yaml_path,
     collection_name='locations',
     file_order=['reference.png', 'about.json'],
-    blueprint_name='locations'
+    blueprint_name='locations',
+    display_mode='thumbnail',
+    thumbnail_file='reference.png',
 )
 app.register_blueprint(locations_bp)
 

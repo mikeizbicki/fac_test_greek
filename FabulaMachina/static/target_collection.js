@@ -183,3 +183,143 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('target_collection.js DOMContentLoaded executing');
+
+    const container = document.getElementById('item-container');
+    if (!container) {
+        console.error('item-container not found');
+        return;
+    }
+
+    const collectionName = container.dataset.collectionName;
+    const itemName = container.dataset.itemName;
+
+    console.log('Target collection page loaded:', { collectionName, itemName });
+
+    // Initialize text editing for all text sections
+    const textSections = document.querySelectorAll('.text-section');
+    console.log('Found text sections:', textSections.length);
+
+    textSections.forEach(section => {
+        setupTextEditor(section);
+    });
+
+    function setupTextEditor(section) {
+        const textContent = section.querySelector('.text-content');
+        const textDisplay = section.querySelector('.text-display');
+        const textEdit = section.querySelector('.text-edit');
+        const textarea = section.querySelector('.text-textarea');
+        const saveButton = section.querySelector('.save-button');
+        const cancelButton = section.querySelector('.cancel-button');
+        const editBtn = section.querySelector('.edit-btn');
+        const filename = section.dataset.filename;
+
+        if (!textDisplay || !textEdit || !textarea || !saveButton || !cancelButton || !editBtn) {
+            console.error('Missing elements in text section for', filename);
+            return;
+        }
+
+        // Double-click to edit
+        textDisplay.addEventListener('dblclick', function() {
+            enterEditMode();
+        });
+
+        // Edit button click
+        editBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            enterEditMode();
+        });
+
+        // Cancel button
+        cancelButton.addEventListener('click', function() {
+            exitEditMode();
+        });
+
+        // Save button
+        saveButton.addEventListener('click', function() {
+            saveText();
+        });
+
+        // Escape key to cancel
+        textarea.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                exitEditMode();
+            }
+        });
+
+        function enterEditMode() {
+            // Set textarea content to current display content
+            textarea.value = textDisplay.textContent;
+
+            // Switch visibility
+            textContent.style.display = 'none';
+            textEdit.style.display = 'block';
+
+            // Focus textarea
+            textarea.focus();
+        }
+
+        function exitEditMode() {
+            // Switch visibility back
+            textContent.style.display = 'block';
+            textEdit.style.display = 'none';
+        }
+
+        function saveText() {
+            const content = textarea.value;
+
+            // Validate JSON if it's a JSON file
+            if (filename.endsWith('.json')) {
+                try {
+                    JSON.parse(content);
+                } catch (error) {
+                    showMessage('Invalid JSON: ' + error.message, 'error');
+                    return;
+                }
+            }
+
+            fetch(`/${collectionName}/${itemName}/save`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    filename: filename,
+                    content: content
+                })
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    // Update display with new content
+                    textDisplay.textContent = content;
+                    exitEditMode();
+                    showMessage('Saved successfully!', 'success');
+                } else {
+                    throw new Error(result.error || 'Save failed');
+                }
+            })
+            .catch(error => {
+                console.error('Save error:', error);
+                showMessage('Save failed: ' + error.message, 'error');
+            });
+        }
+    }
+
+    function showMessage(message, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.textContent = message;
+        messageDiv.style.cssText = `
+            position: fixed; top: 20px; right: 20px; z-index: 10000;
+            padding: 10px 20px; border-radius: 4px; color: white;
+            background: ${type === 'success' ? '#28a745' : '#dc3545'};
+            font-family: 'Courier New', monospace;
+        `;
+        document.body.appendChild(messageDiv);
+
+        setTimeout(() => {
+            messageDiv.remove();
+        }, 3000);
+    }
+});

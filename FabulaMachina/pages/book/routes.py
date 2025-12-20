@@ -403,18 +403,73 @@ def parse_framed_fountain(content):
 def render_frame_html(frame_content):
     """Convert a single frame's fountain content to HTML."""
 
-    # NOTE:
-    # screenplain always renders underscores as markdown underlines,
+    # Load character and location names for processing
+    characters = []
+    locations = []
+    try:
+        from routes.api import discover_items
+        characters = [item['name'] for item in discover_items('characters', ['about.json'])]
+        locations = [item['name'] for item in discover_items('locations', ['about.json'])]
+    except Exception as e:
+        print(f"Error loading collections: {e}")
+
+    # Process @ and # symbols
+    processed_content = frame_content
+
+    # Remove @ and # symbols but preserve the names for processing
+    import re
+
+    # Find all @CHARACTER and #LOCATION patterns
+    character_pattern = r'@([A-Za-z0-9_]+)'
+    location_pattern = r'#([A-Za-z0-9_]+)'
+
+    # Replace @ symbols but keep track of characters
+    def replace_character(match):
+        name = match.group(1)
+        return name  # Remove the @ symbol
+
+    def replace_location(match):
+        name = match.group(1)
+        return name  # Remove the # symbol
+
+    processed_content = re.sub(character_pattern, replace_character, processed_content)
+    processed_content = re.sub(location_pattern, replace_location, processed_content)
+
+    # NOTE: screenplain always renders underscores as markdown underlines,
     # and it does not respect normal escapes like "\_".
     # Therefore, we create our own special escape code that is unlikely to conflict with anything,
     # and manually replace underscores before/after calling screenplain.
     underscore_escape = 'UNDERSCORE'*5
-    frame_content = frame_content.replace('_', underscore_escape)
+    processed_content = processed_content.replace('_', underscore_escape)
     start_string = 'FADE IN: \n\n\n'
-    screenplay = fountain.parse(StringIO(start_string + frame_content))
+    screenplay = fountain.parse(StringIO(start_string + processed_content))
     html_buffer = StringIO()
     convert(screenplay, html_buffer, bare=True)
-    return html_buffer.getvalue().replace(underscore_escape, '_')[41:]
+    html_content = html_buffer.getvalue().replace(underscore_escape, '_')[41:]
+
+    # Post-process HTML to make character/location names clickable and uppercase
+    def make_clickable(text, names, collection_type):
+        # Sort names by length (longest first) to prevent shorter names from matching parts of longer names
+        sorted_names = sorted(names, key=len, reverse=True)
+
+        for name in sorted_names:
+            # Create pattern that matches the name case-insensitively as a whole word
+            # Use word boundaries but also handle underscores as word characters
+            pattern = re.compile(r'\b' + re.escape(name) + r'\b', re.IGNORECASE)
+
+            def replacement(match):
+                original = match.group(0)
+                upper_name = original.upper()
+                return f'<a href="/{collection_type}/{name}" class="character-location-link" data-name="{name}" data-type="{collection_type}">{upper_name}</a>'
+
+            text = pattern.sub(replacement, text)
+        return text
+
+    # Apply clickable links for characters and locations
+    html_content = make_clickable(html_content, characters, 'characters')
+    html_content = make_clickable(html_content, locations, 'locations')
+
+    return html_content
 
 
 @bp.route('/books/<level>/<book>')

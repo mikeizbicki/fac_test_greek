@@ -4,17 +4,6 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="/static/target_collection.css">
-<script src="https://cdn.jsdelivr.net/npm/jsoneditor@10.0.3/dist/jsoneditor.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@10.0.3/dist/jsoneditor.min.css">
-<script>
-    // Check if JSONEditor loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('JSONEditor available:', typeof JSONEditor !== 'undefined');
-        if (typeof JSONEditor === 'undefined') {
-            console.error('JSONEditor failed to load from CDN');
-        }
-    });
-</script>
 <script src="/static/target_collection.js"></script>
 {% endblock %}
 
@@ -35,45 +24,61 @@
                              onerror="this.style.display='none'">
                     </div>
                 </div>
-            {% elif file.type == 'json' %}
-                <div class="file-section json-section"
-                     data-filename="{{ file.name }}"
-                     {% if file.schema_file %}data-schema-file="{{ file.schema_file }}"{% endif %}
-                     {% if file.description %}data-description="{{ file.description | e }}"{% endif %}>
+            {% elif file.type in ['json', 'markdown', 'text'] %}
+                <div class="file-section text-section" data-filename="{{ file.name }}">
                     <h2><code class="filename">{{ file.title }}</code></h2>
                     {% if file.description %}
                         <p class="file-description">{{ file.description }}</p>
                     {% endif %}
-                    <div class="json-editor-container" id="json-editor-{{ loop.index }}">
-                        <div style="padding: 20px; text-align: center; color: #666;">
-                            Loading JSON editor...
+
+                    <!-- Text display with edit controls similar to frame system -->
+                    <div class="text-content">
+                        <div class="text-display">{{ file.content }}</div>
+                    </div>
+
+                    <!-- Edit interface (hidden by default) -->
+                    <div class="text-edit" style="display: none;">
+                        <textarea class="text-textarea">{{ file.content }}</textarea>
+                        <div class="edit-buttons">
+                            <button class="save-button">Save</button>
+                            <button class="cancel-button">Cancel</button>
                         </div>
                     </div>
-                    <div class="json-content" style="display: none;">
-                        <pre class="json-display">{{ file.content }}</pre>
+
+                    <!-- Edit control button (appears on hover) -->
+                    <div class="text-controls">
+                        <button class="control-btn edit-btn" title="Edit">✏️</button>
                     </div>
-                    <script type="application/json" class="json-data">{{ file.content | safe }}</script>
                 </div>
-            {% elif file.type in ['markdown', 'text'] %}
-                <!-- ... rest unchanged ... -->
+            {% elif file.type == 'video' %}
+                <div class="file-section video-section">
+                    <h2><code class="filename">{{ file.title }}</code></h2>
+                    <div class="video-container">
+                        <video src="{{ file.path }}"
+                               class="item-video auto-updater fac-build"
+                               {% if file.fac_target %}data-fac-target="{{ file.fac_target }}"{% endif %}
+                               controls>
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            {% elif file.type == 'audio' %}
+                <div class="file-section audio-section">
+                    <h2><code class="filename">{{ file.title }}</code></h2>
+                    <div class="audio-container">
+                        <audio src="{{ file.path }}"
+                               class="item-audio auto-updater fac-build"
+                               {% if file.fac_target %}data-fac-target="{{ file.fac_target }}"{% endif %}
+                               controls>
+                            Your browser does not support the audio tag.
+                        </audio>
+                    </div>
+                </div>
             {% endif %}
         {% endfor %}
     {% else %}
         <p class="error">No files found for this {{ collection_name.rstrip('s') }}.</p>
     {% endif %}
 </div>
-
-<script>
-// Additional debugging
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, checking page elements...');
-    console.log('JSON sections found:', document.querySelectorAll('.json-section').length);
-    console.log('JSON data elements found:', document.querySelectorAll('.json-data').length);
-
-    document.querySelectorAll('.json-data').forEach((el, i) => {
-        console.log(`JSON data ${i}:`, el.textContent.substring(0, 100) + '...');
-    });
-});
-</script>
 {% endblock %}
 
