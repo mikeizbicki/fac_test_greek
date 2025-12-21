@@ -44,7 +44,7 @@ GLAUX
 ὦ Ὑπερβρέφος, βοήθει ἡμῖν.
 </frame>
 
-<frame frame_id="hyperbrephos_blocks_play">CUT TO:
+<frame frame_id="hyperbrephos_blocks_play" reference_frame="glaux_calls_for_help">CUT TO:
 
 INT. FAMILYHOUSE_INTERIOR_BEDROOM - DAY
 
