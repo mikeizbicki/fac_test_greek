@@ -252,8 +252,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle frame type value click (show dropdown)
         frameTypeValue.addEventListener('click', function() {
             if (isFirstFrame) return; // First frame cannot change type
-            
-            frameTypeDropdown.value = currentFrameType;
+
+            // Set the dropdown to the current frame type
+            const currentDisplayedType = frameTypeValue.textContent;
+            frameTypeDropdown.value = currentDisplayedType;
+
+            // Calculate size (number of options to show)
+            const optionCount = frameTypeDropdown.options.length;
+            const maxSize = Math.min(optionCount, 8); // Show max 8 options
+            frameTypeDropdown.size = maxSize;
+
             frameTypeDropdown.style.display = 'block';
             frameTypeDropdown.focus();
         });
@@ -261,30 +269,87 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle frame type dropdown change
         frameTypeDropdown.addEventListener('change', function() {
             const newFrameType = this.value;
+            const oldFrameType = frameTypeValue.textContent;
+            
+            // Hide dropdown first
+            this.style.display = 'none';
+            this.size = 1; // Reset size
+            
+            // If no change, just return
+            if (newFrameType === oldFrameType) {
+                return;
+            }
+            
             let newRefFrame = getReferenceFrameForType(newFrameType);
 
-            // For callback type, if no reference frame is set, show reference dropdown
-            if (newFrameType === 'callback' && !newRefFrame) {
-                updateUIForFrameType(newFrameType);
-                this.style.display = 'none';
-                return; // Don't commit yet, wait for reference frame selection
-            }
-
+            // Update UI immediately
             frameTypeValue.textContent = newFrameType;
-            this.style.display = 'none';
-            updateUIForFrameType(newFrameType);
+            frame.dataset.referenceFrame = newRefFrame; // Update data attribute immediately
             refDropdown.value = newRefFrame;
             refValue.textContent = newRefFrame || 'none';
             refValue.dataset.referenceFrame = newRefFrame;
-            frame.dataset.referenceFrame = newRefFrame;
+            updateUIForFrameType(newFrameType);
+            
+            // Update colors immediately
+            assignFrameColors();
+            setTimeout(drawReferenceArrows, 50);
+
+            // For callback type, if no reference frame is set, show reference dropdown
+            if (newFrameType === 'callback' && !newRefFrame) {
+                return; // Don't commit yet, wait for reference frame selection
+            }
 
             // Update server
             updateReferenceFrameOnServer(frameId, newRefFrame);
         });
 
+        // Also handle click events on individual options to catch cases where change doesn't fire
+        frameTypeDropdown.addEventListener('click', function(e) {
+            if (e.target.tagName === 'OPTION') {
+                // Small delay to let the value update
+                setTimeout(() => {
+                    const newFrameType = this.value;
+                    const oldFrameType = frameTypeValue.textContent;
+                    
+                    // Hide dropdown
+                    this.style.display = 'none';
+                    this.size = 1;
+                    
+                    // If no change, just return
+                    if (newFrameType === oldFrameType) {
+                        return;
+                    }
+                    
+                    let newRefFrame = getReferenceFrameForType(newFrameType);
+
+                    // Update UI immediately
+                    frameTypeValue.textContent = newFrameType;
+                    frame.dataset.referenceFrame = newRefFrame; // Update data attribute immediately
+                    refDropdown.value = newRefFrame;
+                    refValue.textContent = newRefFrame || 'none';
+                    refValue.dataset.referenceFrame = newRefFrame;
+                    updateUIForFrameType(newFrameType);
+                    
+                    // Update colors immediately
+                    assignFrameColors();
+                    setTimeout(drawReferenceArrows, 50);
+
+                    // For callback type, if no reference frame is set, show reference dropdown
+                    if (newFrameType === 'callback' && !newRefFrame) {
+                        return;
+                    }
+
+                    // Update server
+                    updateReferenceFrameOnServer(frameId, newRefFrame);
+                }, 10);
+            }
+        });
+
         frameTypeDropdown.addEventListener('blur', function() {
             this.style.display = 'none';
+            this.size = 1; // Reset size
         });
+
 
         // Rest of the reference frame handling code remains the same...
         refValue.addEventListener('click', function() {
@@ -325,17 +390,27 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    refValue.dataset.referenceFrame = newRefFrame;
-                    refValue.textContent = newRefFrame || 'none';
-                    frame.dataset.referenceFrame = newRefFrame;
-                    assignFrameColors(); // Update colors
+                    // Data attributes are already updated above, no need to duplicate
+                    // assignFrameColors() was already called above for immediate feedback
+                    console.log('Server update successful for frame', frameId);
                 } else {
                     alert('Error updating: ' + data.error);
                     // Revert to previous state
                     const oldFrameType = getFrameType(refValue.dataset.referenceFrame);
                     frameTypeValue.textContent = oldFrameType;
+                    frame.dataset.referenceFrame = refValue.dataset.referenceFrame;
                     updateUIForFrameType(oldFrameType);
+                    assignFrameColors(); // Revert colors
                 }
+            })
+            .catch(error => {
+                console.error('Server update failed:', error);
+                // Revert to previous state
+                const oldFrameType = getFrameType(refValue.dataset.referenceFrame);
+                frameTypeValue.textContent = oldFrameType;
+                frame.dataset.referenceFrame = refValue.dataset.referenceFrame;
+                updateUIForFrameType(oldFrameType);
+                assignFrameColors(); // Revert colors
             });
         }
     });
@@ -547,14 +622,26 @@ function drawReferenceArrows() {
     svg.id = 'arrow-svg';
     bookContainer.appendChild(svg);
 
-    // Add crayon filter for rough texture
+    // Add definitions for drop shadow and arrow markers
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    defs.innerHTML = `
-        <filter id="crayon-filter" x="-50%" y="-50%" width="200%" height="200%">
-            <feTurbulence baseFrequency="0.9" numOctaves="3" seed="2" />
-            <feDisplacementMap in="SourceGraphic" scale="2" />
-        </filter>
-    `;
+
+    // Create drop shadow filter for lines only
+    const lineDropShadowFilter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+    lineDropShadowFilter.setAttribute('id', 'line-drop-shadow');
+    lineDropShadowFilter.setAttribute('x', '-50%');
+    lineDropShadowFilter.setAttribute('y', '-50%');
+    lineDropShadowFilter.setAttribute('width', '200%');
+    lineDropShadowFilter.setAttribute('height', '200%');
+
+    const lineDropShadow = document.createElementNS('http://www.w3.org/2000/svg', 'feDropShadow');
+    lineDropShadow.setAttribute('dx', '2');
+    lineDropShadow.setAttribute('dy', '2');
+    lineDropShadow.setAttribute('stdDeviation', '2');
+    lineDropShadow.setAttribute('flood-color', 'rgba(0,0,0,0.3)');
+
+    lineDropShadowFilter.appendChild(lineDropShadow);
+    defs.appendChild(lineDropShadowFilter);
+
     svg.appendChild(defs);
 
     const frames = document.querySelectorAll('.frame');
@@ -604,53 +691,92 @@ function drawReferenceArrows() {
 
             if (fromPos && toPos && arrowColor) {
                 // Create unique marker ID for this arrow color
-                const markerId = `arrow-head-${frameId}`;
+                const markerId = `arrow-head-${frameId.replace(/[^a-zA-Z0-9]/g, '_')}`;
+                const shadowMarkerId = `arrow-head-shadow-${frameId.replace(/[^a-zA-Z0-9]/g, '_')}`;
 
-                // Add colored marker to defs
+                // Add shadow arrowhead marker (slightly offset, dark)
+                const shadowMarker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+                shadowMarker.setAttribute('id', shadowMarkerId);
+                shadowMarker.setAttribute('markerWidth', '4');
+                shadowMarker.setAttribute('markerHeight', '4');
+                shadowMarker.setAttribute('refX', '3.2'); // Slightly offset for shadow
+                shadowMarker.setAttribute('refY', '1.7'); // Slightly offset for shadow
+                shadowMarker.setAttribute('orient', 'auto');
+                shadowMarker.setAttribute('markerUnits', 'strokeWidth');
+
+                const shadowArrowHead = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                shadowArrowHead.setAttribute('d', 'M0,0 L0,2.5 L3,1.25 z'); // Half the previous size
+                shadowArrowHead.setAttribute('fill', 'rgba(0,0,0,0.3)');
+                shadowArrowHead.setAttribute('stroke', 'none');
+
+                shadowMarker.appendChild(shadowArrowHead);
+                defs.appendChild(shadowMarker);
+
+                // Add main colored arrowhead marker (smaller)
                 const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
                 marker.setAttribute('id', markerId);
-                marker.setAttribute('markerWidth', '15');
-                marker.setAttribute('markerHeight', '12');
-                marker.setAttribute('refX', '12');
-                marker.setAttribute('refY', '4');
+                marker.setAttribute('markerWidth', '4'); // Half of previous size
+                marker.setAttribute('markerHeight', '4'); // Half of previous size
+                marker.setAttribute('refX', '3'); // Half of previous size
+                marker.setAttribute('refY', '1.25'); // Half of previous size
                 marker.setAttribute('orient', 'auto');
                 marker.setAttribute('markerUnits', 'strokeWidth');
 
                 const arrowHead = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                arrowHead.setAttribute('d', 'M0,0 L0,8 L12,4 z');
+                arrowHead.setAttribute('d', 'M0,0 L0,2.5 L3,1.25 z'); // Half the previous size
                 arrowHead.setAttribute('fill', arrowColor);
                 arrowHead.setAttribute('stroke', arrowColor);
-                arrowHead.setAttribute('stroke-width', '1');
+                arrowHead.setAttribute('stroke-width', '0.5');
 
-                /*marker.appendChild(arrowHead);*/
+                marker.appendChild(arrowHead);
                 defs.appendChild(marker);
 
-                // Calculate arrow positions
-                const stickyRightEdge = fromPos.x + fromPos.width + 220;
+                // Calculate taxi-cab path positions
+                const stickyRightEdge = fromPos.x + fromPos.width + 450;
                 const startX = stickyRightEdge;
                 const startY = fromPos.y + 50;
 
-                const refStickyRightEdge = toPos.x + toPos.width + 220;
-                const endX = refStickyRightEdge;
+                const targetStickyRightEdge = toPos.x + toPos.width + 450;
+                const endX = targetStickyRightEdge;
                 const endY = toPos.y + 50;
 
-                const midX = Math.max(startX, endX) + 200;
-                const midY = (startY + endY) / 2;
+                // Taxi-cab routing: go east 20px, then north/south, then west
+                const eastOffset = 20;
+                const corner1X = startX + eastOffset;
+                const corner1Y = startY;
+                const corner2X = corner1X;
+                const corner2Y = endY;
+                const corner3X = endX;
+                const corner3Y = endY;
 
+                // Create taxi-cab path
+                const pathData = `M ${startX} ${startY} L ${corner1X} ${corner1Y} L ${corner2X} ${corner2Y} L ${corner3X} ${corner3Y}`;
+
+                // Create shadow path (slightly offset)
+                const shadowPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                shadowPath.setAttribute('d', pathData);
+                shadowPath.setAttribute('stroke', 'rgba(0,0,0,0.3)');
+                shadowPath.setAttribute('stroke-width', '3');
+                shadowPath.setAttribute('fill', 'none');
+                shadowPath.setAttribute('stroke-linecap', 'round');
+                shadowPath.setAttribute('stroke-linejoin', 'round');
+                shadowPath.setAttribute('opacity', '0.9');
+                shadowPath.setAttribute('marker-end', `url(#${shadowMarkerId})`);
+                shadowPath.setAttribute('transform', 'translate(2,2)'); // Offset for shadow
+
+                // Create main path
                 const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                path.setAttribute('d', `M ${startX} ${startY} Q ${midX} ${midY} ${endX} ${endY}`);
-                /*path.setAttribute('class', 'reference-arrow');*/
-
-                // Explicitly set stroke properties to override CSS
+                path.setAttribute('d', pathData);
                 path.setAttribute('stroke', arrowColor);
-                path.setAttribute('stroke-width', '5');
+                path.setAttribute('stroke-width', '3');
                 path.setAttribute('fill', 'none');
                 path.setAttribute('stroke-linecap', 'round');
                 path.setAttribute('stroke-linejoin', 'round');
                 path.setAttribute('opacity', '0.9');
-                path.setAttribute('filter', 'url(#crayon-filter)');
                 path.setAttribute('marker-end', `url(#${markerId})`);
 
+                // Add shadow first, then main path
+                svg.appendChild(shadowPath);
                 svg.appendChild(path);
             }
         }
