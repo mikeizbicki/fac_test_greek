@@ -30,8 +30,13 @@ All changes must preserve this look and feel.
         <div class="frame" id="{{ frame.id }}" data-frame-id="{{ frame.id }}" data-raw-content="{{ frame.content | e }}" data-reference-frame="{{ frame.reference_frame or '' }}">
             <div class="frame-content">{{ frame.html | safe }}</div>
             <div class="frame-margin">
-                <div class="frame_id">frame_id: {{ frame.id }}</div>
-                <div class="reference-frame-container">
+                <div class="frame-type-container">
+                    <span class="frame-type-text">frame type: </span>
+                    <span class="frame-type-value" data-frame-id="{{ frame.id }}" data-reference-frame="{{ frame.reference_frame or '' }}">
+                        <!-- Will be set by JavaScript -->
+                    </span>
+                </div>
+                <div class="reference-frame-container" style="display: none;">
                     <span class="reference-frame-text">reference_frame: </span>
                     <span class="reference-frame-value" data-frame-id="{{ frame.id }}" data-reference-frame="{{ frame.reference_frame or '' }}">
                         {{ frame.reference_frame or 'none' }}
@@ -40,18 +45,20 @@ All changes must preserve this look and feel.
                         <option value="">none</option>
                     </select>
                 </div>
-                <div class="img-container">
-                <img src="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/art.png"
-                     class="frame-image auto-updater fac-build"
-                     data-fac-target="books/{{ level }}/{{ book }}/frames/{{ frame.id }}/art.png"
-                     onerror="this.style.display='none'">
+                <div class="img-container" style="display: none;">
+                    <div class="art-image-wrapper">
+                        <img src="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/art.png"
+                             class="frame-image auto-updater fac-build"
+                             data-fac-target="books/{{ level }}/{{ book }}/frames/{{ frame.id }}/art.png"
+                             onerror="this.style.display='none'">
+                        <div class="art-image-label">initial frame</div>
+                    </div>
                 </div>
                 <div class="video-container">
                     <video class="frame-video auto-updater fac-build"
                            data-fac-target="books/{{ level }}/{{ book }}/frames/{{ frame.id }}/processed.mp4"
                            controls
                            preload="metadata"
-                           style="width: 200px; height: 112.5px; background-color: #f0f0f0;"
                            onerror="this.style.display='none'">
                         <source src="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/processed.mp4" type="video/mp4">
                         Your browser does not support the video tag.

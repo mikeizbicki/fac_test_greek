@@ -55,10 +55,11 @@
 }
 
 .frame-video {
-    width: 200px;
-    height: 112.5px;
-    border: 1px solid #ddd;
-    margin: 5px 0;
+    width: 400px;
+    height: 225px; /* 16:9 aspect ratio */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     background-color: #f0f0f0;
     display: block;
 }
@@ -619,22 +620,18 @@ border-radius: 3px;
     color: #333;
     font-size: 0.8em;
     position: absolute;
-    right: -220px; /* Closer to attach to the page edge */
+    right: -450px; /* Increased to accommodate wider sticky note */
     top: 0;
-    width: 200px;
+    width: 420px; /* Made wider for larger images */
     padding: 12px 15px;
 
     /* Sticky note appearance */
-    /* background-color: #fff740; Classic yellow sticky note */
+    /* background-color will be set by JavaScript for frame colors */
 
     /* Shadow for 3D effect */
     box-shadow:
         2px 4px 8px rgba(0, 0, 0, 0.15),
         inset -1px -1px 0px rgba(0, 0, 0, 0.1);
-
-    /* Slightly rotated for realistic placement */
-    transform: rotate(-1deg);
-    transform-origin: top left;
 
     /* Border and texture */
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -652,6 +649,7 @@ border-radius: 3px;
     /* Transition for hover effects */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+/*
 .frame:nth-child(1) .frame-margin { transform: rotate(-2.5deg); }
 .frame:nth-child(2) .frame-margin { transform: rotate(1.8deg); }
 .frame:nth-child(3) .frame-margin { transform: rotate(-0.7deg); }
@@ -664,14 +662,18 @@ border-radius: 3px;
 .frame:nth-child(10) .frame-margin { transform: rotate(2.7deg); }
 .frame:nth-child(11) .frame-margin { transform: rotate(-1.9deg); }
 .frame:nth-child(12) .frame-margin { transform: rotate(0.5deg); }
+*/
+
 
 /* Hover effect - slight lift with preserved rotation */
+/*
 .frame-margin:hover {
     transform: rotate(var(--base-rotation, -1deg)) translateY(-2px);
     box-shadow:
         3px 6px 12px rgba(0, 0, 0, 0.2),
         inset -1px -1px 0px rgba(0, 0, 0, 0.1);
 }
+*/
 
 /* Vary the rotation and colors for different sticky notes */
 
@@ -703,13 +705,32 @@ border-radius: 3px;
     text-align: center;
 }
 
+.art-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .frame-margin .frame-image {
-    width: 160px;
-    height: 90px;
+    width: 400px;
+    height: 225px; /* 16:9 aspect ratio */
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
+
+.art-image-label {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    font-size: 10px;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+}
+
 
 /* Audio controls within sticky note */
 .frame-margin .audio-controls {
@@ -908,5 +929,45 @@ border-radius: 3px;
 
 .character-location-preview .fac-build-wrapper:hover .fac-build-controls {
     display: flex;
+}
+
+/* Frame type */
+.frame-type-container {
+    margin-bottom: 8px;
+    font-size: 0.8em;
+}
+
+.frame-type-text {
+    color: #555;
+}
+
+.frame-type-value {
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.frame-type-value:hover {
+    background-color: #f0f8ff;
+}
+
+.frame-type-dropdown {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+    min-width: 100px;
+    max-height: 120px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-size: 0.8em;
+    font-family: 'Courier New', monospace;
+}
+
+.frame-type-dropdown:focus {
+    outline: none;
+    border-color: #007bff;
 }
 

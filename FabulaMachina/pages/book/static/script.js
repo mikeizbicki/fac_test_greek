@@ -136,25 +136,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const fountainAutocomplete = new FountainAutocomplete();
     const characterLocationPreview = new CharacterLocationPreview();
 
-    // reference_frame drop down
+    // Replace the existing reference_frame dropdown code with this:
     frames.forEach(frame => {
-        const textarea = frame.querySelector('.frame-textarea');
-        if (textarea) {
-            fountainAutocomplete.attachTo(textarea);
-        }
-
+        const frameTypeContainer = frame.querySelector('.frame-type-container');
+        const frameTypeValue = frame.querySelector('.frame-type-value');
         const refContainer = frame.querySelector('.reference-frame-container');
         const refValue = frame.querySelector('.reference-frame-value');
         const refDropdown = frame.querySelector('.reference-frame-dropdown');
+        const imgContainer = frame.querySelector('.img-container');
 
-        // Populate dropdown with previous frames
+        if (!frameTypeValue) return;
+
         const frameId = frame.dataset.frameId;
         const allFrames = Array.from(document.querySelectorAll('.frame'));
         const currentIndex = allFrames.indexOf(frame);
+        const isFirstFrame = currentIndex === 0;
 
-        // Clear existing options except 'none'
+        // Populate reference frame dropdown with previous frames
         refDropdown.innerHTML = '<option value="">none</option>';
-
         for (let i = 0; i < currentIndex; i++) {
             const option = document.createElement('option');
             option.value = allFrames[i].dataset.frameId;
@@ -162,15 +161,139 @@ document.addEventListener('DOMContentLoaded', function() {
             refDropdown.appendChild(option);
         }
 
+        // Create frame type dropdown
+        const frameTypeDropdown = document.createElement('select');
+        frameTypeDropdown.className = 'frame-type-dropdown';
+        frameTypeDropdown.style.display = 'none';
+        frameTypeDropdown.size = 1;
+
+        const cutOption = document.createElement('option');
+        cutOption.value = 'cut';
+        cutOption.textContent = 'cut';
+        frameTypeDropdown.appendChild(cutOption);
+
+        if (!isFirstFrame) {
+            const continuousOption = document.createElement('option');
+            continuousOption.value = 'continuous';
+            continuousOption.textContent = 'continuous';
+            frameTypeDropdown.appendChild(continuousOption);
+
+            const callbackOption = document.createElement('option');
+            callbackOption.value = 'callback';
+            callbackOption.textContent = 'callback';
+            frameTypeDropdown.appendChild(callbackOption);
+        }
+
+        frameTypeContainer.appendChild(frameTypeDropdown);
+
+        // Function to determine frame type from reference frame
+        function getFrameType(referenceFrame) {
+            if (isFirstFrame) {
+                return 'cut'; // First frame is always cut
+            }
+            
+            if (!referenceFrame || referenceFrame === 'none') {
+                return 'cut';
+            }
+            
+            // Check if reference frame is the previous frame
+            const previousFrame = currentIndex > 0 ? allFrames[currentIndex - 1] : null;
+            if (previousFrame && previousFrame.dataset.frameId === referenceFrame) {
+                return 'continuous';
+            }
+            
+            return 'callback';
+        }
+
+        // Function to get reference frame from frame type
+        function getReferenceFrameForType(frameType) {
+            switch (frameType) {
+                case 'cut':
+                    return '';
+                case 'continuous':
+                    return currentIndex > 0 ? allFrames[currentIndex - 1].dataset.frameId : '';
+                case 'callback':
+                    return frame.dataset.referenceFrame || '';
+                default:
+                    return '';
+            }
+        }
+
+        // Function to update UI based on frame type
+        function updateUIForFrameType(frameType) {
+            switch (frameType) {
+                case 'cut':
+                    imgContainer.style.display = 'block';
+                    refContainer.style.display = 'none';
+                    break;
+                case 'continuous':
+                    imgContainer.style.display = 'none';
+                    refContainer.style.display = 'none';
+                    break;
+                case 'callback':
+                    imgContainer.style.display = 'none';
+                    refContainer.style.display = 'block';
+                    break;
+            }
+        }
+
+        // Initialize frame type
+        const currentRefFrame = frame.dataset.referenceFrame || '';
+        const currentFrameType = getFrameType(currentRefFrame);
+        frameTypeValue.textContent = currentFrameType;
+        frameTypeDropdown.value = currentFrameType;
+        updateUIForFrameType(currentFrameType);
+
+        // Set reference frame dropdown value
+        refDropdown.value = currentRefFrame;
+        refValue.textContent = currentRefFrame || 'none';
+        refValue.dataset.referenceFrame = currentRefFrame;
+
+        // Handle frame type value click (show dropdown)
+        frameTypeValue.addEventListener('click', function() {
+            if (isFirstFrame) return; // First frame cannot change type
+            
+            frameTypeDropdown.value = currentFrameType;
+            frameTypeDropdown.style.display = 'block';
+            frameTypeDropdown.focus();
+        });
+
+        // Handle frame type dropdown change
+        frameTypeDropdown.addEventListener('change', function() {
+            const newFrameType = this.value;
+            let newRefFrame = getReferenceFrameForType(newFrameType);
+
+            // For callback type, if no reference frame is set, show reference dropdown
+            if (newFrameType === 'callback' && !newRefFrame) {
+                updateUIForFrameType(newFrameType);
+                this.style.display = 'none';
+                return; // Don't commit yet, wait for reference frame selection
+            }
+
+            frameTypeValue.textContent = newFrameType;
+            this.style.display = 'none';
+            updateUIForFrameType(newFrameType);
+            refDropdown.value = newRefFrame;
+            refValue.textContent = newRefFrame || 'none';
+            refValue.dataset.referenceFrame = newRefFrame;
+            frame.dataset.referenceFrame = newRefFrame;
+
+            // Update server
+            updateReferenceFrameOnServer(frameId, newRefFrame);
+        });
+
+        frameTypeDropdown.addEventListener('blur', function() {
+            this.style.display = 'none';
+        });
+
+        // Rest of the reference frame handling code remains the same...
         refValue.addEventListener('click', function() {
-            // Set current value as selected
+            if (frameTypeValue.textContent !== 'callback') return;
+            
             refDropdown.value = this.dataset.referenceFrame;
-
-            // Calculate size (number of options to show)
             const optionCount = refDropdown.options.length;
-            const maxSize = Math.min(optionCount, 8); // Show max 8 options
+            const maxSize = Math.min(optionCount, 8);
             refDropdown.size = maxSize;
-
             refDropdown.style.display = 'block';
             refDropdown.focus();
         });
@@ -181,6 +304,16 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.display = 'none';
             this.size = 1;
 
+            updateReferenceFrameOnServer(frameId, newRefFrame);
+        });
+
+        refDropdown.addEventListener('blur', function() {
+            this.style.display = 'none';
+            this.size = 1;
+        });
+
+        // Function to update server with new reference frame
+        function updateReferenceFrameOnServer(frameId, newRefFrame) {
             fetch(`/books/${level}/${book}/update_reference_frame`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -195,19 +328,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     refValue.dataset.referenceFrame = newRefFrame;
                     refValue.textContent = newRefFrame || 'none';
                     frame.dataset.referenceFrame = newRefFrame;
-                    assignFrameColors();
+                    assignFrameColors(); // Update colors
                 } else {
                     alert('Error updating: ' + data.error);
-                    refValue.textContent = refValue.dataset.referenceFrame || 'none';
+                    // Revert to previous state
+                    const oldFrameType = getFrameType(refValue.dataset.referenceFrame);
+                    frameTypeValue.textContent = oldFrameType;
+                    updateUIForFrameType(oldFrameType);
                 }
             });
-        });
-
-        refDropdown.addEventListener('blur', function() {
-            this.style.display = 'none';
-            this.size = 1;
-        });
+        }
     });
+
 
 
     frames.forEach(frame => {
