@@ -67,7 +67,7 @@ DIDASKALOS (V.O.)
 ὁ Ὑπερβρέφος ἀκούει τὴν φωνὴν καὶ τρέχει ἐκ τῆς οἰκίας.
 </frame>
 
-<frame frame_id="hyperbrephos_throws_rock_vo">CUT TO:
+<frame frame_id="hyperbrephos_throws_rock_vo" reference_frame="didaskalos_hyperbrephos_hears_runs_vo">CUT TO:
 
 EXT. FAMILYHOUSE_EXTERIOR_TREE - DAY (CONTINUOUS)
 
