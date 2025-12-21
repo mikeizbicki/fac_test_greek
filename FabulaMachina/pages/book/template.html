@@ -6,6 +6,9 @@
 <link rel="stylesheet" type="text/css" href="/pages/book/static/style.css">
 <script src="https://cdn.jsdelivr.net/npm/jsoneditor@10.0.3/dist/jsoneditor.min.js"></script>
 <script src="/pages/book/static/script.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/pages/book/static/audio-controls.css">
+<script src="/pages/book/static/audio-controls.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -47,8 +50,6 @@
                         <source src="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/processed.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                </div>
-                <div class="audio-controls" data-audio-path="/books/{{ level }}/{{ book }}/frames/{{ frame.id }}/page.wav">
                 </div>
             </div>
             <div class="frame-edit" style="display: none;">

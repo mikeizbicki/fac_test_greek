@@ -1,0 +1,28 @@
+/* Audio button styles for dialog - override defaults for better placement */
+div.dialog .audio-controls {
+    margin: 2px 0 0 76.67pt; /* Match dialog padding */
+    display: block;
+}
+
+div.dialog .audio-button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 0.8em;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+    display: block;
+    margin: 0;
+}
+
+div.dialog .audio-button:hover {
+    background-color: #1976D2;
+}
+
+div.dialog .audio-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+

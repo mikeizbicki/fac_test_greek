@@ -321,6 +321,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             console.error('Error parsing JSON:', e);
                         }
                     }
+
+                    // Refresh audio controls for updated content
+                    if (window.audioControls) {
+                        window.audioControls.refresh();
+                    }
                 } else {
                     alert('Error saving: ' + data.error);
                 }
