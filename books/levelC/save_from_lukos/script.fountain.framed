@@ -32,7 +32,7 @@ LUKOS
 ἐγώ νῦν βούλομαι ὑμᾶς ἐσθίειν.
 </frame>
 
-<frame frame_id="panda_afraid">
+<frame frame_id="panda_afraid" reference_frame="lukos_threatens">
 CAMERA: Tight two-shot on GLAUX and PANDA, showing their scared reaction.
 
 PANDA
