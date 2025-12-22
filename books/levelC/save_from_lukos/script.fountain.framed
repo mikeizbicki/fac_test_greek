@@ -39,7 +39,7 @@ PANDA
 οἰμοι! ἐγώ φοβοῦμαι!
 </frame>
 
-<frame frame_id="glaux_calls_for_help">
+<frame frame_id="glaux_calls_for_help" reference_frame="panda_afraid">
 GLAUX
 ὦ Ὑπερβρέφος, βοήθει ἡμῖν.
 </frame>
