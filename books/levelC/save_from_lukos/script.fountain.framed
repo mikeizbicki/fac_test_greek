@@ -133,6 +133,6 @@ GLAUX
 χαίρουσι πάλιν.
 </frame>
 
-<frame frame_id="fade_out" reference_frame="didaskalos_animals_play_again_vo">
+<frame frame_id="fade_out">
 FADE OUT.
 </frame>
