@@ -1,0 +1,23 @@
+{
+  "text": "ὁ Ὑπερβρέφος λαμβάνει τὸν λίθον καὶ βάλλει τὸν λίθον πρὸς τὸν Λύκον.",
+  "objects": [
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled."
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "Show clear throw arc and motion blur on the stone.",
+  "positioning": [
+    "Hyperbrephos at frame left, front three-quarter, crouched to grab then throw the stone, eyes locked on Lukos.",
+    "Lukos at frame right, three-quarter left view, eyes widening at the incoming throw.",
+    "Glaux stands near Panda mid-left, both watching the throw toward Lukos.",
+    "Panda stands beside Glaux, hands clasped, hopeful gaze at Hyperbrephos.",
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam lies near Panda.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark stands behind them.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled is in Hyperbrephos’s hand mid-throw and also shown as a motion blur toward Lukos."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

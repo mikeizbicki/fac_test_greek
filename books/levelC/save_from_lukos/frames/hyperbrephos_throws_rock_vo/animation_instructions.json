@@ -1,0 +1,23 @@
+{
+  "text": "ἰδοὺ! ὁ ὑπερβρέφος ἔρχεται!",
+  "objects": [
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled."
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "Make the entrance energetic; dust kick-up under Hyperbrephos’s feet.",
+  "positioning": [
+    "Glaux stands left of the tree, front three-quarter, pointing toward Hyperbrephos and looking excited.",
+    "Panda stands near Glaux, front three-quarter, looking with relief toward Hyperbrephos.",
+    "Hyperbrephos arrives from frame left in a dynamic running pose, front three-quarter toward the group.",
+    "Lukos stands right of the tree, three-quarter left view, startled toward Hyperbrephos.",
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam rests near Panda’s feet.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark fills midground center.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled lies on the ground near Hyperbrephos’s path."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

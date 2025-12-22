@@ -1,0 +1,24 @@
+{
+  "text": "ὦ Λύκε, μὴ φάγῃς τοὺς φίλους ἐμοὺς.",
+  "objects": [
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled."
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "",
+  "positioning": [
+    "Hyperbrephos in close-up, front view, wagging his finger in a ‘no’ gesture, eyes firmly on Lukos.",
+    "Lukos in the background on the ground, propping himself up, looking chastened toward Hyperbrephos.",
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam sits farther back near Panda (off-frame origin), barely visible.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark stands behind them.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled lies near Lukos’s hip."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Glaux",
+    "Panda"
+  ]
+}

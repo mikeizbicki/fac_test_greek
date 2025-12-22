@@ -1,0 +1,22 @@
+{
+  "text": "τὰ καλὰ ζῷα παίζει μετὰ τοῦ Ὑπερβρέφους τῇ σφαίρᾳ. χαίρουσι πάλιν.",
+  "objects": [
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled."
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "Keep the vibe bright and celebratory; subtle sparkles or sun motes are okay.",
+  "positioning": [
+    "Glaux mid-left gently tosses the ball toward Hyperbrephos, front three-quarter, joyful expression.",
+    "Hyperbrephos mid-center prepares to catch, front three-quarter, laughing.",
+    "Panda mid-right claps happily, front three-quarter, watching the pass.",
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam arcs between Glaux and Hyperbrephos.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark stands behind the group.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled stays unused at the edge of the play area."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": []
+}

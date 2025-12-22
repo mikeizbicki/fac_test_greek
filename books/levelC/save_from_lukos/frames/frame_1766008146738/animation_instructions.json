@@ -1,0 +1,19 @@
+{
+  "text": "ὦ Ὑπερβρέφος, βοήθει ἡμῖν. ὦ Ὑπερβρέφος, βοήθει ἡμῖν.",
+  "objects": [
+    "Ten small smooth wooden blocks in natural maple, assorted rectangular shapes."
+  ],
+  "locations": [
+    "familyhouse_interior_bedroom"
+  ],
+  "artist_notes": "Consider faint echo lines or small text glyphs by the open door to indicate distant calling.",
+  "positioning": [
+    "Hyperbrephos pauses mid-motion at the doorway, front three-quarter view, eyes wide toward the sound outside.",
+    "Glaux is not visible but her voice is implied from outside; include a subtle sound-direction cue toward the exterior.",
+    "Ten small smooth wooden blocks in natural maple, assorted rectangular shapes lie scattered across the floor."
+  ],
+  "characters_that_enter": [
+    "Glaux"
+  ],
+  "characters_that_exit": []
+}

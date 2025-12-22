@@ -1,0 +1,27 @@
+{
+  "text": "εὐχαριστῶ σοι, ὦ Ὑπερβρέφος.",
+  "objects": [
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled."
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "",
+  "positioning": [
+    "Panda and Hyperbrephos in a medium two-shot center, facing each other warmly, front three-quarter views.",
+    "Glaux enters at frame edge, front three-quarter, stepping in with the ball nearby.",
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam rests by Glaux’s foot.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark stands behind them.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled lies near where Lukos fell, now ignored."
+  ],
+  "characters_that_enter": [
+    "Panda",
+    "Hyperbrephos",
+    "Glaux"
+  ],
+  "characters_that_exit": [
+    "Lukos"
+  ]
+}

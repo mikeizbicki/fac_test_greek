@@ -1,0 +1,22 @@
+{
+  "text": "ὁ Λύκος φεύγει ἀπὸ τοῦ δένδρου.",
+  "objects": [
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled."
+  ],
+  "locations": [
+    "familyhouse_exterior_tree"
+  ],
+  "artist_notes": "Add frantic motion blur to Lukos’s legs and trailing lines as he speeds off.",
+  "positioning": [
+    "Lukos backs away from the tree toward frame right, then pivots to run with exaggerated cartoon speed, rear three-quarter view.",
+    "Bright red leather ball, palm-sized, perfectly round with a subtle stitched seam sits near the base of the tree.",
+    "Broad low-branched oak-like shade tree with lush olive-green leaves and textured warm-brown bark remains central.",
+    "Smooth palm-sized gray river stone, oval, slightly speckled remains on the ground where it fell."
+  ],
+  "characters_that_enter": [],
+  "characters_that_exit": [
+    "Hyperbrephos"
+  ]
+}
